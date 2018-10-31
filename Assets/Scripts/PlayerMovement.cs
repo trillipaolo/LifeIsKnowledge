@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
 
-    public float WalkSpeed = 5.0f;
-    public float JumpSpeed = 5.0f;
-    public float Gravity = 3.0f;
-    public float YNudge = -2.5f;
+    public float walkSpeed = 5.0f;
+    public float jumpSpeed = 5.0f;
+    public float gravity = 3.0f;
+    public float yNudge = -2.5f;
 
     private bool _grounded = false;
     private float _yVelocity = 0f;
@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour {
 	}
 
     void UpdateXMovement() {
-        Vector3 frameMovement = new Vector3(Input.GetAxis("Horizontal") * WalkSpeed,0);
+        Vector3 frameMovement = new Vector3(Input.GetAxis("Horizontal") * walkSpeed,0);
 
         transform.Translate(frameMovement * Time.deltaTime);
         if (frameMovement.x != 0) {
@@ -34,19 +34,19 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     void UpdateYMovement() {
-        if(transform.position.y < YNudge) {
+        if(transform.position.y < yNudge) {
             _grounded = true;
             _yVelocity = 0;
             Vector3 nudge = transform.position;
-            nudge.y = YNudge;
+            nudge.y = yNudge;
             transform.position = nudge;
         }
 
         if (!_grounded) {
-            _yVelocity -= Gravity * Time.deltaTime;
+            _yVelocity -= gravity * Time.deltaTime;
         } else {
             if (Input.GetKeyDown(KeyCode.Space)) {
-                _yVelocity = JumpSpeed;
+                _yVelocity = jumpSpeed;
                 _grounded = false;
             }
         }

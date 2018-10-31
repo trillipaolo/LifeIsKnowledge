@@ -327,9 +327,13 @@
     <Compile Include="Assets\ExternalAssets\Tilemap\Tiles\Rule Tile\Scripts\RuleTile.cs" />
     <Compile Include="Assets\ExternalAssets\Tilemap\Tiles\Terrain Tile\Scripts\TerrainTile.cs" />
     <Compile Include="Assets\ExternalAssets\Tilemap\Tiles\Weighted Random Tile\WeightedRandomTile.cs" />
+    <Compile Include="Assets\Scripts\Classes\TimeAndCollider.cs" />
+    <Compile Include="Assets\Scripts\Enumerations\ColliderPosition.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\PlayerAttack.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
+    <Compile Include="Assets\Scripts\ScriptableObjects\Card.cs" />
+    <Compile Include="Assets\Scripts\ScriptableObjects\Weapon.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\ExternalAssets\Tilemap\Brushes\Tint Brush Smooth\Shaders\TintedTilemap.shader" />

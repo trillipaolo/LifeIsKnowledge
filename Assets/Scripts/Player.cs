@@ -4,24 +4,24 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
-    private bool isGrounded = false;
+    private bool _isGrounded = false;
 
     public float velocity = 15f;
     public float jumpForce = 5f;
     public float raycastGroundDistance = 0.06f;
 
-    public GameObject LeftFoot;
-    public GameObject RightFoot;
-    public LayerMask Terrain;
+    public GameObject leftFoot;
+    public GameObject rightFoot;
+    public LayerMask terrain;
 
-    private Rigidbody2D rb;
-    private Transform trLeftFoot;
-    private Transform trRightFoot;
+    private Rigidbody2D _rb;
+    private Transform _trLeftFoot;
+    private Transform _trRightFoot;
 
     private void Awake() {
-        rb = GetComponent<Rigidbody2D>();
-        trLeftFoot = LeftFoot.GetComponent<Transform>();
-        trRightFoot = RightFoot.transform;
+        _rb = GetComponent<Rigidbody2D>();
+        _trLeftFoot = leftFoot.GetComponent<Transform>();
+        _trRightFoot = rightFoot.transform;
     }
 
     // Use this for initialization
@@ -34,24 +34,24 @@ public class Player : MonoBehaviour {
         CheckGrounded();
 
         if (Input.GetKey(KeyCode.A)){
-            rb.AddForce(Vector2.left * velocity,ForceMode2D.Force);
+            _rb.AddForce(Vector2.left * velocity,ForceMode2D.Force);
         } else if (Input.GetKey(KeyCode.D)){
-            rb.AddForce(Vector2.right * velocity,ForceMode2D.Force);
+            _rb.AddForce(Vector2.right * velocity,ForceMode2D.Force);
         }
 
         if (Input.GetKeyDown(KeyCode.Space)){
-            if (isGrounded) {
-                rb.AddForce(Vector2.up * jumpForce,ForceMode2D.Impulse);
+            if (_isGrounded) {
+                _rb.AddForce(Vector2.up * jumpForce,ForceMode2D.Impulse);
             }
         }
 	}
 
     void CheckGrounded() {
-        if (Physics2D.Raycast(trLeftFoot.position,Vector2.down,raycastGroundDistance,Terrain)
-            || Physics2D.Raycast(trRightFoot.position,Vector2.down,raycastGroundDistance,Terrain)) {
-            isGrounded = true;
+        if (Physics2D.Raycast(_trLeftFoot.position,Vector2.down,raycastGroundDistance,terrain)
+            || Physics2D.Raycast(_trRightFoot.position,Vector2.down,raycastGroundDistance,terrain)) {
+            _isGrounded = true;
         } else {
-            isGrounded = false;
+            _isGrounded = false;
         }
     }
 }

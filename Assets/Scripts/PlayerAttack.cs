@@ -12,6 +12,11 @@ public class PlayerAttack : MonoBehaviour {
     private BoxCollider2D _backDown;
     private BoxCollider2D[] _attackColliders;
 
+    //TODO import from Weapon Sciptable object
+    public Transform tr;
+    public float height = 2f;
+    public float lenght = 4f;
+
     private void Awake() {
         _attackColliders = GetComponents<BoxCollider2D>();
 
@@ -42,5 +47,17 @@ public class PlayerAttack : MonoBehaviour {
             _backMiddle.enabled = false;
         if (Input.GetKeyDown(KeyCode.Alpha6))
             _backDown.enabled = false;
+    }
+
+    public void ActiveFrontTopCollider(ColliderPosition colliderPosition) {
+        Collider2D[] colliders = Physics2D.OverlapBoxAll(Vector2.down,Vector2.down, 0);
+        for(int i = 0; i < colliders.Length; i++) {
+            //colliders[i].GetComponent<Enemy>().TakeDamage(10);
+        }
+    }
+
+    void OnDrawGizmosSelected() {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(tr.position, new Vector3(lenght, height, 0));
     }
 }
