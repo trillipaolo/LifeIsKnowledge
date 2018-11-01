@@ -4,28 +4,18 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour {
 
-    private BoxCollider2D _frontTop;
-    private BoxCollider2D _frontMiddle;
-    private BoxCollider2D _frontDown;
-    private BoxCollider2D _backTop;
-    private BoxCollider2D _backMiddle;
-    private BoxCollider2D _backDown;
-    private BoxCollider2D[] _attackColliders;
-
     //TODO import from Weapon Sciptable object
-    public Transform tr;
-    public float height = 2f;
-    public float lenght = 4f;
+    public Vector2[] colliderCenter = new Vector2[EnumColliderPosition.Size()];
+    public Vector2[] colliderSize = new Vector2[EnumColliderPosition.Size()];
+
+    public int hitId = 0;
+    public LayerMask enemyLayerMask;
 
     private void Awake() {
-        _attackColliders = GetComponents<BoxCollider2D>();
+        hitId = 0;
 
-        _frontTop = _attackColliders[0];
-        _frontMiddle = _attackColliders[1];
-        _frontDown = _attackColliders[2];
-        _backTop = _attackColliders[3];
-        _backMiddle = _attackColliders[4];
-        _backDown = _attackColliders[5];
+        //TODO needs to be moved in another part
+        FloatingTextController.Initialize();
     }
 
     // Use this for initialization
@@ -35,29 +25,37 @@ public class PlayerAttack : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-            _frontTop.enabled = false;
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-            _frontMiddle.enabled = false;
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-            _frontDown.enabled = false;
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-            _backTop.enabled = false;
-        if (Input.GetKeyDown(KeyCode.Alpha5))
-            _backMiddle.enabled = false;
-        if (Input.GetKeyDown(KeyCode.Alpha6))
-            _backDown.enabled = false;
+        if (Input.GetKeyDown(KeyCode.L))
+            gameObject.GetComponent<Animator>().Play("SlashTopDown");
     }
 
-    public void ActiveFrontTopCollider(ColliderPosition colliderPosition) {
-        Collider2D[] colliders = Physics2D.OverlapBoxAll(Vector2.down,Vector2.down, 0);
-        for(int i = 0; i < colliders.Length; i++) {
-            //colliders[i].GetComponent<Enemy>().TakeDamage(10);
+    public void Attack(string colliderPositionString) {
+        bool[] colliderPositions = EnumColliderPosition.StringToArray(colliderPositionString);
+
+        for(int i = 0; i < colliderCenter.Length; i++) {
+            if (colliderPositions[i]) {
+                Collider2D[] enemiesCollider = Physics2D.OverlapBoxAll(colliderCenter[i] + (Vector2)gameObject.transform.position,colliderSize[i],0,enemyLayerMask);
+                for (int j = 0; j < enemiesCollider.Length; j++) {
+                    enemiesCollider[j].GetComponent<EnemyBehaviour>().TakeDamage(hitId,20);
+                }
+            }
+            UpdateHitId();
         }
+    }
+
+    private int UpdateHitId() {
+        hitId++;
+        if(hitId > 2000000000) {
+            hitId = 0;
+        }
+
+        return hitId;
     }
 
     void OnDrawGizmosSelected() {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(tr.position, new Vector3(lenght, height, 0));
+        for (int i = 0; i < colliderCenter.Length; i++) {
+            Gizmos.DrawWireCube(colliderCenter[i] + (Vector2)gameObject.transform.position,colliderSize[i]);
+        }
     }
 }

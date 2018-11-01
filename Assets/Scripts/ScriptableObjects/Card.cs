@@ -9,22 +9,13 @@ public class Card : ScriptableObject {
     public Weapon weapon;
     public float damage = 0f;
     public Animation animation;
-    public List<TimeAndCollider> hitboxes = new List<TimeAndCollider>();
+
+    public Transform playerTransform;
+    public Vector2[] colliderCenter = new Vector2[EnumColliderPosition.Size()];
+    public Vector2[] colliderSize = new Vector2[EnumColliderPosition.Size()];
 
     public void Awake() {
-        Initialize();
-
         CheckFields();
-    }
-
-    private void Initialize() {
-        hitboxes.Add(new TimeAndCollider(2.5f,ColliderPosition.BACKDOWN));
-        hitboxes.Add(new TimeAndCollider(3f,ColliderPosition.BACKDOWN));
-        hitboxes.Add(new TimeAndCollider(1f,ColliderPosition.FRONTDOWN));
-
-        // OPTIMIZATION: this method can be expensive in term of memory, but this list should be very small (at maximum 15 elements)
-        List<TimeAndCollider> sortedHitboxes = hitboxes.OrderBy(h => h.time).ToList();
-        hitboxes = sortedHitboxes;
     }
 
     private void CheckFields() {
@@ -32,5 +23,13 @@ public class Card : ScriptableObject {
             Debug.Log("weapon field into Card ScriptableObject is NOT initialized!");
         if (damage == 0)
             Debug.Log("weapon field into Card ScriptableObject is NOT initialized!");
+    }
+
+    void OnDrawGizmosSelected() {
+        Gizmos.color = Color.red;
+        Vector2 playerPosition = new Vector2(playerTransform.position.x,playerTransform.position.y);
+        for (int i = 0; i < colliderCenter.Length; i++) {
+            Gizmos.DrawWireCube(colliderCenter[i] + playerPosition,colliderSize[i]);
+        }
     }
 }

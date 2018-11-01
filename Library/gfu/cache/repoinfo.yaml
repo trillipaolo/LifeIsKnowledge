@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cacheType: 1
-  lastUpdatedAtString: 2018-10-31T10:53:59.900+01:00
-  initializedAtString: 2018-10-31T10:53:59.900+01:00
+  lastUpdatedAtString: 2018-11-01T19:04:28.316+01:00
+  initializedAtString: 2018-11-01T19:04:28.316+01:00
   currentGitRemote:
     name: origin
     url: https://github.com/trillipaolo/LifeIsKnowledge.git

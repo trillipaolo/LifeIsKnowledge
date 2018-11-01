@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 
 public enum ColliderPosition {
     FRONTTOP,
@@ -8,11 +9,33 @@ public enum ColliderPosition {
     BACKTOP,
     BACKUP,
     BACKMIDDLE,
-    BACKDOWN,
-    BOTTOM
+    BACKDOWN
 }
 
-public static class EnumColliderPosition { 
+public static class EnumColliderPosition {
+
+    public static int Size() {
+        return Enum.GetValues(typeof(ColliderPosition)).Length;
+    }
+
+    //OPTIMIZATION: we can create a variable size and a method that at the beginning sets the right value instead of computing it every time
+    public static bool[] StringToArray(string colliderString) {
+        if(colliderString == null) {
+            Debug.Log("colliderString into ColliderPosition.StringToArray function is null!");
+            return null;
+        }
+        int colliderPositionSize = Size();
+        if (colliderString.Length != colliderPositionSize) {
+            Debug.Log("colliderString into ColliderPosition.StringToArray function has a different length from the size of ColliderPosition enumeration!");
+        }
+
+        bool[] colliderArray = new bool[colliderPositionSize];
+        for(int i = 0; i < colliderString.Length; i++) {
+            colliderArray[i] = colliderString.Substring(i,1) == "1" ? true : false;
+        }
+ 
+        return colliderArray;
+    }
 
     public static int ToInt(ColliderPosition colliderPosition) {
         switch (colliderPosition) {
@@ -39,9 +62,6 @@ public static class EnumColliderPosition {
                 //break;
             case ColliderPosition.BACKDOWN:
                 return 7;
-                //break;
-            case ColliderPosition.BOTTOM:
-                return 8;
                 //break;
             default:
                 Debug.Log("Wrong value of colliderPosition into ColliderPosition.ToInt function!");
@@ -75,12 +95,11 @@ public static class EnumColliderPosition {
             case 7:
                 return ColliderPosition.BACKDOWN;
                 //break;
-            case 8:
-                return ColliderPosition.BOTTOM;
-                //break;
             default:
                 Debug.Log("Wrong value of intColliderPosition into ColliderPosition.ToColliderPosition function!");
                 return ColliderPosition.FRONTTOP;
         }
     }
+
+
 }
