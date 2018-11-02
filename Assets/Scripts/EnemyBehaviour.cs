@@ -33,6 +33,13 @@ public class EnemyBehaviour : MonoBehaviour {
     }
 
     public void Die() {
+        Invoke("Rekt",0.5f);
+
+        gameObject.SetActive(false);
+    }
+
+    private void Rekt() {
+        FloatingTextController.CreateFloatingText("REKT <o/",gameObject.transform);
         Destroy(gameObject);
     }
 }

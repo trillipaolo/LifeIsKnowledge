@@ -12,15 +12,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cacheType: 5
-  lastUpdatedAtString: 2018-11-02T00:18:02.503+01:00
-  initializedAtString: 2018-11-01T19:04:29.847+01:00
+  lastUpdatedAtString: 2018-11-02T09:54:08.632+01:00
+  initializedAtString: 2018-11-02T09:22:49.782+01:00
   entries:
-  - path: .vs\LifeIsKnowledge\v15\.suo
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\.vs\LifeIsKnowledge\v15\.suo
-    projectPath: .vs\LifeIsKnowledge\v15\.suo
-    originalPath: 
-    status: 3
-    staged: 0
   - path: .vs\LifeIsKnowledge\v15\Server\sqlite3\storage.ide
     fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\.vs\LifeIsKnowledge\v15\Server\sqlite3\storage.ide
     projectPath: .vs\LifeIsKnowledge\v15\Server\sqlite3\storage.ide
@@ -39,51 +33,51 @@ MonoBehaviour:
     originalPath: 
     status: 1
     staged: 0
-  - path: Assets\Animations\Knight\Attacks\SlashTopDown.anim
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Assets\Animations\Knight\Attacks\SlashTopDown.anim
-    projectPath: Assets\Animations\Knight\Attacks\SlashTopDown.anim
-    originalPath: 
-    status: 3
-    staged: 0
-  - path: Assets\Animations\Knight\Knight.controller
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Assets\Animations\Knight\Knight.controller
-    projectPath: Assets\Animations\Knight\Knight.controller
-    originalPath: 
-    status: 3
-    staged: 0
-  - path: Assets\Animations\PopupText.controller
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Assets\Animations\PopupText.controller
-    projectPath: Assets\Animations\PopupText.controller
-    originalPath: 
-    status: 1
-    staged: 0
-  - path: Assets\Animations\PopupText.controller.meta
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Assets\Animations\PopupText.controller.meta
-    projectPath: Assets\Animations\PopupText.controller.meta
-    originalPath: 
-    status: 1
-    staged: 0
   - path: Assets\Animations\TextSlide.anim
     fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Assets\Animations\TextSlide.anim
     projectPath: Assets\Animations\TextSlide.anim
     originalPath: 
-    status: 1
+    status: 3
     staged: 0
-  - path: Assets\Animations\TextSlide.anim.meta
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Assets\Animations\TextSlide.anim.meta
-    projectPath: Assets\Animations\TextSlide.anim.meta
+  - path: Assets\Prefabs.meta
+    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Assets\Prefabs.meta
+    projectPath: Assets\Prefabs.meta
     originalPath: 
-    status: 1
+    status: 5
     staged: 0
   - path: Assets\Prefabs\PopupTextParent.prefab
     fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Assets\Prefabs\PopupTextParent.prefab
     projectPath: Assets\Prefabs\PopupTextParent.prefab
     originalPath: 
-    status: 1
+    status: 5
     staged: 0
   - path: Assets\Prefabs\PopupTextParent.prefab.meta
     fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Assets\Prefabs\PopupTextParent.prefab.meta
     projectPath: Assets\Prefabs\PopupTextParent.prefab.meta
+    originalPath: 
+    status: 5
+    staged: 0
+  - path: Assets\Resources.meta
+    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Assets\Resources.meta
+    projectPath: Assets\Resources.meta
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Assets\Resources\Prefabs.meta
+    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Assets\Resources\Prefabs.meta
+    projectPath: Assets\Resources\Prefabs.meta
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Assets\Resources\Prefabs\PopupTextParent.prefab
+    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Assets\Resources\Prefabs\PopupTextParent.prefab
+    projectPath: Assets\Resources\Prefabs\PopupTextParent.prefab
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Assets\Resources\Prefabs\PopupTextParent.prefab.meta
+    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Assets\Resources\Prefabs\PopupTextParent.prefab.meta
+    projectPath: Assets\Resources\Prefabs\PopupTextParent.prefab.meta
     originalPath: 
     status: 1
     staged: 0
@@ -97,59 +91,17 @@ MonoBehaviour:
     fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Assets\Scripts\EnemyBehaviour.cs
     projectPath: Assets\Scripts\EnemyBehaviour.cs
     originalPath: 
-    status: 1
-    staged: 0
-  - path: Assets\Scripts\EnemyBehaviour.cs.meta
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Assets\Scripts\EnemyBehaviour.cs.meta
-    projectPath: Assets\Scripts\EnemyBehaviour.cs.meta
-    originalPath: 
-    status: 1
-    staged: 0
-  - path: Assets\Scripts\Enumerations\ColliderPosition.cs
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Assets\Scripts\Enumerations\ColliderPosition.cs
-    projectPath: Assets\Scripts\Enumerations\ColliderPosition.cs
-    originalPath: 
     status: 3
     staged: 0
   - path: Assets\Scripts\FloatingText.cs
     fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Assets\Scripts\FloatingText.cs
     projectPath: Assets\Scripts\FloatingText.cs
     originalPath: 
-    status: 1
-    staged: 0
-  - path: Assets\Scripts\FloatingText.cs.meta
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Assets\Scripts\FloatingText.cs.meta
-    projectPath: Assets\Scripts\FloatingText.cs.meta
-    originalPath: 
-    status: 1
+    status: 3
     staged: 0
   - path: Assets\Scripts\FloatingTextController.cs
     fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Assets\Scripts\FloatingTextController.cs
     projectPath: Assets\Scripts\FloatingTextController.cs
-    originalPath: 
-    status: 1
-    staged: 0
-  - path: Assets\Scripts\FloatingTextController.cs.meta
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Assets\Scripts\FloatingTextController.cs.meta
-    projectPath: Assets\Scripts\FloatingTextController.cs.meta
-    originalPath: 
-    status: 1
-    staged: 0
-  - path: Assets\Scripts\PlayerAttack.cs
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Assets\Scripts\PlayerAttack.cs
-    projectPath: Assets\Scripts\PlayerAttack.cs
-    originalPath: 
-    status: 3
-    staged: 0
-  - path: Assets\Scripts\ScriptableObjects\Card.cs
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Assets\Scripts\ScriptableObjects\Card.cs
-    projectPath: Assets\Scripts\ScriptableObjects\Card.cs
-    originalPath: 
-    status: 3
-    staged: 0
-  - path: Library\AnnotationManager
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Library\AnnotationManager
-    projectPath: Library\AnnotationManager
     originalPath: 
     status: 3
     staged: 0
@@ -195,33 +147,21 @@ MonoBehaviour:
     originalPath: 
     status: 3
     staged: 0
-  - path: Library\InspectorExpandedItems.asset
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Library\InspectorExpandedItems.asset
-    projectPath: Library\InspectorExpandedItems.asset
-    originalPath: 
-    status: 3
-    staged: 0
   - path: Library\metadata\2b\2b0cabbe045c6394a9c5acd0abbbfe83
     fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Library\metadata\2b\2b0cabbe045c6394a9c5acd0abbbfe83
     projectPath: Library\metadata\2b\2b0cabbe045c6394a9c5acd0abbbfe83
     originalPath: 
-    status: 1
+    status: 3
     staged: 0
   - path: Library\metadata\2b\2b0cabbe045c6394a9c5acd0abbbfe83.info
     fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Library\metadata\2b\2b0cabbe045c6394a9c5acd0abbbfe83.info
     projectPath: Library\metadata\2b\2b0cabbe045c6394a9c5acd0abbbfe83.info
     originalPath: 
-    status: 1
-    staged: 0
-  - path: Library\metadata\95\954e7a45ca71d0d4fb305adc9a1dc4b1
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Library\metadata\95\954e7a45ca71d0d4fb305adc9a1dc4b1
-    projectPath: Library\metadata\95\954e7a45ca71d0d4fb305adc9a1dc4b1
-    originalPath: 
     status: 3
     staged: 0
-  - path: Library\metadata\b0\b0e71678437576f45b619d4ad7a8d9f1
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Library\metadata\b0\b0e71678437576f45b619d4ad7a8d9f1
-    projectPath: Library\metadata\b0\b0e71678437576f45b619d4ad7a8d9f1
+  - path: Library\metadata\90\900c3d4d4177eda48afab4407d80300d
+    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Library\metadata\90\900c3d4d4177eda48afab4407d80300d
+    projectPath: Library\metadata\90\900c3d4d4177eda48afab4407d80300d
     originalPath: 
     status: 3
     staged: 0
@@ -229,65 +169,29 @@ MonoBehaviour:
     fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Library\metadata\b1\b1b11080628a143498a73c12bbd8919a
     projectPath: Library\metadata\b1\b1b11080628a143498a73c12bbd8919a
     originalPath: 
-    status: 1
-    staged: 0
-  - path: Library\metadata\b1\b1b11080628a143498a73c12bbd8919a.info
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Library\metadata\b1\b1b11080628a143498a73c12bbd8919a.info
-    projectPath: Library\metadata\b1\b1b11080628a143498a73c12bbd8919a.info
-    originalPath: 
-    status: 1
+    status: 3
     staged: 0
   - path: Library\metadata\cd\cdbf7de0e4956a74eadf6d0a540c3dfe
     fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Library\metadata\cd\cdbf7de0e4956a74eadf6d0a540c3dfe
     projectPath: Library\metadata\cd\cdbf7de0e4956a74eadf6d0a540c3dfe
     originalPath: 
-    status: 1
-    staged: 0
-  - path: Library\metadata\cd\cdbf7de0e4956a74eadf6d0a540c3dfe.info
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Library\metadata\cd\cdbf7de0e4956a74eadf6d0a540c3dfe.info
-    projectPath: Library\metadata\cd\cdbf7de0e4956a74eadf6d0a540c3dfe.info
-    originalPath: 
-    status: 1
-    staged: 0
-  - path: Library\metadata\ce\cea43a699e400ff428acbdffdbadb5da
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Library\metadata\ce\cea43a699e400ff428acbdffdbadb5da
-    projectPath: Library\metadata\ce\cea43a699e400ff428acbdffdbadb5da
-    originalPath: 
-    status: 1
-    staged: 0
-  - path: Library\metadata\ce\cea43a699e400ff428acbdffdbadb5da.info
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Library\metadata\ce\cea43a699e400ff428acbdffdbadb5da.info
-    projectPath: Library\metadata\ce\cea43a699e400ff428acbdffdbadb5da.info
-    originalPath: 
-    status: 1
+    status: 3
     staged: 0
   - path: Library\metadata\cf\cf5a4abdc2639764a8a3bfff3bbf1ec3
     fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Library\metadata\cf\cf5a4abdc2639764a8a3bfff3bbf1ec3
     projectPath: Library\metadata\cf\cf5a4abdc2639764a8a3bfff3bbf1ec3
     originalPath: 
-    status: 1
-    staged: 0
-  - path: Library\metadata\cf\cf5a4abdc2639764a8a3bfff3bbf1ec3.info
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Library\metadata\cf\cf5a4abdc2639764a8a3bfff3bbf1ec3.info
-    projectPath: Library\metadata\cf\cf5a4abdc2639764a8a3bfff3bbf1ec3.info
-    originalPath: 
-    status: 1
-    staged: 0
-  - path: Library\metadata\e2\e2d36edad46dbc34d99de5c9d56ac3be
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Library\metadata\e2\e2d36edad46dbc34d99de5c9d56ac3be
-    projectPath: Library\metadata\e2\e2d36edad46dbc34d99de5c9d56ac3be
-    originalPath: 
     status: 3
     staged: 0
-  - path: Library\metadata\e7\e786195a66d6cd54684c82611a8f7dee
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Library\metadata\e7\e786195a66d6cd54684c82611a8f7dee
-    projectPath: Library\metadata\e7\e786195a66d6cd54684c82611a8f7dee
+  - path: Library\metadata\d3\d3f4f900d5f13d24fbaa644df7acc3a8
+    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Library\metadata\d3\d3f4f900d5f13d24fbaa644df7acc3a8
+    projectPath: Library\metadata\d3\d3f4f900d5f13d24fbaa644df7acc3a8
     originalPath: 
     status: 1
     staged: 0
-  - path: Library\metadata\e7\e786195a66d6cd54684c82611a8f7dee.info
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Library\metadata\e7\e786195a66d6cd54684c82611a8f7dee.info
-    projectPath: Library\metadata\e7\e786195a66d6cd54684c82611a8f7dee.info
+  - path: Library\metadata\d3\d3f4f900d5f13d24fbaa644df7acc3a8.info
+    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Library\metadata\d3\d3f4f900d5f13d24fbaa644df7acc3a8.info
+    projectPath: Library\metadata\d3\d3f4f900d5f13d24fbaa644df7acc3a8.info
     originalPath: 
     status: 1
     staged: 0
@@ -303,33 +207,9 @@ MonoBehaviour:
     originalPath: 
     status: 3
     staged: 0
-  - path: Library\ShaderCache\3\3b97b21cbf0eb0875d269d5a97100d74.bin
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Library\ShaderCache\3\3b97b21cbf0eb0875d269d5a97100d74.bin
-    projectPath: Library\ShaderCache\3\3b97b21cbf0eb0875d269d5a97100d74.bin
-    originalPath: 
-    status: 1
-    staged: 0
-  - path: Library\ShaderCache\8\84b4250e06a707b9acdd6ed7a9344f0d.bin
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Library\ShaderCache\8\84b4250e06a707b9acdd6ed7a9344f0d.bin
-    projectPath: Library\ShaderCache\8\84b4250e06a707b9acdd6ed7a9344f0d.bin
-    originalPath: 
-    status: 1
-    staged: 0
   - path: Library\shadercompiler-UnityShaderCompiler.exe0.log
     fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Library\shadercompiler-UnityShaderCompiler.exe0.log
     projectPath: Library\shadercompiler-UnityShaderCompiler.exe0.log
-    originalPath: 
-    status: 3
-    staged: 0
-  - path: LifeIsKnowledge.csproj
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\LifeIsKnowledge.csproj
-    projectPath: LifeIsKnowledge.csproj
-    originalPath: 
-    status: 3
-    staged: 0
-  - path: ProjectSettings\TagManager.asset
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\ProjectSettings\TagManager.asset
-    projectPath: ProjectSettings\TagManager.asset
     originalPath: 
     status: 3
     staged: 0
@@ -345,507 +225,213 @@ MonoBehaviour:
     originalPath: 
     status: 1
     staged: 0
-  - path: Temp\UnityTempFile-01d2d45da26f1164b87e7a1b5e1dfe69
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-01d2d45da26f1164b87e7a1b5e1dfe69
-    projectPath: Temp\UnityTempFile-01d2d45da26f1164b87e7a1b5e1dfe69
+  - path: Temp\UnityTempFile-0cd6d127fe9465f4282fc1af2cd35c54
+    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-0cd6d127fe9465f4282fc1af2cd35c54
+    projectPath: Temp\UnityTempFile-0cd6d127fe9465f4282fc1af2cd35c54
     originalPath: 
     status: 1
     staged: 0
-  - path: Temp\UnityTempFile-01d485e1a1898e64db1df1fb249533ba
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-01d485e1a1898e64db1df1fb249533ba
-    projectPath: Temp\UnityTempFile-01d485e1a1898e64db1df1fb249533ba
+  - path: Temp\UnityTempFile-10377d4f22bc69e40b1b2aa7e65f00a5
+    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-10377d4f22bc69e40b1b2aa7e65f00a5
+    projectPath: Temp\UnityTempFile-10377d4f22bc69e40b1b2aa7e65f00a5
     originalPath: 
     status: 1
     staged: 0
-  - path: Temp\UnityTempFile-02ccf2e12867b0346870d61f2bf39db4
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-02ccf2e12867b0346870d61f2bf39db4
-    projectPath: Temp\UnityTempFile-02ccf2e12867b0346870d61f2bf39db4
+  - path: Temp\UnityTempFile-3bf675da781c9ac418db34035cecf40d
+    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-3bf675da781c9ac418db34035cecf40d
+    projectPath: Temp\UnityTempFile-3bf675da781c9ac418db34035cecf40d
     originalPath: 
     status: 1
     staged: 0
-  - path: Temp\UnityTempFile-0bb5aae45413cac4d8778c9fc14a2ee9
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-0bb5aae45413cac4d8778c9fc14a2ee9
-    projectPath: Temp\UnityTempFile-0bb5aae45413cac4d8778c9fc14a2ee9
+  - path: Temp\UnityTempFile-3e7323b57659bb44fbbe44cb57bb235f
+    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-3e7323b57659bb44fbbe44cb57bb235f
+    projectPath: Temp\UnityTempFile-3e7323b57659bb44fbbe44cb57bb235f
     originalPath: 
     status: 1
     staged: 0
-  - path: Temp\UnityTempFile-0f20d9b61315e8248bfc08ec60a80361
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-0f20d9b61315e8248bfc08ec60a80361
-    projectPath: Temp\UnityTempFile-0f20d9b61315e8248bfc08ec60a80361
+  - path: Temp\UnityTempFile-3f82876fea18dae4aa1ef6a4f87fb0a5
+    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-3f82876fea18dae4aa1ef6a4f87fb0a5
+    projectPath: Temp\UnityTempFile-3f82876fea18dae4aa1ef6a4f87fb0a5
     originalPath: 
     status: 1
     staged: 0
-  - path: Temp\UnityTempFile-13a390e931280a34eb3099a542a2cff7
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-13a390e931280a34eb3099a542a2cff7
-    projectPath: Temp\UnityTempFile-13a390e931280a34eb3099a542a2cff7
+  - path: Temp\UnityTempFile-4d988837942d7b240bac8e84d5d96604
+    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-4d988837942d7b240bac8e84d5d96604
+    projectPath: Temp\UnityTempFile-4d988837942d7b240bac8e84d5d96604
     originalPath: 
     status: 1
     staged: 0
-  - path: Temp\UnityTempFile-13f6f5104ec0aaf43aca67ed63de9509
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-13f6f5104ec0aaf43aca67ed63de9509
-    projectPath: Temp\UnityTempFile-13f6f5104ec0aaf43aca67ed63de9509
+  - path: Temp\UnityTempFile-52ced79fc7495c346a3773a38a72ab8c
+    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-52ced79fc7495c346a3773a38a72ab8c
+    projectPath: Temp\UnityTempFile-52ced79fc7495c346a3773a38a72ab8c
     originalPath: 
     status: 1
     staged: 0
-  - path: Temp\UnityTempFile-197947b72805ec949864e3fcab5326ce
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-197947b72805ec949864e3fcab5326ce
-    projectPath: Temp\UnityTempFile-197947b72805ec949864e3fcab5326ce
+  - path: Temp\UnityTempFile-58b53ebf69c59934694a705ae2fdbb3d
+    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-58b53ebf69c59934694a705ae2fdbb3d
+    projectPath: Temp\UnityTempFile-58b53ebf69c59934694a705ae2fdbb3d
     originalPath: 
     status: 1
     staged: 0
-  - path: Temp\UnityTempFile-1b793093efcd1c245a61551c99ff4d8a
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-1b793093efcd1c245a61551c99ff4d8a
-    projectPath: Temp\UnityTempFile-1b793093efcd1c245a61551c99ff4d8a
+  - path: Temp\UnityTempFile-5cf27982ec5db874491cf4d3e7adc4c1
+    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-5cf27982ec5db874491cf4d3e7adc4c1
+    projectPath: Temp\UnityTempFile-5cf27982ec5db874491cf4d3e7adc4c1
     originalPath: 
     status: 1
     staged: 0
-  - path: Temp\UnityTempFile-1b7b1ec774024074ebfa0372d3a129b7
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-1b7b1ec774024074ebfa0372d3a129b7
-    projectPath: Temp\UnityTempFile-1b7b1ec774024074ebfa0372d3a129b7
+  - path: Temp\UnityTempFile-63abac04dff1ff8478d1e4b6f09dbdcb
+    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-63abac04dff1ff8478d1e4b6f09dbdcb
+    projectPath: Temp\UnityTempFile-63abac04dff1ff8478d1e4b6f09dbdcb
     originalPath: 
     status: 1
     staged: 0
-  - path: Temp\UnityTempFile-209ce177bed5bf041bc24ef68e1ed10b
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-209ce177bed5bf041bc24ef68e1ed10b
-    projectPath: Temp\UnityTempFile-209ce177bed5bf041bc24ef68e1ed10b
+  - path: Temp\UnityTempFile-64b4bfc26572987409a270de0aab623d
+    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-64b4bfc26572987409a270de0aab623d
+    projectPath: Temp\UnityTempFile-64b4bfc26572987409a270de0aab623d
     originalPath: 
     status: 1
     staged: 0
-  - path: Temp\UnityTempFile-241b594fbe2f8b34a8c6906fc2ab6894
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-241b594fbe2f8b34a8c6906fc2ab6894
-    projectPath: Temp\UnityTempFile-241b594fbe2f8b34a8c6906fc2ab6894
+  - path: Temp\UnityTempFile-66edd310b6a627646b046911e23bfb62
+    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-66edd310b6a627646b046911e23bfb62
+    projectPath: Temp\UnityTempFile-66edd310b6a627646b046911e23bfb62
     originalPath: 
     status: 1
     staged: 0
-  - path: Temp\UnityTempFile-2914ef29f666652498469f5994abc199
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-2914ef29f666652498469f5994abc199
-    projectPath: Temp\UnityTempFile-2914ef29f666652498469f5994abc199
+  - path: Temp\UnityTempFile-6a13918c0cb978b488d4e9731c4dfe21
+    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-6a13918c0cb978b488d4e9731c4dfe21
+    projectPath: Temp\UnityTempFile-6a13918c0cb978b488d4e9731c4dfe21
     originalPath: 
     status: 1
     staged: 0
-  - path: Temp\UnityTempFile-32addb41f5eeaf84fa01e5ddec8cead5
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-32addb41f5eeaf84fa01e5ddec8cead5
-    projectPath: Temp\UnityTempFile-32addb41f5eeaf84fa01e5ddec8cead5
+  - path: Temp\UnityTempFile-6f18aecc5418d584bae05f08333b5ae9
+    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-6f18aecc5418d584bae05f08333b5ae9
+    projectPath: Temp\UnityTempFile-6f18aecc5418d584bae05f08333b5ae9
     originalPath: 
     status: 1
     staged: 0
-  - path: Temp\UnityTempFile-32e5f210130e0ca4c91be3e6fae7a314
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-32e5f210130e0ca4c91be3e6fae7a314
-    projectPath: Temp\UnityTempFile-32e5f210130e0ca4c91be3e6fae7a314
+  - path: Temp\UnityTempFile-73dae9f61b265e0488c792bb7a19f7b6
+    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-73dae9f61b265e0488c792bb7a19f7b6
+    projectPath: Temp\UnityTempFile-73dae9f61b265e0488c792bb7a19f7b6
     originalPath: 
     status: 1
     staged: 0
-  - path: Temp\UnityTempFile-3bd2ed954267e5e4d8ed135883b8a576
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-3bd2ed954267e5e4d8ed135883b8a576
-    projectPath: Temp\UnityTempFile-3bd2ed954267e5e4d8ed135883b8a576
+  - path: Temp\UnityTempFile-84b91c2a18c0b834186e151788c85ec9
+    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-84b91c2a18c0b834186e151788c85ec9
+    projectPath: Temp\UnityTempFile-84b91c2a18c0b834186e151788c85ec9
     originalPath: 
     status: 1
     staged: 0
-  - path: Temp\UnityTempFile-3e503e72dd3a645408e65338aa5cc9c9
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-3e503e72dd3a645408e65338aa5cc9c9
-    projectPath: Temp\UnityTempFile-3e503e72dd3a645408e65338aa5cc9c9
+  - path: Temp\UnityTempFile-88fd92c96eaabaa4993a54f083f239a1
+    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-88fd92c96eaabaa4993a54f083f239a1
+    projectPath: Temp\UnityTempFile-88fd92c96eaabaa4993a54f083f239a1
     originalPath: 
     status: 1
     staged: 0
-  - path: Temp\UnityTempFile-3eb80711389e65a45bfa01eaecb40321
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-3eb80711389e65a45bfa01eaecb40321
-    projectPath: Temp\UnityTempFile-3eb80711389e65a45bfa01eaecb40321
+  - path: Temp\UnityTempFile-9123dd1cdebdf154e9678db78bf37df9
+    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-9123dd1cdebdf154e9678db78bf37df9
+    projectPath: Temp\UnityTempFile-9123dd1cdebdf154e9678db78bf37df9
     originalPath: 
     status: 1
     staged: 0
-  - path: Temp\UnityTempFile-3fdc156052d3b3341b2ab85b847e0d31
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-3fdc156052d3b3341b2ab85b847e0d31
-    projectPath: Temp\UnityTempFile-3fdc156052d3b3341b2ab85b847e0d31
+  - path: Temp\UnityTempFile-938acf1a835c47a418093559c7309767
+    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-938acf1a835c47a418093559c7309767
+    projectPath: Temp\UnityTempFile-938acf1a835c47a418093559c7309767
     originalPath: 
     status: 1
     staged: 0
-  - path: Temp\UnityTempFile-4328605b92afb8d4bae912988fae831a
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-4328605b92afb8d4bae912988fae831a
-    projectPath: Temp\UnityTempFile-4328605b92afb8d4bae912988fae831a
+  - path: Temp\UnityTempFile-94c80ba6634305d4f9c913cef3ce9e1b
+    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-94c80ba6634305d4f9c913cef3ce9e1b
+    projectPath: Temp\UnityTempFile-94c80ba6634305d4f9c913cef3ce9e1b
     originalPath: 
     status: 1
     staged: 0
-  - path: Temp\UnityTempFile-44fa6be127f7bac438ed504fb6451af8
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-44fa6be127f7bac438ed504fb6451af8
-    projectPath: Temp\UnityTempFile-44fa6be127f7bac438ed504fb6451af8
+  - path: Temp\UnityTempFile-955de1f53b4e14d44b34cbd399e7ab39
+    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-955de1f53b4e14d44b34cbd399e7ab39
+    projectPath: Temp\UnityTempFile-955de1f53b4e14d44b34cbd399e7ab39
     originalPath: 
     status: 1
     staged: 0
-  - path: Temp\UnityTempFile-48a768614510c874ab7cab9d9109515a
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-48a768614510c874ab7cab9d9109515a
-    projectPath: Temp\UnityTempFile-48a768614510c874ab7cab9d9109515a
+  - path: Temp\UnityTempFile-9d33368f77e08c040b783b87b3420d0f
+    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-9d33368f77e08c040b783b87b3420d0f
+    projectPath: Temp\UnityTempFile-9d33368f77e08c040b783b87b3420d0f
     originalPath: 
     status: 1
     staged: 0
-  - path: Temp\UnityTempFile-4acc1e72c20318a44a650c3390cb7907
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-4acc1e72c20318a44a650c3390cb7907
-    projectPath: Temp\UnityTempFile-4acc1e72c20318a44a650c3390cb7907
+  - path: Temp\UnityTempFile-a81b6546a5b5c474a9925af1c5d9c377
+    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-a81b6546a5b5c474a9925af1c5d9c377
+    projectPath: Temp\UnityTempFile-a81b6546a5b5c474a9925af1c5d9c377
     originalPath: 
     status: 1
     staged: 0
-  - path: Temp\UnityTempFile-4eda9e4c3de3b794694aa028abd9aeb6
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-4eda9e4c3de3b794694aa028abd9aeb6
-    projectPath: Temp\UnityTempFile-4eda9e4c3de3b794694aa028abd9aeb6
+  - path: Temp\UnityTempFile-b0b30fafa80c0464a926763173453b44
+    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-b0b30fafa80c0464a926763173453b44
+    projectPath: Temp\UnityTempFile-b0b30fafa80c0464a926763173453b44
     originalPath: 
     status: 1
     staged: 0
-  - path: Temp\UnityTempFile-5271840c3d1ace64f80dc56b7d102cf9
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-5271840c3d1ace64f80dc56b7d102cf9
-    projectPath: Temp\UnityTempFile-5271840c3d1ace64f80dc56b7d102cf9
+  - path: Temp\UnityTempFile-b4340925e373dfd489143bad65d78068
+    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-b4340925e373dfd489143bad65d78068
+    projectPath: Temp\UnityTempFile-b4340925e373dfd489143bad65d78068
     originalPath: 
     status: 1
     staged: 0
-  - path: Temp\UnityTempFile-55245e0a2d22b4a49a26aca5286bbe9f
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-55245e0a2d22b4a49a26aca5286bbe9f
-    projectPath: Temp\UnityTempFile-55245e0a2d22b4a49a26aca5286bbe9f
+  - path: Temp\UnityTempFile-b605aeb72683c554c8a03882ffbbd3a8
+    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-b605aeb72683c554c8a03882ffbbd3a8
+    projectPath: Temp\UnityTempFile-b605aeb72683c554c8a03882ffbbd3a8
     originalPath: 
     status: 1
     staged: 0
-  - path: Temp\UnityTempFile-561c1bc980ae86245baa6c2602d57ac6
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-561c1bc980ae86245baa6c2602d57ac6
-    projectPath: Temp\UnityTempFile-561c1bc980ae86245baa6c2602d57ac6
+  - path: Temp\UnityTempFile-b8e4bb5b5d1d3924194d9d960b51a296
+    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-b8e4bb5b5d1d3924194d9d960b51a296
+    projectPath: Temp\UnityTempFile-b8e4bb5b5d1d3924194d9d960b51a296
     originalPath: 
     status: 1
     staged: 0
-  - path: Temp\UnityTempFile-569a2d39b6785694cb88be5eb2551bd5
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-569a2d39b6785694cb88be5eb2551bd5
-    projectPath: Temp\UnityTempFile-569a2d39b6785694cb88be5eb2551bd5
+  - path: Temp\UnityTempFile-be6d7139c0fdb2b4b9f29989d89f922f
+    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-be6d7139c0fdb2b4b9f29989d89f922f
+    projectPath: Temp\UnityTempFile-be6d7139c0fdb2b4b9f29989d89f922f
     originalPath: 
     status: 1
     staged: 0
-  - path: Temp\UnityTempFile-58082d3f95a56d240bb1e966fda5c83d
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-58082d3f95a56d240bb1e966fda5c83d
-    projectPath: Temp\UnityTempFile-58082d3f95a56d240bb1e966fda5c83d
+  - path: Temp\UnityTempFile-c1e20248a66eadf4e9bd3df153efc460
+    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-c1e20248a66eadf4e9bd3df153efc460
+    projectPath: Temp\UnityTempFile-c1e20248a66eadf4e9bd3df153efc460
     originalPath: 
     status: 1
     staged: 0
-  - path: Temp\UnityTempFile-5b4faa94224ac124d9ddbce4f8b68542
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-5b4faa94224ac124d9ddbce4f8b68542
-    projectPath: Temp\UnityTempFile-5b4faa94224ac124d9ddbce4f8b68542
+  - path: Temp\UnityTempFile-c230961fb3e67804088d1093a500af13
+    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-c230961fb3e67804088d1093a500af13
+    projectPath: Temp\UnityTempFile-c230961fb3e67804088d1093a500af13
     originalPath: 
     status: 1
     staged: 0
-  - path: Temp\UnityTempFile-5e9a20bf75108d64e8b640eb5f01736a
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-5e9a20bf75108d64e8b640eb5f01736a
-    projectPath: Temp\UnityTempFile-5e9a20bf75108d64e8b640eb5f01736a
+  - path: Temp\UnityTempFile-d86bd3a0e977057449ba1439e8ea0bf2
+    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-d86bd3a0e977057449ba1439e8ea0bf2
+    projectPath: Temp\UnityTempFile-d86bd3a0e977057449ba1439e8ea0bf2
     originalPath: 
     status: 1
     staged: 0
-  - path: Temp\UnityTempFile-65e910b74d85f464595778cc844f85e0
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-65e910b74d85f464595778cc844f85e0
-    projectPath: Temp\UnityTempFile-65e910b74d85f464595778cc844f85e0
+  - path: Temp\UnityTempFile-ebf63b3cff8dc0746abf4da94ad2a04e
+    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-ebf63b3cff8dc0746abf4da94ad2a04e
+    projectPath: Temp\UnityTempFile-ebf63b3cff8dc0746abf4da94ad2a04e
     originalPath: 
     status: 1
     staged: 0
-  - path: Temp\UnityTempFile-66456f83e26cfd2449c91b5d40780a2a
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-66456f83e26cfd2449c91b5d40780a2a
-    projectPath: Temp\UnityTempFile-66456f83e26cfd2449c91b5d40780a2a
+  - path: Temp\UnityTempFile-ec1fb3f9be838d74ba51e6105bd86cf8
+    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-ec1fb3f9be838d74ba51e6105bd86cf8
+    projectPath: Temp\UnityTempFile-ec1fb3f9be838d74ba51e6105bd86cf8
     originalPath: 
     status: 1
     staged: 0
-  - path: Temp\UnityTempFile-66db4d73079e20046ac6628d8e214caa
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-66db4d73079e20046ac6628d8e214caa
-    projectPath: Temp\UnityTempFile-66db4d73079e20046ac6628d8e214caa
+  - path: Temp\UnityTempFile-ef15a4e7577e58549a39b4b63ca1ce88
+    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-ef15a4e7577e58549a39b4b63ca1ce88
+    projectPath: Temp\UnityTempFile-ef15a4e7577e58549a39b4b63ca1ce88
     originalPath: 
     status: 1
     staged: 0
-  - path: Temp\UnityTempFile-67eab2b5c60bf8949a685470252e8255
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-67eab2b5c60bf8949a685470252e8255
-    projectPath: Temp\UnityTempFile-67eab2b5c60bf8949a685470252e8255
-    originalPath: 
-    status: 1
-    staged: 0
-  - path: Temp\UnityTempFile-6a8b24679cf1bfb4e9e04125e4f5f9c2
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-6a8b24679cf1bfb4e9e04125e4f5f9c2
-    projectPath: Temp\UnityTempFile-6a8b24679cf1bfb4e9e04125e4f5f9c2
-    originalPath: 
-    status: 1
-    staged: 0
-  - path: Temp\UnityTempFile-6c50a1372d2e3ca43af6077b1b584a73
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-6c50a1372d2e3ca43af6077b1b584a73
-    projectPath: Temp\UnityTempFile-6c50a1372d2e3ca43af6077b1b584a73
-    originalPath: 
-    status: 1
-    staged: 0
-  - path: Temp\UnityTempFile-7403064bf8a513a44a84409e05643b7c
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-7403064bf8a513a44a84409e05643b7c
-    projectPath: Temp\UnityTempFile-7403064bf8a513a44a84409e05643b7c
-    originalPath: 
-    status: 1
-    staged: 0
-  - path: Temp\UnityTempFile-75a8a4b80be9eb947853f4494542364c
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-75a8a4b80be9eb947853f4494542364c
-    projectPath: Temp\UnityTempFile-75a8a4b80be9eb947853f4494542364c
-    originalPath: 
-    status: 1
-    staged: 0
-  - path: Temp\UnityTempFile-7a99a459a4d985043bedcbe2612a5980
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-7a99a459a4d985043bedcbe2612a5980
-    projectPath: Temp\UnityTempFile-7a99a459a4d985043bedcbe2612a5980
-    originalPath: 
-    status: 1
-    staged: 0
-  - path: Temp\UnityTempFile-84af6668a9b4e6c4eb9885b0b98059ff
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-84af6668a9b4e6c4eb9885b0b98059ff
-    projectPath: Temp\UnityTempFile-84af6668a9b4e6c4eb9885b0b98059ff
-    originalPath: 
-    status: 1
-    staged: 0
-  - path: Temp\UnityTempFile-84e306549fdb78a4a98e31dd8eed5bcf
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-84e306549fdb78a4a98e31dd8eed5bcf
-    projectPath: Temp\UnityTempFile-84e306549fdb78a4a98e31dd8eed5bcf
-    originalPath: 
-    status: 1
-    staged: 0
-  - path: Temp\UnityTempFile-8b7548b7478fa5d439978ea989a8a9ad
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-8b7548b7478fa5d439978ea989a8a9ad
-    projectPath: Temp\UnityTempFile-8b7548b7478fa5d439978ea989a8a9ad
-    originalPath: 
-    status: 1
-    staged: 0
-  - path: Temp\UnityTempFile-8bc099bf8c0f67545a941e4769f317c6
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-8bc099bf8c0f67545a941e4769f317c6
-    projectPath: Temp\UnityTempFile-8bc099bf8c0f67545a941e4769f317c6
-    originalPath: 
-    status: 1
-    staged: 0
-  - path: Temp\UnityTempFile-93cacd06725f1bb4e80bb66f7b8f928d
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-93cacd06725f1bb4e80bb66f7b8f928d
-    projectPath: Temp\UnityTempFile-93cacd06725f1bb4e80bb66f7b8f928d
-    originalPath: 
-    status: 1
-    staged: 0
-  - path: Temp\UnityTempFile-9468f87654a00644b971c36a1e34bd52
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-9468f87654a00644b971c36a1e34bd52
-    projectPath: Temp\UnityTempFile-9468f87654a00644b971c36a1e34bd52
-    originalPath: 
-    status: 1
-    staged: 0
-  - path: Temp\UnityTempFile-9bc6bed51e442bc4db4b0e515d020551
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-9bc6bed51e442bc4db4b0e515d020551
-    projectPath: Temp\UnityTempFile-9bc6bed51e442bc4db4b0e515d020551
-    originalPath: 
-    status: 1
-    staged: 0
-  - path: Temp\UnityTempFile-9c885abf1828e0746a9328d07dd7856c
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-9c885abf1828e0746a9328d07dd7856c
-    projectPath: Temp\UnityTempFile-9c885abf1828e0746a9328d07dd7856c
-    originalPath: 
-    status: 1
-    staged: 0
-  - path: Temp\UnityTempFile-9ed27066945aab44ab04afdb5fc03009
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-9ed27066945aab44ab04afdb5fc03009
-    projectPath: Temp\UnityTempFile-9ed27066945aab44ab04afdb5fc03009
-    originalPath: 
-    status: 1
-    staged: 0
-  - path: Temp\UnityTempFile-a4adecff1fede4a4a9c594be1fa1a904
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-a4adecff1fede4a4a9c594be1fa1a904
-    projectPath: Temp\UnityTempFile-a4adecff1fede4a4a9c594be1fa1a904
-    originalPath: 
-    status: 1
-    staged: 0
-  - path: Temp\UnityTempFile-a8b6ac904f8a5254885e79895fa29f8a
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-a8b6ac904f8a5254885e79895fa29f8a
-    projectPath: Temp\UnityTempFile-a8b6ac904f8a5254885e79895fa29f8a
-    originalPath: 
-    status: 1
-    staged: 0
-  - path: Temp\UnityTempFile-b3977743cf7e17d4085d76972a71dd24
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-b3977743cf7e17d4085d76972a71dd24
-    projectPath: Temp\UnityTempFile-b3977743cf7e17d4085d76972a71dd24
-    originalPath: 
-    status: 1
-    staged: 0
-  - path: Temp\UnityTempFile-b5f236b44e9d49b49a63f7cd7c43f7b4
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-b5f236b44e9d49b49a63f7cd7c43f7b4
-    projectPath: Temp\UnityTempFile-b5f236b44e9d49b49a63f7cd7c43f7b4
-    originalPath: 
-    status: 1
-    staged: 0
-  - path: Temp\UnityTempFile-b6ba6ef400a09da45b9a27847c9740fa
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-b6ba6ef400a09da45b9a27847c9740fa
-    projectPath: Temp\UnityTempFile-b6ba6ef400a09da45b9a27847c9740fa
-    originalPath: 
-    status: 1
-    staged: 0
-  - path: Temp\UnityTempFile-c1599322b54e2c9458330dc6725ecddf
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-c1599322b54e2c9458330dc6725ecddf
-    projectPath: Temp\UnityTempFile-c1599322b54e2c9458330dc6725ecddf
-    originalPath: 
-    status: 1
-    staged: 0
-  - path: Temp\UnityTempFile-c264c60429084d045849d94d9a0b345b
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-c264c60429084d045849d94d9a0b345b
-    projectPath: Temp\UnityTempFile-c264c60429084d045849d94d9a0b345b
-    originalPath: 
-    status: 1
-    staged: 0
-  - path: Temp\UnityTempFile-c5e9d151b3f68c64693b6f2d19529545
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-c5e9d151b3f68c64693b6f2d19529545
-    projectPath: Temp\UnityTempFile-c5e9d151b3f68c64693b6f2d19529545
-    originalPath: 
-    status: 1
-    staged: 0
-  - path: Temp\UnityTempFile-c67e57ff62e9a8d4d8e2fc145bd871f7
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-c67e57ff62e9a8d4d8e2fc145bd871f7
-    projectPath: Temp\UnityTempFile-c67e57ff62e9a8d4d8e2fc145bd871f7
-    originalPath: 
-    status: 1
-    staged: 0
-  - path: Temp\UnityTempFile-cabdcfdb10da094419dc0cd021a9511d
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-cabdcfdb10da094419dc0cd021a9511d
-    projectPath: Temp\UnityTempFile-cabdcfdb10da094419dc0cd021a9511d
-    originalPath: 
-    status: 1
-    staged: 0
-  - path: Temp\UnityTempFile-cba84d3621653ff47809bf6f5e1b9985
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-cba84d3621653ff47809bf6f5e1b9985
-    projectPath: Temp\UnityTempFile-cba84d3621653ff47809bf6f5e1b9985
-    originalPath: 
-    status: 1
-    staged: 0
-  - path: Temp\UnityTempFile-cbc16308c18703b4e9d2bfb82caf69fa
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-cbc16308c18703b4e9d2bfb82caf69fa
-    projectPath: Temp\UnityTempFile-cbc16308c18703b4e9d2bfb82caf69fa
-    originalPath: 
-    status: 1
-    staged: 0
-  - path: Temp\UnityTempFile-cfc870b68fc7c034ea74af73dc413fb3
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-cfc870b68fc7c034ea74af73dc413fb3
-    projectPath: Temp\UnityTempFile-cfc870b68fc7c034ea74af73dc413fb3
-    originalPath: 
-    status: 1
-    staged: 0
-  - path: Temp\UnityTempFile-cfd7359b1c59113429540a126ff9b48f
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-cfd7359b1c59113429540a126ff9b48f
-    projectPath: Temp\UnityTempFile-cfd7359b1c59113429540a126ff9b48f
-    originalPath: 
-    status: 1
-    staged: 0
-  - path: Temp\UnityTempFile-d635b73ca1c8fce46b3e2fe08d8b6386
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-d635b73ca1c8fce46b3e2fe08d8b6386
-    projectPath: Temp\UnityTempFile-d635b73ca1c8fce46b3e2fe08d8b6386
-    originalPath: 
-    status: 1
-    staged: 0
-  - path: Temp\UnityTempFile-d7e385b3c879fc64b9a1f6ba14b86c32
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-d7e385b3c879fc64b9a1f6ba14b86c32
-    projectPath: Temp\UnityTempFile-d7e385b3c879fc64b9a1f6ba14b86c32
-    originalPath: 
-    status: 1
-    staged: 0
-  - path: Temp\UnityTempFile-de600f1caa1a0f449a7ce7e8aacc2a99
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-de600f1caa1a0f449a7ce7e8aacc2a99
-    projectPath: Temp\UnityTempFile-de600f1caa1a0f449a7ce7e8aacc2a99
-    originalPath: 
-    status: 1
-    staged: 0
-  - path: Temp\UnityTempFile-e0ffdbb3e05028f43bcc193d6ad88c58
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-e0ffdbb3e05028f43bcc193d6ad88c58
-    projectPath: Temp\UnityTempFile-e0ffdbb3e05028f43bcc193d6ad88c58
-    originalPath: 
-    status: 1
-    staged: 0
-  - path: Temp\UnityTempFile-e43c9e7274c90e5498369068183c60d6
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-e43c9e7274c90e5498369068183c60d6
-    projectPath: Temp\UnityTempFile-e43c9e7274c90e5498369068183c60d6
-    originalPath: 
-    status: 1
-    staged: 0
-  - path: Temp\UnityTempFile-e58a36e5159e0f64fac37515e7751412
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-e58a36e5159e0f64fac37515e7751412
-    projectPath: Temp\UnityTempFile-e58a36e5159e0f64fac37515e7751412
-    originalPath: 
-    status: 1
-    staged: 0
-  - path: Temp\UnityTempFile-e76254969c6e8e34c8368654f187fbf0
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-e76254969c6e8e34c8368654f187fbf0
-    projectPath: Temp\UnityTempFile-e76254969c6e8e34c8368654f187fbf0
-    originalPath: 
-    status: 1
-    staged: 0
-  - path: Temp\UnityTempFile-eb4901b9b2a4a67448c226a74bf3af66
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-eb4901b9b2a4a67448c226a74bf3af66
-    projectPath: Temp\UnityTempFile-eb4901b9b2a4a67448c226a74bf3af66
-    originalPath: 
-    status: 1
-    staged: 0
-  - path: Temp\UnityTempFile-f5cd16411bd4e524c981221a82dcf58e
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-f5cd16411bd4e524c981221a82dcf58e
-    projectPath: Temp\UnityTempFile-f5cd16411bd4e524c981221a82dcf58e
-    originalPath: 
-    status: 1
-    staged: 0
-  - path: Temp\UnityTempFile-f62f7095e494d2442933625fea38f5e0
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-f62f7095e494d2442933625fea38f5e0
-    projectPath: Temp\UnityTempFile-f62f7095e494d2442933625fea38f5e0
-    originalPath: 
-    status: 1
-    staged: 0
-  - path: Temp\UnityTempFile-f6fbde410b1c1574eaa25135b56e77d1
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-f6fbde410b1c1574eaa25135b56e77d1
-    projectPath: Temp\UnityTempFile-f6fbde410b1c1574eaa25135b56e77d1
-    originalPath: 
-    status: 1
-    staged: 0
-  - path: Temp\UnityTempFile-f983380aa2865004da8a983865c27db8
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-f983380aa2865004da8a983865c27db8
-    projectPath: Temp\UnityTempFile-f983380aa2865004da8a983865c27db8
-    originalPath: 
-    status: 1
-    staged: 0
-  - path: Temp\UnityTempFile-fc716a326ea44944683a5256a2013799
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-fc716a326ea44944683a5256a2013799
-    projectPath: Temp\UnityTempFile-fc716a326ea44944683a5256a2013799
-    originalPath: 
-    status: 1
-    staged: 0
-  - path: Temp\UnityTempFile-feda46ec5ca15874f9aa4c92e3f14de1
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-feda46ec5ca15874f9aa4c92e3f14de1
-    projectPath: Temp\UnityTempFile-feda46ec5ca15874f9aa4c92e3f14de1
-    originalPath: 
-    status: 1
-    staged: 0
-  - path: Temp\UnityTempFile-ffe0179fd752f814dbce56121393fc1a
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-ffe0179fd752f814dbce56121393fc1a
-    projectPath: Temp\UnityTempFile-ffe0179fd752f814dbce56121393fc1a
-    originalPath: 
-    status: 1
-    staged: 0
-  - path: Temp\UnityVS_obj\Debug\build.force
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityVS_obj\Debug\build.force
-    projectPath: Temp\UnityVS_obj\Debug\build.force
-    originalPath: 
-    status: 1
-    staged: 0
-  - path: Temp\UnityVS_obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityVS_obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache
-    projectPath: Temp\UnityVS_obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache
-    originalPath: 
-    status: 1
-    staged: 0
-  - path: Temp\UnityVS_obj\Debug\LifeIsKnowledge.csproj.CoreCompileInputs.cache
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityVS_obj\Debug\LifeIsKnowledge.csproj.CoreCompileInputs.cache
-    projectPath: Temp\UnityVS_obj\Debug\LifeIsKnowledge.csproj.CoreCompileInputs.cache
-    originalPath: 
-    status: 1
-    staged: 0
-  - path: Temp\UnityVS_obj\Debug\LifeIsKnowledge.csprojResolveAssemblyReference.cache
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityVS_obj\Debug\LifeIsKnowledge.csprojResolveAssemblyReference.cache
-    projectPath: Temp\UnityVS_obj\Debug\LifeIsKnowledge.csprojResolveAssemblyReference.cache
-    originalPath: 
-    status: 1
-    staged: 0
-  - path: Temp\UnityVS_obj\Debug\LifeIsKnowledge.Editor.csproj.CoreCompileInputs.cache
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityVS_obj\Debug\LifeIsKnowledge.Editor.csproj.CoreCompileInputs.cache
-    projectPath: Temp\UnityVS_obj\Debug\LifeIsKnowledge.Editor.csproj.CoreCompileInputs.cache
-    originalPath: 
-    status: 1
-    staged: 0
-  - path: Temp\UnityVS_obj\Debug\LifeIsKnowledge.Editor.csprojResolveAssemblyReference.cache
-    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityVS_obj\Debug\LifeIsKnowledge.Editor.csprojResolveAssemblyReference.cache
-    projectPath: Temp\UnityVS_obj\Debug\LifeIsKnowledge.Editor.csprojResolveAssemblyReference.cache
+  - path: Temp\UnityTempFile-ff41b4bd616806e439e6db2a6ab5926f
+    fullPath: C:\Users\trill\UnityProjects\LifeIsKnowledge\Temp\UnityTempFile-ff41b4bd616806e439e6db2a6ab5926f
+    projectPath: Temp\UnityTempFile-ff41b4bd616806e439e6db2a6ab5926f
     originalPath: 
     status: 1
     staged: 0

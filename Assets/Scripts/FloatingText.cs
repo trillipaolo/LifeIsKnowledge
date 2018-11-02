@@ -8,7 +8,6 @@ public class FloatingText : MonoBehaviour {
     public Animator animator;
 
 	void Awake () {
-        Debug.Log("aaa");
         AnimatorClipInfo[] animatorInfo = animator.GetCurrentAnimatorClipInfo(0);
         Destroy(gameObject,animatorInfo[0].clip.length);
 	}
