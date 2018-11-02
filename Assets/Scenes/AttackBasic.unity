@@ -278,7 +278,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lastHit: -1
-  health: 10
+  health: 25
 --- !u!61 &269972204
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3892,6 +3892,7 @@ MonoBehaviour:
   jumpSpeed: 0.5
   gravity: 3
   yNudge: -2.5
+  directionFacing: 1
 --- !u!4 &1490480935
 Transform:
   m_ObjectHideFlags: 0
@@ -3945,6 +3946,7 @@ MonoBehaviour:
   enemyLayerMask:
     serializedVersion: 2
     m_Bits: 512
+  playerMovement: {fileID: 1490480934}
 --- !u!95 &1490480943
 Animator:
   serializedVersion: 3
@@ -4361,7 +4363,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lastHit: -1
-  health: 10
+  health: 45
 --- !u!61 &1883967211
 BoxCollider2D:
   m_ObjectHideFlags: 0

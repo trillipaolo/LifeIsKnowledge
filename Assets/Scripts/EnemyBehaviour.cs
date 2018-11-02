@@ -18,13 +18,13 @@ public class EnemyBehaviour : MonoBehaviour {
 	}
 
     public void TakeDamage(int hitId, float damage) {
-        if(hitId == lastHit) {
+        if (hitId == lastHit) {
             return;
         }
 
         FloatingTextController.CreateFloatingText(damage.ToString(),gameObject.transform);
 
-        hitId = lastHit;
+        lastHit = hitId;
         health -= damage;
 
         if (health < 0) {

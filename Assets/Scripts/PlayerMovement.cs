@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour {
     public float jumpSpeed = 5.0f;
     public float gravity = 3.0f;
     public float yNudge = -2.5f;
+    public float directionFacing = 1;
 
     private bool _grounded = false;
     private float _yVelocity = 0f;
@@ -29,7 +30,8 @@ public class PlayerMovement : MonoBehaviour {
 
         transform.Translate(frameMovement * Time.deltaTime);
         if (frameMovement.x != 0) {
-            transform.localScale = new Vector3(Mathf.Sign(frameMovement.x),1,1);
+            directionFacing = Mathf.Sign(frameMovement.x);
+            transform.localScale = new Vector3(directionFacing,1,1);
         }
     }
 
