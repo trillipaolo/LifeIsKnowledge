@@ -6,9 +6,11 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b0e71678437576f45b619d4ad7a8d9f1, type: 3}
-  m_Name: RotationMiddleMiddle
+  m_Name: SwordHitMiddleMiddle
   m_EditorClassIdentifier: 
-  damage: 10
+  weapon: {fileID: 11400000, guid: 55bfc08bd8d61bc4fbbe7d6e0c704101, type: 2}
+  damage: 15
+  animationClip: {fileID: 7400000, guid: 72fc76f386ee11d45b1c034d40fa35e3, type: 2}

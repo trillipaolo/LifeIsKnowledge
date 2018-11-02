@@ -12,13 +12,7 @@ public class PlayerMovement : MonoBehaviour {
 
     private bool _grounded = false;
     private float _yVelocity = 0f;
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
+    
 	void Update () {
 
         UpdateXMovement();

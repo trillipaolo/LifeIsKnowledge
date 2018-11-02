@@ -5,15 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "ScriptableObjects/Weapon")]
 public class Weapon : ScriptableObject {
 
-    public float dimention = 0f;
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public Vector2[] collidersCenter = new Vector2[EnumColliderPosition.Size()];
+    public Vector2[] collidersSize = new Vector2[EnumColliderPosition.Size()];
+    public BinaryTree comboTree = new BinaryTree();
 }
