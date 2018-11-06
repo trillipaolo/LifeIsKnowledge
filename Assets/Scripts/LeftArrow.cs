@@ -7,19 +7,10 @@ public class LeftArrow : MonoBehaviour {
     public SpriteRenderer sprite;
     public bool active = true;
 
-    public void SetActive(bool active)
-    {
-        this.active = active;
-    }
 
 	// Use this for initialization
 	private void Awake () {
-        Debug.Log("Object created");
-        if (true)
-        {
-            Debug.Log("Starting Fading effect");
-            FadeEffect();
-        }
+        
 	}
 	
 	// Update is called once per frame
@@ -33,12 +24,6 @@ public class LeftArrow : MonoBehaviour {
         Color c = sprite.material.color;
         c.a = 0f;
         sprite.material.color = c;
-
-        /*do
-        {
-            StartCoroutine("FadeIn");
-            StartCoroutine("FadeOut");
-        } while (active);*/
     }
 
     IEnumerator FadeIn ()

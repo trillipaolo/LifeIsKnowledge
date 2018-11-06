@@ -12,12 +12,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cacheType: 4
-<<<<<<< HEAD
-  lastUpdatedAtString: 2018-11-06T18:41:29.502+01:00
-  initializedAtString: 2018-11-06T18:41:29.502+01:00
-=======
-  lastUpdatedAtString: 2018-11-06T15:26:47.362+01:00
-  initializedAtString: 2018-11-06T15:26:47.362+01:00
->>>>>>> parent of e471ff1... Commit 1: Uncomplete Commit
+  lastUpdatedAtString: 2018-11-06T21:32:40.001+01:00
+  initializedAtString: 2018-11-06T21:32:40.001+01:00
   ahead: 0
   behind: 0
