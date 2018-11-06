@@ -39,6 +39,7 @@ public class EnemyBehaviour : MonoBehaviour {
     }
 
     private void Rekt() {
+        // TODO delete it :(
         FloatingTextController.CreateFloatingText("REKT <o/",gameObject.transform);
         Destroy(gameObject);
     }

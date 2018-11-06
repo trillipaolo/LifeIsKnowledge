@@ -3,12 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour {
-
-    // TODO delete them (maybe)
-    public Transform TopYTransform;
-    public Transform UpYTransform;
-    public Transform MiddleYTransform;
-    public Transform DownYTransform;
+    
+    // TODO we can change Physics2D.OverlapBox with Collider2D.OverlapCollider (to have the possibility to use different shapes)
 
     public Weapon currentWeapon;
     private Vector2[] _collidersCenter;
@@ -155,7 +151,7 @@ public class PlayerAttack : MonoBehaviour {
 
 
 
-
+    
 
 
 
