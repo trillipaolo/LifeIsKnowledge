@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cacheType: 2
-  lastUpdatedAtString: 2018-10-29T17:56:07.459+01:00
-  initializedAtString: 2018-10-29T17:56:07.441+01:00
+  lastUpdatedAtString: 2018-11-06T18:01:18.126+01:00
+  initializedAtString: 2018-11-06T18:01:17.341+01:00
   localBranches:
+  - name: erick-menu-combo
+    tracking: origin/erick-menu-combo
   - name: master
     tracking: origin/master
-  - name: paolo-attack-basic
-    tracking: 
   remoteBranches:
-  - name: origin/master
+  - name: origin/HEAD
     tracking: '[None]'
   remotes:
   - name: origin
@@ -32,28 +32,28 @@ MonoBehaviour:
     token: 
   localConfigBranches:
     keys:
+    - erick-menu-combo
     - master
-    - paolo-attack-basic
     values:
+    - name: erick-menu-combo
+      remote:
+        name: origin
+        url: https://github.com/trillipaolo/LifeIsKnowledge.git
+      trackingBranch: erick-menu-combo
     - name: master
       remote:
         name: origin
         url: https://github.com/trillipaolo/LifeIsKnowledge.git
       trackingBranch: master
-    - name: paolo-attack-basic
-      remote:
-        name: 
-        url: 
-      trackingBranch: 
   remoteConfigBranches:
     keys:
     - origin
     subKeys:
     - Values:
-      - master
+      - HEAD
     subKeyValues:
     - Values:
-      - name: master
+      - name: HEAD
         remote:
           name: origin
           url: https://github.com/trillipaolo/LifeIsKnowledge.git
