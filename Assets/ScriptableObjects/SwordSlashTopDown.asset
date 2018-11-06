@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0e71678437576f45b619d4ad7a8d9f1, type: 3}
+  m_Name: SwordSlashTopDown
+  m_EditorClassIdentifier: 
+  weapon: {fileID: 11400000, guid: 55bfc08bd8d61bc4fbbe7d6e0c704101, type: 2}
+  damage: 20
+  animationClip: {fileID: 7400000, guid: 5632798d0a2ea9244a95df1b865847e1, type: 2}
