@@ -80,7 +80,8 @@ public class PlayerAttack : MonoBehaviour {
 
         for(int i = 0; i < _collidersCenter.Length; i++) {
             if (colliderPositions[i]) {
-                Collider2D[] enemiesCollider = Physics2D.OverlapBoxAll(_collidersCenter[i] * directionFacing + (Vector2)gameObject.transform.position,_collidersSize[i],0,enemyLayerMask);
+                Vector2 overlapBoxCenter = (new Vector2(_collidersCenter[i].x * directionFacing,_collidersCenter[i].y)) + (Vector2)gameObject.transform.position;
+                Collider2D[] enemiesCollider = Physics2D.OverlapBoxAll(overlapBoxCenter,_collidersSize[i],0,enemyLayerMask);
                 for (int j = 0; j < enemiesCollider.Length; j++) {
                     enemiesCollider[j].GetComponent<EnemyBehaviour>().TakeDamage(_hitId,_damage);
                 }
