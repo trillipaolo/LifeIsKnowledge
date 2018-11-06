@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ComboMenuManager : MonoBehaviour {
 
-    public static ComboMenuManager instance { get; private set; }
+    public static ComboMenuManager Instance { get; private set; }
 
     public BinaryTree knifeBinaryTree;
     public GameObject rootNode;
@@ -21,9 +21,9 @@ public class ComboMenuManager : MonoBehaviour {
 
     private void Awake()
     {
-        if (instance == null)
+        if (Instance == null)
         {
-            instance = this;
+            Instance = this;
             DontDestroyOnLoad(gameObject);
         }
         else
@@ -64,8 +64,10 @@ public class ComboMenuManager : MonoBehaviour {
         Vector3 leftArrowOffset = new Vector3(xOffsetArrow, yOffsetArrow, 0);
         Vector3 leftArrowPosition = fatherPosition + leftArrowOffset;
         Quaternion leftArrowRotation = Quaternion.Euler(0, 0, zRotationArrow);
-        
+
+        leftArrow.SetActive(true);
         Instantiate(leftArrow, leftArrowPosition, leftArrowRotation);
+
     }
 
     //Instantiate the Right Arrow in the correct position w.r.t. the father node position

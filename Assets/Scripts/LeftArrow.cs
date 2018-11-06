@@ -4,13 +4,62 @@ using UnityEngine;
 
 public class LeftArrow : MonoBehaviour {
 
+    public SpriteRenderer sprite;
+    public bool active = true;
+
+    public void SetActive(bool active)
+    {
+        this.active = active;
+    }
+
 	// Use this for initialization
-	void Start () {
-		
+	private void Awake () {
+        Debug.Log("Object created");
+        if (true)
+        {
+            Debug.Log("Starting Fading effect");
+            FadeEffect();
+        }
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		
 	}
+
+    private void FadeEffect()
+    {
+        sprite = GetComponent<SpriteRenderer>();
+        Color c = sprite.material.color;
+        c.a = 0f;
+        sprite.material.color = c;
+
+        /*do
+        {
+            StartCoroutine("FadeIn");
+            StartCoroutine("FadeOut");
+        } while (active);*/
+    }
+
+    IEnumerator FadeIn ()
+    {
+        for (float f = 0.05f; f <= 1; f += 0.05f)
+        {
+            Color c = sprite.material.color;
+            c.a = f;
+            sprite.material.color = c;
+            yield return new WaitForSeconds(0.05f);
+        }
+    }
+
+    IEnumerator FadeOut ()
+    {
+        for (float f = 1f; f >= -0.05f; f -= 0.05f)
+        {
+            Color c = sprite.material.color;
+            c.a = f;
+            sprite.material.color = c;
+            yield return new WaitForSeconds(0.05f);
+        }
+    }
 }

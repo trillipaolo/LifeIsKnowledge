@@ -12,6 +12,228 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cacheType: 5
-  lastUpdatedAtString: 2018-11-06T18:05:03.035+01:00
-  initializedAtString: 2018-11-06T18:04:44.821+01:00
-  entries: []
+  lastUpdatedAtString: 2018-11-06T18:41:29.485+01:00
+  initializedAtString: 2018-11-06T18:41:29.485+01:00
+  entries:
+  - path: .vs\LifeIsKnowledge\v15\.suo
+    fullPath: E:\Unity Projects\LifeIsKnowledge\.vs\LifeIsKnowledge\v15\.suo
+    projectPath: .vs\LifeIsKnowledge\v15\.suo
+    originalPath: 
+    status: 3
+    staged: 0
+  - path: .vs\LifeIsKnowledge\v15\Server\sqlite3\storage.ide
+    fullPath: E:\Unity Projects\LifeIsKnowledge\.vs\LifeIsKnowledge\v15\Server\sqlite3\storage.ide
+    projectPath: .vs\LifeIsKnowledge\v15\Server\sqlite3\storage.ide
+    originalPath: 
+    status: 3
+    staged: 0
+  - path: .vs\LifeIsKnowledge\v15\Server\sqlite3\storage.ide-shm
+    fullPath: E:\Unity Projects\LifeIsKnowledge\.vs\LifeIsKnowledge\v15\Server\sqlite3\storage.ide-shm
+    projectPath: .vs\LifeIsKnowledge\v15\Server\sqlite3\storage.ide-shm
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: .vs\LifeIsKnowledge\v15\Server\sqlite3\storage.ide-wal
+    fullPath: E:\Unity Projects\LifeIsKnowledge\.vs\LifeIsKnowledge\v15\Server\sqlite3\storage.ide-wal
+    projectPath: .vs\LifeIsKnowledge\v15\Server\sqlite3\storage.ide-wal
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Assets\Prefabs\LeftArrow.prefab
+    fullPath: E:\Unity Projects\LifeIsKnowledge\Assets\Prefabs\LeftArrow.prefab
+    projectPath: Assets\Prefabs\LeftArrow.prefab
+    originalPath: 
+    status: 3
+    staged: 0
+  - path: Assets\Prefabs\RightArrow.prefab
+    fullPath: E:\Unity Projects\LifeIsKnowledge\Assets\Prefabs\RightArrow.prefab
+    projectPath: Assets\Prefabs\RightArrow.prefab
+    originalPath: 
+    status: 3
+    staged: 0
+  - path: Assets\Scenes\ComboMenu.unity
+    fullPath: E:\Unity Projects\LifeIsKnowledge\Assets\Scenes\ComboMenu.unity
+    projectPath: Assets\Scenes\ComboMenu.unity
+    originalPath: 
+    status: 3
+    staged: 0
+  - path: Assets\Scripts\ComboMenuManager.cs
+    fullPath: E:\Unity Projects\LifeIsKnowledge\Assets\Scripts\ComboMenuManager.cs
+    projectPath: Assets\Scripts\ComboMenuManager.cs
+    originalPath: 
+    status: 3
+    staged: 0
+  - path: Assets\Scripts\LeftArrow.cs
+    fullPath: E:\Unity Projects\LifeIsKnowledge\Assets\Scripts\LeftArrow.cs
+    projectPath: Assets\Scripts\LeftArrow.cs
+    originalPath: 
+    status: 3
+    staged: 0
+  - path: Library\assetDatabase3
+    fullPath: E:\Unity Projects\LifeIsKnowledge\Library\assetDatabase3
+    projectPath: Library\assetDatabase3
+    originalPath: 
+    status: 3
+    staged: 0
+  - path: Library\CurrentLayout.dwlt
+    fullPath: E:\Unity Projects\LifeIsKnowledge\Library\CurrentLayout.dwlt
+    projectPath: Library\CurrentLayout.dwlt
+    originalPath: 
+    status: 3
+    staged: 0
+  - path: Library\EditorInstance.json
+    fullPath: E:\Unity Projects\LifeIsKnowledge\Library\EditorInstance.json
+    projectPath: Library\EditorInstance.json
+    originalPath: 
+    status: 3
+    staged: 0
+  - path: Library\gfu\cache\gitstatusentries.yaml
+    fullPath: E:\Unity Projects\LifeIsKnowledge\Library\gfu\cache\gitstatusentries.yaml
+    projectPath: Library\gfu\cache\gitstatusentries.yaml
+    originalPath: 
+    status: 3
+    staged: 0
+  - path: Library\gfu\cache\gittrackingstatus.yaml
+    fullPath: E:\Unity Projects\LifeIsKnowledge\Library\gfu\cache\gittrackingstatus.yaml
+    projectPath: Library\gfu\cache\gittrackingstatus.yaml
+    originalPath: 
+    status: 3
+    staged: 0
+  - path: Library\gfu\cache\repoinfo.yaml
+    fullPath: E:\Unity Projects\LifeIsKnowledge\Library\gfu\cache\repoinfo.yaml
+    projectPath: Library\gfu\cache\repoinfo.yaml
+    originalPath: 
+    status: 3
+    staged: 0
+  - path: Library\LastSceneManagerSetup.txt
+    fullPath: E:\Unity Projects\LifeIsKnowledge\Library\LastSceneManagerSetup.txt
+    projectPath: Library\LastSceneManagerSetup.txt
+    originalPath: 
+    status: 3
+    staged: 0
+  - path: Library\metadata\1e\1eeee07a4b9e94443b450cc94d37d369
+    fullPath: E:\Unity Projects\LifeIsKnowledge\Library\metadata\1e\1eeee07a4b9e94443b450cc94d37d369
+    projectPath: Library\metadata\1e\1eeee07a4b9e94443b450cc94d37d369
+    originalPath: 
+    status: 3
+    staged: 0
+  - path: Library\metadata\b1\b1ec15871862b17478533eef0141faf8
+    fullPath: E:\Unity Projects\LifeIsKnowledge\Library\metadata\b1\b1ec15871862b17478533eef0141faf8
+    projectPath: Library\metadata\b1\b1ec15871862b17478533eef0141faf8
+    originalPath: 
+    status: 3
+    staged: 0
+  - path: Library\ScriptAssemblies\Assembly-CSharp.dll
+    fullPath: E:\Unity Projects\LifeIsKnowledge\Library\ScriptAssemblies\Assembly-CSharp.dll
+    projectPath: Library\ScriptAssemblies\Assembly-CSharp.dll
+    originalPath: 
+    status: 3
+    staged: 0
+  - path: Library\ScriptAssemblies\Assembly-CSharp.dll.mdb
+    fullPath: E:\Unity Projects\LifeIsKnowledge\Library\ScriptAssemblies\Assembly-CSharp.dll.mdb
+    projectPath: Library\ScriptAssemblies\Assembly-CSharp.dll.mdb
+    originalPath: 
+    status: 3
+    staged: 0
+  - path: Temp\UnityLockfile
+    fullPath: E:\Unity Projects\LifeIsKnowledge\Temp\UnityLockfile
+    projectPath: Temp\UnityLockfile
+    originalPath: 
+    status: 3
+    staged: 0
+  - path: Temp\UnityTempFile-0e0fac695f90af84abfc12418e1905c6
+    fullPath: E:\Unity Projects\LifeIsKnowledge\Temp\UnityTempFile-0e0fac695f90af84abfc12418e1905c6
+    projectPath: Temp\UnityTempFile-0e0fac695f90af84abfc12418e1905c6
+    originalPath: 
+    status: 5
+    staged: 0
+  - path: Temp\UnityTempFile-27a3070bd79c08346b50897a39bd9986
+    fullPath: E:\Unity Projects\LifeIsKnowledge\Temp\UnityTempFile-27a3070bd79c08346b50897a39bd9986
+    projectPath: Temp\UnityTempFile-27a3070bd79c08346b50897a39bd9986
+    originalPath: 
+    status: 5
+    staged: 0
+  - path: Temp\UnityTempFile-323bb5147984d2e4f89e88325e716aed
+    fullPath: E:\Unity Projects\LifeIsKnowledge\Temp\UnityTempFile-323bb5147984d2e4f89e88325e716aed
+    projectPath: Temp\UnityTempFile-323bb5147984d2e4f89e88325e716aed
+    originalPath: 
+    status: 5
+    staged: 0
+  - path: Temp\UnityTempFile-369623e26ad352d4481ff76ff9b6ee37
+    fullPath: E:\Unity Projects\LifeIsKnowledge\Temp\UnityTempFile-369623e26ad352d4481ff76ff9b6ee37
+    projectPath: Temp\UnityTempFile-369623e26ad352d4481ff76ff9b6ee37
+    originalPath: 
+    status: 5
+    staged: 0
+  - path: Temp\UnityTempFile-462e202788973964db07c9a2ba81d0d0
+    fullPath: E:\Unity Projects\LifeIsKnowledge\Temp\UnityTempFile-462e202788973964db07c9a2ba81d0d0
+    projectPath: Temp\UnityTempFile-462e202788973964db07c9a2ba81d0d0
+    originalPath: 
+    status: 5
+    staged: 0
+  - path: Temp\UnityTempFile-4b5812ab32cd2da478ad70cc674b1413
+    fullPath: E:\Unity Projects\LifeIsKnowledge\Temp\UnityTempFile-4b5812ab32cd2da478ad70cc674b1413
+    projectPath: Temp\UnityTempFile-4b5812ab32cd2da478ad70cc674b1413
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Temp\UnityTempFile-599c2fd51bceae644857c9d1dff2f1e2
+    fullPath: E:\Unity Projects\LifeIsKnowledge\Temp\UnityTempFile-599c2fd51bceae644857c9d1dff2f1e2
+    projectPath: Temp\UnityTempFile-599c2fd51bceae644857c9d1dff2f1e2
+    originalPath: 
+    status: 5
+    staged: 0
+  - path: Temp\UnityTempFile-5feb59290cfee0d48b5b765d05d337c1
+    fullPath: E:\Unity Projects\LifeIsKnowledge\Temp\UnityTempFile-5feb59290cfee0d48b5b765d05d337c1
+    projectPath: Temp\UnityTempFile-5feb59290cfee0d48b5b765d05d337c1
+    originalPath: 
+    status: 5
+    staged: 0
+  - path: Temp\UnityTempFile-733114c26a2140a49ad7542381ea66fe
+    fullPath: E:\Unity Projects\LifeIsKnowledge\Temp\UnityTempFile-733114c26a2140a49ad7542381ea66fe
+    projectPath: Temp\UnityTempFile-733114c26a2140a49ad7542381ea66fe
+    originalPath: 
+    status: 5
+    staged: 0
+  - path: Temp\UnityTempFile-7453601668be59b4191a420ad0a66a32
+    fullPath: E:\Unity Projects\LifeIsKnowledge\Temp\UnityTempFile-7453601668be59b4191a420ad0a66a32
+    projectPath: Temp\UnityTempFile-7453601668be59b4191a420ad0a66a32
+    originalPath: 
+    status: 5
+    staged: 0
+  - path: Temp\UnityTempFile-8598751d5f6f57f4891904725f6396df
+    fullPath: E:\Unity Projects\LifeIsKnowledge\Temp\UnityTempFile-8598751d5f6f57f4891904725f6396df
+    projectPath: Temp\UnityTempFile-8598751d5f6f57f4891904725f6396df
+    originalPath: 
+    status: 5
+    staged: 0
+  - path: Temp\UnityTempFile-982d00f09c7579649b34fe97dcf037a1
+    fullPath: E:\Unity Projects\LifeIsKnowledge\Temp\UnityTempFile-982d00f09c7579649b34fe97dcf037a1
+    projectPath: Temp\UnityTempFile-982d00f09c7579649b34fe97dcf037a1
+    originalPath: 
+    status: 5
+    staged: 0
+  - path: Temp\UnityTempFile-acda9991fbcfe9240b85da33986f65b4
+    fullPath: E:\Unity Projects\LifeIsKnowledge\Temp\UnityTempFile-acda9991fbcfe9240b85da33986f65b4
+    projectPath: Temp\UnityTempFile-acda9991fbcfe9240b85da33986f65b4
+    originalPath: 
+    status: 5
+    staged: 0
+  - path: Temp\UnityTempFile-d47b63c8043c3f543a0918add5757eb2
+    fullPath: E:\Unity Projects\LifeIsKnowledge\Temp\UnityTempFile-d47b63c8043c3f543a0918add5757eb2
+    projectPath: Temp\UnityTempFile-d47b63c8043c3f543a0918add5757eb2
+    originalPath: 
+    status: 1
+    staged: 0
+  - path: Temp\UnityTempFile-dd98fd8f66f1d29409cf1d2a016d123a
+    fullPath: E:\Unity Projects\LifeIsKnowledge\Temp\UnityTempFile-dd98fd8f66f1d29409cf1d2a016d123a
+    projectPath: Temp\UnityTempFile-dd98fd8f66f1d29409cf1d2a016d123a
+    originalPath: 
+    status: 5
+    staged: 0
+  - path: Temp\UnityTempFile-e5c4534c446d1254f9c4ce0c2e121bba
+    fullPath: E:\Unity Projects\LifeIsKnowledge\Temp\UnityTempFile-e5c4534c446d1254f9c4ce0c2e121bba
+    projectPath: Temp\UnityTempFile-e5c4534c446d1254f9c4ce0c2e121bba
+    originalPath: 
+    status: 5
+    staged: 0

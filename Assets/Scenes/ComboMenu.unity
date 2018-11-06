@@ -143,9 +143,10 @@ MonoBehaviour:
   rootNode: {fileID: 1757952272830448, guid: 547c872f23afb7c4eb613d3e1e626f50, type: 2}
   leftArrow: {fileID: 1268010806968220, guid: 249e0c52b21115746a9cc29f701a6807, type: 2}
   rightArrow: {fileID: 1415834054712612, guid: e120c452fb4575b4483e2c728ee79469, type: 2}
-  xOffset: 1.5
-  yOffset: 1
-  zRotation: 30
+  xOffsetNode: -7
+  xOffsetArrow: 1.5
+  yOffsetArrow: 1
+  zRotationArrow: 30
 --- !u!4 &1764824439
 Transform:
   m_ObjectHideFlags: 0

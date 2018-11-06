@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4131822557111758}
   - component: {fileID: 212893345581840794}
+  - component: {fileID: 114417718795989366}
   m_Layer: 0
   m_Name: RightArrow
   m_TagString: Untagged
@@ -40,6 +41,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114417718795989366
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1415834054712612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886a650982530ab4aa5d51310e24fde7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212893345581840794
 SpriteRenderer:
   m_ObjectHideFlags: 1
