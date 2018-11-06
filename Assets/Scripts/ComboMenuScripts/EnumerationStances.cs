@@ -2,7 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnumerationStances : MonoBehaviour {
+public enum Stance {
+    UP,
+    MIDDLE,
+    DOWN
+}
 
-	public enum Stance {Up, Middle, Down };
+public static class EnumerationStance {
+    //TODO ADD METHODS OR DELETE
 }
