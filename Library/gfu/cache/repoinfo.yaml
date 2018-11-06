@@ -12,8 +12,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cacheType: 1
+<<<<<<< HEAD
   lastUpdatedAtString: 2018-11-06T18:41:29.183+01:00
   initializedAtString: 2018-11-06T18:41:29.183+01:00
+=======
+  lastUpdatedAtString: 2018-11-06T15:26:45.997+01:00
+  initializedAtString: 2018-11-06T15:26:45.997+01:00
+>>>>>>> parent of e471ff1... Commit 1: Uncomplete Commit
   currentGitRemote:
     name: origin
     url: https://github.com/trillipaolo/LifeIsKnowledge.git

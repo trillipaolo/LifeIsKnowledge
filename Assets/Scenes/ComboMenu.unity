@@ -137,9 +137,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1764824437}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1eeee07a4b9e94443b450cc94d37d369, type: 3}
+  m_Script: {fileID: 11500000, guid: 4f302be9c08cdaa438fc393f4a7261ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   rootNode: {fileID: 1757952272830448, guid: 547c872f23afb7c4eb613d3e1e626f50, type: 2}
   leftArrow: {fileID: 1268010806968220, guid: 249e0c52b21115746a9cc29f701a6807, type: 2}
   rightArrow: {fileID: 1415834054712612, guid: e120c452fb4575b4483e2c728ee79469, type: 2}
@@ -147,6 +148,14 @@ MonoBehaviour:
   xOffsetArrow: 1.5
   yOffsetArrow: 1
   zRotationArrow: 30
+=======
+  rootNode: {fileID: 1757952272830448, guid: 1b875cdfadba04e41b862fbf9672b4a0, type: 2}
+  leftArrow: {fileID: 1268010806968220, guid: 85a5fd0dd4d12244b84b0d689274924b, type: 2}
+  rightArrow: {fileID: 1415834054712612, guid: 80417900fd3dce2419dfd22887b8d224, type: 2}
+  xOffset: 2
+  yOffset: 2
+  zRotation: 30
+>>>>>>> parent of e471ff1... Commit 1: Uncomplete Commit
 --- !u!4 &1764824439
 Transform:
   m_ObjectHideFlags: 0

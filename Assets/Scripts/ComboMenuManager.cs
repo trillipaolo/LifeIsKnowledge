@@ -7,17 +7,14 @@ public class ComboMenuManager : MonoBehaviour {
     public static ComboMenuManager Instance { get; private set; }
 
     public BinaryTree knifeBinaryTree;
-    public GameObject rootNode;
-    public GameObject leftArrow;
-    public GameObject rightArrow;
-
-    [Header("RootNode offset")]
-    public float xOffsetNode;
+    public BinaryTree rootNode;
+    public BinaryTree leftArrow;
+    public BinaryTree rightArrow;
 
     [Header("Arrows Offset and Rotation")]
-    public float xOffsetArrow;
-    public float yOffsetArrow;
-    public float zRotationArrow;
+    public int xOffset;
+    public int yOffset;
+    public int zRotation;
 
     private void Awake()
     {
@@ -36,11 +33,11 @@ public class ComboMenuManager : MonoBehaviour {
     void Start() {
         knifeBinaryTree = new BinaryTree();
 
-        Vector3 rootNodeOffset = new Vector3(xOffsetNode, 0, 0);
-        Vector3 rootNodePosition = this.GetComponent<Transform>().position + rootNodeOffset;
-        Quaternion rootNodeRotation = Quaternion.Euler(0, 0, 0);
 
-        Instantiate(rootNode, rootNodePosition, rootNodeRotation);
+        Transform rootNodePosition = this.GetComponent<Transform>();
+        // why you need to instantiate it? it is only a data structure
+        //Instantiate(knifeBinaryTree, rootNodePosition);
+
         InitChildren(rootNodePosition);
     }
 
@@ -49,18 +46,15 @@ public class ComboMenuManager : MonoBehaviour {
 
     }
 
-
-    //Instantiate the next branch of the tree
-    public void InitChildren(Vector3 fatherPosition)
+    public void InitChildren(Transform fatherPosition)
     {
         SetLeftArrow(fatherPosition);
         SetRightArrow(fatherPosition);
     }
 
-
-    //Instantiate the Left Arrow in the correct position
-    public void SetLeftArrow(Vector3 fatherPosition)
+    public void SetLeftArrow(Transform fatherTransform)
     {
+<<<<<<< HEAD
         Vector3 leftArrowOffset = new Vector3(xOffsetArrow, yOffsetArrow, 0);
         Vector3 leftArrowPosition = fatherPosition + leftArrowOffset;
         Quaternion leftArrowRotation = Quaternion.Euler(0, 0, zRotationArrow);
@@ -68,15 +62,17 @@ public class ComboMenuManager : MonoBehaviour {
         leftArrow.SetActive(true);
         Instantiate(leftArrow, leftArrowPosition, leftArrowRotation);
 
+=======
+        Vector3 leftArrowOffset = new Vector3(xOffset, yOffset, 0);
+        Vector3 leftArrowPosition = fatherTransform.position + leftArrowOffset;
+        Quaternion leftArrowRotation = Quaternion.Euler(0, 0, zRotation);
+        //same here
+        //Instantiate(leftArrow, leftArrowPosition, leftArrowRotation);
+>>>>>>> parent of e471ff1... Commit 1: Uncomplete Commit
     }
 
-    //Instantiate the Right Arrow in the correct position w.r.t. the father node position
-    public void SetRightArrow(Vector3 fatherPosition)
+    public void SetRightArrow(Transform fatherPosition)
     {
-        Vector3 rightArrowOffset = new Vector3(xOffsetArrow, -yOffsetArrow, 0);
-        Vector3 rightArrowPosition = fatherPosition + rightArrowOffset;
-        Quaternion rightArrowRotation = Quaternion.Euler(0, 0, -zRotationArrow);
 
-        Instantiate(rightArrow, rightArrowPosition, rightArrowRotation);
     }
 }
