@@ -19,4 +19,9 @@ public class BinaryTree {
         left = null;
         right = null;
     }
+
+
+    // TODO erick code, test if the merge is correct
+
+
 }

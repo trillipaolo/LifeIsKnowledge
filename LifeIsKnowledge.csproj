@@ -331,9 +331,11 @@
     <Compile Include="Assets\ExternalAssets\Tilemap\Tiles\Terrain Tile\Scripts\TerrainTile.cs" />
     <Compile Include="Assets\ExternalAssets\Tilemap\Tiles\Weighted Random Tile\WeightedRandomTile.cs" />
     <Compile Include="Assets\Scripts\Classes\BinaryTree.cs" />
+    <Compile Include="Assets\Scripts\ComboMenuManager.cs" />
     <Compile Include="Assets\Scripts\DisplayColliderGizmos.cs" />
     <Compile Include="Assets\Scripts\EnemyBehaviour.cs" />
     <Compile Include="Assets\Scripts\Enumerations\ColliderPosition.cs" />
+    <Compile Include="Assets\Scripts\Enumerations\EnumStances.cs" />
     <Compile Include="Assets\Scripts\FloatingText.cs" />
     <Compile Include="Assets\Scripts\FloatingTextController.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
