@@ -315,6 +315,7 @@
     <Compile Include="Assets\ExternalAssets\Tilemap\Tiles\Rule Tile\Scripts\RuleTile.cs" />
     <Compile Include="Assets\ExternalAssets\Tilemap\Tiles\Terrain Tile\Scripts\TerrainTile.cs" />
     <Compile Include="Assets\ExternalAssets\Tilemap\Tiles\Weighted Random Tile\WeightedRandomTile.cs" />
+    <Compile Include="Assets\Scripts\Arrow.cs" />
     <Compile Include="Assets\Scripts\Classes\BinaryTree.cs" />
     <Compile Include="Assets\Scripts\ComboMenuManager.cs" />
     <Compile Include="Assets\Scripts\DisplayColliderGizmos.cs" />
@@ -323,20 +324,16 @@
     <Compile Include="Assets\Scripts\Enumerations\EnumStances.cs" />
     <Compile Include="Assets\Scripts\FloatingText.cs" />
     <Compile Include="Assets\Scripts\FloatingTextController.cs" />
-    <Compile Include="Assets\Scripts\LeftArrow.cs" />
     <Compile Include="Assets\Scripts\Node.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\PlayerAttack.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
-    <Compile Include="Assets\Scripts\RightArrow.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\Card.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\Weapon.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\ExternalAssets\Tilemap\Brushes\Tint Brush Smooth\Shaders\TintedTilemap.shader" />
     <None Include="Assets\ExternalAssets\Tilemap\Tiles\Rule Tile\ScriptTemplates\NewCustomRuleTile.cs.txt" />
-    <None Include="Assets\Plugins\GitHub\Editor\credits.txt" />
-    <None Include="Assets\Plugins\GitHub\Editor\eula.txt" />
     <None Include="Assets\TempAssets\Knight Files\Read Me.txt" />
     <None Include="Assets\TempAssets\Pixel Font - Tripfive\_README.txt" />
     <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Styles\Main_Dark.uss" />

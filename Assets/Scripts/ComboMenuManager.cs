@@ -10,7 +10,6 @@ public class ComboMenuManager : MonoBehaviour {
     public GameObject rootNode;
     public GameObject leftArrow;
     public GameObject rightArrow;
-    public GameObject node;
 
     [Header("Arrows Offset and Rotation")]
     public float xOffsetArrow;
@@ -35,14 +34,16 @@ public class ComboMenuManager : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
-        knifeBinaryTree = new BinaryTree();
+        
 
-
+        //Create the root node and Instantiate it at the right position
         Vector3 rootNodePosition = this.GetComponent<Transform>().position;
         Vector3 rootNodeOffset = new Vector3(xOffsetNode, 0, 0);
         rootNodePosition = rootNodePosition + rootNodeOffset;
         Quaternion rootNodeRotation = new Quaternion(0, 0, 0, 0);
         Instantiate(rootNode, rootNodePosition, rootNodeRotation);
+
+        knifeBinaryTree = new BinaryTree();
 
         InitChildren(rootNodePosition);
     }

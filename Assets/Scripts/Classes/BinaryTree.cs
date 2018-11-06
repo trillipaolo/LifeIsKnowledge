@@ -5,6 +5,8 @@ using UnityEngine;
 public class BinaryTree {
 
     public Card value;
+    public GameObject node;
+    public int depth;
     public BinaryTree left;
     public BinaryTree right;
 
@@ -14,13 +16,15 @@ public class BinaryTree {
         right = null;
     }
 
-    public BinaryTree(Card card) {
+    public BinaryTree(Card card, GameObject currentNode, int currentDepth) {
         value = card;
         left = null;
         right = null;
+        node = currentNode;
+        depth = currentDepth;
     }
 
-
+    
     // TODO erick code, test if the merge is correct
 
 
