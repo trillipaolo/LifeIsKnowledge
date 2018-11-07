@@ -10,6 +10,8 @@ public class Arrow : MonoBehaviour {
 
 	// Use this for initialization
 	private void Awake () {
+
+        //Initialize 
         sprite = GetComponent<SpriteRenderer>();
         Color c = sprite.material.color;
         c.a = 0f;

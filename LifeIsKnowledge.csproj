@@ -317,6 +317,8 @@
     <Compile Include="Assets\ExternalAssets\Tilemap\Tiles\Weighted Random Tile\WeightedRandomTile.cs" />
     <Compile Include="Assets\Scripts\Arrow.cs" />
     <Compile Include="Assets\Scripts\Classes\BinaryTree.cs" />
+    <Compile Include="Assets\Scripts\Classes\NodeTree.cs" />
+    <Compile Include="Assets\Scripts\Classes\RootNodeTree.cs" />
     <Compile Include="Assets\Scripts\ComboMenuManager.cs" />
     <Compile Include="Assets\Scripts\DisplayColliderGizmos.cs" />
     <Compile Include="Assets\Scripts\EnemyBehaviour.cs" />
@@ -325,9 +327,11 @@
     <Compile Include="Assets\Scripts\FloatingText.cs" />
     <Compile Include="Assets\Scripts\FloatingTextController.cs" />
     <Compile Include="Assets\Scripts\Node.cs" />
+    <Compile Include="Assets\Scripts\NodeTry.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\PlayerAttack.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
+    <Compile Include="Assets\Scripts\RootNode.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\Card.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\Weapon.cs" />
   </ItemGroup>
