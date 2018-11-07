@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cacheType: 1
-  lastUpdatedAtString: 2018-11-06T12:15:06.353+01:00
-  initializedAtString: 2018-11-06T12:15:06.353+01:00
+  lastUpdatedAtString: 2018-11-06T23:18:18.434+01:00
+  initializedAtString: 2018-11-06T23:18:18.434+01:00
   currentGitRemote:
     name: origin
     url: https://github.com/trillipaolo/LifeIsKnowledge.git
@@ -23,14 +23,14 @@ MonoBehaviour:
     function: 0
     token: 
   currentGitBranch:
-    name: paolo-attack-basic
-    tracking: origin/paolo-attack-basic
+    name: paolo-fix-github-gitignore
+    tracking: origin/paolo-fix-github-gitignore
   currentConfigBranch:
-    name: paolo-attack-basic
+    name: paolo-fix-github-gitignore
     remote:
       name: origin
       url: https://github.com/trillipaolo/LifeIsKnowledge.git
-    trackingBranch: paolo-attack-basic
+    trackingBranch: paolo-fix-github-gitignore
   currentConfigRemote:
     name: origin
     url: https://github.com/trillipaolo/LifeIsKnowledge.git
