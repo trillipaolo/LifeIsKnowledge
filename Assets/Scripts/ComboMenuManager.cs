@@ -48,14 +48,44 @@ public class ComboMenuManager : MonoBehaviour {
         InitBinaryTree();
 
         InitChildren(_lastNodePosition);
-
-        
     }
 
     // Update is called once per frame
     void Update() {
 
-        
+        //MOVE BETWEEN NODES AND BETWEEN CARDS
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            //Switch CurrentNode's Placeholder at Left
+        }
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            //Switch CurrentNode's Placeholder at Right
+        }
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            //Switch CurrentNode down
+        }
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            //Switch CurrentNode Up
+        }
+
+        //CONFIRM A CARD
+        if(Input.GetKeyDown(KeyCode.KeypadEnter))
+        {
+            //Stop arrow fading
+            //Save Node in the Tree
+            //Initialize new children
+        }
+
+        //DESELECT A CARD 
+        if(Input.GetKeyDown(KeyCode.Backspace))
+        {   
+            //Eliminate currentNode and its brother
+            //Eliminate Father from the Tree
+            //Instantiate FatherNode Gameobject with its arrow fading
+        }
     }
 
     public void InitBinaryTree ()
@@ -131,7 +161,6 @@ public class ComboMenuManager : MonoBehaviour {
 
 
         NodeTree rightNodeTree = new NodeTree(node);
-
         //TODO ADD
     }
 }
