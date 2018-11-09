@@ -5,10 +5,7 @@ using UnityEngine;
 public class Arrow : MonoBehaviour {
 
     public SpriteRenderer sprite;
-    public bool active;
 
-
-	// Use this for initialization
 	private void Awake () {
 
         //Initialize 
@@ -17,16 +14,36 @@ public class Arrow : MonoBehaviour {
         c.a = 0f;
         sprite.material.color = c;
 
-        FadingEffect();
+        StartCoroutine("FadingSlow");
     }
 	
 	// Update is called once per frame
 	void Update () {
-        
-	}
-    
 
-    IEnumerator Fading ()
+    }
+
+    public void FromFastToSlow ()
+    {
+        StopCoroutine("FadingFast");
+        ResetColorSprite();
+        StartCoroutine("FadingSlow");
+    }
+
+    public void FromSlowToFast()
+    {
+        StopCoroutine("FadingSlow");
+        ResetColorSprite();
+        StartCoroutine("FadingFast");
+    }
+
+    private void ResetColorSprite()
+    {
+        Color c = sprite.material.color;
+        c.a = 1f;
+        sprite.material.color = c;
+    }
+
+    IEnumerator FadingSlow ()
     {
         do
         {
@@ -45,21 +62,30 @@ public class Arrow : MonoBehaviour {
                 sprite.material.color = c;
                 yield return new WaitForSeconds(0.05f);
             }
-        } while (active);
+        } while (true);
     }
 
-    private void FadingEffect()
+    IEnumerator FadingFast()
     {
-        if (active)
+        do
         {
-            StartCoroutine("Fading");
-        }
-        else
-        {
-            StopCoroutine("Fading");
-            Color c = sprite.material.color;
-            c.a = 1f;
-            sprite.material.color = c;
-        }
+            for (float f = 0.1f; f <= 1; f += 0.1f)
+            {
+                Color c = sprite.material.color;
+                c.a = f;
+                sprite.material.color = c;
+                yield return new WaitForSeconds(0.05f);
+            }
+
+            for (float f = 1f; f >= -0.1f; f -= 0.1f)
+            {
+                Color c = sprite.material.color;
+                c.a = f;
+                sprite.material.color = c;
+                yield return new WaitForSeconds(0.05f);
+            }
+        } while (true);
     }
+
+
 }

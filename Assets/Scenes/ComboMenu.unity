@@ -144,6 +144,8 @@ MonoBehaviour:
   node: {fileID: 1601353066295640, guid: e93c95f6887932b4dac3cca3d4643d62, type: 2}
   leftArrow: {fileID: 1268010806968220, guid: 249e0c52b21115746a9cc29f701a6807, type: 2}
   rightArrow: {fileID: 1415834054712612, guid: e120c452fb4575b4483e2c728ee79469, type: 2}
+  tree: []
+  maxDepth: 3
   xOffsetArrow: 1.5
   yOffsetArrow: 1
   zRotationArrow: 30

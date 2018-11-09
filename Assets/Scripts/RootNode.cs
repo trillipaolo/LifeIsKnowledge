@@ -5,15 +5,17 @@ using UnityEngine;
 public class RootNode : MonoBehaviour {
 
     private Vector3 _position;
+    private bool _set;
 
     private void Awake()
     {
         _position = GetComponent<Transform>().position;
+        _set = true;
     }
 
-    public Vector3 GetPosition()
+    public bool GetSet()
     {
-        return _position;
+        return _set;
     }
 
     // Use this for initialization
