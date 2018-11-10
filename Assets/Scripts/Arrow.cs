@@ -22,6 +22,17 @@ public class Arrow : MonoBehaviour {
 
     }
 
+    public void StartFadingEffect()
+    {
+        StartCoroutine("FadingFast");
+    }
+
+    public void StopFadingEffect()
+    {
+        StopCoroutine("FadingFast");
+        ResetColorSprite();
+    }
+
     public void FromFastToSlow ()
     {
         StopCoroutine("FadingFast");

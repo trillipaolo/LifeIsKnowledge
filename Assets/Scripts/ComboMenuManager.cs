@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ComboMenuManager : MonoBehaviour {
+public class ComboMenuManager : MonoBehaviour
+{
 
     public static ComboMenuManager Instance { get; private set; }
-    
+
     public BinaryTree knifeBinaryTree;
     public GameObject rootNode;
     public GameObject node;
@@ -51,14 +52,16 @@ public class ComboMenuManager : MonoBehaviour {
     }
 
     // Use this for initialization
-    void Start() {
+    void Start()
+    {
         InitTree();
 
         InitChildren();
     }
 
     // Update is called once per frame
-    void Update() {
+    void Update()
+    {
 
         //Move between cards (attacks per node)
         if (Input.GetKeyDown(KeyCode.LeftArrow))
@@ -74,24 +77,8 @@ public class ComboMenuManager : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             //Switch CurrentNode down
-            int nextCurrentNode = 1;
-            for (int i = 1; i < _currentNodeIndex; i++)
-            {
-                try
-                {
-                    Node examinedNode = tree[i].GetComponent<Node>();
-                    if (!examinedNode.GetSet())
-                    {
-                        nextCurrentNode = i;
-                    }
-                }
-                catch
-                {
-                    //Do Nothing, if we found a in tree[i] a null node, 
-                    //it means that the tree is momentarily unbalanced
-                }
-            }
-            
+            int nextCurrentNode = SearchDownUnsetNode();
+
             if (_currentNodeIndex == nextCurrentNode)
             {
                 //Do Nothing
@@ -111,24 +98,8 @@ public class ComboMenuManager : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             //Switch CurrentNode Up
-            int nextCurrentNode = _numberOfNodes;
-            for (int i = _numberOfNodes; i > _currentNodeIndex; i--)
-            {   
-                try
-                {
-                    Node examinedNode = tree[i].GetComponent<Node>();
-                    if (!examinedNode.GetSet())
-                    {
-                        nextCurrentNode = i;
-                    }
-                }
-                catch
-                {
-                    //Do Nothing, if we found a in tree[i] a null node, 
-                    //it means that the tree is momentarily unbalanced
-                }
-                
-            }
+
+            int nextCurrentNode = SearchUpUnsetNode();
 
             if (_currentNodeIndex == nextCurrentNode)
             {
@@ -142,33 +113,93 @@ public class ComboMenuManager : MonoBehaviour {
 
                 _currentNodeIndex = nextCurrentNode;
 
+                Debug.Log("CurrentIndex when trying to go above the highest arrow should be 1 but it is: " + _currentNodeIndex);
                 Arrow nextArrow = arrowTree[_currentNodeIndex].GetComponent<Arrow>();
                 nextArrow.FromSlowToFast();
             }
         }
 
         //CONFIRM A CARD
-        if(Input.GetKeyDown(KeyCode.KeypadEnter))
+        if (Input.GetKeyDown(KeyCode.Tab))
         {
             //Stop arrow fading
-            //Save Node in the Tree
-            //Initialize new children
+            Arrow currentArrow = arrowTree[_currentNodeIndex].GetComponent<Arrow>();
+            currentArrow.StopFadingEffect();
+
+            //Set the currentNode
+            Node currentNode = tree[_currentNodeIndex].GetComponent<Node>();
+            currentNode.SetChosen(true);
+
+            
+
+            int nextCurrentNode = 2 * _currentNodeIndex + 1;
+            if (nextCurrentNode < _numberOfNodes)
+            {
+                //Initialize new children
+                InitChildren();
+            }
+            else
+            {
+                Debug.Log("MaxDepth reached: No other nodes can be created");
+                //Select another node
+                _currentNodeIndex = SelectOtherNode();
+            }
         }
 
         //DESELECT A CARD 
-        if(Input.GetKeyDown(KeyCode.Backspace))
-        {   
-            //Eliminate currentNode and its brother
-            //Eliminate Father from the Tree
-            //Instantiate FatherNode Gameobject with its arrow fading
+        if (Input.GetKeyDown(KeyCode.Backspace))
+        {
+            if (_currentNodeIndex > 2)
+            {
+                //Eliminate currentNode and its brother
+                GameObject eliminatedNode = tree[_currentNodeIndex];
+                Node node = eliminatedNode.GetComponent<Node>();
+                node.DestroyPlaceHolder();
+                Destroy(eliminatedNode);
+                tree[_currentNodeIndex] = null;
+
+                int oddOrEven = _currentNodeIndex % 2;
+                if (oddOrEven == 1)
+                {
+                    eliminatedNode = tree[_currentNodeIndex + 1];
+                    node = eliminatedNode.GetComponent<Node>();
+                    node.DestroyPlaceHolder();
+                    Destroy(eliminatedNode);
+                    tree[_currentNodeIndex + 1] = null;
+                    _currentNodeIndex = (_currentNodeIndex - 1) / 2;
+                }
+                else
+                {
+                    eliminatedNode = tree[_currentNodeIndex - 1];
+                    node = eliminatedNode.GetComponent<Node>();
+                    node.DestroyPlaceHolder();
+                    Destroy(eliminatedNode);
+                    tree[_currentNodeIndex - 1] = null;
+                    _currentNodeIndex = (_currentNodeIndex - 2) / 2;
+                }
+
+                //Destroy Arrows
+                DeactivateLeftArrow();
+                DeactivateRightArrow();
+
+                //Re-enable the father node
+                Node currentNode = tree[_currentNodeIndex].GetComponent<Node>();
+                currentNode.SetChosen(false);
+                Arrow currentArrow = arrowTree[_currentNodeIndex].GetComponent<Arrow>();
+                currentArrow.StartFadingEffect();
+            }
+            else
+            {
+                Debug.Log("You cannot eliminate the first two nodes");
+            }
         }
     }
 
     //Initialize the Tree (Array) with its Root Node
-    public void InitTree ()
-    {   
+    public void InitTree()
+    {
         //Calculate trees basic properties
-        _numberOfNodes = (int)Mathf.Pow(2, maxDepth);
+        _numberOfNodes = (int)(Mathf.Pow(2, maxDepth) - 1);
         tree = new GameObject[_numberOfNodes];
         arrowTree = new GameObject[_numberOfNodes];
 
@@ -199,12 +230,12 @@ public class ComboMenuManager : MonoBehaviour {
 
     //Instantiate Left Arrow in the correct position w.r.t its father
     public void SetLeftArrow(Vector3 fatherPosition)
-    {   
+    {
         //Calculate Arrow position and rotation
         Vector3 leftArrowOffset = new Vector3(xOffsetArrow, -yOffsetArrow, 0);
         Vector3 leftArrowPosition = fatherPosition + leftArrowOffset;
         Quaternion leftArrowRotation = Quaternion.Euler(0, 0, -zRotationArrow);
-        
+
         //Instantiate the Arrow and save it in the arrowTree
         GameObject leftArrowClone = Instantiate(leftArrow, leftArrowPosition, leftArrowRotation);
         arrowTree[2 * _currentNodeIndex + 1] = leftArrowClone;
@@ -219,7 +250,7 @@ public class ComboMenuManager : MonoBehaviour {
 
     //Instantiate Right Arrow in the correct position w.r.t its father
     public void SetRightArrow(Vector3 fatherPosition)
-    {   
+    {
         //Calculate Arrow position and rotation
         Vector3 rightArrowOffset = new Vector3(xOffsetArrow, yOffsetArrow, 0);
         Vector3 rightArrowPosition = fatherPosition + rightArrowOffset;
@@ -236,13 +267,13 @@ public class ComboMenuManager : MonoBehaviour {
     //Destroy the currentRightArrow and set Null in the array
     public void DeactivateRightArrow()
     {
-        Destroy(arrowTree[2 * _currentNodeIndex + 1]);
+        Destroy(arrowTree[2 * _currentNodeIndex + 2]);
         arrowTree[2 * _currentNodeIndex + 2] = null;
     }
 
     public void InitLeftChild(Vector3 fatherPosition)
     {
-        
+
 
         //Calculate Node position and rotation
         Vector3 leftChildOffset = new Vector3(xOffsetChild, -yOffsetChild, 0);
@@ -261,7 +292,7 @@ public class ComboMenuManager : MonoBehaviour {
     }
 
     public void InitRightChild(Vector3 fatherPosition)
-    {   
+    {
         //Calculate Node position and rotation
         Vector3 rightChildOffset = new Vector3(xOffsetChild, yOffsetChild, 0);
         Vector3 rightChildPosition = fatherPosition + rightChildOffset;
@@ -277,5 +308,63 @@ public class ComboMenuManager : MonoBehaviour {
         //Adjust placeholder position
         Node rightNode = rightClone.GetComponent<Node>();
         rightNode.AdjustPlaceHolderPosition(xOffsetText, yOffsetText);
+    }
+
+    public int SearchUpUnsetNode()
+    {
+        int nextCurrentNode = _currentNodeIndex;
+        for (int i = _numberOfNodes - 1; i > _currentNodeIndex; i--)
+        {
+            try
+            {
+                Node examinedNode = tree[i].GetComponent<Node>();
+                if (!examinedNode.GetChosen())
+                {
+                    nextCurrentNode = i;
+                }
+            }
+            catch
+            {
+                //Do Nothing, if we found a in tree[i] a null node, 
+                //it means that the tree is momentarily unbalanced
+            }
+
+        }
+
+        return nextCurrentNode;
+    }
+
+    public int SearchDownUnsetNode()
+    {
+        int nextCurrentNode = _currentNodeIndex;
+        for (int i = 1; i < _currentNodeIndex; i++)
+        {
+            try
+            {
+                Node examinedNode = tree[i].GetComponent<Node>();
+                if (!examinedNode.GetChosen())
+                {
+                    nextCurrentNode = i;
+                }
+            }
+            catch
+            {
+                //Do Nothing, if we found a in tree[i] a null node, 
+                //it means that the tree is momentarily unbalanced
+            }
+        }
+
+        return nextCurrentNode;
+    }
+
+    public int SelectOtherNode()
+    {
+        int currentNextNode = SearchUpUnsetNode();
+        if (currentNextNode == _currentNodeIndex)
+        {
+            currentNextNode = SearchDownUnsetNode();
+        }
+
+        return currentNextNode;
     }
 }

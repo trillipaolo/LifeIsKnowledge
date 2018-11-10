@@ -145,15 +145,16 @@ MonoBehaviour:
   leftArrow: {fileID: 1268010806968220, guid: 249e0c52b21115746a9cc29f701a6807, type: 2}
   rightArrow: {fileID: 1415834054712612, guid: e120c452fb4575b4483e2c728ee79469, type: 2}
   tree: []
-  maxDepth: 3
+  arrowTree: []
+  maxDepth: 4
   xOffsetArrow: 1.5
   yOffsetArrow: 1
   zRotationArrow: 30
   xOffsetChild: 3
   yOffsetChild: 2
   xOffsetNode: -7
-  xOffsetText: -1
-  yOffsetText: 1
+  xOffsetText: -1.5
+  yOffsetText: 0.5
 --- !u!4 &715255137
 Transform:
   m_ObjectHideFlags: 0
