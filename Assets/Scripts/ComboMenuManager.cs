@@ -16,18 +16,25 @@ public class ComboMenuManager : MonoBehaviour
     //GameObject Tree variables
     public GameObject[] tree;
     public GameObject[] arrowTree;
+    public float[] arrowRotations; //Degrees
+    public Vector3[] arrowPositions;
     public int maxDepth;
     private int _numberOfNodes;
     private int _currentNodeIndex;
 
     [Header("Arrows Offset and Rotation")]
+    public float lenghtArrow;
     public float xOffsetArrow;
     public float yOffsetArrow;
     public float zRotationArrow;
 
+    [Header("Local Adjustments on Arrows")]
+    public float xLocalOffset;
+    public float yLocalOffset;
+
     [Header("ChildNode Offset")]
-    public float xOffsetChild;
-    public float yOffsetChild;
+    private float xOffsetChild;
+    private float yOffsetChild;
 
     [Header("RootNode Offset")]
     public float xOffsetNode;
@@ -35,8 +42,6 @@ public class ComboMenuManager : MonoBehaviour
     [Header("TextNode Offset")]
     public float xOffsetText;
     public float yOffsetText;
-
-    private Vector3 _lastNodePosition;
 
     private void Awake()
     {
@@ -67,12 +72,15 @@ public class ComboMenuManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             //Switch CurrentNode's Placeholder at Left
+            Node currentNode = tree[_currentNodeIndex].GetComponent<Node>();
+            currentNode.SwitchPlaceHolderLeft();
         }
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             //Switch CurrentNode's Placeholder at Right
+            Node currentNode = tree[_currentNodeIndex].GetComponent<Node>();
+            currentNode.SwitchPlaceHolderLeft();
         }
-
         //Move between unset nodes (fringe of the tree)
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
@@ -183,7 +191,16 @@ public class ComboMenuManager : MonoBehaviour
                 DeactivateRightArrow();
 
                 //Re-enable the father node
-                Node currentNode = tree[_currentNodeIndex].GetComponent<Node>();
+                Node currentNode;
+                try
+                {
+                    currentNode = tree[_currentNodeIndex].GetComponent<Node>();
+                }
+                catch
+                {
+                    _currentNodeIndex = SelectOtherNode();
+                }
+                currentNode = tree[_currentNodeIndex].GetComponent<Node>();
                 currentNode.SetChosen(false);
                 Arrow currentArrow = arrowTree[_currentNodeIndex].GetComponent<Arrow>();
                 currentArrow.StartFadingEffect();
@@ -202,6 +219,8 @@ public class ComboMenuManager : MonoBehaviour
         _numberOfNodes = (int)(Mathf.Pow(2, maxDepth) - 1);
         tree = new GameObject[_numberOfNodes];
         arrowTree = new GameObject[_numberOfNodes];
+        arrowRotations = new float[_numberOfNodes];
+        arrowPositions = new Vector3[_numberOfNodes];
 
         //Create the root node and Instantiate it at the right position
         Vector3 rootNodePosition = this.GetComponent<Transform>().position;
@@ -211,9 +230,15 @@ public class ComboMenuManager : MonoBehaviour
 
         GameObject clone = Instantiate(rootNode, rootNodePosition, rootNodeRotation);
 
-        //Initialize the Array that store the Binary tree and its index;
+        //Initialize the Array that store the Binary tree and its index and Arrow Positions/Rotations
         _currentNodeIndex = 0;
         tree[_currentNodeIndex] = clone;
+        arrowRotations[_currentNodeIndex] = 0;
+        arrowRotations[2 * _currentNodeIndex + 2] = zRotationArrow;
+        arrowRotations[2 * _currentNodeIndex + 1] = -zRotationArrow;
+        arrowPositions[_currentNodeIndex] = new Vector3(0, 0, 0);
+        arrowPositions[2 * _currentNodeIndex + 2] = new Vector3(xOffsetArrow, yOffsetArrow, 0);
+        arrowPositions[2 * _currentNodeIndex + 1] = new Vector3(xOffsetArrow, -yOffsetArrow, 0);
     }
 
     //Initialize and Create the next two Children w.r.t. the father in the tree and their arrows
@@ -232,13 +257,21 @@ public class ComboMenuManager : MonoBehaviour
     public void SetLeftArrow(Vector3 fatherPosition)
     {
         //Calculate Arrow position and rotation
-        Vector3 leftArrowOffset = new Vector3(xOffsetArrow, -yOffsetArrow, 0);
+        xOffsetArrow = arrowPositions[2 * _currentNodeIndex + 1].x;
+        yOffsetArrow = arrowPositions[2 * _currentNodeIndex + 1].y;
+        Vector3 leftArrowOffset = new Vector3(xOffsetArrow, yOffsetArrow, 0);
         Vector3 leftArrowPosition = fatherPosition + leftArrowOffset;
-        Quaternion leftArrowRotation = Quaternion.Euler(0, 0, -zRotationArrow);
+        Quaternion leftArrowRotation = Quaternion.Euler(0, 0, arrowRotations[2 * _currentNodeIndex + 1]);
 
         //Instantiate the Arrow and save it in the arrowTree
         GameObject leftArrowClone = Instantiate(leftArrow, leftArrowPosition, leftArrowRotation);
         arrowTree[2 * _currentNodeIndex + 1] = leftArrowClone;
+
+        //Prepare grand children arrow rotation
+        GrandChildrenArrowRotationInit(2 * _currentNodeIndex + 1);
+
+        //Prepare grand children arrow position
+        GrandChildrenArrowPositionInit(2 * _currentNodeIndex + 1);
     }
 
     //Destroy the currentLeftArrow and set Null in the array
@@ -252,9 +285,11 @@ public class ComboMenuManager : MonoBehaviour
     public void SetRightArrow(Vector3 fatherPosition)
     {
         //Calculate Arrow position and rotation
+        xOffsetArrow = arrowPositions[2 * _currentNodeIndex + 2].x;
+        yOffsetArrow = arrowPositions[2 * _currentNodeIndex + 2].y;
         Vector3 rightArrowOffset = new Vector3(xOffsetArrow, yOffsetArrow, 0);
         Vector3 rightArrowPosition = fatherPosition + rightArrowOffset;
-        Quaternion rightArrowRotation = Quaternion.Euler(0, 0, zRotationArrow);
+        Quaternion rightArrowRotation = Quaternion.Euler(0, 0, arrowRotations[2 * _currentNodeIndex + 2]);
 
         //Instantiate the Arrow and save it in the ArrowTree
         GameObject rightArrowClone = Instantiate(rightArrow, rightArrowPosition, rightArrowRotation);
@@ -262,6 +297,12 @@ public class ComboMenuManager : MonoBehaviour
 
         //Impose the right node as Selected node after children creation
         rightArrowClone.GetComponent<Arrow>().FromSlowToFast();
+
+        //Prepare grand-children arrow rotation
+        GrandChildrenArrowRotationInit(2 * _currentNodeIndex + 2);
+
+        //Prepare grand children arrow position
+        GrandChildrenArrowPositionInit(2 * _currentNodeIndex + 2);
     }
 
     //Destroy the currentRightArrow and set Null in the array
@@ -273,10 +314,12 @@ public class ComboMenuManager : MonoBehaviour
 
     public void InitLeftChild(Vector3 fatherPosition)
     {
-
-
         //Calculate Node position and rotation
-        Vector3 leftChildOffset = new Vector3(xOffsetChild, -yOffsetChild, 0);
+        float zRotationArrowRad = (Mathf.PI / 180) * arrowRotations[2 * _currentNodeIndex + 1];
+        xOffsetChild = lenghtArrow * Mathf.Cos(zRotationArrowRad);
+        yOffsetChild = lenghtArrow * Mathf.Sin(zRotationArrowRad);
+
+        Vector3 leftChildOffset = new Vector3(xOffsetChild, yOffsetChild, 0);
         Vector3 leftChildPosition = fatherPosition + leftChildOffset;
         Quaternion leftChildRotation = Quaternion.Euler(0, 0, 0);
 
@@ -294,6 +337,10 @@ public class ComboMenuManager : MonoBehaviour
     public void InitRightChild(Vector3 fatherPosition)
     {
         //Calculate Node position and rotation
+        float zRotationArrowRad = (Mathf.PI / 180) * arrowRotations[2 * _currentNodeIndex + 2];
+        xOffsetChild = lenghtArrow * Mathf.Cos(zRotationArrowRad);
+        yOffsetChild = lenghtArrow * Mathf.Sin(zRotationArrowRad);
+        
         Vector3 rightChildOffset = new Vector3(xOffsetChild, yOffsetChild, 0);
         Vector3 rightChildPosition = fatherPosition + rightChildOffset;
         Quaternion rightChildRotation = Quaternion.Euler(0, 0, 0);
@@ -364,7 +411,59 @@ public class ComboMenuManager : MonoBehaviour
         {
             currentNextNode = SearchDownUnsetNode();
         }
-
+        
         return currentNextNode;
+    }
+
+    public void GrandChildrenArrowRotationInit(int childIndex)
+    {
+        try
+        {   
+            int nextLeftChildIndex = 2 * childIndex + 1;
+            int nextRightChildrenIndex = 2 * childIndex + 2;
+            arrowRotations[nextLeftChildIndex] = - 1 * (Mathf.Abs(arrowRotations[childIndex]) / 2);
+            arrowRotations[nextRightChildrenIndex] = Mathf.Abs(arrowRotations[childIndex]) / 2;
+        }
+        catch
+        {
+            Debug.Log("Grand-Children Node exceed max depth: No Arrow Rotation needed");
+        }
+    }
+
+    public void GrandChildrenArrowPositionInit(int childIndex)
+    {
+        try
+        {
+            int leftGrandChildIndex = 2 * childIndex + 1;
+            int rightGrandChildrenIndex = 2 * childIndex + 2;
+
+            float xLocalPosition = arrowPositions[childIndex].x + xLocalOffset;
+            float yLocalPosition;
+            float yLocalInvertedPosition;
+
+            int oddOrEven = childIndex % 2;
+            if (oddOrEven == 0)
+            {   
+                //If the Child is a Right Node
+                yLocalPosition = arrowPositions[childIndex].y - yLocalOffset;
+                yLocalInvertedPosition = -1 * arrowPositions[childIndex].y + yLocalOffset;
+
+                arrowPositions[leftGrandChildIndex] = new Vector3(xLocalPosition, yLocalInvertedPosition, 0);
+                arrowPositions[rightGrandChildrenIndex] = new Vector3(xLocalPosition, yLocalPosition, 0);
+            }
+            else
+            {
+                //If the Child is a Left Node
+                yLocalPosition = arrowPositions[childIndex].y + yLocalOffset;
+                yLocalInvertedPosition = -1 * arrowPositions[childIndex].y - yLocalOffset;
+
+                arrowPositions[leftGrandChildIndex] = new Vector3(xLocalPosition, yLocalPosition, 0);
+                arrowPositions[rightGrandChildrenIndex] = new Vector3(xLocalPosition, yLocalInvertedPosition, 0);
+            }
+        }
+        catch
+        {
+            Debug.Log("Grand-Children Node exceed max depth: No Arrow Position needed");
+        }
     }
 }

@@ -38,6 +38,18 @@ public class Node : MonoBehaviour {
         Destroy(placeHolderAnimation);
     }
 
+    public void SwitchPlaceHolderRight()
+    {
+        AnimationComboMenuPlaceHolder placeHolder = placeHolderAnimation.GetComponent<AnimationComboMenuPlaceHolder>();
+        placeHolder.SwitchPlaceHolderRight();
+    }
+
+    public void SwitchPlaceHolderLeft()
+    {
+        AnimationComboMenuPlaceHolder placeHolder = placeHolderAnimation.GetComponent<AnimationComboMenuPlaceHolder>();
+        placeHolder.SwitchPlaceHolderLeft();
+    }
+
     // Use this for initialization
     void Start () {
 		

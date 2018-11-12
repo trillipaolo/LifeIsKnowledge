@@ -315,6 +315,7 @@
     <Compile Include="Assets\ExternalAssets\Tilemap\Tiles\Rule Tile\Scripts\RuleTile.cs" />
     <Compile Include="Assets\ExternalAssets\Tilemap\Tiles\Terrain Tile\Scripts\TerrainTile.cs" />
     <Compile Include="Assets\ExternalAssets\Tilemap\Tiles\Weighted Random Tile\WeightedRandomTile.cs" />
+    <Compile Include="Assets\Scripts\AnimationComboMenuPlaceHolder.cs" />
     <Compile Include="Assets\Scripts\Arrow.cs" />
     <Compile Include="Assets\Scripts\Classes\BinaryTree.cs" />
     <Compile Include="Assets\Scripts\Classes\NodeTree.cs" />
