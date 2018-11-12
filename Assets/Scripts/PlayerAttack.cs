@@ -39,21 +39,12 @@ public class PlayerAttack : MonoBehaviour {
 
         //TODO needs to be moved in another part
         FloatingTextController.Initialize();
-
-        Debug.Log(_comboTree.ToString());
-        Debug.Log(_currentAttack.value);
-
-        Debug.Log(_currentAttack.left);
-        Debug.Log(_currentAttack.right);
     }
 	
 	void Update () {
         if (_inputActive) {
             if (_readyToAttack) {
                 if (Input.GetKeyDown(KeyCode.K)) {
-
-                    Debug.Log("into K-down");
-
                     PlayAttackAnimation(_currentAttack.left);
                 }
                 if (Input.GetKeyDown(KeyCode.L)) {
@@ -128,12 +119,7 @@ public class PlayerAttack : MonoBehaviour {
 
     private void PlayAttackAnimation(BinaryTree nextAttack) {
 
-        Debug.Log("into play-attack-animation");
-
         if (nextAttack != null) {
-
-            Debug.Log("into next-attack != null");
-            Debug.Log(nextAttack.value.name);
 
             _animator.Play(nextAttack.value.name);
             _damage = nextAttack.value.damage;
