@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Arrow : MonoBehaviour {
 
-    public SpriteRenderer sprite;
+    private SpriteRenderer sprite;
 
 	private void Awake () {
 

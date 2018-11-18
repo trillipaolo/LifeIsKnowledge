@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fab36f2ce357ba642bf2946bb9537fa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  placeHolderAnimation: {fileID: 1425379864782836, guid: bb6ffedf8c7e3b14aa83c479b16eb2f4,
+  placeHolderAnimation: {fileID: 1425379864782836, guid: d4614846965642e4cbd261e3f716abc9,
     type: 2}
 --- !u!212 &212843253448953274
 SpriteRenderer:
