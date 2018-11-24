@@ -306,6 +306,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\ExternalAssets\MenuAssets\Scripts\MainMenuManager.cs" />
+    <Compile Include="Assets\ExternalAssets\MenuAssets\Scripts\OptionMenuManager.cs" />
+    <Compile Include="Assets\ExternalAssets\MenuAssets\Scripts\PauseMenu.cs" />
     <Compile Include="Assets\ExternalAssets\Tilemap\Brushes\Tint Brush Smooth\Scripts\TintTextureGenerator.cs" />
     <Compile Include="Assets\ExternalAssets\Tilemap\GridInformation\Scripts\GridInformation.cs" />
     <Compile Include="Assets\ExternalAssets\Tilemap\Tiles\Animated Tile\Scripts\AnimatedTile.cs" />
@@ -315,8 +318,6 @@
     <Compile Include="Assets\ExternalAssets\Tilemap\Tiles\Rule Tile\Scripts\RuleTile.cs" />
     <Compile Include="Assets\ExternalAssets\Tilemap\Tiles\Terrain Tile\Scripts\TerrainTile.cs" />
     <Compile Include="Assets\ExternalAssets\Tilemap\Tiles\Weighted Random Tile\WeightedRandomTile.cs" />
-    <Compile Include="Assets\Scripts\AnimationComboMenuPlaceHolder.cs" />
-    <Compile Include="Assets\Scripts\Arrow.cs" />
     <Compile Include="Assets\Scripts\Classes\BinaryTree.cs" />
     <Compile Include="Assets\Scripts\Classes\NodeTree.cs" />
     <Compile Include="Assets\Scripts\Classes\RootNodeTree.cs" />
@@ -324,22 +325,46 @@
     <Compile Include="Assets\Scripts\DisplayColliderGizmos.cs" />
     <Compile Include="Assets\Scripts\EnemyBehaviour.cs" />
     <Compile Include="Assets\Scripts\Enumerations\ColliderPosition.cs" />
+    <Compile Include="Assets\Scripts\Enumerations\EnumButtons.cs" />
     <Compile Include="Assets\Scripts\Enumerations\EnumStances.cs" />
     <Compile Include="Assets\Scripts\FloatingText.cs" />
     <Compile Include="Assets\Scripts\FloatingTextController.cs" />
-    <Compile Include="Assets\Scripts\Node.cs" />
+    <Compile Include="Assets\Scripts\OldComboMenu(Tree)\AnimationComboMenuPlaceHolder.cs" />
+    <Compile Include="Assets\Scripts\OldComboMenu(Tree)\Arrow.cs" />
+    <Compile Include="Assets\Scripts\OldComboMenu(Tree)\ComboMenuManager-Old.cs" />
+    <Compile Include="Assets\Scripts\OldComboMenu(Tree)\Node.cs" />
+    <Compile Include="Assets\Scripts\OldComboMenu(Tree)\RootNode.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\PlayerAttack.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
-    <Compile Include="Assets\Scripts\RootNode.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\Card.cs" />
+    <Compile Include="Assets\Scripts\ScriptableObjects\Combo.cs" />
+    <Compile Include="Assets\Scripts\ScriptableObjects\ComboButton.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\Weapon.cs" />
+    <Compile Include="Assets\Scripts\SingleComboButton.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\ExternalAssets\Tilemap\Brushes\Tint Brush Smooth\Shaders\TintedTilemap.shader" />
     <None Include="Assets\ExternalAssets\Tilemap\Tiles\Rule Tile\ScriptTemplates\NewCustomRuleTile.cs.txt" />
     <None Include="Assets\TempAssets\Knight Files\Read Me.txt" />
     <None Include="Assets\TempAssets\Pixel Font - Tripfive\_README.txt" />
+    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Mobile.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF Overlay.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
+    <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Styles\Main_Dark.uss" />
     <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Styles\Main_Light.uss" />
     <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Templates\Alert.uxml" />

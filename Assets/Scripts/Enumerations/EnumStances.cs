@@ -8,6 +8,6 @@ public enum Stance {
     DOWN
 }
 
-public static class EnumStance {
+public static class EnumStances {
     //TODO ADD METHODS OR DELETE
 }
