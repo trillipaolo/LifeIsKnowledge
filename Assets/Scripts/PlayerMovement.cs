@@ -4,16 +4,25 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
 
-    public float walkSpeed = 5.0f;
-    public float jumpSpeed = 5.0f;
+    private Animator _joel;
+
+    public float speed = 0f;
+
+    public float walkSpeed = 15.0f;
+    public float jumpSpeed = 0.5f;
     public float gravity = 3.0f;
-    public float yNudge = -2.5f;
+    public float yNudge = -2.7f;
     public float directionFacing = 1;
 
     private bool _grounded = false;
     private float _yVelocity = 0f;
-    
-	void Update () {
+
+    private void Awake() {
+        _joel = GetComponent<Animator>();
+    }
+
+
+    void Update () {
 
         UpdateXMovement();
         UpdateYMovement();
@@ -22,7 +31,18 @@ public class PlayerMovement : MonoBehaviour {
     void UpdateXMovement() {
         Vector3 frameMovement = new Vector3(Input.GetAxis("Horizontal") * walkSpeed,0);
 
+        float _lastX = transform.position.x;
         transform.Translate(frameMovement * Time.deltaTime);
+        speed = Mathf.Abs(transform.position.x - _lastX)/(walkSpeed * Time.deltaTime);
+        if(speed < 0) {
+            speed = 0;
+        } else {
+            if(Mathf.Abs(speed - 1) < 0.0001) {
+                speed = 1;
+            }
+        }
+        _joel.SetFloat("XSpeed",speed);
+
         if (frameMovement.x != 0) {
             directionFacing = Mathf.Sign(frameMovement.x);
             transform.localScale = new Vector3(directionFacing,1,1);
