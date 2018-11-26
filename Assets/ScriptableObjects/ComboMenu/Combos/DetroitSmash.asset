@@ -16,3 +16,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 58d03b13859fb19418ab934150615841, type: 2}
   - {fileID: 11400000, guid: ac029e6e21347d146a2198da36437501, type: 2}
   comboSprite: {fileID: 21300000, guid: a8a432937452b484388c70840de9cf5d, type: 3}
+  rowSaved: -1
+  coloumnSaved: -1
+  rotatedSaved: 0

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Button
+public enum Buttons
 {
     CROSS,
     CIRCLE,

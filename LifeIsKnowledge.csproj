@@ -321,6 +321,7 @@
     <Compile Include="Assets\Scripts\Classes\BinaryTree.cs" />
     <Compile Include="Assets\Scripts\Classes\NodeTree.cs" />
     <Compile Include="Assets\Scripts\Classes\RootNodeTree.cs" />
+    <Compile Include="Assets\Scripts\ComboGridCell.cs" />
     <Compile Include="Assets\Scripts\ComboMenuManager.cs" />
     <Compile Include="Assets\Scripts\DisplayColliderGizmos.cs" />
     <Compile Include="Assets\Scripts\EnemyBehaviour.cs" />

@@ -5,6 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New ComboButton", menuName = "Button")]
 public class ComboButton : ScriptableObject {
 
-    public Button button;
+    public Buttons button;
     public Sprite sprite;
 }

@@ -7,22 +7,24 @@ public class SingleComboButton : MonoBehaviour {
 
     public ComboMenuManager comboMenuManager;
 
-    private string comboName;
-    private int menuIndex;
+    private string _comboName;
+    private int _menuIndex;
 
     public void SetIndex(int index)
     {
-        menuIndex = index;
+        _menuIndex = index;
     }
 
     public void SetComboName(string name)
     {
-        comboName = name;
+        _comboName = name;
     }
 
+    
     public void OnClick ()
     {
-        comboMenuManager.SetCurrentCombo(menuIndex);
+        Debug.Log("Button number " + _menuIndex + " has been clicked");
+        comboMenuManager.SetCurrentCombo(_menuIndex);
     }
 
     public void SetImage(Sprite comboSprite)
@@ -30,5 +32,15 @@ public class SingleComboButton : MonoBehaviour {
         Image imageComponent = GetComponent<Image>();
         imageComponent.preserveAspect = true;
         imageComponent.sprite = comboSprite;
+    }
+
+    public void DisableButton()
+    {
+        GetComponent<Button>().interactable = false;
+    }
+
+    public void EnableButton()
+    {
+        GetComponent<Button>().interactable = true;
     }
 }
