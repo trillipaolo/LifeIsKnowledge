@@ -17,9 +17,7 @@ public class EnemyMovement : MonoBehaviour {
     public float dst = 1f;
     public float directionFacing = 1;   //initially turned to right
 
-    private bool _grounded = false;
-
-    public LayerMask lOSMask;
+    //TODO: use raytracing and layers to set right Y coordinate for the enemy
 
     // Use this for initialization
     void Awake() {
