@@ -1,47 +1,42 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class ComboMenuManager : MonoBehaviour
-{
+public class ComboMenuManager : MonoBehaviour {
 
     public static ComboMenuManager Instance { get; private set; }
 
-    public BinaryTree knifeBinaryTree;
-    public GameObject rootNode;
-    public GameObject node;
-    public GameObject leftArrow;
-    public GameObject rightArrow;
+    [Header("Scriptable Objects")]
+    public Combo[] combos;
 
-    //GameObject Tree variables
-    public GameObject[] tree;
-    public GameObject[] arrowTree;
-    public float[] arrowRotations; //Degrees
-    public Vector3[] arrowPositions;
-    public int maxDepth;
-    private int _numberOfNodes;
-    private int _currentNodeIndex;
+    [Header("Scrolling Menu Prefab")]
+    public GameObject menuButton;
 
-    [Header("Arrows Offset and Rotation")]
-    public float lenghtArrow;
-    public float xOffsetArrow;
-    public float yOffsetArrow;
-    public float zRotationArrow;
+    [Header("Grid Menu Properties")]
+    public GameObject menuCell;
+    public int rows;
+    public int coloumns;
+    public float xOffset;
+    public float yOffset;
 
-    [Header("Local Adjustments on Arrows")]
-    public float xLocalOffset;
-    public float yLocalOffset;
+    [Header("Reset Grid Status")]
+    public bool reset;
 
-    [Header("ChildNode Offset")]
-    private float xOffsetChild;
-    private float yOffsetChild;
+    //List of Buttons in the scrolling menu: each button refers to a combo
+    private List<GameObject> _menuButtons;
 
-    [Header("RootNode Offset")]
-    public float xOffsetNode;
+    //Combo Selected in the scrolling menu
+    private int _currentCombo;
 
-    [Header("TextNode Offset")]
-    public float xOffsetText;
-    public float yOffsetText;
+    //List of cells in the grid menu: each cells can contain one button of a combo
+    private ComboGridCell[,] _menuGridCells;
+
+    //Current position and state in the grid
+    private int _row;
+    private int _coloumn;
+    private bool _rotated;
+    private bool _scrollToGrid;
 
     private void Awake()
     {
@@ -59,411 +54,515 @@ public class ComboMenuManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        InitTree();
+        //The Menu starts with the Scrolling Menu active
+        _scrollToGrid = false;
 
-        InitChildren();
+        //No Combo selected at the beginning
+        _currentCombo = -1;
+
+        //Combo is not rotated at the beginning (which means horizontal)
+        _rotated = false;
+
+        //Starting point of Grid Position is element 0,0
+        _row = 0;
+        _coloumn = 0;
+        
+        //Initialize Menus
+        InitializeScrollingMenu();
+        InitializeGridMenu();
+
+        if (reset)
+        {
+            ResetGrid();
+        }
+        else
+        {
+            ReconstructGrid();
+        }
     }
+	
+	// Update is called once per frame
+	void Update () {
 
-    // Update is called once per frame
-    void Update()
-    {
-
-        //Move between cards (attacks per node)
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        if (_scrollToGrid)
         {
-            //Switch CurrentNode's Placeholder at Left
-            Node currentNode = tree[_currentNodeIndex].GetComponent<Node>();
-            currentNode.SwitchPlaceHolderLeft();
-        }
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            //Switch CurrentNode's Placeholder at Right
-            Node currentNode = tree[_currentNodeIndex].GetComponent<Node>();
-            currentNode.SwitchPlaceHolderLeft();
-        }
-        //Move between unset nodes (fringe of the tree)
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            //Switch CurrentNode down
-            int nextCurrentNode = SearchDownUnsetNode();
-
-            if (_currentNodeIndex == nextCurrentNode)
-            {
-                //Do Nothing
-                Debug.Log("The next Current node is the last CurrentNode");
-            }
-            else
-            {
-                Arrow lastArrow = arrowTree[_currentNodeIndex].GetComponent<Arrow>();
-                lastArrow.FromFastToSlow();
-
-                _currentNodeIndex = nextCurrentNode;
-
-                Arrow nextArrow = arrowTree[_currentNodeIndex].GetComponent<Arrow>();
-                nextArrow.FromSlowToFast();
-            }
-        }
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            //Switch CurrentNode Up
-
-            int nextCurrentNode = SearchUpUnsetNode();
-
-            if (_currentNodeIndex == nextCurrentNode)
-            {
-                //Do Nothing
-                Debug.Log("The next Current node is the last CurrentNode");
-            }
-            else
-            {
-                Arrow lastArrow = arrowTree[_currentNodeIndex].GetComponent<Arrow>();
-                lastArrow.FromFastToSlow();
-
-                _currentNodeIndex = nextCurrentNode;
-
-                Debug.Log("CurrentIndex when trying to go above the highest arrow should be 1 but it is: " + _currentNodeIndex);
-                Arrow nextArrow = arrowTree[_currentNodeIndex].GetComponent<Arrow>();
-                nextArrow.FromSlowToFast();
-            }
-        }
-
-        //CONFIRM A CARD
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            //Stop arrow fading
-            Arrow currentArrow = arrowTree[_currentNodeIndex].GetComponent<Arrow>();
-            currentArrow.StopFadingEffect();
-
-            //Set the currentNode
-            Node currentNode = tree[_currentNodeIndex].GetComponent<Node>();
-            currentNode.SetChosen(true);
-
+            //What to do when we're in the grid menu
             
 
-            int nextCurrentNode = 2 * _currentNodeIndex + 1;
-            if (nextCurrentNode < _numberOfNodes)
+            //Get back to Scroll menu pressing Backspace
+            if (Input.GetKeyDown(KeyCode.Backspace))
             {
-                //Initialize new children
-                InitChildren();
+                StopHighlight();
+                _scrollToGrid = false;
+                _rotated = false;
+                _currentCombo = -1;
+                _row = 0;
+                _coloumn = 0;
+                return;
+            }
+
+            Combo currentCombo = combos[_currentCombo];
+
+            //Movement in the grid
+            GridMovement();
+
+            //Rotation in the grid
+            GridRotation();
+
+            //Insertion in the grid
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                GridInsertion();
+                
+            }
+        }
+        else
+        {
+            //What to do when we're in the scroll menu
+        }
+	}
+
+    private void ResetGrid()
+    {
+        for (int i = 0; i < combos.Length; i++)
+        {
+            combos[i].coloumnSaved = -1;
+            combos[i].rowSaved = -1;
+            combos[i].rotatedSaved = false;
+        }
+    }
+
+    private void ReconstructGrid()
+    {
+        Debug.Log("Trying to Reconstruct the grid");
+        for(int i = 0; i < combos.Length; i++)
+        {
+            
+            if ((combos[i].coloumnSaved != -1) && (combos[i].rowSaved != -1))
+            {
+                _currentCombo = i;
+                _rotated = combos[i].rotatedSaved;
+                _row = combos[i].rowSaved;
+                _coloumn = combos[i].coloumnSaved;
+                GridInsertion();
+            }
+        }
+
+        //No Combo selected at the beginning
+        _currentCombo = -1;
+
+        //Combo is not rotated at the beginning (which means horizontal)
+        _rotated = false;
+
+        //Starting point of Grid Position is element 0,0
+        _row = 0;
+        _coloumn = 0;
+    }
+
+    private void InitializeScrollingMenu()
+    {
+        _menuButtons = new List<GameObject>();
+
+        for (int i = 0; i < combos.Length; i++)
+        {
+            GameObject button = Instantiate(menuButton) as GameObject;
+            button.SetActive(true);
+
+            button.GetComponent<SingleComboButton>().SetIndex(i);
+            button.GetComponent<SingleComboButton>().SetComboName(combos[i].comboName);
+            button.GetComponent<SingleComboButton>().SetImage(combos[i].comboSprite);
+
+            button.transform.SetParent(menuButton.transform.parent, false);
+
+            _menuButtons.Add(button);
+        }
+    }
+
+    private void InitializeGridMenu()
+    {
+        _menuGridCells = new ComboGridCell[rows, coloumns];
+
+        Vector3 cellOffset = menuCell.GetComponent<Transform>().position;
+
+        for(int i = 0; i < rows; i++)
+        {
+            for(int j = 0; j < coloumns; j++)
+            {
+                GameObject newGridCell = Instantiate(menuCell, cellOffset, new Quaternion(0, 0, 0, 0));
+                newGridCell.SetActive(true);
+                cellOffset += new Vector3(xOffset, 0, 0);
+
+                _menuGridCells[i, j] = newGridCell.GetComponent<ComboGridCell>();
+            }
+
+            cellOffset += new Vector3(-xOffset * coloumns, -yOffset, 0);   
+        }
+    }
+
+    private void Highlight()
+    {
+        Combo comboToHighlight = combos[_currentCombo];
+
+        try
+        {
+            if (_rotated)
+            {
+                for (int i = 0; i < comboToHighlight.buttonSequence.Length; i++)
+                {
+                    _menuGridCells[_row + i, _coloumn].StartFading();
+                }
             }
             else
             {
-                Debug.Log("MaxDepth reached: No other nodes can be created");
-                //Select another node
-                _currentNodeIndex = SelectOtherNode();
+                for(int i = 0; i < comboToHighlight.buttonSequence.Length; i++)
+                {
+                    _menuGridCells[_row, _coloumn + i].StartFading();
+                }
             }
-        }
-
-        //DESELECT A CARD 
-        if (Input.GetKeyDown(KeyCode.Backspace))
+        } 
+        catch
         {
-            if (_currentNodeIndex > 2)
+            Debug.Log("Trying to reach a Cell outside the grid: highlight is misscalled, combo is misplaced");
+        }
+    }
+
+    private void StopHighlight()
+    {
+        Combo comboToHighlight = combos[_currentCombo];
+
+        try
+        {
+            if (_rotated)
             {
-                //Eliminate currentNode and its brother
-                GameObject eliminatedNode = tree[_currentNodeIndex];
-                Node node = eliminatedNode.GetComponent<Node>();
-                node.DestroyPlaceHolder();
-                Destroy(eliminatedNode);
-                tree[_currentNodeIndex] = null;
-
-                int oddOrEven = _currentNodeIndex % 2;
-                if (oddOrEven == 1)
+                for (int i = 0; i < comboToHighlight.buttonSequence.Length; i++)
                 {
-                    eliminatedNode = tree[_currentNodeIndex + 1];
-                    node = eliminatedNode.GetComponent<Node>();
-                    node.DestroyPlaceHolder();
-                    Destroy(eliminatedNode);
-                    tree[_currentNodeIndex + 1] = null;
-                    _currentNodeIndex = (_currentNodeIndex - 1) / 2;
+                    _menuGridCells[_row + i, _coloumn].StopFading();
                 }
-                else
-                {
-                    eliminatedNode = tree[_currentNodeIndex - 1];
-                    node = eliminatedNode.GetComponent<Node>();
-                    node.DestroyPlaceHolder();
-                    Destroy(eliminatedNode);
-                    tree[_currentNodeIndex - 1] = null;
-                    _currentNodeIndex = (_currentNodeIndex - 2) / 2;
-                }
-
-                //Destroy Arrows
-                DeactivateLeftArrow();
-                DeactivateRightArrow();
-
-                //Re-enable the father node
-                Node currentNode;
-                try
-                {
-                    currentNode = tree[_currentNodeIndex].GetComponent<Node>();
-                }
-                catch
-                {
-                    _currentNodeIndex = SelectOtherNode();
-                }
-                currentNode = tree[_currentNodeIndex].GetComponent<Node>();
-                currentNode.SetChosen(false);
-                Arrow currentArrow = arrowTree[_currentNodeIndex].GetComponent<Arrow>();
-                currentArrow.StartFadingEffect();
             }
             else
             {
-                Debug.Log("You cannot eliminate the first two nodes");
-            }
-        }
-    }
-
-    //Initialize the Tree (Array) with its Root Node
-    public void InitTree()
-    {
-        //Calculate trees basic properties
-        _numberOfNodes = (int)(Mathf.Pow(2, maxDepth) - 1);
-        tree = new GameObject[_numberOfNodes];
-        arrowTree = new GameObject[_numberOfNodes];
-        arrowRotations = new float[_numberOfNodes];
-        arrowPositions = new Vector3[_numberOfNodes];
-
-        //Create the root node and Instantiate it at the right position
-        Vector3 rootNodePosition = this.GetComponent<Transform>().position;
-        Vector3 rootNodeOffset = new Vector3(xOffsetNode, 0, 0);
-        rootNodePosition = rootNodePosition + rootNodeOffset;
-        Quaternion rootNodeRotation = new Quaternion(0, 0, 0, 0);
-
-        GameObject clone = Instantiate(rootNode, rootNodePosition, rootNodeRotation);
-
-        //Initialize the Array that store the Binary tree and its index and Arrow Positions/Rotations
-        _currentNodeIndex = 0;
-        tree[_currentNodeIndex] = clone;
-        arrowRotations[_currentNodeIndex] = 0;
-        arrowRotations[2 * _currentNodeIndex + 2] = zRotationArrow;
-        arrowRotations[2 * _currentNodeIndex + 1] = -zRotationArrow;
-        arrowPositions[_currentNodeIndex] = new Vector3(0, 0, 0);
-        arrowPositions[2 * _currentNodeIndex + 2] = new Vector3(xOffsetArrow, yOffsetArrow, 0);
-        arrowPositions[2 * _currentNodeIndex + 1] = new Vector3(xOffsetArrow, -yOffsetArrow, 0);
-    }
-
-    //Initialize and Create the next two Children w.r.t. the father in the tree and their arrows
-    public void InitChildren()
-    {
-        Vector3 fatherPosition = tree[_currentNodeIndex].GetComponent<Transform>().position;
-
-        SetLeftArrow(fatherPosition);
-        SetRightArrow(fatherPosition);
-
-        InitLeftChild(fatherPosition);
-        InitRightChild(fatherPosition);
-    }
-
-    //Instantiate Left Arrow in the correct position w.r.t its father
-    public void SetLeftArrow(Vector3 fatherPosition)
-    {
-        //Calculate Arrow position and rotation
-        xOffsetArrow = arrowPositions[2 * _currentNodeIndex + 1].x;
-        yOffsetArrow = arrowPositions[2 * _currentNodeIndex + 1].y;
-        Vector3 leftArrowOffset = new Vector3(xOffsetArrow, yOffsetArrow, 0);
-        Vector3 leftArrowPosition = fatherPosition + leftArrowOffset;
-        Quaternion leftArrowRotation = Quaternion.Euler(0, 0, arrowRotations[2 * _currentNodeIndex + 1]);
-
-        //Instantiate the Arrow and save it in the arrowTree
-        GameObject leftArrowClone = Instantiate(leftArrow, leftArrowPosition, leftArrowRotation);
-        arrowTree[2 * _currentNodeIndex + 1] = leftArrowClone;
-
-        //Prepare grand children arrow rotation
-        GrandChildrenArrowRotationInit(2 * _currentNodeIndex + 1);
-
-        //Prepare grand children arrow position
-        GrandChildrenArrowPositionInit(2 * _currentNodeIndex + 1);
-    }
-
-    //Destroy the currentLeftArrow and set Null in the array
-    public void DeactivateLeftArrow()
-    {
-        Destroy(arrowTree[2 * _currentNodeIndex + 1]);
-        arrowTree[2 * _currentNodeIndex + 1] = null;
-    }
-
-    //Instantiate Right Arrow in the correct position w.r.t its father
-    public void SetRightArrow(Vector3 fatherPosition)
-    {
-        //Calculate Arrow position and rotation
-        xOffsetArrow = arrowPositions[2 * _currentNodeIndex + 2].x;
-        yOffsetArrow = arrowPositions[2 * _currentNodeIndex + 2].y;
-        Vector3 rightArrowOffset = new Vector3(xOffsetArrow, yOffsetArrow, 0);
-        Vector3 rightArrowPosition = fatherPosition + rightArrowOffset;
-        Quaternion rightArrowRotation = Quaternion.Euler(0, 0, arrowRotations[2 * _currentNodeIndex + 2]);
-
-        //Instantiate the Arrow and save it in the ArrowTree
-        GameObject rightArrowClone = Instantiate(rightArrow, rightArrowPosition, rightArrowRotation);
-        arrowTree[2 * _currentNodeIndex + 2] = rightArrowClone;
-
-        //Impose the right node as Selected node after children creation
-        rightArrowClone.GetComponent<Arrow>().FromSlowToFast();
-
-        //Prepare grand-children arrow rotation
-        GrandChildrenArrowRotationInit(2 * _currentNodeIndex + 2);
-
-        //Prepare grand children arrow position
-        GrandChildrenArrowPositionInit(2 * _currentNodeIndex + 2);
-    }
-
-    //Destroy the currentRightArrow and set Null in the array
-    public void DeactivateRightArrow()
-    {
-        Destroy(arrowTree[2 * _currentNodeIndex + 2]);
-        arrowTree[2 * _currentNodeIndex + 2] = null;
-    }
-
-    public void InitLeftChild(Vector3 fatherPosition)
-    {
-        //Calculate Node position and rotation
-        float zRotationArrowRad = (Mathf.PI / 180) * arrowRotations[2 * _currentNodeIndex + 1];
-        xOffsetChild = lenghtArrow * Mathf.Cos(zRotationArrowRad);
-        yOffsetChild = lenghtArrow * Mathf.Sin(zRotationArrowRad);
-
-        Vector3 leftChildOffset = new Vector3(xOffsetChild, yOffsetChild, 0);
-        Vector3 leftChildPosition = fatherPosition + leftChildOffset;
-        Quaternion leftChildRotation = Quaternion.Euler(0, 0, 0);
-
-        //Instantiate the Node
-        GameObject leftClone = Instantiate(node, leftChildPosition, leftChildRotation);
-
-        //Insert the node in the tree
-        tree[2 * _currentNodeIndex + 1] = leftClone;
-
-        //Adjust placeholder position
-        Node leftNode = leftClone.GetComponent<Node>();
-        leftNode.AdjustPlaceHolderPosition(xOffsetText, -yOffsetText);
-    }
-
-    public void InitRightChild(Vector3 fatherPosition)
-    {
-        //Calculate Node position and rotation
-        float zRotationArrowRad = (Mathf.PI / 180) * arrowRotations[2 * _currentNodeIndex + 2];
-        xOffsetChild = lenghtArrow * Mathf.Cos(zRotationArrowRad);
-        yOffsetChild = lenghtArrow * Mathf.Sin(zRotationArrowRad);
-        
-        Vector3 rightChildOffset = new Vector3(xOffsetChild, yOffsetChild, 0);
-        Vector3 rightChildPosition = fatherPosition + rightChildOffset;
-        Quaternion rightChildRotation = Quaternion.Euler(0, 0, 0);
-
-        //Instantiate the Node
-        GameObject rightClone = Instantiate(node, rightChildPosition, rightChildRotation);
-
-        //Insert the node in the tree
-        tree[2 * _currentNodeIndex + 2] = rightClone;
-        _currentNodeIndex = 2 * _currentNodeIndex + 2;
-
-        //Adjust placeholder position
-        Node rightNode = rightClone.GetComponent<Node>();
-        rightNode.AdjustPlaceHolderPosition(xOffsetText, yOffsetText);
-    }
-
-    public int SearchUpUnsetNode()
-    {
-        int nextCurrentNode = _currentNodeIndex;
-        for (int i = _numberOfNodes - 1; i > _currentNodeIndex; i--)
-        {
-            try
-            {
-                Node examinedNode = tree[i].GetComponent<Node>();
-                if (!examinedNode.GetChosen())
+                for (int i = 0; i < comboToHighlight.buttonSequence.Length; i++)
                 {
-                    nextCurrentNode = i;
+                    _menuGridCells[_row, _coloumn + i].StopFading();
                 }
             }
-            catch
-            {
-                //Do Nothing, if we found a in tree[i] a null node, 
-                //it means that the tree is momentarily unbalanced
-            }
-
         }
-
-        return nextCurrentNode;
+        catch
+        {
+            Debug.Log("Trying to reach a Cell outside the grid: highlight is misscalled, combo is misplaced");
+        }
     }
 
-    public int SearchDownUnsetNode()
+    private void GridMovement()
     {
-        int nextCurrentNode = _currentNodeIndex;
-        for (int i = 1; i < _currentNodeIndex; i++)
-        {
-            try
+        if (Input.GetKeyDown(KeyCode.S))
+        {   
+            //Stop previous location fading effect
+            StopHighlight();
+
+            _row += 1;
+            
+            if (!CheckMovementConsistency())
             {
-                Node examinedNode = tree[i].GetComponent<Node>();
-                if (!examinedNode.GetChosen())
+                _row -= 1;
+                Debug.Log("Player is trying to go outside the Grid");
+            }
+
+            //Start next location fading effect
+            Highlight();
+        }
+
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            //Stop previous location fading effect
+            StopHighlight();
+
+            _row -= 1;
+
+            if (!CheckMovementConsistency())
+            {
+                _row += 1;
+                Debug.Log("Player is trying to go outside the Grid");
+            }
+
+            //Start next location fading effect
+            Highlight();
+        }
+
+        if(Input.GetKeyDown(KeyCode.A))
+        {
+            //Stop previous location fading effect
+            StopHighlight();
+
+            _coloumn -= 1;
+
+            if (!CheckMovementConsistency())
+            {
+                _coloumn += 1;
+                Debug.Log("Player is trying to go outside the Grid");
+            }
+
+            //Start next location fading effect
+            Highlight();
+        }
+
+        if(Input.GetKeyDown(KeyCode.D))
+        {
+            //Stop previous location fading effect
+            StopHighlight();
+
+            _coloumn += 1;
+
+            if (!CheckMovementConsistency())
+            {
+                _coloumn -= 1;
+                Debug.Log("Player is trying to go outside the Grid");
+            }
+
+            //Start next location fading effect
+            Highlight();
+        }
+    }
+
+    private void GridRotation()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            //Stop previous location fading effect
+            StopHighlight();
+
+            _rotated = !_rotated;
+
+            if (!CheckMovementConsistency())
+            {
+                _rotated = !_rotated;
+                Debug.Log("Player is trying to rotate a combo which is too long");
+            }
+
+            //Start next location fading effect
+            Highlight();
+        }
+    }
+
+    private void GridInsertion()
+    {   
+        //Check if the combo can be inserted in this position
+        if (!CheckInsertionConsistency())
+        {
+            Debug.Log("Cannot insert combo here: at least one grid cell is already occupied");
+            return;
+        }
+
+        //Stop the fading effect of all GridCells
+        StopHighlight();
+
+        Combo comboToPlace = combos[_currentCombo];
+
+        try
+        {
+            if (_rotated)
+            {
+                //Save the initial position of the combo: this helps in deletion of the combo and in saving matrix status
+                combos[_currentCombo].rowSaved = _row;
+                combos[_currentCombo].coloumnSaved = _coloumn;
+                combos[_currentCombo].rotatedSaved = _rotated;
+
+                for (int i = 0; i < comboToPlace.buttonSequence.Length; i++)
                 {
-                    nextCurrentNode = i;
+                    //Set the current GridCell as occupied
+                    _menuGridCells[_row + i, _coloumn].SetOccupied(true);
+
+                    //Set the GridCell content (sprite)
+                    SpriteRenderer gridContent = _menuGridCells[_row + i, _coloumn].transform.GetChild(0).transform.GetComponent<SpriteRenderer>();
+                    gridContent.sprite = comboToPlace.buttonSequence[i].sprite;
                 }
             }
-            catch
+            else
             {
-                //Do Nothing, if we found a in tree[i] a null node, 
-                //it means that the tree is momentarily unbalanced
+                //Save the initial position of the combo: this helps in deletion of the combo and in saving matrix status
+                combos[_currentCombo].rowSaved = _row;
+                combos[_currentCombo].coloumnSaved = _coloumn;
+                combos[_currentCombo].rotatedSaved = _rotated;
+
+                for (int i = 0; i < comboToPlace.buttonSequence.Length; i++)
+                {
+                    //Set the current GridCell as occupied
+                    _menuGridCells[_row, _coloumn + i].SetOccupied(true);
+
+                    //Set the GridCell content (sprite)
+                    SpriteRenderer gridContent = _menuGridCells[_row, _coloumn + i].transform.GetChild(0).transform.GetComponent<SpriteRenderer>();
+                    gridContent.sprite = comboToPlace.buttonSequence[i].sprite;
+                }
             }
         }
-
-        return nextCurrentNode;
-    }
-
-    public int SelectOtherNode()
-    {
-        int currentNextNode = SearchUpUnsetNode();
-        if (currentNextNode == _currentNodeIndex)
+        catch
         {
-            currentNextNode = SearchDownUnsetNode();
+            Debug.Log("Trying to missplace a combo. Something wrong is happened with the actual position. All check should be already done at this point");
         }
-        
-        return currentNextNode;
+
+        _scrollToGrid = false;
+        EnableScrollMenu();
     }
 
-    public void GrandChildrenArrowRotationInit(int childIndex)
+    private void GridDeletion()
     {
+        Combo comboToDelete = combos[_currentCombo];
+        int startingRow = comboToDelete.rowSaved;
+        int startingColoumn = comboToDelete.coloumnSaved;
+
+        try
+        {
+            if (comboToDelete.rotatedSaved)
+            {
+
+                for (int i = 0; i < comboToDelete.buttonSequence.Length; i++)
+                {
+                    //Set the current GridCell as free
+                    _menuGridCells[startingRow + i, startingColoumn].SetOccupied(false);
+
+                    //Reset Gridcell content
+                    SpriteRenderer gridContent = _menuGridCells[startingRow + i, startingColoumn].transform.GetChild(0).transform.GetComponent<SpriteRenderer>();
+                    gridContent.sprite = null;
+                }
+            }
+            else
+            {
+                for (int i = 0; i < comboToDelete.buttonSequence.Length; i++)
+                {
+                    //Set the current GridCell as free
+                    _menuGridCells[startingRow, startingColoumn + i].SetOccupied(false);
+
+                    //Reset GridCell content
+                    SpriteRenderer gridContent = _menuGridCells[startingRow, startingColoumn + i].transform.GetChild(0).transform.GetComponent<SpriteRenderer>();
+                    gridContent.sprite = null;
+                }
+            }
+        }
+        catch
+        {
+            Debug.Log("Something went wrong while deleting combo number " + _currentCombo);
+        }
+
+        //Reset the Scriptable Object
+        combos[_currentCombo].rowSaved = -1;
+        combos[_currentCombo].coloumnSaved = -1;
+        combos[_currentCombo].rotatedSaved = false;
+        _scrollToGrid = false;
+    }
+
+    private bool CheckInsertionConsistency()
+    {   
+        Combo comboToPlace = combos[_currentCombo];
+
         try
         {   
-            int nextLeftChildIndex = 2 * childIndex + 1;
-            int nextRightChildrenIndex = 2 * childIndex + 2;
-            arrowRotations[nextLeftChildIndex] = - 1 * (Mathf.Abs(arrowRotations[childIndex]) / 2);
-            arrowRotations[nextRightChildrenIndex] = Mathf.Abs(arrowRotations[childIndex]) / 2;
-        }
-        catch
-        {
-            Debug.Log("Grand-Children Node exceed max depth: No Arrow Rotation needed");
-        }
-    }
-
-    public void GrandChildrenArrowPositionInit(int childIndex)
-    {
-        try
-        {
-            int leftGrandChildIndex = 2 * childIndex + 1;
-            int rightGrandChildrenIndex = 2 * childIndex + 2;
-
-            float xLocalPosition = arrowPositions[childIndex].x + xLocalOffset;
-            float yLocalPosition;
-            float yLocalInvertedPosition;
-
-            int oddOrEven = childIndex % 2;
-            if (oddOrEven == 0)
-            {   
-                //If the Child is a Right Node
-                yLocalPosition = arrowPositions[childIndex].y - yLocalOffset;
-                yLocalInvertedPosition = -1 * arrowPositions[childIndex].y + yLocalOffset;
-
-                arrowPositions[leftGrandChildIndex] = new Vector3(xLocalPosition, yLocalInvertedPosition, 0);
-                arrowPositions[rightGrandChildrenIndex] = new Vector3(xLocalPosition, yLocalPosition, 0);
+            if (_rotated)
+            {
+                for (int i = 0; i < comboToPlace.buttonSequence.Length; i++)
+                {
+                    //Set the current GridCell as occupied
+                    if (_menuGridCells[_row + i, _coloumn].GetOccupied())
+                    {
+                        return false;
+                    }
+                }
             }
             else
             {
-                //If the Child is a Left Node
-                yLocalPosition = arrowPositions[childIndex].y + yLocalOffset;
-                yLocalInvertedPosition = -1 * arrowPositions[childIndex].y - yLocalOffset;
-
-                arrowPositions[leftGrandChildIndex] = new Vector3(xLocalPosition, yLocalPosition, 0);
-                arrowPositions[rightGrandChildrenIndex] = new Vector3(xLocalPosition, yLocalInvertedPosition, 0);
+                for (int i = 0; i < comboToPlace.buttonSequence.Length; i++)
+                {
+                    if (_menuGridCells[_row, _coloumn + i].GetOccupied())
+                    {
+                        return false;
+                    }
+                }
             }
         }
         catch
         {
-            Debug.Log("Grand-Children Node exceed max depth: No Arrow Position needed");
+            Debug.Log("Trying to missplace a combo. Something wrong is happened with the actual position. All check should be already done at this point");
+        }
+
+        return true;
+    }
+
+    private bool CheckMovementConsistency()
+    {
+        Combo comboToHighlight = combos[_currentCombo];
+
+        try
+        {
+            if (_rotated)
+            {
+                for (int i = 0; i < comboToHighlight.buttonSequence.Length; i++)
+                {
+                    ComboGridCell cell = _menuGridCells[_row + i, _coloumn];
+                }
+            }
+            else
+            {
+                for (int i = 0; i < comboToHighlight.buttonSequence.Length; i++)
+                {
+                    ComboGridCell cell = _menuGridCells[_row, _coloumn + i];
+                }
+            }
+        }
+        catch
+        {
+            return false;
+        }
+
+        return true;
+    }
+    
+    private void DisableScrollMenu()
+    {
+        Debug.Log("Trying to disable ScrollMenu");
+
+        GameObject scrollBar = GameObject.FindGameObjectWithTag("ScrollBar");
+        scrollBar.GetComponent<Scrollbar>().interactable = false;
+
+        GameObject scrollRect = GameObject.FindGameObjectWithTag("ScrollList");
+        scrollRect.GetComponent<Image>().GetComponent<ScrollRect>().enabled = false;
+
+        for (int i = 0; i < _menuButtons.Count; i++)
+        {
+            _menuButtons[i].GetComponent<SingleComboButton>().DisableButton();
+        }
+    }
+
+    private void EnableScrollMenu()
+    {
+        Debug.Log("Trying to enable ScrollMenu");
+
+        GameObject scrollBar = GameObject.FindGameObjectWithTag("ScrollBar");
+        scrollBar.GetComponent<Scrollbar>().interactable = true;
+
+        GameObject scrollRect = GameObject.FindGameObjectWithTag("ScrollList");
+        scrollRect.GetComponent<Image>().GetComponent<ScrollRect>().enabled = true;
+
+        for (int i = 0; i < _menuButtons.Count; i++)
+        {
+            _menuButtons[i].GetComponent<SingleComboButton>().EnableButton();
+        }
+    }
+
+    public void SetCurrentCombo(int buttonPressed)
+    {   
+        _currentCombo = buttonPressed;
+
+        Debug.Log("RowSaved should be -1 but it is: " + combos[_currentCombo].rowSaved);
+
+        if((combos[_currentCombo].rowSaved == -1) && (combos[_currentCombo].coloumnSaved == -1))
+        {
+            _scrollToGrid = true;
+            Highlight();
+            DisableScrollMenu();
+        }
+        else
+        {
+            Debug.Log("Trying to delete");
+            GridDeletion();
         }
     }
 }
