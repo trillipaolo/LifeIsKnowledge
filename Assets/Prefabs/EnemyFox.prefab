@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4322198068402190}
   - component: {fileID: 61208082571653788}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: UpDmg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4076426264441414}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: DmgColliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4446468996749740}
   - component: {fileID: 61835370469799268}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: DownDmg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4475012698666170}
   - component: {fileID: 61118939820917524}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: MidDmg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -185,7 +185,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1317074607312878}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4, y: -2.05, z: 0}
+  m_LocalPosition: {x: -14.917812, y: 5.0587087, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4076426264441414}

@@ -1,10 +1,12 @@
 fileFormatVersion: 2
-guid: 9d1211e6441e27f49ad808978619adc6
+guid: 2aae0dead52f70548855847c3bb66e1f
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Jump-Animation-Sheet_0
-    21300002: Jump-Animation-Sheet_2
-    21300004: Jump-Animation-Sheet_1
+    21300000: Attack_0
+    21300002: Attack_1
+    21300004: Attack_2
+    21300006: Attack_3
+    21300008: Attack_4
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -48,7 +50,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 12
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -95,7 +97,7 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
-    buildTarget: Android
+    buildTarget: tvOS
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -106,7 +108,7 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
-    buildTarget: tvOS
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -142,41 +144,101 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Jump-Animation-Sheet_0
+      name: Attack_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 16
+        y: 0
         width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 60
+      alignment: 9
+      pivot: {x: 0.6875, y: 0.35}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ade2deb2a6aeca243a9100f07a3cbe6f
+      spriteID: a2fe0622bd0506c47ae9d47f0afc3106
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jump-Animation-Sheet_1
+      name: Attack_1
       rect:
         serializedVersion: 2
         x: 48
-        y: 16
+        y: 0
         width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 60
+      alignment: 9
+      pivot: {x: 0.6875, y: 0.35}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 637d3bb5bbd06a247a7658f18eb0b36f
+      spriteID: ac3f0a53a2502c7439ad8a93a21afd65
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack_2
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 48
+        height: 60
+      alignment: 9
+      pivot: {x: 0.6875, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb11d87a3599f8641a031bc0341a09c2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack_3
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 0
+        width: 48
+        height: 60
+      alignment: 9
+      pivot: {x: 0.4375, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14d821be89535a44ea55a7f01c3c3bfb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack_4
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 48
+        height: 60
+      alignment: 9
+      pivot: {x: 0.4375, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7bbbca7190bfea40a5392495e752a5b
       vertices: []
       indices: 
       edges: []
@@ -184,7 +246,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 28b7fa8d41c756440ba697c137cbfa63
+    spriteID: 1442d65bbc90b73428b19e0758e96452
     vertices: []
     indices: 
     edges: []

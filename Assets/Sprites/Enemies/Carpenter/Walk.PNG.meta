@@ -1,10 +1,11 @@
 fileFormatVersion: 2
-guid: 9d1211e6441e27f49ad808978619adc6
+guid: d27c8bcae8049c94ea05887e6cbd4d09
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Jump-Animation-Sheet_0
-    21300002: Jump-Animation-Sheet_2
-    21300004: Jump-Animation-Sheet_1
+    21300000: Walk_0
+    21300002: Walk_1
+    21300004: Walk_2
+    21300006: Walk_3
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -48,7 +49,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 12
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -95,7 +96,7 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
-    buildTarget: Android
+    buildTarget: tvOS
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -106,7 +107,7 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
-    buildTarget: tvOS
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -142,41 +143,81 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Jump-Animation-Sheet_0
+      name: Walk_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 16
+        y: 0
         width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 60
+      alignment: 9
+      pivot: {x: 0.6875, y: 0.35}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ade2deb2a6aeca243a9100f07a3cbe6f
+      spriteID: f2de263056e70ac4b827c40109ab00a6
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Jump-Animation-Sheet_1
+      name: Walk_1
       rect:
         serializedVersion: 2
         x: 48
-        y: 16
+        y: 0
         width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 60
+      alignment: 9
+      pivot: {x: 0.7083334, y: 0.35}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 637d3bb5bbd06a247a7658f18eb0b36f
+      spriteID: c7b53415330398d4db7d18829520deea
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walk_2
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 48
+        height: 60
+      alignment: 9
+      pivot: {x: 0.6875, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b3a23db2044eee4ea7e71146eddd076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walk_3
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 0
+        width: 48
+        height: 60
+      alignment: 9
+      pivot: {x: 0.6875, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe830829ce5c5f24fb85a19a1ea45701
       vertices: []
       indices: 
       edges: []
@@ -184,7 +225,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 28b7fa8d41c756440ba697c137cbfa63
+    spriteID: f2b8683a21910284c88caac11b56885b
     vertices: []
     indices: 
     edges: []
