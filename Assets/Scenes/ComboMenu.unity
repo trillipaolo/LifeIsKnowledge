@@ -330,6 +330,14 @@ MonoBehaviour:
   xOffset: 0.64
   yOffset: 0.64
   reset: 1
+  emptyCell: {fileID: 21300000, guid: d25e8dd7b64ee9149a039cbcce376dcc, type: 3}
+  initialCell: {fileID: 21300000, guid: 63a31b0882a7a0e4786c1c503570ce1d, type: 3}
+  initialCellRotated: {fileID: 21300000, guid: 909b57c1386c74345a448625bce98a92, type: 3}
+  finalCell: {fileID: 21300000, guid: 1e253da32c5ae1e4885a7ae7576b1622, type: 3}
+  finalCellRotated: {fileID: 21300000, guid: bbbd8a7b64d489c4ebf47994eee1bbcd, type: 3}
+  intermediateCell: {fileID: 21300000, guid: 742301261a72a1140a567662b43297aa, type: 3}
+  intermediateCellRotated: {fileID: 21300000, guid: c4dcb952a7b01904491240cbf5167d0f,
+    type: 3}
 --- !u!4 &715255137
 Transform:
   m_ObjectHideFlags: 0
@@ -989,6 +997,26 @@ Prefab:
     - target: {fileID: 212072516969467010, guid: 460261bcf71068d45b2444f95044bda6,
         type: 2}
       propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212021519729026760, guid: 460261bcf71068d45b2444f95044bda6,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212021519729026760, guid: 460261bcf71068d45b2444f95044bda6,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212021519729026760, guid: 460261bcf71068d45b2444f95044bda6,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212021519729026760, guid: 460261bcf71068d45b2444f95044bda6,
+        type: 2}
+      propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

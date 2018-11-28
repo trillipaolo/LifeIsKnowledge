@@ -23,6 +23,15 @@ public class ComboMenuManager : MonoBehaviour {
     [Header("Reset Grid Status")]
     public bool reset;
 
+    [Header("Grid Sprites for Combos")]
+    public Sprite emptyCell;
+    public Sprite initialCell;
+    public Sprite initialCellRotated;
+    public Sprite finalCell;
+    public Sprite finalCellRotated;
+    public Sprite intermediateCell;
+    public Sprite intermediateCellRotated;
+
     //List of Buttons in the scrolling menu: each button refers to a combo
     private List<GameObject> _menuButtons;
 
@@ -66,11 +75,12 @@ public class ComboMenuManager : MonoBehaviour {
         //Starting point of Grid Position is element 0,0
         _row = 0;
         _coloumn = 0;
-        
+
         //Initialize Menus
         InitializeScrollingMenu();
         InitializeGridMenu();
 
+        //Set if the Grid must be re-set each time the Scene is played
         if (reset)
         {
             ResetGrid();
@@ -333,10 +343,18 @@ public class ComboMenuManager : MonoBehaviour {
 
             _rotated = !_rotated;
 
-            if (!CheckMovementConsistency())
+            int excessCells = CheckRotationConsistency();
+
+            if (excessCells != 0)
             {
-                _rotated = !_rotated;
-                Debug.Log("Player is trying to rotate a combo which is too long");
+                AdjustRotationPosition(excessCells);
+
+                if (!CheckMovementConsistency())
+                {
+                    AdjustRotationPosition(-excessCells);
+                    _rotated = !_rotated;
+                    Debug.Log("Player is trying to rotate a combo which is too long");
+                }
             }
 
             //Start next location fading effect
@@ -362,7 +380,7 @@ public class ComboMenuManager : MonoBehaviour {
         {
             if (_rotated)
             {
-                //Save the initial position of the combo: this helps in deletion of the combo and in saving matrix status
+                //Save the initial position of the combo: this helps in deletion of the combo and in saving grid status
                 combos[_currentCombo].rowSaved = _row;
                 combos[_currentCombo].coloumnSaved = _coloumn;
                 combos[_currentCombo].rotatedSaved = _rotated;
@@ -371,6 +389,20 @@ public class ComboMenuManager : MonoBehaviour {
                 {
                     //Set the current GridCell as occupied
                     _menuGridCells[_row + i, _coloumn].SetOccupied(true);
+
+                    //Set the GridCell border (sprite)
+                    if (i == 0)
+                    {
+                        _menuGridCells[_row + i, _coloumn].GetComponent<SpriteRenderer>().sprite = initialCellRotated;
+                    }
+                    else if (i < comboToPlace.buttonSequence.Length - 1)
+                    {
+                        _menuGridCells[_row + i, _coloumn].GetComponent<SpriteRenderer>().sprite = intermediateCellRotated;
+                    }
+                    else
+                    {
+                        _menuGridCells[_row + i, _coloumn].GetComponent<SpriteRenderer>().sprite = finalCellRotated;
+                    }
 
                     //Set the GridCell content (sprite)
                     SpriteRenderer gridContent = _menuGridCells[_row + i, _coloumn].transform.GetChild(0).transform.GetComponent<SpriteRenderer>();
@@ -388,6 +420,20 @@ public class ComboMenuManager : MonoBehaviour {
                 {
                     //Set the current GridCell as occupied
                     _menuGridCells[_row, _coloumn + i].SetOccupied(true);
+
+                    //Set the GridCell border (sprite)
+                    if (i == 0)
+                    {
+                        _menuGridCells[_row, _coloumn + i].GetComponent<SpriteRenderer>().sprite = initialCell;
+                    }
+                    else if (i < comboToPlace.buttonSequence.Length - 1)
+                    {
+                        _menuGridCells[_row, _coloumn + i].GetComponent<SpriteRenderer>().sprite = intermediateCell;
+                    }
+                    else
+                    {
+                        _menuGridCells[_row, _coloumn + i].GetComponent<SpriteRenderer>().sprite = finalCell;
+                    }
 
                     //Set the GridCell content (sprite)
                     SpriteRenderer gridContent = _menuGridCells[_row, _coloumn + i].transform.GetChild(0).transform.GetComponent<SpriteRenderer>();
@@ -420,6 +466,9 @@ public class ComboMenuManager : MonoBehaviour {
                     //Set the current GridCell as free
                     _menuGridCells[startingRow + i, startingColoumn].SetOccupied(false);
 
+                    //Reset Gridcell sprite
+                    _menuGridCells[startingRow + i, startingColoumn].GetComponent<SpriteRenderer>().sprite = emptyCell;
+
                     //Reset Gridcell content
                     SpriteRenderer gridContent = _menuGridCells[startingRow + i, startingColoumn].transform.GetChild(0).transform.GetComponent<SpriteRenderer>();
                     gridContent.sprite = null;
@@ -431,6 +480,9 @@ public class ComboMenuManager : MonoBehaviour {
                 {
                     //Set the current GridCell as free
                     _menuGridCells[startingRow, startingColoumn + i].SetOccupied(false);
+
+                    //Reset Gridcell sprite
+                    _menuGridCells[startingRow, startingColoumn + i].GetComponent<SpriteRenderer>().sprite = emptyCell;
 
                     //Reset GridCell content
                     SpriteRenderer gridContent = _menuGridCells[startingRow, startingColoumn + i].transform.GetChild(0).transform.GetComponent<SpriteRenderer>();
@@ -514,7 +566,57 @@ public class ComboMenuManager : MonoBehaviour {
 
         return true;
     }
-    
+
+    private int CheckRotationConsistency()
+    {
+        Combo comboToHighlight = combos[_currentCombo];
+
+        int countExcessCells = 0;
+
+        if (_rotated)
+        {
+            for (int i = 0; i < comboToHighlight.buttonSequence.Length; i++)
+            {
+                try
+                {
+                    ComboGridCell cell = _menuGridCells[_row + i, _coloumn];
+                }
+                catch
+                {
+                    countExcessCells += 1;
+                }
+            }
+        }
+        else
+        {
+            for (int i = 0; i < comboToHighlight.buttonSequence.Length; i++)
+            {
+                try
+                {
+                    ComboGridCell cell = _menuGridCells[_row, _coloumn + i];
+                }
+                catch
+                {
+                    countExcessCells += 1;
+                }
+            }
+        }
+
+        return countExcessCells;
+    }
+
+    private void AdjustRotationPosition(int excessCells)
+    {
+        if (!_rotated)
+        {
+            _coloumn -= excessCells;
+        }
+        else
+        {
+            _row -= excessCells;
+        }
+    }
+
     private void DisableScrollMenu()
     {
         Debug.Log("Trying to disable ScrollMenu");
