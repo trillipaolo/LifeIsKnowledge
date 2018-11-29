@@ -17,9 +17,9 @@ public class AnimationComboMenuPlaceHolder : MonoBehaviour {
 
     private void ImportPlaceHolder()
     {
-        placeHolderArray[0] = (Sprite)AssetDatabase.LoadAssetAtPath("Assets/Sprites/AnimationComboMenuPlaceHolder.png", typeof(Sprite));
+        /*placeHolderArray[0] = (Sprite)AssetDatabase.LoadAssetAtPath("Assets/Sprites/AnimationComboMenuPlaceHolder.png", typeof(Sprite));
         placeHolderArray[1] = (Sprite)AssetDatabase.LoadAssetAtPath("Assets/Sprites/AnimationComboMenuPlaceHolder2.png", typeof(Sprite));
-        placeHolderArray[2] = (Sprite)AssetDatabase.LoadAssetAtPath("Assets/Sprites/AnimationComboMenuPlaceHolder3.png", typeof(Sprite));
+        placeHolderArray[2] = (Sprite)AssetDatabase.LoadAssetAtPath("Assets/Sprites/AnimationComboMenuPlaceHolder3.png", typeof(Sprite));*/
     }
 
     public void SwitchPlaceHolderRight()
