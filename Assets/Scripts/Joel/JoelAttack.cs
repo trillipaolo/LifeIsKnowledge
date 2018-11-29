@@ -12,6 +12,12 @@ public class JoelAttack : MonoBehaviour {
     private bool _topInput = false;
     private bool _middleInput = false;
     private bool _downInput = false;
+    private bool _lastTopInput = false;
+    private bool _lastMiddleInput = false;
+    private bool _lastDownInput = false;
+    private bool _currentTopInput = false;
+    private bool _currentMiddleInput = false;
+    private bool _currentDownInput = false;
 
     public LayerMask attackLayerMask;
     private ContactFilter2D _attackContactFilter;
@@ -43,12 +49,17 @@ public class JoelAttack : MonoBehaviour {
     void Update () {
         GetInput();
         UpdateAnimatorParameters();
+        UpdateInputVariables();
 	}
 
     private void GetInput() {
-        _topInput = Input.GetAxis("AttackTop") > 0;
-        _middleInput = Input.GetAxis("AttackMiddle") > 0;
-        _downInput = Input.GetAxis("AttackDown") > 0;
+        _currentTopInput = Input.GetAxis("AttackTop") > 0;
+        _currentMiddleInput = Input.GetAxis("AttackMiddle") > 0;
+        _currentDownInput = Input.GetAxis("AttackDown") > 0;
+
+        _topInput = (_lastTopInput != _currentTopInput) ? _currentTopInput : false;
+        _middleInput = (_lastMiddleInput != _currentMiddleInput) ? _currentMiddleInput : false;
+        _downInput = (_lastDownInput != _currentDownInput) ? _currentDownInput : false;
     }
 
     private void UpdateAnimatorParameters() {
@@ -59,6 +70,12 @@ public class JoelAttack : MonoBehaviour {
                 _animator.SetBool("AttackDown",_downInput);
             }
         }
+    }
+
+    private void UpdateInputVariables() {
+        _lastTopInput = _currentTopInput;
+        _lastMiddleInput = _currentMiddleInput;
+        _lastDownInput = _currentDownInput;
     }
 
     private void ActivateInput() {
