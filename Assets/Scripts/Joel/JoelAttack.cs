@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 [RequireComponent(typeof(Animator))]
 public class JoelAttack : MonoBehaviour {
@@ -19,6 +20,17 @@ public class JoelAttack : MonoBehaviour {
     private bool _currentMiddleInput = false;
     private bool _currentDownInput = false;
 
+    private int _comboEnum = 0;
+    private float[] _lastTimeUsed = new float[2];
+    private float[] _cooldownCombo = new float[2];
+
+    private bool _combo1 = false;
+    private bool _combo2 = false;
+    private bool _lastCombo1 = false;
+    private bool _lastCombo2 = false;
+    private bool _currentCombo1 = false;
+    private bool _currentCombo2 = false;
+
     public LayerMask attackLayerMask;
     private ContactFilter2D _attackContactFilter;
     private int _hitId = 0;
@@ -27,6 +39,9 @@ public class JoelAttack : MonoBehaviour {
         _animator = GetComponent<Animator>();
         InitializeAttackColliders();
         InitializeAttackContactFilter();
+
+        _lastTimeUsed[0] = 1;
+        _cooldownCombo[0] = 10;
     }
 
     private void InitializeAttackColliders() {
@@ -48,6 +63,7 @@ public class JoelAttack : MonoBehaviour {
 
     void Update () {
         GetInput();
+        SetComboEnum();
         UpdateAnimatorParameters();
         UpdateInputVariables();
 	}
@@ -56,10 +72,27 @@ public class JoelAttack : MonoBehaviour {
         _currentTopInput = Input.GetAxis("AttackTop") > 0;
         _currentMiddleInput = Input.GetAxis("AttackMiddle") > 0;
         _currentDownInput = Input.GetAxis("AttackDown") > 0;
+        _currentCombo1 = Input.GetAxis("Combo1") > 0;
+        _currentCombo2 = Input.GetAxis("Combo2") > 0;
 
         _topInput = (_lastTopInput != _currentTopInput) ? _currentTopInput : false;
         _middleInput = (_lastMiddleInput != _currentMiddleInput) ? _currentMiddleInput : false;
         _downInput = (_lastDownInput != _currentDownInput) ? _currentDownInput : false;
+        /*_combo1 = (_lastCombo1 != _currentCombo1) ? _currentCombo1 : false;
+        _combo2 = (_lastCombo2 != _currentCombo2) ? _currentCombo2 : false;*/
+        _combo1 = _currentCombo1;
+    }
+
+    private void SetComboEnum() {
+        if(_combo1 && _topInput && Time.time - _lastTimeUsed[0] > _cooldownCombo[0]) {
+            _comboEnum = 1;
+        } else {
+
+            //TODO sposta in un metodo che viene chiamato dall'animation event.
+            // se lasciato qui quando un giocatore fa la seconda mossa di una combo e tiene premuto il L1
+            // potrebbe attivare un'altra combo invece che finire la prima
+            _comboEnum = 0;
+        }
     }
 
     private void UpdateAnimatorParameters() {
@@ -68,6 +101,7 @@ public class JoelAttack : MonoBehaviour {
                 _animator.SetBool("AttackTop",_topInput);
                 _animator.SetBool("AttackMiddle",_middleInput);
                 _animator.SetBool("AttackDown",_downInput);
+                _animator.SetInteger("ComboEnum",_comboEnum);
             }
         }
     }
@@ -92,21 +126,43 @@ public class JoelAttack : MonoBehaviour {
         _animator.SetBool("AttackTop",false);
         _animator.SetBool("AttackMiddle",false);
         _animator.SetBool("AttackDown",false);
+        _animator.SetInteger("ComboEnum",0);
     }
 
     private void Attack(string colliderPositionString) {
-        bool[] colliderPositions = EnumColliderPosition.StringToArray(colliderPositionString);
+        bool[] _colliderPositions = EnumColliderPosition.StringToArray(colliderPositionString);
+        int _damage = GetDamage(colliderPositionString);
 
         for (int i = 0; i < _attackColliders.Length; i++) {
-            if (colliderPositions[i]) {
+            if (_colliderPositions[i]) {
                 Collider2D[] enemiesCollider = new Collider2D[100];
                 int _enemyNumber = _attackColliders[i].OverlapCollider(_attackContactFilter,enemiesCollider);
                 for (int j = 0; j < _enemyNumber; j++) {
-                    enemiesCollider[j].GetComponent<EnemyBehaviour>().TakeDamage(_hitId,100);
+                    enemiesCollider[j].GetComponent<EnemyBehaviour>().TakeDamage(_hitId,_damage);
                 }
             }
         }
         UpdateHitId();
+    }
+
+    private int GetDamage(string colliderPositionString) {
+        int _defaultDamage = 100;
+        
+        if(colliderPositionString == null) {
+            return _defaultDamage;
+        }
+
+        string _damageString = colliderPositionString.Substring(EnumColliderPosition.Size());
+        if(_damageString == null) {
+            return _defaultDamage;
+        }
+
+        int _damage = 0;
+        if(Int32.TryParse(_damageString, out _damage)) {
+            return (_damage >= 0) ? _damage : _defaultDamage;
+        } else {
+            return _defaultDamage;
+        }
     }
 
     private int UpdateHitId() {

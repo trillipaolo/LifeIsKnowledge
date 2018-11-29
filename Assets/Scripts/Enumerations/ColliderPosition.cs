@@ -23,8 +23,9 @@ public static class EnumColliderPosition {
             return null;
         }
         int colliderPositionSize = Size();
-        if (colliderString.Length != colliderPositionSize) {
-            Debug.Log("colliderString into ColliderPosition.StringToArray function has a different length from the size of ColliderPosition enumeration!");
+        if (colliderString.Length < colliderPositionSize) {
+            Debug.Log("colliderString into ColliderPosition.StringToArray function has a shorter length than the size of ColliderPosition enumeration!");
+            return null;
         }
 
         bool[] colliderArray = new bool[colliderPositionSize];
