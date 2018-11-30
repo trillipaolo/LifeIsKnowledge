@@ -21,15 +21,13 @@ public class JoelAttack : MonoBehaviour {
     private bool _currentDownInput = false;
 
     private int _comboEnum = 0;
-    private float[] _lastTimeUsed = new float[2];
     private float[] _cooldownCombo = new float[2];
 
+    public JoelCombos joelCombos;
+    private Combo[] _combos;
+    private float[] _lastTimeUsed;
     private bool _combo1 = false;
     private bool _combo2 = false;
-    private bool _lastCombo1 = false;
-    private bool _lastCombo2 = false;
-    private bool _currentCombo1 = false;
-    private bool _currentCombo2 = false;
 
     public LayerMask attackLayerMask;
     private ContactFilter2D _attackContactFilter;
@@ -39,9 +37,7 @@ public class JoelAttack : MonoBehaviour {
         _animator = GetComponent<Animator>();
         InitializeAttackColliders();
         InitializeAttackContactFilter();
-
-        _lastTimeUsed[0] = 1;
-        _cooldownCombo[0] = 10;
+        InitializeComboVariables();
     }
 
     private void InitializeAttackColliders() {
@@ -61,6 +57,15 @@ public class JoelAttack : MonoBehaviour {
         _attackContactFilter.SetLayerMask(attackLayerMask);
     }
 
+    private void InitializeComboVariables() {
+        _combos = joelCombos.combos.ToArray();
+
+        _lastTimeUsed = new float[_combos.Length];
+        for(int i = 0; i < _lastTimeUsed.Length; i++) {
+            _lastTimeUsed[i] = -300;
+        }
+    }
+
     void Update () {
         GetInput();
         SetComboEnum();
@@ -72,26 +77,27 @@ public class JoelAttack : MonoBehaviour {
         _currentTopInput = Input.GetAxis("AttackTop") > 0;
         _currentMiddleInput = Input.GetAxis("AttackMiddle") > 0;
         _currentDownInput = Input.GetAxis("AttackDown") > 0;
-        _currentCombo1 = Input.GetAxis("Combo1") > 0;
-        _currentCombo2 = Input.GetAxis("Combo2") > 0;
+        _combo1 = Input.GetAxis("Combo1") > 0;
+        _combo2 = Input.GetAxis("Combo2") > 0;
 
         _topInput = (_lastTopInput != _currentTopInput) ? _currentTopInput : false;
         _middleInput = (_lastMiddleInput != _currentMiddleInput) ? _currentMiddleInput : false;
         _downInput = (_lastDownInput != _currentDownInput) ? _currentDownInput : false;
-        /*_combo1 = (_lastCombo1 != _currentCombo1) ? _currentCombo1 : false;
-        _combo2 = (_lastCombo2 != _currentCombo2) ? _currentCombo2 : false;*/
-        _combo1 = _currentCombo1;
+
     }
 
     private void SetComboEnum() {
-        if(_combo1 && _topInput && Time.time - _lastTimeUsed[0] > _cooldownCombo[0]) {
-            _comboEnum = 1;
-        } else {
-
-            //TODO sposta in un metodo che viene chiamato dall'animation event.
-            // se lasciato qui quando un giocatore fa la seconda mossa di una combo e tiene premuto il L1
-            // potrebbe attivare un'altra combo invece che finire la prima
-            _comboEnum = 0;
+        if (_combo1 || _combo2) {
+            for (int i = 0; i < _combos.Length; i++) {
+                Combo _currentCombo = _combos[i];
+                if (_combo1 == _currentCombo.combo1Key && _combo2 == _currentCombo.combo2Key &&
+                    _topInput == _currentCombo.topKey && _middleInput == _currentCombo.middleKey && _downInput == _currentCombo.downKey) {
+                    if(Time.time - _lastTimeUsed[i] > _currentCombo.cooldown) {
+                        _comboEnum = (int)_currentCombo.enumCombo;
+                    }
+                    return;
+                }
+            }
         }
     }
 
@@ -120,6 +126,17 @@ public class JoelAttack : MonoBehaviour {
     private void DeactivateInput() {
         _downInput = false;
         ResetAnimatorParameters();
+    }
+
+    private void ComboStarted() {
+        for (int i = 0; i < _combos.Length; i++) {
+            if (_combos[i].enumCombo == (EnumCombo)_comboEnum) {
+                _lastTimeUsed[i] = Time.time;
+                _comboEnum = 0;
+                return;
+            }
+        }
+        _comboEnum = 0;
     }
 
     private void ResetAnimatorParameters() {

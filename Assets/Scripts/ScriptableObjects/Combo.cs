@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Combo", menuName = "Combo")]
+[CreateAssetMenu(menuName = "ScriptableObjects/Combo")]
 public class Combo : ScriptableObject {
 
     [Header("Combo Properties")]
@@ -27,4 +27,17 @@ public class Combo : ScriptableObject {
 
         return true;
     }
+
+    // +++++++++++++++++++
+
+    [Header("Combo Keys")]
+    public bool combo1Key;
+    public bool combo2Key;
+    public bool topKey;
+    public bool middleKey;
+    public bool downKey;
+    [Header("Combo Values")]
+    public EnumCombo enumCombo;
+    public float cooldown;
+    public float damage;
 }

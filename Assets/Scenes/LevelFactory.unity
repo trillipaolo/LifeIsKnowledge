@@ -13705,6 +13705,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe4f7c2c40304de4e83f52bbeafc38a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  joelCombos: {fileID: 0}
   attackLayerMask:
     serializedVersion: 2
     m_Bits: 512
@@ -13780,6 +13781,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114276301105272254, guid: a72a79c088f4783458112ca2ba9a35e3,
+        type: 2}
+      propertyPath: joelCombos
+      value: 
+      objectReference: {fileID: 11400000, guid: 5ccaef3f2a6581e4f9016f4e4ae8d9b9,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a72a79c088f4783458112ca2ba9a35e3, type: 2}
   m_IsPrefabAsset: 0
