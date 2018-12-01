@@ -31,10 +31,6 @@ public class Controller2D : RaycastController
 
         if (moveAmount.x != 0)
         {
-//            collisions.faceDirection = (int) Mathf.Sign(moveAmount.x);
-            HorizontalCollisions(ref moveAmount);
-            // TODO: fix the bug 
-//            float directionX = Mathf.Sign(moveAmount.x)
             if (moveAmount.x > 0 && !_facingRight)
             {
                 Flip();
@@ -43,6 +39,7 @@ public class Controller2D : RaycastController
             {
                 Flip();
             }
+            HorizontalCollisions(ref moveAmount);
         }
         if (moveAmount.y != 0)
         {
