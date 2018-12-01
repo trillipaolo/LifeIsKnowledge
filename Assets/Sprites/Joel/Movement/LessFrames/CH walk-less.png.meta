@@ -115,9 +115,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 1
+        y: 2
         width: 36
-        height: 47
+        height: 46
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -125,7 +125,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ec6d54d12a8762542926245553c58322
+      spriteID: 99118927b38d5994b8155bc65b9164aa
       vertices: []
       indices: 
       edges: []
@@ -135,9 +135,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 36
-        y: 1
+        y: 2
         width: 36
-        height: 47
+        height: 46
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,7 +145,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3330ec4960cc2b049bffe1685401a298
+      spriteID: bb53145dd7c780f45810b8c01c741f94
       vertices: []
       indices: 
       edges: []
@@ -154,10 +154,10 @@ TextureImporter:
       name: CH walk-less_2
       rect:
         serializedVersion: 2
-        x: 72
-        y: 1
-        width: 36
-        height: 47
+        x: 74
+        y: 2
+        width: 34
+        height: 46
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -165,7 +165,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 35dbb4ff78a3e7d41bffcaccee82c882
+      spriteID: a875182792627db4d9b75ff91722143e
       vertices: []
       indices: 
       edges: []
@@ -175,9 +175,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 108
-        y: 1
+        y: 2
         width: 36
-        height: 47
+        height: 46
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -185,7 +185,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 057a56fe5fb14df4ea10335342ec429e
+      spriteID: 4af4f001ce8d06045ba77de624f2b39c
       vertices: []
       indices: 
       edges: []
@@ -195,9 +195,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 144
-        y: 1
+        y: 2
         width: 36
-        height: 47
+        height: 46
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -205,7 +205,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6e98a05ff583e67449500d0b73ed39ed
+      spriteID: 06fec7c545e17324a938a941fa67ea64
       vertices: []
       indices: 
       edges: []

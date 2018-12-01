@@ -16,26 +16,25 @@ public class Controller2D : RaycastController
 {
     public CollisionInfo collisions;
     [HideInInspector] public Vector2 playerInput;
-    private bool _facingRight = true; // For determining which way the player is currently facing.
+    public bool facingRight = true; // For determining which way the player is currently facing.
 
     public override void Start()
     {
         base.Start();
     }
 
-    public void Move(Vector2 moveAmount, Vector2 input)
+    public void Move(Vector2 moveAmount)
     {
         UpdateRaycastOrigins();
         collisions.Reset();
-        playerInput = input;
 
         if (moveAmount.x != 0)
         {
-            if (moveAmount.x > 0 && !_facingRight)
+            if (moveAmount.x > 0 && !facingRight)
             {
                 Flip();
             }
-            else if (moveAmount.x < 0 && _facingRight)
+            else if (moveAmount.x < 0 && facingRight)
             {
                 Flip();
             }
@@ -113,7 +112,7 @@ public class Controller2D : RaycastController
     private void Flip()
     {
         // Switch the way the player is labelled as facing.
-        _facingRight = !_facingRight;
+        facingRight = !facingRight;
 
         // Multiply the player's x local scale by -1.
         Vector3 theScale = transform.localScale;
