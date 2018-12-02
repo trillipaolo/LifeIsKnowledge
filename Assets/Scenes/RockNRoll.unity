@@ -14126,11 +14126,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4843691762835236, guid: a72a79c088f4783458112ca2ba9a35e3, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4034018902387574, guid: a72a79c088f4783458112ca2ba9a35e3, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114042313955911034, guid: a72a79c088f4783458112ca2ba9a35e3,
         type: 2}
@@ -14185,6 +14185,7 @@ GameObject:
   - component: {fileID: 1074294197}
   - component: {fileID: 1074294199}
   - component: {fileID: 1074294198}
+  - component: {fileID: 1074294200}
   m_Layer: 5
   m_Name: CoolDown
   m_TagString: Untagged
@@ -14244,6 +14245,19 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1074294196}
   m_CullTransparentMesh: 0
+--- !u!114 &1074294200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1074294196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 297b39d80243f2b419445abacb8ecb68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldownTime: 3
+  readyToUse: 0
 --- !u!1001 &1110177079
 Prefab:
   m_ObjectHideFlags: 0
@@ -14291,6 +14305,52 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f966fb601a1daf4fb79fa288567eaa9, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1130495505 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1317074607312878, guid: 269ca86417f1d5d4fa16b7246ff7175c,
+    type: 2}
+  m_PrefabInternal: {fileID: 2099935572}
+--- !u!114 &1130495510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1130495505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af7af1509a1222943991aa29e821dcdc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionMask:
+    serializedVersion: 2
+    m_Bits: 2048
+  horizontalRayCount: 0
+  verticalRayCount: 0
+  horizontalRaySpacing: 0
+  verticalRaySpacing: 0
+  collider: {fileID: 0}
+  playerInput: {x: 0, y: 0}
+  facingRight: 1
+--- !u!114 &1130495511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1130495505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1503266b95d8ac4db93e93ec91c3e47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 3
+  stopDistance: 1
+  jumpHeight: 2
+  timeToJumpApex: 0.4
+  facingRight: 1
+  patrolRadius: 5
+  visionRadiusX: 5
+  visionRadiusY: 0.5
+  foundTarget: 0
 --- !u!1 &1175971209
 GameObject:
   m_ObjectHideFlags: 0
@@ -16138,11 +16198,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4659522245677680, guid: 269ca86417f1d5d4fa16b7246ff7175c, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -14.917812
+      value: -9.15
       objectReference: {fileID: 0}
     - target: {fileID: 4659522245677680, guid: 269ca86417f1d5d4fa16b7246ff7175c, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 5.0587087
+      value: 7.86
       objectReference: {fileID: 0}
     - target: {fileID: 4659522245677680, guid: 269ca86417f1d5d4fa16b7246ff7175c, type: 2}
       propertyPath: m_LocalPosition.z
@@ -16167,6 +16227,16 @@ Prefab:
     - target: {fileID: 4659522245677680, guid: 269ca86417f1d5d4fa16b7246ff7175c, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 61661904393069858, guid: 269ca86417f1d5d4fa16b7246ff7175c,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114719250066132340, guid: 269ca86417f1d5d4fa16b7246ff7175c,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 269ca86417f1d5d4fa16b7246ff7175c, type: 2}
