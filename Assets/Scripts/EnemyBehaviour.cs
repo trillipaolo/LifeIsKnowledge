@@ -6,15 +6,9 @@ public class EnemyBehaviour : MonoBehaviour {
 
     public int lastHit = -1;
     public float health = 10;
-
-	// Use this for initialization
+    
 	void Awake () {
         lastHit = -1;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
 	}
 
     public void TakeDamage(int hitId, float damage) {

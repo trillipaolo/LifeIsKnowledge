@@ -147,6 +147,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4963569551182308}
   - component: {fileID: 114276301105272254}
+  - component: {fileID: 114889684262768620}
   - component: {fileID: 95047260597612406}
   - component: {fileID: 212086524579153634}
   - component: {fileID: 114042313955911034}
@@ -533,6 +534,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe4f7c2c40304de4e83f52bbeafc38a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  joelCombos: {fileID: 0}
   attackLayerMask:
     serializedVersion: 2
     m_Bits: 512
@@ -567,6 +569,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95c12ed5a450ddb4aa86461d3a6ffde9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114889684262768620
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1934158675797218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f640f27905614c49a581aceb84d21af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 100
+  currentHealth: 0
+  healthSlider: {fileID: 0}
+  damageImage: {fileID: 0}
+  flashSpeed: 5
+  flashColour: {r: 1, g: 0, b: 0, a: 0.1}
 --- !u!212 &212086524579153634
 SpriteRenderer:
   m_ObjectHideFlags: 1
