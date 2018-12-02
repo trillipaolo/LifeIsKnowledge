@@ -52,8 +52,6 @@ public class EnemyAttackPaolo : MonoBehaviour {
     }
 
     void OnTriggerEnter2D(Collider2D other) {
-        Debug.Log("on trigger enter");
-        Debug.Log("other.gameObject");
         // If the entering collider is the player...
         if (other.gameObject == _joel) {
             // ... the player is in range.
