@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4322198068402190}
   - component: {fileID: 61208082571653788}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: UpDmg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,6 +38,8 @@ GameObject:
   - component: {fileID: 61661904393069858}
   - component: {fileID: 114258172582015316}
   - component: {fileID: 114719250066132340}
+  - component: {fileID: 114408680530995284}
+  - component: {fileID: 114992268899887552}
   m_Layer: 9
   m_Name: EnemyFox
   m_TagString: Untagged
@@ -71,7 +73,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4076426264441414}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: DmgColliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +89,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4446468996749740}
   - component: {fileID: 61835370469799268}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: DownDmg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,7 +105,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4475012698666170}
   - component: {fileID: 61118939820917524}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: MidDmg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -185,7 +187,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1317074607312878}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4, y: -2.05, z: 0}
+  m_LocalPosition: {x: -9.15, y: 7.86, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4076426264441414}
@@ -324,6 +326,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lastHit: -1
   health: 100
+--- !u!114 &114408680530995284
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1317074607312878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af7af1509a1222943991aa29e821dcdc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionMask:
+    serializedVersion: 2
+    m_Bits: 2048
+  horizontalRayCount: 0
+  verticalRayCount: 0
+  horizontalRaySpacing: 0
+  verticalRaySpacing: 0
+  collider: {fileID: 0}
+  playerInput: {x: 0, y: 0}
+  facingRight: 1
 --- !u!114 &114419443397359852
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -342,7 +365,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1317074607312878}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8c05b104ac1b9a54081e4f21098effae, type: 3}
   m_Name: 
@@ -350,6 +373,26 @@ MonoBehaviour:
   velocity: 3
   dst: 1.5
   directionFacing: 1
+--- !u!114 &114992268899887552
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1317074607312878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1503266b95d8ac4db93e93ec91c3e47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 3
+  stopDistance: 1
+  jumpHeight: 2
+  timeToJumpApex: 0.4
+  facingRight: 1
+  patrolRadius: 5
+  visionRadiusX: 5
+  visionRadiusY: 0.5
+  foundTarget: 0
 --- !u!212 &212556424765476444
 SpriteRenderer:
   m_ObjectHideFlags: 1

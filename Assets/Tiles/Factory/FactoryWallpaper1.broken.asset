@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6e4e4fc705376343a3e65b25d94f0e2, type: 3}
+  m_Name: FactoryWallpaper1.broken
+  m_EditorClassIdentifier: 
+  m_Sprites:
+  - {fileID: 21300008, guid: dc0dc4e60b5deef45a302b471715a8bf, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 21300008, guid: dc0dc4e60b5deef45a302b471715a8bf, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 21300010, guid: dc0dc4e60b5deef45a302b471715a8bf, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 21300012, guid: dc0dc4e60b5deef45a302b471715a8bf, type: 3}
+  - {fileID: 21300014, guid: dc0dc4e60b5deef45a302b471715a8bf, type: 3}
