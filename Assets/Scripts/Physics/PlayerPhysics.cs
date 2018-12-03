@@ -18,8 +18,8 @@ public class PlayerPhysics : MonoBehaviour
     public float moveSpeed = 10;
     float accelerationTimeGrounded = .1f;
     [Header("Jump setting")]
-    public float maxJumpHeight = 4;
-    public float minJumpHeight = 1;
+    public float maxJumpHeight = 4f;
+    public float minJumpHeight = 1f;
     public float timeToJumpApex = .4f;
     float accelerationTimeAirborne = .2f;
 
@@ -36,9 +36,14 @@ public class PlayerPhysics : MonoBehaviour
     [Header("Roll settings")]
     public int maxFrames = 15;
     public float maxDistance = 5.0f;
-    public float rollingSpeed = 25;
+    public float rollingSpeed = 25f;
+    public float rollColdownTime = 3f;
     int currentFrame;
     float currentDistance;
+    
+    public GameObject coolDown;
+    public Transform canvas;
+    private float _nextFireTime = 0;
 
     void Start()
     {
@@ -103,8 +108,14 @@ public class PlayerPhysics : MonoBehaviour
     {
         if (controller.collisions.below)
         {
-            _rolling = true;
-            _animator.SetBool("Roll", true);
+            if (Time.time > _nextFireTime)
+            {
+                _rolling = true;
+                _animator.SetBool("Roll", true);
+                _nextFireTime = Time.time + rollColdownTime;
+                GameObject cd = Instantiate(coolDown, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
+                cd.transform.SetParent (canvas, false);
+            }
         }
     }
 
