@@ -14,10 +14,6 @@ TextureImporter:
     21300018: group box2_9
     21300020: group box2_10
     21300022: group box2_11
-    21300024: group box2_12
-    21300026: group box2_13
-    21300028: group box2_14
-    21300030: group box2_15
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -159,7 +155,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 192
+        y: 128
         width: 64
         height: 64
       alignment: 0
@@ -169,7 +165,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8008fb5f696505448b4f98410afc4d78
+      spriteID: 44e4d278a1de7944fb40214597d8e6f2
       vertices: []
       indices: 
       edges: []
@@ -179,7 +175,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 192
+        y: 128
         width: 64
         height: 64
       alignment: 0
@@ -189,7 +185,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0a99d4c1d007faa4896785b1e49071eb
+      spriteID: 7f39a0432d2bf5a469687ec4e7c5808f
       vertices: []
       indices: 
       edges: []
@@ -199,7 +195,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 128
-        y: 192
+        y: 128
         width: 64
         height: 64
       alignment: 0
@@ -209,7 +205,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d70ec4399a515034f8355c655890a4af
+      spriteID: 1a9a7a358bea0904d9620a97f53d8dfc
       vertices: []
       indices: 
       edges: []
@@ -219,7 +215,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 192
-        y: 192
+        y: 128
         width: 64
         height: 64
       alignment: 0
@@ -229,7 +225,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 10f498c7db505d840859509d7170b999
+      spriteID: 5b984bf1fb75c534283988faf91c10f6
       vertices: []
       indices: 
       edges: []
@@ -239,7 +235,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 128
+        y: 64
         width: 64
         height: 64
       alignment: 0
@@ -249,7 +245,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: af557f669c5432540b731eb9e0e46b3a
+      spriteID: c3131537fa7ee7b409f722f27b49d60b
       vertices: []
       indices: 
       edges: []
@@ -259,7 +255,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 128
+        y: 64
         width: 64
         height: 64
       alignment: 0
@@ -269,7 +265,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e22386a230243af4289c59aefc40bf64
+      spriteID: 7b0032201e7cf894c8b8b1f2701074e6
       vertices: []
       indices: 
       edges: []
@@ -279,7 +275,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 128
-        y: 128
+        y: 64
         width: 64
         height: 64
       alignment: 0
@@ -289,7 +285,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fdba0274d169eac4e8dce8ff598b35b4
+      spriteID: 9f0fa52b36f457544ae72984627571b2
       vertices: []
       indices: 
       edges: []
@@ -299,7 +295,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 192
-        y: 128
+        y: 64
         width: 64
         height: 64
       alignment: 0
@@ -309,7 +305,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 40d21df8ade2a324ea79453743a9bdba
+      spriteID: 32c209ca77b6bb04e9778a655995d598
       vertices: []
       indices: 
       edges: []
@@ -319,7 +315,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 64
+        y: 0
         width: 64
         height: 64
       alignment: 0
@@ -329,7 +325,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8bab09d3b3181f642a679f45df3a1b6a
+      spriteID: 95f1371c25145e443a660a2c15daf4ec
       vertices: []
       indices: 
       edges: []
@@ -339,7 +335,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 64
+        y: 0
         width: 64
         height: 64
       alignment: 0
@@ -349,7 +345,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7f0b4352aa8fc1b498c94f8c4ddb3b53
+      spriteID: ccdf301ff562e74429a2f0c4a8564075
       vertices: []
       indices: 
       edges: []
@@ -359,7 +355,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 128
-        y: 64
+        y: 0
         width: 64
         height: 64
       alignment: 0
@@ -369,7 +365,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 676b79b600a62fa40b9b098e69406941
+      spriteID: 0c4e7b46a0894e342948bdc5cbd4b9bd
       vertices: []
       indices: 
       edges: []
@@ -379,26 +375,6 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 192
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2aabc7529f96b434fb83c7b9f63791e4
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: group box2_12
-      rect:
-        serializedVersion: 2
-        x: 0
         y: 0
         width: 64
         height: 64
@@ -409,67 +385,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b89255e5674f7e846bb64283b8378814
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: group box2_13
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c152ee34a377ed2489fdcaf70fedd75a
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: group box2_14
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f11202b10b21a5f48a6a1311f2a59814
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: group box2_15
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c4dd7c3965fbf3e4ba1a185a2add7ad6
+      spriteID: 575a4903fa67d354c820315285424e00
       vertices: []
       indices: 
       edges: []
@@ -477,7 +393,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: b9fff480d015f6248963d622a4de3731
+    spriteID: a798c89d7a14802409830b057f48b4d8
     vertices: []
     indices: 
     edges: []

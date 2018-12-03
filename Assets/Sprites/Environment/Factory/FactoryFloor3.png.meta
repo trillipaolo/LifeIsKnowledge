@@ -1,23 +1,27 @@
 fileFormatVersion: 2
-guid: 5b13c31636bfe2b408d1118d5412553a
+guid: 176d0cad73544fe44a18852220bbcc44
 TextureImporter:
   fileIDToRecycleName:
-    21300000: open door_0
-    21300002: open door_1
-    21300004: open door_2
-    21300006: open door_3
-    21300008: open door_4
-    21300010: open door_5
-    21300012: open door_6
-    21300014: open door_7
-    21300016: open door_8
-    21300018: open door_9
-    21300020: open door_10
-    21300022: open door_11
-    21300024: open door_12
-    21300026: open door_13
-    21300028: open door_14
-    21300030: open door_15
+    21300000: FactoryFloor3_0
+    21300002: FactoryFloor3_1
+    21300004: FactoryFloor3_2
+    21300006: FactoryFloor3_5
+    21300008: FactoryFloor3_6
+    21300010: FactoryFloor3_7
+    21300012: FactoryFloor3_10
+    21300014: FactoryFloor3_11
+    21300016: FactoryFloor3_12
+    21300018: FactoryFloor3_15
+    21300020: FactoryFloor3_16
+    21300022: FactoryFloor3_17
+    21300024: FactoryFloor3_18
+    21300026: FactoryFloor3_19
+    21300028: FactoryFloor3_20
+    21300030: FactoryFloor3_21
+    21300032: FactoryFloor3_22
+    21300034: FactoryFloor3_23
+    21300036: FactoryFloor3_24
+    21300038: FactoryFloor3_3
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -155,7 +159,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: open door_0
+      name: FactoryFloor3_0
       rect:
         serializedVersion: 2
         x: 0
@@ -169,13 +173,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b948bbf087022704a8b028d460ce64eb
+      spriteID: 3852c4388e8d33649a57ecdf5c64aacf
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: open door_1
+      name: FactoryFloor3_1
       rect:
         serializedVersion: 2
         x: 64
@@ -189,13 +193,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5880285afc8d9df45897872ceffc132a
+      spriteID: 0a89ed9dbe6f914459ade88de6ada802
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: open door_2
+      name: FactoryFloor3_2
       rect:
         serializedVersion: 2
         x: 128
@@ -209,33 +213,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 01b5cccb3e3c46c45bca39494640cdc8
+      spriteID: 4374fa56011295d4e92238615b2b11a8
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: open door_3
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 256
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 69b613379dfca0340a0ba4be16570958
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: open door_4
+      name: FactoryFloor3_5
       rect:
         serializedVersion: 2
         x: 0
@@ -249,13 +233,33 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b516d58a270d76a47b6c9c526ae18a35
+      spriteID: e2903698bde1ded49b55b995566d8145
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: open door_5
+      name: FactoryFloor3_6
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 148a738f93a760148801f38eae26fee1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FactoryFloor3_7
       rect:
         serializedVersion: 2
         x: 128
@@ -269,33 +273,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 33a84e1e99a970642b2b273b307a8470
+      spriteID: 082ccda8dffc08b4aa2b250cbec168c4
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: open door_6
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 192
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 027c7a203082b0444a9d3f3a090dcfb8
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: open door_7
+      name: FactoryFloor3_10
       rect:
         serializedVersion: 2
         x: 0
@@ -309,13 +293,33 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9bc31991ccc7da44c93ed96df4940b68
+      spriteID: 398068e789d520b47b25b7cea0e08280
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: open door_8
+      name: FactoryFloor3_11
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce83fff173283d34ca97bc12ce18eece
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FactoryFloor3_12
       rect:
         serializedVersion: 2
         x: 128
@@ -329,13 +333,213 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a612a578935451e4c93acc68975191ee
+      spriteID: d858df53dd9435745bcbb117681c280c
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: open door_9
+      name: FactoryFloor3_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27b310a0027f69a41b4c33d590e59318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FactoryFloor3_16
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16f35dc0f56d7f845aad72f468526b61
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FactoryFloor3_17
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 472bf87bd118e6a46b858d786824223b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FactoryFloor3_18
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad6327e13803761478af9f5163460df2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FactoryFloor3_19
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0764607434cb82e47a7fb7d74c1efba5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FactoryFloor3_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b727c9142be57f44696b9f3487e77ffe
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FactoryFloor3_21
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3106e2a7b72e3c24083f05b15171f806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FactoryFloor3_22
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 421156c6ae7bad54c99f04174b297084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FactoryFloor3_23
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eafb7f5dfaf6cee49af837681f863fa1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FactoryFloor3_24
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d25e9e80d8157c645a39e3408902253d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FactoryFloor3_3
       rect:
         serializedVersion: 2
         x: 192
@@ -349,127 +553,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8e07044c5872a1648865134be1fb8639
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: open door_10
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2ed716add21c52d46ae5fbdd7d68ec99
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: open door_11
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e15b1823cd6b00f43a562f982d69ae75
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: open door_12
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2e1d22991d2b498489c60d77f92baeff
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: open door_13
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9784bcfb26f965445baca24aaf2b2e2e
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: open door_14
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4fc8afe844392084bbc63bc517e94c8f
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: open door_15
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 723081846525b1945b4495aa7368c4c1
+      spriteID: f7fe56ca5426be541b960f963b20e819
       vertices: []
       indices: 
       edges: []
@@ -477,7 +561,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 15ddb4aab0981684a8b838a8125c5c3f
+    spriteID: 21f02b4587cf14b40973d442fc043f8c
     vertices: []
     indices: 
     edges: []
