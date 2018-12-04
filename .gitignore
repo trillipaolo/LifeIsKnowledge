@@ -37,3 +37,13 @@ sysinfo.txt
 *.unitypackage
 
 Library/
+
+\.idea/\.idea\.LifeIsKnowledge/
+
+Assets/Plugins/
+
+Assets/BayatGames\.meta
+
+Assets/Plugins\.meta
+
+Assets/TilePalette\.meta
