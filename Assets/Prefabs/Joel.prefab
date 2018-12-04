@@ -210,6 +210,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4963569551182308}
   - component: {fileID: 114276301105272254}
+  - component: {fileID: 114886782313203696}
   - component: {fileID: 95047260597612406}
   - component: {fileID: 212086524579153634}
   - component: {fileID: 114042313955911034}
@@ -218,7 +219,6 @@ GameObject:
   - component: {fileID: 114531945290830834}
   - component: {fileID: 114489630194345864}
   - component: {fileID: 50833638324131978}
-  - component: {fileID: 114042726775170342}
   m_Layer: 10
   m_Name: Joel
   m_TagString: Player
@@ -666,19 +666,6 @@ MonoBehaviour:
   rollColdownTime: 1
   coolDown: {fileID: 1132810735227494, guid: 91f3aa74bbc1e904da720be58b5a7838, type: 2}
   canvas: {fileID: 0}
---- !u!114 &114042726775170342
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1934158675797218}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db689d0da2452414398fe66e41eb2bab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dustSpread: {fileID: 1969911721492344, guid: 023d9a92c970ab04d9e1ee23afba27c0, type: 2}
-  transform: {fileID: 4260036624430430}
 --- !u!114 &114181574829002176
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -785,6 +772,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95c12ed5a450ddb4aa86461d3a6ffde9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114886782313203696
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1934158675797218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f640f27905614c49a581aceb84d21af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 100
+  currentHealth: 100
+  healthSlider: {fileID: 0}
+  damageImage: {fileID: 0}
+  flashSpeed: 2
+  flashColour: {r: 1, g: 1, b: 1, a: 0.7137255}
 --- !u!212 &212086524579153634
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyBehaviour : MonoBehaviour {
 
     public int lastHit = -1;
-    public float health = 10;
+    public float health = 200;
     
 	void Awake () {
         lastHit = -1;
