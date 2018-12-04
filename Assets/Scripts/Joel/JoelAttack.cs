@@ -79,6 +79,10 @@ public class JoelAttack : MonoBehaviour {
         _currentDownInput = Input.GetAxis("AttackDown") > 0;
         _combo1 = Input.GetAxis("Combo1") > 0;
         _combo2 = Input.GetAxis("Combo2") > 0;
+        //_combo1 = Input.GetButtonDown("Combo1");
+        //_combo2 = Input.GetButtonDown("Combo2");
+        Debug.Log("combo1" + _combo1);
+        Debug.Log("combo2" + _combo2);
 
         _topInput = (_lastTopInput != _currentTopInput) ? _currentTopInput : false;
         _middleInput = (_lastMiddleInput != _currentMiddleInput) ? _currentMiddleInput : false;

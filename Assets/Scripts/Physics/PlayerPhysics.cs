@@ -113,7 +113,7 @@ public class PlayerPhysics : MonoBehaviour
                 _rolling = true;
                 _animator.SetBool("Roll", true);
                 _nextFireTime = Time.time + rollColdownTime;
-                GameObject cd = Instantiate(coolDown, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
+                GameObject cd = Instantiate(coolDown, new Vector3(0, -170, 0), Quaternion.identity) as GameObject;
                 cd.transform.SetParent (canvas, false);
             }
         }

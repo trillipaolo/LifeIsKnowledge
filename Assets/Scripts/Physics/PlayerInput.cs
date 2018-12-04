@@ -23,7 +23,7 @@ public class PlayerInput : MonoBehaviour {
 			player.OnJumpInputUp();
 		}
 
-		if (Input.GetKeyDown(KeyCode.LeftShift))
+		if (Input.GetButtonDown("Roll"))
 		{
 			player.Roll();
 		}

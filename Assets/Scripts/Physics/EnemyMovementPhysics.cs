@@ -89,7 +89,7 @@ public class EnemyMovementPhysics : MonoBehaviour
     void Patrol()
     {
         float patrolDistance = transform.position.x - _anchor;
-        Debug.Log(patrolDistance);
+//        Debug.Log(patrolDistance);
         if (Mathf.Abs(patrolDistance) < patrolRadius)
         {
             velocity.x = (facingRight ? 1 : -1) * moveSpeed;
