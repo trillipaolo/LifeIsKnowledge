@@ -17,6 +17,9 @@ public class Controller2D : RaycastController
     public CollisionInfo collisions;
     [HideInInspector] public Vector2 playerInput;
     public bool facingRight = true; // For determining which way the player is currently facing.
+    public bool movementDisable = false;
+    public Vector2 distanceAttack;
+//    public Camera camera;
 
     public override void Start()
     {
@@ -25,27 +28,61 @@ public class Controller2D : RaycastController
 
     public void Move(Vector2 moveAmount)
     {
+        if (!movementDisable)
+        {
+            UpdateRaycastOrigins();
+            collisions.Reset();
+
+            if (moveAmount.x != 0)
+            {
+                if (moveAmount.x > 0 && !facingRight)
+                {
+                    Flip();
+                }
+                else if (moveAmount.x < 0 && facingRight)
+                {
+                    Flip();
+                }
+
+                HorizontalCollisions(ref moveAmount);
+            }
+
+            if (moveAmount.y != 0)
+            {
+                VerticalCollisions(ref moveAmount);
+            }
+
+            transform.Translate(moveAmount);
+        }
+    }
+
+    public void AttackMove(float distance)
+    {
+//        camera.GetComponent<CameraFollow>().smoothX = true;
+        distanceAttack = new Vector2(distance * (facingRight ? 1: -1), 0 );
         UpdateRaycastOrigins();
         collisions.Reset();
 
-        if (moveAmount.x != 0)
+        if (distance != 0)
         {
-            if (moveAmount.x > 0 && !facingRight)
+            if (distanceAttack.x > 0 && !facingRight)
             {
                 Flip();
             }
-            else if (moveAmount.x < 0 && facingRight)
+            else if (distanceAttack.x < 0 && facingRight)
             {
                 Flip();
             }
-            HorizontalCollisions(ref moveAmount);
-        }
-        if (moveAmount.y != 0)
-        {
-            VerticalCollisions(ref moveAmount);
+
+            HorizontalCollisions(ref distanceAttack);
         }
 
-        transform.Translate(moveAmount);
+        if (distanceAttack.y != 0)
+        {
+            VerticalCollisions(ref distanceAttack);
+        }
+
+        transform.Translate(distanceAttack,0);
     }
 
     void HorizontalCollisions(ref Vector2 moveAmount)
@@ -118,5 +155,15 @@ public class Controller2D : RaycastController
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
+    }
+
+    private void DisableMovement()
+    {
+        movementDisable = true;
+    }
+
+    private void EnableMovement()
+    {
+        movementDisable = false;
     }
 }
