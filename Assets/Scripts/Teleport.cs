@@ -42,19 +42,9 @@ public class Teleport : MonoBehaviour {
     {
         if (_teleport)
         {      
-            if (teleportType == TeleportType.UPWARDS)
+            if (Input.GetKeyDown(KeyCode.W))
             {
-                if (Input.GetKeyDown(KeyCode.W))
-                {
-                    StartCoroutine("Teleporting");
-                }
-            }
-            if (teleportType == TeleportType.DOWNWARDS)
-            {
-                if (Input.GetKeyDown(KeyCode.S))
-                {
-                    StartCoroutine("Teleporting");
-                }
+                StartCoroutine("Teleporting");
             }
         }
     }
