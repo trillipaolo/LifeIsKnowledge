@@ -1,10 +1,12 @@
 fileFormatVersion: 2
-guid: 855fe619d70a68742bd361994c62f978
+guid: 431fb13679f564f44aed0ee4a90d01a0
 TextureImporter:
   fileIDToRecycleName:
-    21300000: HealthBar_0
-    21300002: HealthBar_1
-    21300004: HealthBar_2
+    21300000: DownMiddle_0
+    21300002: DownMiddle_1
+    21300004: DownMiddle_2
+    21300006: DownMiddle_3
+    21300008: DownMiddle_4
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -48,7 +50,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 12
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -142,53 +144,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: HealthBar_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 24
-        width: 122
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 68ec8958a768cd94fb3782b6086f3c7c
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: HealthBar_1
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 12
-        width: 122
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 23ebf6e1ff83a574899f7c4d14fa8920
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: HealthBar_2
+      name: DownMiddle_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 122
-        height: 12
+        width: 36
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -196,7 +158,87 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 57df16f0aa84cfc41984294d6a41ffb3
+      spriteID: 284a1604de28b5a49af1de47ad050bf7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DownMiddle_1
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 0
+        width: 36
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca64fc290c418e84182a9a936ec16731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DownMiddle_2
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 0
+        width: 36
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06b0dc09a271ee64c9ef384e372ea913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DownMiddle_3
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 0
+        width: 36
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e24ada42550850141939bcad48b1cca0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DownMiddle_4
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 0
+        width: 36
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a0cc4d6d5e8ae144a283964ce1a3408
       vertices: []
       indices: 
       edges: []
@@ -204,7 +246,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 09e2c53645eee0e4a83ac21fcd0ee41d
+    spriteID: df1491fec8fbddf47a5f832267b2cd2a
     vertices: []
     indices: 
     edges: []

@@ -1,10 +1,11 @@
 fileFormatVersion: 2
-guid: 855fe619d70a68742bd361994c62f978
+guid: 7b94856fcb184e54b8841068fe5fde85
 TextureImporter:
   fileIDToRecycleName:
-    21300000: HealthBar_0
-    21300002: HealthBar_1
-    21300004: HealthBar_2
+    21300000: Roll_0
+    21300002: Roll_1
+    21300004: Roll_2
+    21300006: Roll_3
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -48,7 +49,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 12
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -142,61 +143,81 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: HealthBar_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 24
-        width: 122
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 68ec8958a768cd94fb3782b6086f3c7c
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: HealthBar_1
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 12
-        width: 122
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 23ebf6e1ff83a574899f7c4d14fa8920
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: HealthBar_2
+      name: Roll_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 122
-        height: 12
+        width: 36
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 57df16f0aa84cfc41984294d6a41ffb3
+      spriteID: 1987919aee3cebe41927521dca0f1794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Roll_1
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 0
+        width: 36
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea78157e54d447547b54a404c3462e3c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Roll_2
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 0
+        width: 36
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d439a7be9134494db2ab2848d1fdae3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Roll_3
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 0
+        width: 36
+        height: 48
+      alignment: 9
+      pivot: {x: 0.44444445, y: 0.5416667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c9eef690fab24e44b7796e7662c057e
       vertices: []
       indices: 
       edges: []
@@ -204,7 +225,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 09e2c53645eee0e4a83ac21fcd0ee41d
+    spriteID: 7a679cdbe044bc64cb450e1fe02a1b18
     vertices: []
     indices: 
     edges: []

@@ -82,6 +82,27 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 0
+    functionName: DisableMovement
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0
+    functionName: FlipBetweenAttacks
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.083333336
+    functionName: AttackMove
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0.4
+    intParameter: 0
+    messageOptions: 0
   - time: 0.16666667
     functionName: Attack
     data: 001000

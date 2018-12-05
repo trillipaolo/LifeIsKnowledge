@@ -107,12 +107,13 @@ public class PlayerPhysics : MonoBehaviour
 
     public void Roll()
     {
-        if (controller.collisions.below)
+        //if (controller.collisions.below) ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ ROLL WHERE YOU WANT! 
         {
             if (Time.time > _nextFireTime)
             {
                 _rolling = true;
                 _animator.SetBool("Roll", true);
+                _animator.SetTrigger("RollTrigger");
                 _nextFireTime = Time.time + rollColdownTime;
                 GameObject cd = Instantiate(coolDown, new Vector3(0, -170, 0), Quaternion.identity) as GameObject;
                 cd.transform.SetParent (canvas, false);
@@ -157,5 +158,15 @@ public class PlayerPhysics : MonoBehaviour
         }
 
         velocity.y += gravity * Time.deltaTime; // Applying gravity to velocity
+    }
+
+
+    // If the player needs to be flipped during attacks he will be flipped (called into animator of joel)
+    private void FlipBetweenAttacks() {
+        // if (input right but facing left) OR (input left but facing right) flip the player
+        if ((directionalInput.x > 0 && !controller.facingRight) ||
+            directionalInput.x < 0 && controller.facingRight) {
+            controller.Flip();
+        }
     }
 }
