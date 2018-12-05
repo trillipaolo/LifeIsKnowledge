@@ -11,7 +11,7 @@ public class JoelHealth : MonoBehaviour {
     public Image damageImage;                                   // Reference to an image to flash on the screen on being hurt.
     //public AudioClip deathClip;                                 // The audio clip to play when the player dies.
     public float flashSpeed = 5f;                               // The speed the damageImage will fade at.
-    public Color flashColour = new Color(1f,1f,1f,0.1f);
+    public Color flashColour = new Color(1f,1f,1f,0.4f);
 
     private Animator _animator;                                              // Reference to the Animator component.
     //public AudioSource playerAudio;                                    // Reference to the AudioSource component.

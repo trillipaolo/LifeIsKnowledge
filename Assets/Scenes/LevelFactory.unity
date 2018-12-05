@@ -17701,6 +17701,16 @@ Prefab:
       propertyPath: m_PreserveAspect
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 224320361480513518, guid: 65bef63437160bd4f8858219053e7c25,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 62.19922
+      objectReference: {fileID: 0}
+    - target: {fileID: 224699246640466558, guid: 65bef63437160bd4f8858219053e7c25,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -27.845703
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65bef63437160bd4f8858219053e7c25, type: 2}
   m_IsPrefabAsset: 0
@@ -30229,6 +30239,36 @@ Prefab:
       propertyPath: canvas
       value: 
       objectReference: {fileID: 463353247}
+    - target: {fileID: 114886782313203696, guid: a72a79c088f4783458112ca2ba9a35e3,
+        type: 2}
+      propertyPath: flashColour.a
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114886782313203696, guid: a72a79c088f4783458112ca2ba9a35e3,
+        type: 2}
+      propertyPath: flashColour.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114886782313203696, guid: a72a79c088f4783458112ca2ba9a35e3,
+        type: 2}
+      propertyPath: flashColour.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114886782313203696, guid: a72a79c088f4783458112ca2ba9a35e3,
+        type: 2}
+      propertyPath: flashColour.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114886782313203696, guid: a72a79c088f4783458112ca2ba9a35e3,
+        type: 2}
+      propertyPath: currentHealth
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 114886782313203696, guid: a72a79c088f4783458112ca2ba9a35e3,
+        type: 2}
+      propertyPath: flashSpeed
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a72a79c088f4783458112ca2ba9a35e3, type: 2}
   m_IsPrefabAsset: 0
