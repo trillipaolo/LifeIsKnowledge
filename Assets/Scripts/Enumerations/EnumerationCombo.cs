@@ -2,7 +2,9 @@
 using System;
 
 public enum EnumCombo {
-    UPANDSMASH = 1
+    UPANDSMASH = 1,
+    HORIZONTALSPIN = 2,
+    ROPETHROW = 3
 }
 
 public static class EnumerationCombo {
