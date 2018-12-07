@@ -46,7 +46,7 @@ public class JoelAttack : MonoBehaviour {
     }
 
     private void InitializeAttackColliders() {
-        Transform _colliders = this.transform.Find("Colliders");
+        Transform _colliders = this.transform.Find("AttackColliders");
         _attackColliders[0] = _colliders.Find("FrontTop").GetComponent<BoxCollider2D>();
         _attackColliders[1] = _colliders.Find("FrontMiddle").GetComponent<BoxCollider2D>();
         _attackColliders[2] = _colliders.Find("FrontDown").GetComponent<BoxCollider2D>();
