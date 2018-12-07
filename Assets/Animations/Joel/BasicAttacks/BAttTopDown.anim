@@ -113,11 +113,11 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 0.25
-    functionName: Attack
+    functionName: BasicAttack
     data: 111000
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
-    intParameter: 0
+    intParameter: 2
     messageOptions: 0
   - time: 0.25
     functionName: AttackMove

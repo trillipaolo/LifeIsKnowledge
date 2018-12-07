@@ -10,6 +10,6 @@ public enum EnumCombo {
 public static class EnumerationCombo {
 
     public static int Size() {
-        return Enum.GetValues(typeof(Combo)).Length;
+        return Enum.GetValues(typeof(EnumCombo)).Length;
     }
 }

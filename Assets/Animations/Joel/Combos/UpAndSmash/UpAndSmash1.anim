@@ -121,9 +121,9 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 0.25
-    functionName: Attack
-    data: 111000150
+    functionName: ComboAttack
+    data: 111000
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
-    intParameter: 0
+    intParameter: 1
     messageOptions: 0
