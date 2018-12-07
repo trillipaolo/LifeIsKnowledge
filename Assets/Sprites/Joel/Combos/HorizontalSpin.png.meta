@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 204782db7aa9c194997bc717fb992419
+guid: 42786753a71c13b4bbb0516507406c45
 TextureImporter:
   fileIDToRecycleName:
     21300000: HorizontalSpin_0
@@ -7,6 +7,8 @@ TextureImporter:
     21300004: HorizontalSpin_2
     21300006: HorizontalSpin_3
     21300008: HorizontalSpin_4
+    21300010: HorizontalSpin_5
+    21300012: HorizontalSpin_6
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -152,13 +154,13 @@ TextureImporter:
         width: 44
         height: 48
       alignment: 9
-      pivot: {x: 0.6136364, y: 0.5}
+      pivot: {x: 0.5227273, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e9b83ea60f8163e4d8e8a9e2c9dac23d
+      spriteID: 19c9c241903d3cb45a6db03e2f79f8a6
       vertices: []
       indices: 
       edges: []
@@ -172,13 +174,13 @@ TextureImporter:
         width: 44
         height: 48
       alignment: 9
-      pivot: {x: 0.65909094, y: 0.5}
+      pivot: {x: 0.4318182, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b793992e965b00a4caea231eeef833d6
+      spriteID: 553336cb89204d94cb8caa9707d1f8a1
       vertices: []
       indices: 
       edges: []
@@ -187,18 +189,18 @@ TextureImporter:
       name: HorizontalSpin_2
       rect:
         serializedVersion: 2
-        x: 89
+        x: 88
         y: 0
         width: 44
         height: 48
       alignment: 9
-      pivot: {x: 0.54545456, y: 0.5}
+      pivot: {x: 0.5681818, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2259d914856773e4d9b5651ca5aaa16d
+      spriteID: 8de34d02bc65c80458ed52e523896d45
       vertices: []
       indices: 
       edges: []
@@ -207,9 +209,9 @@ TextureImporter:
       name: HorizontalSpin_3
       rect:
         serializedVersion: 2
-        x: 133
+        x: 132
         y: 0
-        width: 43
+        width: 44
         height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -218,7 +220,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ecc80410d17e2a449bceef06c56cadb
+      spriteID: adcff12c8a7ddd244b20bfcd7213cb06
       vertices: []
       indices: 
       edges: []
@@ -232,13 +234,53 @@ TextureImporter:
         width: 44
         height: 48
       alignment: 9
-      pivot: {x: 0.65909094, y: 0.5}
+      pivot: {x: 0.5227273, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8f0147bd2a0850c4db00c052b51eeefd
+      spriteID: dea53df047d123c40bf3afa8e94b5bf0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HorizontalSpin_5
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 0
+        width: 44
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5681818, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97343ac28eef56d4f98341f6947bcb06
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HorizontalSpin_6
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 0
+        width: 44
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5909091, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f29c252e9722aad4b90b8414bff9063f
       vertices: []
       indices: 
       edges: []
@@ -246,7 +288,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 76698b8cf2bfec340b7fc83d8fa8c72d
+    spriteID: 48179cf3965e1eb4c958b1fbfd5096f2
     vertices: []
     indices: 
     edges: []
