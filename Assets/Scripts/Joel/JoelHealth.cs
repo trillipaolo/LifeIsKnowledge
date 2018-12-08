@@ -12,6 +12,8 @@ public class JoelHealth : MonoBehaviour {
     //public AudioClip deathClip;                                 // The audio clip to play when the player dies.
     public float flashSpeed = 5f;                               // The speed the damageImage will fade at.
     public Color flashColour = new Color(1f,1f,1f,0.4f);
+    public float timeBetweenDamage = 0.7f;
+    private float _lastTimeHit = -300;
 
     private Animator _animator;                                              // Reference to the Animator component.
     //public AudioSource playerAudio;                                    // Reference to the AudioSource component.
@@ -48,22 +50,26 @@ public class JoelHealth : MonoBehaviour {
     }
 
     public void TakeDamage(int amount) {
-        // Set the damaged flag so the screen will flash.
-        _damaged = true;
+        if (Time.time - _lastTimeHit > timeBetweenDamage) {
+            // Set the damaged flag so the screen will flash.
+            _damaged = true;
 
-        // Reduce the current health by the damage amount.
-        currentHealth -= amount;
+            // Reduce the current health by the damage amount.
+            currentHealth -= amount;
 
-        // Set the health bar's value to the current health.
-        healthSlider.value = currentHealth;
+            // Set the health bar's value to the current health.
+            healthSlider.value = currentHealth;
 
-        // Play the hurt sound effect.
-        //playerAudio.Play();
+            // Play the hurt sound effect.
+            //playerAudio.Play();
 
-        // If the player has lost all it's health and the death flag hasn't been set yet...
-        if (currentHealth <= 0 && !_isDead) {
-            // ... it should die.
-            Death();
+            // If the player has lost all it's health and the death flag hasn't been set yet...
+            if (currentHealth <= 0 && !_isDead) {
+                // ... it should die.
+                Death();
+            }
+
+            _lastTimeHit = Time.time;
         }
     }
 

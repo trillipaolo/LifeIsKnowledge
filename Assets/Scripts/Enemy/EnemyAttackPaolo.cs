@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class EnemyAttackPaolo : MonoBehaviour {
 
-    public float timeBetweenAttacks = 0.5f;     // The time in seconds between each attack.
+    //public float timeBetweenAttacks = 0.5f;     // The time in seconds between each attack.
     public int attackDamage = 17;               // The amount of health taken away per attack.
 
 
     private Animator _animator;                              // Reference to the animator component.
     private GameObject _joel;                          // Reference to the player GameObject.
     private JoelHealth _joelHealth;                  // Reference to the player's health.
+    private Collider2D _attackCollider;
     //private EnemyHealth _enemyHealth;                    // Reference to this enemy's health.
     private bool _playerInRange;                         // Whether player is within the trigger collider and can be attacked.
     private float _timer;                                // Timer for counting up to the next attack.
@@ -19,8 +20,10 @@ public class EnemyAttackPaolo : MonoBehaviour {
         // Setting up the references.
         _joel = GameObject.FindGameObjectWithTag("Player");
         _joelHealth = _joel.GetComponent<JoelHealth>();
+        _attackCollider = GetComponent<BoxCollider2D>();
         //enemyHealth = GetComponent<EnemyHealth>();
         //_animator = GetComponent<Animator>();
+        DeactivateAttackCollider();
     }
 
     void Update() {
@@ -28,7 +31,7 @@ public class EnemyAttackPaolo : MonoBehaviour {
         _timer += Time.deltaTime;
 
         // If the timer exceeds the time between attacks, the player is in range and this enemy is alive...
-        if (_timer >= timeBetweenAttacks && _playerInRange) {// && enemyHealth.currentHealth > 0) {
+        if (_playerInRange) {// && _timer >= timeBetweenAttacks && enemyHealth.currentHealth > 0) {
             // ... attack.
             Attack();
         }
@@ -65,5 +68,13 @@ public class EnemyAttackPaolo : MonoBehaviour {
             // ... the player is no longer in range.
             _playerInRange = false;
         }
+    }
+
+    public void ActivateAttackCollider() {
+        _attackCollider.enabled = true;
+    }
+
+    public void DeactivateAttackCollider() {
+        _attackCollider.enabled = false;
     }
 }
