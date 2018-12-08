@@ -6,16 +6,18 @@ using UnityEngine;
 public class EnemyMovementPhysics : MonoBehaviour
 {
     [HideInInspector] public Animator _animator;
-    [Header("Enemy Movement Settings")] public float moveSpeed = 3f;
+    [Header("Enemy Movement Settings")]
+    public float moveSpeed = 3f;
     public float stopDistance = 1f;
     public float jumpHeight = 1.5f;
     public float timeToJumpApex = .4f;
-    public Vector2 velocity;
+    [HideInInspector] public Vector2 velocity;
     float gravity;
 
     private float _jumpVelocity;
 
-    [Header("Patrol Settings")] public bool facingRight = true;
+    [Header("Patrol Settings")]
+    public bool facingRight = true;
     public float patrolRadius = 5f;
     public float visionRadiusX = 2f;
     public float visionRadiusY = 0.5f;
@@ -25,11 +27,11 @@ public class EnemyMovementPhysics : MonoBehaviour
     public Controller2D controller;
 
     public Transform target;
-
-    private bool _movementDisabled;
+    [HideInInspector]
+    public bool movementDisabled;
 
     // Use this for initialization
-    void Start()
+    public virtual void Start()
     {
         _anchor = transform.position.x;
         gravity = -(2 * jumpHeight) / Mathf.Pow(timeToJumpApex, 2);
@@ -39,13 +41,13 @@ public class EnemyMovementPhysics : MonoBehaviour
 
         target = GameObject.FindWithTag("Player").transform;
         _jumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
-        _movementDisabled = false;
+        movementDisabled = false;
     }
 
     // Update is called once per frame
     public virtual void Update()
     {
-        if (!_movementDisabled)
+        if (!movementDisabled)
         {
             if (!foundTarget)
             {
@@ -157,11 +159,11 @@ public class EnemyMovementPhysics : MonoBehaviour
 
     public void DisableMovement()
     {
-        _movementDisabled = true;
+        movementDisabled = true;
     }
 
     public void EnableMovement()
     {
-        _movementDisabled = false;
+        movementDisabled = false;
     }
 }
