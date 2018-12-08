@@ -19,11 +19,16 @@ public class Controller2D : RaycastController
     public bool facingRight = true; // For determining which way the player is currently facing.
     public bool movementDisable = false;
     public Vector2 distanceAttack;
+
+    public int[] raysHorizontalArray;
+    public int[] raysVerticalArray;
 //    public Camera camera;
 
     public override void Start()
     {
         base.Start();
+        raysHorizontalArray = new int [horizontalRayCount];
+        raysVerticalArray = new int [verticalRayCount];
     }
 
     public void Move(Vector2 moveAmount)
@@ -101,11 +106,14 @@ public class Controller2D : RaycastController
 
             if (hit)
             {
+                Debug.DrawRay(rayOrigin, Vector2.right * directionX, Color.green);
                 moveAmount.x = (hit.distance - skinWidth) * directionX;
                 rayLength = hit.distance;
 
                 collisions.left = directionX == -1;
                 collisions.right = directionX == 1;
+                
+                raysHorizontalArray[i] = 1;
             }
         }
     }
@@ -125,11 +133,14 @@ public class Controller2D : RaycastController
 
             if (hit)
             {
+                Debug.DrawRay(rayOrigin, Vector2.up * directionY, Color.green);
                 moveAmount.y = (hit.distance - skinWidth) * directionY;
                 rayLength = hit.distance;
 
                 collisions.below = directionY == -1;
                 collisions.above = directionY == 1;
+
+                raysVerticalArray[i] = 1;
             }
         }
     }

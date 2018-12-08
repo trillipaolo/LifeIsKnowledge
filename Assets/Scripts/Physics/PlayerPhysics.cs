@@ -108,7 +108,6 @@ public class PlayerPhysics : MonoBehaviour
             _animator.SetBool("Grounded", false);
         }
 
-        Debug.Log("Velocity:" + velocity);
     }
 
     public void SetDirectionalInput(Vector2 input)

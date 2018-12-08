@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 114836485932196746}
   - component: {fileID: 61826527133750554}
   - component: {fileID: 114315262247261520}
-  - component: {fileID: 114409138424876182}
+  - component: {fileID: 114970716178618844}
   m_Layer: 0
   m_Name: Drone
   m_TagString: Untagged
@@ -205,7 +205,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1314413293395870}
   m_LocalRotation: {x: -0, y: 0.0033116657, z: -0, w: 0.9999945}
-  m_LocalPosition: {x: -3.39, y: -0.68, z: 0.05}
+  m_LocalPosition: {x: -13.11, y: -0.42, z: 0.05}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4738591068262782}
@@ -338,7 +338,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0044431686, y: -1.0315}
+  m_Offset: {x: 0.0044431686, y: -1.1026466}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -349,7 +349,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.4537792, y: 2.5205362}
+  m_Size: {x: 1.732517, y: 2.6628294}
   m_EdgeRadius: 0
 --- !u!95 &95165718775229606
 Animator:
@@ -403,30 +403,8 @@ MonoBehaviour:
   facingRight: 0
   movementDisable: 0
   distanceAttack: {x: 0, y: 0}
---- !u!114 &114409138424876182
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1314413293395870}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1503266b95d8ac4db93e93ec91c3e47, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _animator: {fileID: 0}
-  moveSpeed: 3
-  stopDistance: 1
-  jumpHeight: 1.5
-  timeToJumpApex: 0.4
-  velocity: {x: 0, y: 0}
-  facingRight: 1
-  patrolRadius: 5
-  visionRadiusX: 4.31
-  visionRadiusY: 2.65
-  foundTarget: 0
-  controller: {fileID: 0}
-  target: {fileID: 0}
+  raysHorizontalArray: 
+  raysVerticalArray: 
 --- !u!114 &114753771530572922
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -458,6 +436,36 @@ MonoBehaviour:
   damageMultipliers:
   - 0.8
   - -0.8
+--- !u!114 &114970716178618844
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1314413293395870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f220dfda27bca04d93e73872cf8126d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 0}
+  moveSpeed: 3
+  stopDistance: 6
+  jumpHeight: 1.5
+  timeToJumpApex: 0.4
+  velocity: {x: 0, y: 0}
+  facingRight: 1
+  patrolRadius: 5
+  visionRadiusX: 2.39
+  visionRadiusY: 1.46
+  foundTarget: 0
+  controller: {fileID: 0}
+  target: {fileID: 0}
+  movementDisabled: 0
+  chaseSpeed: 4.5
+  attackSpeed: 15
+  chaseDistance: 10
+  attackDistance: 50
+  stuckCountdown: 3
 --- !u!212 &212471807618868744
 SpriteRenderer:
   m_ObjectHideFlags: 1
