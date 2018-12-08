@@ -10,6 +10,8 @@ public class DroneMovement : EnemyMovementPhysics
     public float chaseDistance;
     public float attackDistance;
     public float stuckCountdown;
+
+    public float timeToDisable;
     private EnemyAttackPaolo attackScript;
     private bool isAttacking;
     private float _attackStartPosition;
@@ -24,6 +26,7 @@ public class DroneMovement : EnemyMovementPhysics
         time = stuckCountdown;
     }
 
+    
     // Update is called once per frame
     void Update()
     {
@@ -80,7 +83,7 @@ public class DroneMovement : EnemyMovementPhysics
             }
 
             // TODO: Different gravity
-            ApplyGravity();
+//            ApplyGravity();
             controller.Move(velocity * Time.deltaTime);
             if (controller.collisions.above || controller.collisions.below)
             {
@@ -144,7 +147,6 @@ public class DroneMovement : EnemyMovementPhysics
 
     public void Dying()
     {
-        //TODO: falling with gravity
-        
+        Invoke("DisableMovement", timeToDisable);
     }
 }
