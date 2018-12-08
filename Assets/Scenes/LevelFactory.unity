@@ -113,35 +113,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &13503923
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 13503924}
-  m_Layer: 0
-  m_Name: Drone
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &13503924
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 13503923}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.58, y: -0.68, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 121385269}
-  m_Father: {fileID: 0}
-  m_RootOrder: 16
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &16666689
 GameObject:
   m_ObjectHideFlags: 0
@@ -314,7 +285,7 @@ BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 96002317}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -408,17 +379,36 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 121385269}
-  - component: {fileID: 121385273}
+  - component: {fileID: 121385267}
   - component: {fileID: 121385272}
   - component: {fileID: 121385271}
   - component: {fileID: 121385270}
   m_Layer: 0
-  m_Name: Physics
+  m_Name: Drone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &121385267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 121385266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7763c69ccea04e4daaeefa4c7a9be2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lastHit: -1
+  health: 200
+  colliders:
+  - {fileID: 666374207}
+  - {fileID: 634687110}
+  damageMultipliers:
+  - 0.8
+  - -0.8
 --- !u!4 &121385269
 Transform:
   m_ObjectHideFlags: 0
@@ -426,13 +416,13 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 121385266}
   m_LocalRotation: {x: -0, y: 0.0033116657, z: -0, w: 0.9999945}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -3.39, y: -0.68, z: 0.05}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 268433884}
   - {fileID: 96002318}
-  m_Father: {fileID: 13503924}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0.379, z: 0}
 --- !u!114 &121385270
 MonoBehaviour:
@@ -440,7 +430,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 121385266}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d1503266b95d8ac4db93e93ec91c3e47, type: 3}
   m_Name: 
@@ -464,7 +454,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 121385266}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: af7af1509a1222943991aa29e821dcdc, type: 3}
   m_Name: 
@@ -506,25 +496,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.4537792, y: 2.5205362}
   m_EdgeRadius: 0
---- !u!114 &121385273
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 121385266}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf5a4abdc2639764a8a3bfff3bbf1ec3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lastHit: -1
-  health: 200
-  colliders:
-  - {fileID: 666374207}
-  - {fileID: 634687110}
-  damageMultipliers:
-  - 0.8
-  - -0.8
 --- !u!1001 &129117360
 Prefab:
   m_ObjectHideFlags: 0
@@ -648,8 +619,6 @@ GameObject:
   - component: {fileID: 268433884}
   - component: {fileID: 268433886}
   - component: {fileID: 268433885}
-  - component: {fileID: 268433889}
-  - component: {fileID: 268433888}
   - component: {fileID: 268433887}
   m_Layer: 0
   m_Name: Rotated
@@ -745,70 +714,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 268433883}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af7af1509a1222943991aa29e821dcdc, type: 3}
+  m_Script: {fileID: 11500000, guid: 9ec50a733630c7548875c387bf262b25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collisionMask:
-    serializedVersion: 2
-    m_Bits: 0
-  horizontalRayCount: 0
-  verticalRayCount: 0
-  horizontalRaySpacing: 0
-  verticalRaySpacing: 0
-  collider: {fileID: 0}
-  playerInput: {x: 0, y: 0}
-  facingRight: 1
-  movementDisable: 0
-  distanceAttack: {x: 0, y: 0}
---- !u!61 &268433888
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 268433883}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.5555556, y: 3.5555556}
-    newSize: {x: 3.5555556, y: 3.5555556}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 3.5555556, y: 3.5555556}
-  m_EdgeRadius: 0
---- !u!114 &268433889
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 268433883}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba48582b43027d64493834c6d0be9dca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _animator: {fileID: 0}
-  moveSpeed: 3
-  stopDistance: 1
-  jumpHeight: 1.5
-  timeToJumpApex: 0.4
-  velocity: {x: 0, y: 0}
-  facingRight: 1
-  patrolRadius: 5
-  visionRadiusX: 2
-  visionRadiusY: 0.5
-  foundTarget: 0
-  controller: {fileID: 0}
-  target: {fileID: 0}
 --- !u!1 &269972200
 GameObject:
   m_ObjectHideFlags: 0
