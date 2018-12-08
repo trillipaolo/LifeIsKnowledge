@@ -14,11 +14,9 @@ using UnityEngine.Events;
 [RequireComponent(typeof(Controller2D))]
 public class PlayerPhysics : MonoBehaviour
 {
-    [Header("Movement settings")]
-    public float moveSpeed = 10;
+    [Header("Movement settings")] public float moveSpeed = 10;
     float accelerationTimeGrounded = .1f;
-    [Header("Jump setting")]
-    public float maxJumpHeight = 4f;
+    [Header("Jump setting")] public float maxJumpHeight = 4f;
     public float minJumpHeight = 1f;
     public float timeToJumpApex = .4f;
     float accelerationTimeAirborne = .2f;
@@ -33,17 +31,20 @@ public class PlayerPhysics : MonoBehaviour
     private Animator _animator;
     Vector2 directionalInput;
     private bool _rolling;
-    [Header("Roll settings")]
-    public int maxFrames = 15;
+    [Header("Roll settings")] public int maxFrames = 15;
     public float maxDistance = 5.0f;
     public float rollingSpeed = 25f;
     public float rollColdownTime = 3f;
     int currentFrame;
     float currentDistance;
-    
+
     public GameObject coolDown;
     public Transform canvas;
     private float _nextFireTime = 0;
+
+    private bool _attackMovement = false;
+    private float _distance = 0;
+    private int _attackMovementFrames = 0;
 
     void Start()
     {
@@ -62,11 +63,37 @@ public class PlayerPhysics : MonoBehaviour
 
     void Update()
     {
-        CalculateVelocity();
+        
+        velocity.y += gravity * Time.deltaTime;
+        if (!_attackMovement)
+        {
+            CalculateVelocity();
 
-        _animator.SetFloat("XSpeed", Mathf.Abs(velocity.x));
+            _animator.SetFloat("XSpeed", Mathf.Abs(velocity.x));
 
+            
+        }
+        else
+        {
+            if (_attackMovementFrames > 0)
+            {
+//                Debug.Log(_distance + " " + _attackMovementFrames);
+                velocity.x = ((controller.facingRight) ? 1 : -1) * (_distance / _attackMovementFrames);
+//                Debug.Log("Velocity:" + velocity);
+
+//                velocity.y += gravity * Time.deltaTime;
+//                controller.Move(velocity * Time.deltaTime);
+
+                _attackMovementFrames -= 1;
+            }
+        }
+        
         controller.Move(velocity * Time.deltaTime);
+        if (_attackMovement)
+        {
+            
+            velocity.x = 0;
+        }
         if (controller.collisions.above || controller.collisions.below)
         {
             velocity.y = 0;
@@ -80,6 +107,8 @@ public class PlayerPhysics : MonoBehaviour
         {
             _animator.SetBool("Grounded", false);
         }
+
+        Debug.Log("Velocity:" + velocity);
     }
 
     public void SetDirectionalInput(Vector2 input)
@@ -116,7 +145,7 @@ public class PlayerPhysics : MonoBehaviour
                 _animator.SetTrigger("RollTrigger");
                 _nextFireTime = Time.time + rollColdownTime;
                 GameObject cd = Instantiate(coolDown, new Vector3(0, -170, 0), Quaternion.identity) as GameObject;
-                cd.transform.SetParent (canvas, false);
+                cd.transform.SetParent(canvas, false);
             }
         }
     }
@@ -140,6 +169,7 @@ public class PlayerPhysics : MonoBehaviour
             {
                 currentFrame = 0;
             }
+
             if (currentDistance < maxDistance)
             {
                 float targetVelocityX = ((controller.facingRight) ? 1 : -1) * rollingSpeed;
@@ -153,20 +183,42 @@ public class PlayerPhysics : MonoBehaviour
                 _rolling = false;
                 _animator.SetBool("Roll", false);
             }
-
-            
         }
 
-        velocity.y += gravity * Time.deltaTime; // Applying gravity to velocity
+//        velocity.y += gravity * Time.deltaTime; // Applying gravity to velocity
     }
 
 
     // If the player needs to be flipped during attacks he will be flipped (called into animator of joel)
-    private void FlipBetweenAttacks() {
+    private void FlipBetweenAttacks()
+    {
         // if (input right but facing left) OR (input left but facing right) flip the player
         if ((directionalInput.x > 0 && !controller.facingRight) ||
-            directionalInput.x < 0 && controller.facingRight) {
+            directionalInput.x < 0 && controller.facingRight)
+        {
+            Debug.Log("Hello!" + directionalInput.x + " " + controller.facingRight);
             controller.Flip();
         }
+    }
+
+//    private void SwitchAttackMovement()
+//    {
+//        attackMovement = !attackMovement;
+//    }
+
+    private void PerformAttackMovement(AnimationEvent animationEvent)
+    {
+        _distance = animationEvent.floatParameter;
+        _attackMovementFrames = animationEvent.intParameter;
+    }
+
+    private void DisableMovement()
+    {
+        _attackMovement = true;
+    }
+
+    private void EnableMovement()
+    {
+        _attackMovement = false;
     }
 }

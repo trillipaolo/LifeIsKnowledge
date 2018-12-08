@@ -28,7 +28,7 @@ public class Controller2D : RaycastController
 
     public void Move(Vector2 moveAmount)
     {
-        if (!movementDisable)
+//        if (!movementDisable)
         {
             UpdateRaycastOrigins();
             collisions.Reset();
@@ -59,7 +59,8 @@ public class Controller2D : RaycastController
     public void AttackMove(float distance)
     {
 //        camera.GetComponent<CameraFollow>().smoothX = true;
-        distanceAttack = new Vector2(distance * (facingRight ? 1: -1), 0 );
+        distanceAttack = new Vector2(distance * (facingRight ? 1: -1) * Time.deltaTime, 0 );
+        
         UpdateRaycastOrigins();
         collisions.Reset();
 
@@ -150,20 +151,10 @@ public class Controller2D : RaycastController
     {
         // Switch the way the player is labelled as facing.
         facingRight = !facingRight;
-
+Debug.Log("fLIPPING");
         // Multiply the player's x local scale by -1.
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
-    }
-
-    private void DisableMovement()
-    {
-        movementDisable = true;
-    }
-
-    private void EnableMovement()
-    {
-        movementDisable = false;
     }
 }
