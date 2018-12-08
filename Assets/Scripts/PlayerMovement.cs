@@ -21,7 +21,6 @@ public class PlayerMovement : MonoBehaviour {
         _joel = GetComponent<Animator>();
     }
 
-
     void Update () {
 
         UpdateXMovement();
