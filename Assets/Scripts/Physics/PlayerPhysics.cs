@@ -12,9 +12,9 @@ using UnityEngine.Events;
  */
 
 [RequireComponent(typeof(Controller2D))]
-public class PlayerPhysics : MonoBehaviour
-{
-    [Header("Movement settings")] public float moveSpeed = 10;
+public class PlayerPhysics : MonoBehaviour {
+    [Header("Movement settings")]
+    public float moveSpeed = 10;
     float accelerationTimeGrounded = .1f;
     [Header("Jump setting")] public float maxJumpHeight = 4f;
     public float minJumpHeight = 1f;
@@ -46,8 +46,17 @@ public class PlayerPhysics : MonoBehaviour
     private float _distance = 0;
     private int _attackMovementFrames = 0;
 
-    void Start()
-    {
+    AudioManager audioManager;
+    public string rollSound = "Roll";
+    public string jumpDownSound = "JumpDown";
+    public string jumpUpSound = "JumpUp";
+    public string stepHighSound = "StepHigh";
+    public string stepLowSound = "StepLow";
+    public string stepDoubleSound = "StepDouble";
+    bool prevGrounded;
+    bool prevXMov;
+
+    void Start() {
         controller = GetComponent<Controller2D>();
         currentFrame = 0;
         currentDistance = 0f;
@@ -59,6 +68,10 @@ public class PlayerPhysics : MonoBehaviour
         maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
         minJumpVelocity = Mathf.Sqrt(2 * Mathf.Abs(gravity) + minJumpHeight);
         print("Gravity: " + gravity + " Jump velocity: " + maxJumpVelocity);
+
+        audioManager = AudioManager.instance;
+        prevXMov = false;
+        prevGrounded = controller.collisions.below;
     }
 
     void Update()
@@ -97,35 +110,37 @@ public class PlayerPhysics : MonoBehaviour
             velocity.y = 0;
         }
 
-        if (controller.collisions.below)
-        {
+        if (controller.collisions.below) {
             _animator.SetBool("Grounded", true);
         }
-        else
-        {
+        else {
             _animator.SetBool("Grounded", false);
         }
 
+        PlayJumpSound();
+        prevGrounded = controller.collisions.below;
     }
 
-    public void SetDirectionalInput(Vector2 input)
-    {
-        //
+    public void SetDirectionalInput(Vector2 input) {
         directionalInput = input;
+
+        PlayStepSound((input.x != 0 ? true : false));
+        prevXMov = (input.x != 0 ? true : false);
+
+
     }
 
-    public void OnJumpInputDown()
-    {
-        if (controller.collisions.below)
-        {
+    public void OnJumpInputDown() {
+        if (controller.collisions.below) {
             velocity.y = maxJumpVelocity;
+
+            audioManager.Play(jumpUpSound);
         }
+
     }
 
-    public void OnJumpInputUp()
-    {
-        if (velocity.y > minJumpVelocity)
-        {
+    public void OnJumpInputUp() {
+        if (velocity.y > minJumpVelocity) {
             velocity.y = minJumpVelocity;
         }
     }
@@ -140,6 +155,7 @@ public class PlayerPhysics : MonoBehaviour
                 _rolling = true;
                 _animator.SetBool("Roll", true);
                 _animator.SetTrigger("RollTrigger");
+                audioManager.Play(rollSound);
                 _nextFireTime = Time.time + rollColdownTime;
                 GameObject cd = Instantiate(coolDown, new Vector3(0, -170, 0), Quaternion.identity) as GameObject;
                 cd.transform.SetParent(canvas, false);
@@ -147,23 +163,18 @@ public class PlayerPhysics : MonoBehaviour
         }
     }
 
-    void CalculateVelocity()
-    {
-        if (!_rolling)
-        {
+    void CalculateVelocity() {
+        if (!_rolling) {
             // Smoothing the movement depending on whether the player is grounded or not.
             float targetVelocityX = directionalInput.x * moveSpeed;
             velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing,
                 (controller.collisions.below) ? accelerationTimeGrounded : accelerationTimeAirborne);
         }
-        else
-        {
-            if (currentFrame < maxFrames)
-            {
+        else {
+            if (currentFrame < maxFrames) {
                 currentFrame++;
             }
-            else
-            {
+            else {
                 currentFrame = 0;
             }
 
@@ -174,8 +185,7 @@ public class PlayerPhysics : MonoBehaviour
                 velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing,
                     (controller.collisions.below) ? accelerationTimeGrounded : accelerationTimeAirborne);
             }
-            else
-            {
+            else {
                 currentDistance = 0f;
                 _rolling = false;
                 _animator.SetBool("Roll", false);
@@ -218,4 +228,38 @@ public class PlayerPhysics : MonoBehaviour
     {
         _attackMovement = false;
     }
+
+    void PlayJumpSound() {
+        if (controller.collisions.below == true && prevGrounded == false) {
+            audioManager.Play(jumpDownSound);
+            if (directionalInput.x!=0)
+                audioManager.Play(stepDoubleSound);
+        }
+    }
+
+    void PlayStepSound(bool xMov) {
+
+        if (xMov == true && prevXMov == false && controller.collisions.below) { 
+            audioManager.Play(stepDoubleSound);
+        }
+        if ((xMov == false && prevXMov == true) || !controller.collisions.below) {
+            audioManager.Stop(stepDoubleSound);
+        }
+    }
+
+    //ACTUALLY NOT USING THIS FUNCTION: USE WITH ANIMATION EVENTS ON WALK ANIMATION
+    public void PlayStepSound(string f) {
+        if (f=="1")
+            audioManager.Play(stepHighSound);
+        
+        if (f=="2")
+            audioManager.Play(stepLowSound);
+
+        if(f=="0") {
+            audioManager.Stop(stepHighSound);
+            audioManager.Stop(stepLowSound);
+        }
+
+    }
+
 }

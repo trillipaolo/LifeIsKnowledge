@@ -97744,6 +97744,16 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 224320361480513518, guid: 65bef63437160bd4f8858219053e7c25,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -31.399902
+      objectReference: {fileID: 0}
+    - target: {fileID: 224280546091142144, guid: 65bef63437160bd4f8858219053e7c25,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.001953125
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65bef63437160bd4f8858219053e7c25, type: 2}
   m_IsPrefabAsset: 0
@@ -98141,6 +98151,16 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114276301105272254, guid: a72a79c088f4783458112ca2ba9a35e3,
+        type: 2}
+      propertyPath: KnifeSlashSounds.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114276301105272254, guid: a72a79c088f4783458112ca2ba9a35e3,
+        type: 2}
+      propertyPath: knifeSlashSounds.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4963569551182308, guid: a72a79c088f4783458112ca2ba9a35e3, type: 2}
       propertyPath: m_LocalPosition.x
       value: -12.4
@@ -98198,6 +98218,46 @@ Prefab:
       propertyPath: damageImage
       value: 
       objectReference: {fileID: 1837679432}
+    - target: {fileID: 114276301105272254, guid: a72a79c088f4783458112ca2ba9a35e3,
+        type: 2}
+      propertyPath: WeaponSlashSound
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114276301105272254, guid: a72a79c088f4783458112ca2ba9a35e3,
+        type: 2}
+      propertyPath: KnifeSlashSounds.Array.data[0]
+      value: KnifeSlash1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114276301105272254, guid: a72a79c088f4783458112ca2ba9a35e3,
+        type: 2}
+      propertyPath: KnifeSlashSounds.Array.data[1]
+      value: KnifeSlash2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114276301105272254, guid: a72a79c088f4783458112ca2ba9a35e3,
+        type: 2}
+      propertyPath: KnifeSlashSounds.Array.data[2]
+      value: KnifeSlash3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114276301105272254, guid: a72a79c088f4783458112ca2ba9a35e3,
+        type: 2}
+      propertyPath: KnifeSlashSounds.Array.data[3]
+      value: KnifeSlash4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114276301105272254, guid: a72a79c088f4783458112ca2ba9a35e3,
+        type: 2}
+      propertyPath: knifeSlashSounds.Array.data[0]
+      value: KnifeSlash1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114276301105272254, guid: a72a79c088f4783458112ca2ba9a35e3,
+        type: 2}
+      propertyPath: knifeSlashSounds.Array.data[1]
+      value: KnifeSlash2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114276301105272254, guid: a72a79c088f4783458112ca2ba9a35e3,
+        type: 2}
+      propertyPath: knifeSlashSounds.Array.data[2]
+      value: KnifeSlash3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a72a79c088f4783458112ca2ba9a35e3, type: 2}
   m_IsPrefabAsset: 0
@@ -100392,6 +100452,66 @@ MonoBehaviour:
   sounds:
   - name: Theme
     clip: {fileID: 8300000, guid: defdb97d89a7f3548bf7e21ce9624caa, type: 3}
+    volume: 0
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: KnifeSlash1
+    clip: {fileID: 8300000, guid: 76bdeb813bf20214aa5054f4592105cf, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: KnifeSlash2
+    clip: {fileID: 8300000, guid: 0c64db5804e2ed94484dca78ef674c02, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: KnifeSlash3
+    clip: {fileID: 8300000, guid: 97eea24b9203c0b40888cfd3ac2f91d0, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: KnifeSlash4
+    clip: {fileID: 8300000, guid: a8789faafe578284a9a9b846a788ae9a, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: JumpUp
+    clip: {fileID: 8300000, guid: 39b45936d310b284fb0e2c5278c0fd92, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: JumpDown
+    clip: {fileID: 8300000, guid: de57e6abd1c66374eaa0154b2a17c2fc, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Roll
+    clip: {fileID: 8300000, guid: 488a1ef9937892842b79c1bd825700e8, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: StepHigh
+    clip: {fileID: 8300000, guid: 6f73db05bdcde7846bdaa074fcf1a470, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: StepLow
+    clip: {fileID: 8300000, guid: 56dd18dcfecdc834884bf12d5292253e, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: StepDouble
+    clip: {fileID: 8300000, guid: 4c5d963fd3d44d3438a9afdaeacef9f1, type: 3}
     volume: 1
     pitch: 1
     loop: 1

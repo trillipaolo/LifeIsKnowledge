@@ -5,10 +5,13 @@ using UnityEngine;
 public class PlayerInput : MonoBehaviour {
 
 	PlayerPhysics player;
-	void Start ()
+
+
+    void Start ()
 	{
 		player = GetComponent<PlayerPhysics>();
-	}
+
+    }
 	
 	void Update () {
 		Vector2 directionalInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
@@ -17,7 +20,7 @@ public class PlayerInput : MonoBehaviour {
 		if (Input.GetButtonDown("Jump"))
 		{
 			player.OnJumpInputDown();
-		}
+        }
 		if (Input.GetButtonUp("Jump"))
 		{
 			player.OnJumpInputUp();

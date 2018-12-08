@@ -33,6 +33,12 @@ public class JoelAttack : MonoBehaviour {
     private ContactFilter2D _attackContactFilter;
     private int _hitId = 0;
 
+    AudioManager audioManager;
+    public string knifeSlashSounds1Coll = "KnifeSlash2";
+    public string knifeSlashSounds2Coll = "KnifeSlash1";
+    public string knifeSlashSounds3Coll = "KnifeSlash3";
+
+
     void Awake() {
         _animator = GetComponent<Animator>();
         InitializeAttackColliders();
@@ -43,6 +49,10 @@ public class JoelAttack : MonoBehaviour {
         for(int i = 0; i < joelCombos.combos.Length; i++) {
             joelCombos.combos[i].InitializeDamage();
         }
+    }
+
+    private void Start() {
+        audioManager = AudioManager.instance;
     }
 
     private void InitializeAttackColliders() {
@@ -252,6 +262,9 @@ public class JoelAttack : MonoBehaviour {
                 }
             }
         }
+
+        PlayAttackSound(colliderPositionString);
+        
         UpdateHitId();
     }*/
 
@@ -282,5 +295,30 @@ public class JoelAttack : MonoBehaviour {
         }
 
         return _hitId;
+    }
+
+    void PlayAttackSound(string posStr) {
+        int x = Int32.Parse(posStr);
+        int sum = 0;
+
+        while (x != 0) {
+            sum += x % 10;
+            x /= 10;
+        }
+
+        if (sum == 1 && posStr != "010000")
+            audioManager.Play(knifeSlashSounds1Coll);
+        else
+        if (sum == 2)
+            audioManager.Play(knifeSlashSounds2Coll);
+        else
+        if (sum == 3)
+            audioManager.Play(knifeSlashSounds3Coll);
+        else
+            Debug.Log("Sound attack not found or mid-mid played!");
+    }
+
+    void PlaySoundMidMid() {
+        audioManager.Play(knifeSlashSounds1Coll);
     }
 }
