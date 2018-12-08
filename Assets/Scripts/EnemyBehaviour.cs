@@ -14,7 +14,7 @@ public class EnemyBehaviour : MonoBehaviour{
         lastHit = -1;
 	}
 
-    public void TakeDamage(Collider2D collider, float baseDamage, bool unique) {
+    public virtual void TakeDamage(Collider2D collider, float baseDamage, bool unique) {
         float multiplier = GetMultiplier(collider);
         float damage = ComputeDamage(baseDamage,multiplier,unique);
         Color color = ComputeColor(multiplier, unique);
@@ -29,7 +29,7 @@ public class EnemyBehaviour : MonoBehaviour{
         }
     }
 
-    private float GetMultiplier(Collider2D collider) {
+    public float GetMultiplier(Collider2D collider) {
         for(int i = 0; i < colliders.Length; i++) {
             if(colliders[i] == collider) {
                 return damageMultipliers[i];
@@ -38,7 +38,7 @@ public class EnemyBehaviour : MonoBehaviour{
         return 0;
     }
 
-    private Color ComputeColor(float multiplier, bool unique) {
+    public Color ComputeColor(float multiplier, bool unique) {
         if(multiplier > 0 && unique) {
             return new Color(1f,Mathf.Min(0f,1 - multiplier),0f);
         } else if(multiplier < 0){
@@ -48,7 +48,7 @@ public class EnemyBehaviour : MonoBehaviour{
         }
     }
 
-    private float ComputeDamage(float baseDamage, float multiplier, bool unique) {
+    public float ComputeDamage(float baseDamage, float multiplier, bool unique) {
         if (multiplier > 0 && unique) {
             return baseDamage + baseDamage * multiplier;
         } else if (multiplier < 0) {

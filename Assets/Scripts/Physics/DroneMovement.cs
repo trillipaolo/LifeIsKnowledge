@@ -83,7 +83,7 @@ public class DroneMovement : EnemyMovementPhysics
             }
 
             // TODO: Different gravity
-//            ApplyGravity();
+            ApplyGravity();
             controller.Move(velocity * Time.deltaTime);
             if (controller.collisions.above || controller.collisions.below)
             {
@@ -147,6 +147,8 @@ public class DroneMovement : EnemyMovementPhysics
 
     public void Dying()
     {
+        attackScript.DeactivateAttackCollider();
+        EnableMovement();
         Invoke("DisableMovement", timeToDisable);
     }
 }
