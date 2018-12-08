@@ -6,8 +6,8 @@ public enum DialogueType
 {
     BEGINLEVEL,
     ENDLEVEL,
-    DRONESUGGESTION,
-    STORY
+    ADVICE_DRONE,
+    JOEL
 }
 
 
