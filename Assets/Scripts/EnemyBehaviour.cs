@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyBehaviour : MonoBehaviour {
+public class EnemyBehaviour : MonoBehaviour{
 
     public int lastHit = -1;
     public float health = 200;
@@ -58,7 +58,7 @@ public class EnemyBehaviour : MonoBehaviour {
         }
     }
 
-    public void Die() {
+    public virtual void Die() {
         Invoke("Rekt",0.5f);
 
         gameObject.SetActive(false);
