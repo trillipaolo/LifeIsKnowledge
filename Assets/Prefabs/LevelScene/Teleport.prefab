@@ -78,5 +78,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   endPosition: {fileID: 0}
-  player: {fileID: 0}
+  target: {fileID: 0}
   teleportType: 0
