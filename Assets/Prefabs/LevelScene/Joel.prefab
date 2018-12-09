@@ -114,7 +114,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4102829514326396}
   - component: {fileID: 114870824086266950}
-  - component: {fileID: 114032873791244478}
   - component: {fileID: 95564227615650564}
   - component: {fileID: 212820375120796012}
   - component: {fileID: 114105688108348506}
@@ -244,7 +243,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1727067693750102}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.5, y: -1.7, z: 0}
+  m_LocalPosition: {x: -7.16, y: -1.65, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4038266271272254}
@@ -560,7 +559,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.06368399, y: -0.02711451}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -571,7 +570,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 2.6}
+  m_Size: {x: 0.872632, y: 2.545771}
   m_EdgeRadius: 0
 --- !u!61 &61988167417782962
 BoxCollider2D:
@@ -616,23 +615,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114032873791244478
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1727067693750102}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f640f27905614c49a581aceb84d21af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startingHealth: 100
-  currentHealth: 100
-  healthSlider: {fileID: 0}
-  damageImage: {fileID: 0}
-  flashSpeed: 2
-  flashColour: {r: 1, g: 1, b: 1, a: 0.4}
 --- !u!114 &114105688108348506
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -701,6 +683,8 @@ MonoBehaviour:
   facingRight: 1
   movementDisable: 0
   distanceAttack: {x: 0, y: 0}
+  raysHorizontalArray: 
+  raysVerticalArray: 
 --- !u!114 &114600513461900752
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -742,11 +726,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 100
-  currentHealth: 0
+  currentHealth: 100
   healthSlider: {fileID: 0}
   damageImage: {fileID: 0}
   flashSpeed: 2
-  flashColour: {r: 1, g: 1, b: 1, a: 0.78431374}
+  flashColour: {r: 1, g: 1, b: 1, a: 0.39215687}
+  timeBetweenDamage: 0.7
 --- !u!114 &114870824086266950
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -120,9 +120,9 @@ AnimationClip:
     intParameter: 2
     messageOptions: 0
   - time: 0.25
-    functionName: AttackMove
+    functionName: PerformAttackMovement
     data: 
     objectReferenceParameter: {fileID: 0}
-    floatParameter: 0.8
-    intParameter: 0
+    floatParameter: 30
+    intParameter: 3
     messageOptions: 0

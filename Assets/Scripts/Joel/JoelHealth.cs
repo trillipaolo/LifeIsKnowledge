@@ -15,6 +15,7 @@ public class JoelHealth : MonoBehaviour {
     public float timeBetweenDamage = 0.7f;
     private float _lastTimeHit = -300;
 
+    private Collider2D _hitbox;
     private Animator _animator;                                              // Reference to the Animator component.
     //public AudioSource playerAudio;                                    // Reference to the AudioSource component.
     //PlayerMovement playerMovement;                              // Reference to the player's movement.
@@ -24,7 +25,8 @@ public class JoelHealth : MonoBehaviour {
 
     private void Awake() {
         // Setting up the references.
-        _animator = GetComponent<Animator>();
+        _hitbox = GetComponent<BoxCollider2D>();
+        _animator = GetComponentInParent<Animator>();
         //playerAudio = GetComponent<AudioSource>();
         //playerMovement = GetComponent<PlayerMovement>();
         //playerShooting = GetComponentInChildren<PlayerShooting>();
@@ -34,6 +36,8 @@ public class JoelHealth : MonoBehaviour {
     }
 
     void Update () {
+        UpdateCollider();
+
         // If the player has just been damaged...
         if (_damaged) {
             // ... set the colour of the damageImage to the flash colour.
@@ -47,6 +51,15 @@ public class JoelHealth : MonoBehaviour {
 
         // Reset the damaged flag.
         _damaged = false;
+    }
+
+    private void UpdateCollider() {
+        bool _isRolling = _animator.GetCurrentAnimatorStateInfo(0).IsName("Roll");
+        if (_hitbox.enabled && _isRolling){
+            _hitbox.enabled = false;
+        } else if(!_hitbox.enabled && !_isRolling){
+            _hitbox.enabled = true;
+        }
     }
 
     public void TakeDamage(int amount) {
