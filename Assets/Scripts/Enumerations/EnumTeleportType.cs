@@ -5,7 +5,8 @@ using UnityEngine;
 public enum TeleportType
 {
     UPWARDS,
-    DOWNWARDS
+    DOWNWARDS,
+    BEHIND
 }
 
 public static class EnumTeleportType

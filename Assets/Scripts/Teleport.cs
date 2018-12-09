@@ -8,7 +8,7 @@ public class Teleport : MonoBehaviour {
     public GameObject endPosition;
 
     //Player GameObject
-    public GameObject player;
+    public GameObject target;
 
     //Teleport Kind
     public TeleportType teleportType;
@@ -24,7 +24,7 @@ public class Teleport : MonoBehaviour {
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject == target)
         {   
             _teleport = true;
         }
@@ -32,7 +32,7 @@ public class Teleport : MonoBehaviour {
 
     public void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject == target)
         {
             _teleport = false;
         }
@@ -42,19 +42,9 @@ public class Teleport : MonoBehaviour {
     {
         if (_teleport)
         {      
-            if (teleportType == TeleportType.UPWARDS)
+            if (Input.GetKeyDown(KeyCode.W))
             {
-                if (Input.GetKeyDown(KeyCode.W))
-                {
-                    StartCoroutine("Teleporting");
-                }
-            }
-            if (teleportType == TeleportType.DOWNWARDS)
-            {
-                if (Input.GetKeyDown(KeyCode.S))
-                {
-                    StartCoroutine("Teleporting");
-                }
+                StartCoroutine("Teleporting");
             }
         }
     }
@@ -63,7 +53,7 @@ public class Teleport : MonoBehaviour {
     {
         yield return new WaitForSeconds(0.01f);
 
-        player.transform.position = endPosition.GetComponent<Transform>().position;
+        target.transform.position = endPosition.GetComponent<Transform>().position;
 
     }
 }
