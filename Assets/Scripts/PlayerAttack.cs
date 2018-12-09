@@ -61,7 +61,7 @@ public class PlayerAttack : MonoBehaviour {
         }
     }
 
-    public void Attack(string colliderPositionString) {
+    /*public void Attack(string colliderPositionString) {
         bool[] colliderPositions = EnumColliderPosition.StringToArray(colliderPositionString);
         float directionFacing = playerMovement.directionFacing;
 
@@ -75,7 +75,7 @@ public class PlayerAttack : MonoBehaviour {
             }
         }
         UpdateHitId();
-    }
+    }*/
 
     private int UpdateHitId() {
         _hitId++;

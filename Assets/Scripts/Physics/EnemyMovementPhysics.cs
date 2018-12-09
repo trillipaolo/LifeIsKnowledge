@@ -5,18 +5,18 @@ using UnityEngine;
 [RequireComponent(typeof(Controller2D))]
 public class EnemyMovementPhysics : MonoBehaviour
 {
-    private Animator _animator;
-    [Header("Enemy Movement Settings")] 
+    [HideInInspector] public Animator _animator;
+    [Header("Enemy Movement Settings")]
     public float moveSpeed = 3f;
     public float stopDistance = 1f;
     public float jumpHeight = 1.5f;
     public float timeToJumpApex = .4f;
-    Vector2 velocity;
+    [HideInInspector] public Vector2 velocity;
     float gravity;
 
     private float _jumpVelocity;
 
-    [Header("Patrol Settings")] 
+    [Header("Patrol Settings")]
     public bool facingRight = true;
     public float patrolRadius = 5f;
     public float visionRadiusX = 2f;
@@ -24,12 +24,14 @@ public class EnemyMovementPhysics : MonoBehaviour
     public bool foundTarget = false;
     private float _anchor;
 
-    Controller2D controller;
+    public Controller2D controller;
 
-    Transform target;
+    public Transform target;
+    [HideInInspector]
+    public bool movementDisabled;
 
     // Use this for initialization
-    void Start()
+    public virtual void Start()
     {
         _anchor = transform.position.x;
         gravity = -(2 * jumpHeight) / Mathf.Pow(timeToJumpApex, 2);
@@ -39,54 +41,58 @@ public class EnemyMovementPhysics : MonoBehaviour
 
         target = GameObject.FindWithTag("Player").transform;
         _jumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
+        movementDisabled = false;
     }
 
     // Update is called once per frame
-    void Update()
+    public virtual void Update()
     {
-        if (!foundTarget)
+        if (!movementDisabled)
         {
-            CheckIfFoundTarget();
-            Patrol();
-        }
-        else
-        {
-            FollowAndAttack();
-        }
+            if (!foundTarget)
+            {
+                CheckIfFoundTarget();
+                Patrol();
+            }
+            else
+            {
+                FollowAndAttack();
+            }
 
-        ApplyGravity();
-        controller.Move(velocity * Time.deltaTime);
-        if (controller.collisions.above || controller.collisions.below)
-        {
-            velocity.y = 0;
-        }
+            ApplyGravity();
+            controller.Move(velocity * Time.deltaTime);
+            if (controller.collisions.above || controller.collisions.below)
+            {
+                velocity.y = 0;
+            }
 
-        if (velocity.x > 0)
-        {
-            _animator.SetBool("isMoving", true);
-        }
+            if (velocity.x > 0)
+            {
+                _animator.SetBool("isMoving", true);
+            }
 
-        if (controller.collisions.left || controller.collisions.right)
-        {
-            Jump();
-            _animator.SetBool("isMoving", false);
-        }
+            if (controller.collisions.left || controller.collisions.right)
+            {
+                Jump();
+                _animator.SetBool("isMoving", false);
+            }
 
 //        BlindStrategy();
+        }
     }
 
-    void ApplyGravity()
+    public void ApplyGravity()
     {
         velocity.y += gravity * Time.deltaTime;
     }
 
-    void CheckIfFoundTarget()
+    public void CheckIfFoundTarget()
     {
         foundTarget = (Mathf.Abs(target.position.x - transform.position.x) <= visionRadiusX)
                       && (Mathf.Abs(target.position.y - transform.position.y) <= visionRadiusY);
     }
 
-    void Patrol()
+    public void Patrol()
     {
         float patrolDistance = transform.position.x - _anchor;
 //        Debug.Log(patrolDistance);
@@ -101,7 +107,7 @@ public class EnemyMovementPhysics : MonoBehaviour
         }
     }
 
-    void FollowAndAttack()
+    public void FollowAndAttack()
     {
         float distance = transform.position.x - target.position.x;
         if (Mathf.Abs(distance) > stopDistance)
@@ -125,12 +131,12 @@ public class EnemyMovementPhysics : MonoBehaviour
         else if (Mathf.Abs(target.position.y - transform.position.y) <= visionRadiusY)
         {
             velocity.x = 0;
-            _animator.SetBool("isMoving", false);
-            _animator.SetInteger("isAttacking", Random.Range(1, 3));
+//            _animator.SetBool("isMoving", false);
+//            _animator.SetInteger("isAttacking", Random.Range(1, 3));
         }
     }
 
-    void BlindStrategy()
+    public void BlindStrategy()
     {
         if (controller.collisions.right || controller.collisions.left)
         {
@@ -138,7 +144,7 @@ public class EnemyMovementPhysics : MonoBehaviour
         }
     }
 
-    void Jump()
+    public void Jump()
     {
         if (controller.collisions.below)
         {
@@ -146,8 +152,18 @@ public class EnemyMovementPhysics : MonoBehaviour
         }
     }
 
-    void ChangeDirection()
+    public void ChangeDirection()
     {
         facingRight = !facingRight;
+    }
+
+    public void DisableMovement()
+    {
+        movementDisabled = true;
+    }
+
+    public void EnableMovement()
+    {
+        movementDisabled = false;
     }
 }

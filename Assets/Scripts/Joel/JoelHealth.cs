@@ -11,8 +11,11 @@ public class JoelHealth : MonoBehaviour {
     public Image damageImage;                                   // Reference to an image to flash on the screen on being hurt.
     //public AudioClip deathClip;                                 // The audio clip to play when the player dies.
     public float flashSpeed = 5f;                               // The speed the damageImage will fade at.
-    public Color flashColour = new Color(1f,1f,1f,0.1f);
+    public Color flashColour = new Color(1f,1f,1f,0.4f);
+    public float timeBetweenDamage = 0.7f;
+    private float _lastTimeHit = -300;
 
+    private Collider2D _hitbox;
     private Animator _animator;                                              // Reference to the Animator component.
     //public AudioSource playerAudio;                                    // Reference to the AudioSource component.
     //PlayerMovement playerMovement;                              // Reference to the player's movement.
@@ -22,7 +25,8 @@ public class JoelHealth : MonoBehaviour {
 
     private void Awake() {
         // Setting up the references.
-        _animator = GetComponent<Animator>();
+        _hitbox = GetComponent<BoxCollider2D>();
+        _animator = GetComponentInParent<Animator>();
         //playerAudio = GetComponent<AudioSource>();
         //playerMovement = GetComponent<PlayerMovement>();
         //playerShooting = GetComponentInChildren<PlayerShooting>();
@@ -32,6 +36,8 @@ public class JoelHealth : MonoBehaviour {
     }
 
     void Update () {
+        UpdateCollider();
+
         // If the player has just been damaged...
         if (_damaged) {
             // ... set the colour of the damageImage to the flash colour.
@@ -47,23 +53,36 @@ public class JoelHealth : MonoBehaviour {
         _damaged = false;
     }
 
+    private void UpdateCollider() {
+        bool _isRolling = _animator.GetCurrentAnimatorStateInfo(0).IsName("Roll");
+        if (_hitbox.enabled && _isRolling){
+            _hitbox.enabled = false;
+        } else if(!_hitbox.enabled && !_isRolling){
+            _hitbox.enabled = true;
+        }
+    }
+
     public void TakeDamage(int amount) {
-        // Set the damaged flag so the screen will flash.
-        _damaged = true;
+        if (Time.time - _lastTimeHit > timeBetweenDamage) {
+            // Set the damaged flag so the screen will flash.
+            _damaged = true;
 
-        // Reduce the current health by the damage amount.
-        currentHealth -= amount;
+            // Reduce the current health by the damage amount.
+            currentHealth -= amount;
 
-        // Set the health bar's value to the current health.
-        healthSlider.value = currentHealth;
+            // Set the health bar's value to the current health.
+            healthSlider.value = currentHealth;
 
-        // Play the hurt sound effect.
-        //playerAudio.Play();
+            // Play the hurt sound effect.
+            //playerAudio.Play();
 
-        // If the player has lost all it's health and the death flag hasn't been set yet...
-        if (currentHealth <= 0 && !_isDead) {
-            // ... it should die.
-            Death();
+            // If the player has lost all it's health and the death flag hasn't been set yet...
+            if (currentHealth <= 0 && !_isDead) {
+                // ... it should die.
+                Death();
+            }
+
+            _lastTimeHit = Time.time;
         }
     }
 

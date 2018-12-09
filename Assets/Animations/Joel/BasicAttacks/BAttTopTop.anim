@@ -89,6 +89,13 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 0
+    functionName: FlipBetweenAttacks
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.16666667
     functionName: ActivateInput
     data: 
@@ -96,23 +103,16 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.25
-    functionName: AttackMove
+  - time: 0.16666667
+    functionName: PerformAttackMovement
     data: 
     objectReferenceParameter: {fileID: 0}
-    floatParameter: 0.2
-    intParameter: 0
+    floatParameter: 10
+    intParameter: 3
     messageOptions: 0
   - time: 0.33333334
-    functionName: Attack
+    functionName: BasicAttack
     data: 100000
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.5
-    functionName: EnableMovement
-    data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
