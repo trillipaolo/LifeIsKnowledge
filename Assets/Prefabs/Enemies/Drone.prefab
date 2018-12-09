@@ -460,13 +460,14 @@ MonoBehaviour:
   controller: {fileID: 0}
   target: {fileID: 0}
   movementDisabled: 0
-  verticalMoveSpeed: 1
+  verticalMoveSpeed: 2
   chaseSpeed: 4.5
   attackSpeed: 15
   chaseDistance: 10
-  attackDistance: 50
+  attackDistance: 5
   stuckCountdown: 3
   flyingHeight: 2
+  droneSliding: 0.3
   timeToDisable: 0.5
 --- !u!212 &212471807618868744
 SpriteRenderer:

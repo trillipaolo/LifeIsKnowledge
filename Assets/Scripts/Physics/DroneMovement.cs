@@ -12,12 +12,14 @@ public class DroneMovement : EnemyMovementPhysics
     public float attackDistance;
     public float stuckCountdown;
     public float flyingHeight = 2f;
+    public float droneSliding = 1f;
 
     public float timeToDisable;
     private EnemyAttackPaolo attackScript;
     private bool isAttacking;
     private float _attackStartPosition;
     private float time;
+    private bool dead;
 
 
     private void Start()
@@ -29,65 +31,83 @@ public class DroneMovement : EnemyMovementPhysics
     }
 
 
-    // Update is called once per frame
     void Update()
     {
         if (!movementDisabled)
         {
-            //TODO: Losing the target
-            if (!foundTarget)
+            if (!dead)
             {
-                CheckIfFoundTarget();
-                Flying();
-                Patrol();
-            }
-            else if (!isAttacking)
-            {
-                Flying();
-                Chase();
-            }
-            else
-            {
-//                Debug.Log("distance " + Mathf.Abs(transform.position.x - _attackStartPosition));
-//                Debug.Log("attack " + attackDistance);
-                Debug.Log(Math.Abs(target.position.y - transform.position.y) + " " + (Math.Abs(target.position.y - transform.position.y) <= visionRadiusY));
-                if (!(controller.collisions.right || controller.collisions.left))
+                //TODO: Losing the target
+                if (!foundTarget)
                 {
-                    if (Mathf.Abs(transform.position.x - _attackStartPosition) < attackDistance )
-//                        && Math.Abs(target.position.y - transform.position.y) <= visionRadiusY)
-                    {
-                        Attack();
-                    }
+                    CheckIfFoundTarget();
+                    Flying();
+                    Patrol();
+                }
+                else if (!isAttacking)
+                {
+                    Flying();
+                    Chase();
                 }
                 else
                 {
-                    if (time > 0)
+                    Debug.Log(Math.Abs(target.position.y - transform.position.y) + " " +
+                              (Math.Abs(target.position.y - transform.position.y) <= visionRadiusY));
+                    if (!(controller.collisions.right || controller.collisions.left))
                     {
-                        time -= Time.deltaTime;
+                        if (Mathf.Abs(transform.position.x - _attackStartPosition) < attackDistance)
+                        {
+                            Attack();
+                        }
+                        // Attack distance increased
+                        else
+                        {
+                            isAttacking = false;
+                            _animator.SetBool("Attack", false);
+                            attackScript.DeactivateAttackCollider();
+                        }
                     }
+                    // Drone is stuck
                     else
                     {
-                        Debug.Log("Movement Enambled");
-                        isAttacking = false;
-                        _animator.SetBool("Attack", false);
-                        _attackStartPosition = transform.position.x;
-                        attackScript.DeactivateAttackCollider();
-                        time = stuckCountdown;
+                        if (time > 0)
+                        {
+                            time -= Time.deltaTime;
+                        }
+                        else
+                        {
+                            isAttacking = false;
+                            _animator.SetBool("Attack", false);
+                            _attackStartPosition = transform.position.x; // ?
+                            attackScript.DeactivateAttackCollider();
+                            time = stuckCountdown;
+                        }
                     }
                 }
-            }
 
-            // TODO: Different gravity
-//            ApplyGravity();
-            controller.Move(velocity * Time.deltaTime);
-            if (controller.collisions.above || controller.collisions.below)
+                controller.Move(velocity * Time.deltaTime);
+                if (controller.collisions.above || controller.collisions.below)
+                {
+                    velocity.y = 0;
+                }
+            }
+            else
             {
-                velocity.y = 0;
+                ApplyGravity();
+                if(velocity.x>=droneSliding)
+                {
+                    velocity.x -= droneSliding;
+                }
+                else
+                {
+                    velocity.x = 0;
+                }
+                controller.Move(velocity * Time.deltaTime);
+                if (controller.collisions.above || controller.collisions.below)
+                {
+                    velocity.y = 0;
+                }
             }
-
-            //TODO: Overcoming obstacles
-
-//        BlindStrategy();
         }
     }
 
@@ -114,10 +134,6 @@ public class DroneMovement : EnemyMovementPhysics
         float distance = transform.position.x - target.position.x;
         if (Mathf.Abs(distance) > stopDistance)
         {
-//			_animator.SetBool("isMoving", true);
-//			_animator.SetInteger("isAttacking", 0);
-
-
             if (Mathf.Abs(target.position.y - transform.position.y) <= chaseDistance)
             {
                 if (Mathf.Sign(distance) < 0)
@@ -162,8 +178,11 @@ public class DroneMovement : EnemyMovementPhysics
 
     public void Dying()
     {
+        dead = true;
+//        velocity.x = 2;
         attackScript.DeactivateAttackCollider();
-        EnableMovement();
-        Invoke("DisableMovement", timeToDisable);
+//        EnableMovement();
+        ApplyGravity();
+//        Invoke("DisableMovement", timeToDisable);
     }
 }
