@@ -131,8 +131,8 @@ public class EnemyMovementPhysics : MonoBehaviour
         else if (Mathf.Abs(target.position.y - transform.position.y) <= visionRadiusY)
         {
             velocity.x = 0;
-            _animator.SetBool("isMoving", false);
-            _animator.SetInteger("isAttacking", Random.Range(1, 3));
+//            _animator.SetBool("isMoving", false);
+//            _animator.SetInteger("isAttacking", Random.Range(1, 3));
         }
     }
 

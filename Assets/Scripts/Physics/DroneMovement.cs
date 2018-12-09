@@ -5,11 +5,13 @@ using UnityEngine;
 
 public class DroneMovement : EnemyMovementPhysics
 {
-    [Header("Drone Settings")] public float chaseSpeed = 4.5f;
+    [Header("Drone Settings")] public float verticalMoveSpeed = 1f;
+    public float chaseSpeed = 4.5f;
     public float attackSpeed = 6f;
     public float chaseDistance;
     public float attackDistance;
     public float stuckCountdown;
+    public float flyingHeight = 2f;
 
     public float timeToDisable;
     private EnemyAttackPaolo attackScript;
@@ -21,46 +23,38 @@ public class DroneMovement : EnemyMovementPhysics
     private void Start()
     {
         base.Start();
-        
+
         attackScript = GetComponentInChildren<EnemyAttackPaolo>();
         time = stuckCountdown;
     }
 
-    
+
     // Update is called once per frame
     void Update()
     {
-        String ver = "";
-        String hor = "";
-        foreach (int i in controller.raysHorizontalArray)
-        {
-            ver += i;
-        }
-        foreach (int i in controller.raysVerticalArray)
-        {
-            hor += i;
-        }
-        Debug.Log(hor);
-        Debug.Log(ver);
         if (!movementDisabled)
         {
             //TODO: Losing the target
             if (!foundTarget)
             {
                 CheckIfFoundTarget();
+                Flying();
                 Patrol();
             }
             else if (!isAttacking)
             {
+                Flying();
                 Chase();
             }
             else
             {
 //                Debug.Log("distance " + Mathf.Abs(transform.position.x - _attackStartPosition));
 //                Debug.Log("attack " + attackDistance);
+                Debug.Log(Math.Abs(target.position.y - transform.position.y) + " " + (Math.Abs(target.position.y - transform.position.y) <= visionRadiusY));
                 if (!(controller.collisions.right || controller.collisions.left))
                 {
-                    if (Mathf.Abs(transform.position.x - _attackStartPosition) < attackDistance)
+                    if (Mathf.Abs(transform.position.x - _attackStartPosition) < attackDistance )
+//                        && Math.Abs(target.position.y - transform.position.y) <= visionRadiusY)
                     {
                         Attack();
                     }
@@ -73,6 +67,7 @@ public class DroneMovement : EnemyMovementPhysics
                     }
                     else
                     {
+                        Debug.Log("Movement Enambled");
                         isAttacking = false;
                         _animator.SetBool("Attack", false);
                         _attackStartPosition = transform.position.x;
@@ -83,7 +78,7 @@ public class DroneMovement : EnemyMovementPhysics
             }
 
             // TODO: Different gravity
-            ApplyGravity();
+//            ApplyGravity();
             controller.Move(velocity * Time.deltaTime);
             if (controller.collisions.above || controller.collisions.below)
             {
@@ -93,6 +88,24 @@ public class DroneMovement : EnemyMovementPhysics
             //TODO: Overcoming obstacles
 
 //        BlindStrategy();
+        }
+    }
+
+    void Flying()
+    {
+        Vector2 rayOrigin = new Vector2(transform.position.x, controller.collider.bounds.min.y);
+        RaycastHit2D flyingHeightRaycastHit2D =
+            Physics2D.Raycast(rayOrigin, Vector2.down, flyingHeight, controller.collisionMask);
+
+        Debug.DrawRay(rayOrigin, Vector2.down * flyingHeight, Color.blue);
+        if (flyingHeightRaycastHit2D)
+        {
+            velocity.y = verticalMoveSpeed;
+        }
+        else
+        {
+            velocity.y = -verticalMoveSpeed * 2;
+            // ApplyGravity()
         }
     }
 
@@ -119,7 +132,7 @@ public class DroneMovement : EnemyMovementPhysics
                 }
             }
         }
-        else
+        else if (Math.Abs(target.position.y - transform.position.y) <= visionRadiusY)
             // Going to attack
         {
             if (Mathf.Sign(distance) < 0)
@@ -132,7 +145,7 @@ public class DroneMovement : EnemyMovementPhysics
                 facingRight = false;
                 velocity.x = -chaseSpeed;
             }
-            
+
             isAttacking = true;
             _animator.SetBool("Attack", true);
             _attackStartPosition = transform.position.x;
@@ -142,8 +155,10 @@ public class DroneMovement : EnemyMovementPhysics
 
     void Attack()
     {
+        velocity.y = 0;
         velocity.x = (facingRight ? 1 : -1) * attackSpeed;
     }
+
 
     public void Dying()
     {

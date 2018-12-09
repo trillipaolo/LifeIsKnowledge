@@ -20,15 +20,11 @@ public class Controller2D : RaycastController
     public bool movementDisable = false;
     public Vector2 distanceAttack;
 
-    public int[] raysHorizontalArray;
-    public int[] raysVerticalArray;
 //    public Camera camera;
 
     public override void Start()
     {
         base.Start();
-        raysHorizontalArray = new int [horizontalRayCount];
-        raysVerticalArray = new int [verticalRayCount];
     }
 
     public void Move(Vector2 moveAmount)
@@ -112,8 +108,6 @@ public class Controller2D : RaycastController
 
                 collisions.left = directionX == -1;
                 collisions.right = directionX == 1;
-                
-                raysHorizontalArray[i] = 1;
             }
         }
     }
@@ -139,8 +133,6 @@ public class Controller2D : RaycastController
 
                 collisions.below = directionY == -1;
                 collisions.above = directionY == 1;
-
-                raysVerticalArray[i] = 1;
             }
         }
     }
@@ -162,7 +154,6 @@ public class Controller2D : RaycastController
     {
         // Switch the way the player is labelled as facing.
         facingRight = !facingRight;
-Debug.Log("fLIPPING");
         // Multiply the player's x local scale by -1.
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
