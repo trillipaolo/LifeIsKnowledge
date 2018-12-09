@@ -17,7 +17,8 @@ public class SingleComboButton : MonoBehaviour {
 
     public void SetComboName(string name)
     {
-        _comboName = name;
+        Text buttonText = GetComponentInChildren<Text>();
+        buttonText.text = name;
     }
 
     
