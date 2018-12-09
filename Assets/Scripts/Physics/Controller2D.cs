@@ -57,36 +57,6 @@ public class Controller2D : RaycastController
         }
     }
 
-    public void AttackMove(float distance)
-    {
-//        camera.GetComponent<CameraFollow>().smoothX = true;
-        distanceAttack = new Vector2(distance * (facingRight ? 1: -1) * Time.deltaTime, 0 );
-        
-        UpdateRaycastOrigins();
-        collisions.Reset();
-
-        if (distance != 0)
-        {
-            if (distanceAttack.x > 0 && !facingRight)
-            {
-                Flip();
-            }
-            else if (distanceAttack.x < 0 && facingRight)
-            {
-                Flip();
-            }
-
-            HorizontalCollisions(ref distanceAttack);
-        }
-
-        if (distanceAttack.y != 0)
-        {
-            VerticalCollisions(ref distanceAttack);
-        }
-
-        transform.Translate(distanceAttack,0);
-    }
-
     void HorizontalCollisions(ref Vector2 moveAmount)
     {
         float directionX = Mathf.Sign(moveAmount.x); // Moving left: -1, moving right: 1

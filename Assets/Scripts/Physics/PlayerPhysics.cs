@@ -77,21 +77,19 @@ public class PlayerPhysics : MonoBehaviour
         {
             if (_attackMovementFrames > 0)
             {
-//                Debug.Log(_distance + " " + _attackMovementFrames);
                 velocity.x = ((controller.facingRight) ? 1 : -1) * (_distance / _attackMovementFrames);
-//                Debug.Log("Velocity:" + velocity);
-
-//                velocity.y += gravity * Time.deltaTime;
-//                controller.Move(velocity * Time.deltaTime);
-
                 _attackMovementFrames -= 1;
             }
+            
+            currentDistance = 0f;
+            _rolling = false;
+            _animator.SetBool("Roll", false);
         }
         
         controller.Move(velocity * Time.deltaTime);
+        //TODO: deal with it
         if (_attackMovement)
         {
-            
             velocity.x = 0;
         }
         if (controller.collisions.above || controller.collisions.below)
