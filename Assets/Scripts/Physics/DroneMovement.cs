@@ -178,11 +178,10 @@ public class DroneMovement : EnemyMovementPhysics
 
     public void Dying()
     {
+        EnableMovement();
         dead = true;
 //        velocity.x = 2;
         attackScript.DeactivateAttackCollider();
-//        EnableMovement();
-        ApplyGravity();
 //        Invoke("DisableMovement", timeToDisable);
     }
 }
