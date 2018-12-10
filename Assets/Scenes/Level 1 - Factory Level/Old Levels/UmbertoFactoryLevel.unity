@@ -100499,13 +100499,13 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: StepHigh
-    clip: {fileID: 8300000, guid: 6f73db05bdcde7846bdaa074fcf1a470, type: 3}
+    clip: {fileID: 8300000, guid: df0737c24a084d143a6f84c2aa3d256f, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: StepLow
-    clip: {fileID: 8300000, guid: 56dd18dcfecdc834884bf12d5292253e, type: 3}
+    clip: {fileID: 8300000, guid: ac083566d6b8b6c4e977f46d8fa71a8f, type: 3}
     volume: 1
     pitch: 1
     loop: 0

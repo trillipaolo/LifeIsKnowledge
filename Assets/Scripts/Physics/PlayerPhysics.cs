@@ -136,7 +136,7 @@ public class PlayerPhysics : MonoBehaviour {
     public void SetDirectionalInput(Vector2 input) {
         directionalInput = input;
 
-        PlayStepSound((input.x != 0 ? true : false));
+        //PlayStepSound((input.x != 0 ? true : false));
         prevXMov = (input.x != 0 ? true : false);
 
 
@@ -244,8 +244,8 @@ public class PlayerPhysics : MonoBehaviour {
     void PlayJumpSound() {
         if (controller.collisions.below == true && prevGrounded == false) {
             audioManager.Play(jumpDownSound);
-            if (directionalInput.x!=0)
-                audioManager.Play(stepDoubleSound);
+            //if (directionalInput.x!=0)
+                //audioManager.Play(stepDoubleSound);
         }
     }
 
@@ -260,18 +260,13 @@ public class PlayerPhysics : MonoBehaviour {
     }
 
     //ACTUALLY NOT USING THIS FUNCTION: USE WITH ANIMATION EVENTS ON WALK ANIMATION
-    public void PlayStepSound(string f) {
+    public void PlayStepSound1(string f) {
         if (f=="1")
             audioManager.Play(stepHighSound);
         
         if (f=="2")
             audioManager.Play(stepLowSound);
-
-        if(f=="0") {
-            audioManager.Stop(stepHighSound);
-            audioManager.Stop(stepLowSound);
-        }
-
+        
     }
 
 }
