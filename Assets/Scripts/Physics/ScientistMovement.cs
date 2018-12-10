@@ -24,9 +24,13 @@ public class ScientistMovement : EnemyMovementPhysics {
             }
 
             if (!movementDisabled) {
-                if (canMove) {
-                    Move();
+                //if (canMove) {
+                //  Move();
+                //}
+                if (!canMove) {
+                    velocity.x = 0;
                 }
+                Move();
             }
         } else {
             _animator.SetTrigger("Dead");
