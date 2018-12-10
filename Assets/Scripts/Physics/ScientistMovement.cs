@@ -8,6 +8,7 @@ public class ScientistMovement : EnemyMovementPhysics {
     private float _lastAttack = -300;
     public float timeBetweenAttacks = 3f;
     public bool canMove = true;
+    private float _lastXPos;
 
     private void Awake() {
         _hitboxAnimator = transform.Find("AttackCollider").GetComponent<Animator>();
@@ -32,6 +33,10 @@ public class ScientistMovement : EnemyMovementPhysics {
             _hitboxAnimator.SetTrigger("Dead");
             DisableMovement();
         }
+
+        float xSpeed = Mathf.Abs(_lastXPos - transform.position.x) / (Time.deltaTime * moveSpeed);
+        _animator.SetFloat("XSpeed",xSpeed);
+        _lastXPos = transform.position.x;
     }
 
     private void Move() {
@@ -41,13 +46,8 @@ public class ScientistMovement : EnemyMovementPhysics {
             velocity.y = 0;
         }
 
-        if (velocity.x > 0) {
-            _animator.SetBool("isMoving",true);
-        }
-
         if (controller.collisions.left || controller.collisions.right) {
             Jump();
-            _animator.SetBool("isMoving",false);
         }
     }
 
@@ -56,8 +56,6 @@ public class ScientistMovement : EnemyMovementPhysics {
 
         // if too distant go near joel
         if (Mathf.Abs(distance) > stopDistance) {
-            _animator.SetBool("isMoving",true);
-            _animator.SetInteger("isAttacking",0);
             if (Mathf.Abs(target.position.y - transform.position.y) <= visionRadiusY) {
                 if (Mathf.Sign(distance) < 0) {
                     velocity.x = moveSpeed;
@@ -69,6 +67,13 @@ public class ScientistMovement : EnemyMovementPhysics {
             }
         } else if (Mathf.Abs(target.position.y - transform.position.y) <= visionRadiusY) {
             if (Time.time - _lastAttack > timeBetweenAttacks) {
+                if (Mathf.Sign(distance) < 0) {
+                    velocity.x = moveSpeed;
+                    facingRight = true;
+                } else {
+                    facingRight = false;
+                    velocity.x = -moveSpeed;
+                }
                 _animator.SetTrigger("Attack");
                 _hitboxAnimator.SetTrigger("Attack");
             }
