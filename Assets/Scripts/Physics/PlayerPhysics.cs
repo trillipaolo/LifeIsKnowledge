@@ -41,6 +41,7 @@ public class PlayerPhysics : MonoBehaviour {
     public GameObject coolDown;
     public Transform canvas;
     private float _nextFireTime = 0;
+    private float _lastXPos;
 
     private bool _attackMovement = false;
     private float _distance = 0;
@@ -117,8 +118,19 @@ public class PlayerPhysics : MonoBehaviour {
             _animator.SetBool("Grounded", false);
         }
 
+        SetAnimatorSpeed();
         PlayJumpSound();
         prevGrounded = controller.collisions.below;
+    }
+
+    private void SetAnimatorSpeed() {
+        float xSpeed = Mathf.Abs(_lastXPos - transform.position.x) / (Time.deltaTime * moveSpeed);
+        xSpeed = Mathf.Min(1,xSpeed);
+        if(xSpeed < 0.01) {
+            xSpeed = 0;
+        }
+        _animator.SetFloat("XSpeed",xSpeed);
+        _lastXPos = transform.position.x;
     }
 
     public void SetDirectionalInput(Vector2 input) {
