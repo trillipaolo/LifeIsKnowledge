@@ -11,11 +11,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65f43ceb6ff359f4e8735bdec5fa74aa, type: 3}
   m_Name: HorizontalSpin
   m_EditorClassIdentifier: 
-  comboName: 
-  buttonSequence: []
-  comboSprite: {fileID: 0}
-  rowSaved: 0
-  coloumnSaved: 0
+  comboName: Horizontal Spin
+  buttonSequence:
+  - {fileID: 11400000, guid: 9d8e1276d3803904e95242e53431b537, type: 2}
+  - {fileID: 11400000, guid: d7f8f16d4256f5a42bf01375a9a35bd9, type: 2}
+  - {fileID: 11400000, guid: d7f8f16d4256f5a42bf01375a9a35bd9, type: 2}
+  - {fileID: 11400000, guid: d7f8f16d4256f5a42bf01375a9a35bd9, type: 2}
+  comboSprite: {fileID: 21300000, guid: 14f9b4f11e7553c4d9e2436968cd76d4, type: 3}
+  rowSaved: -1
+  coloumnSaved: -1
   rotatedSaved: 0
   combo1Key: 1
   combo2Key: 0
@@ -24,4 +28,5 @@ MonoBehaviour:
   downKey: 0
   enumCombo: 2
   cooldown: 5
-  damage: 1
+  damage:
+  - 80
