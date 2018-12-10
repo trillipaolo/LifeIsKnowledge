@@ -6,13 +6,13 @@ public class DroneBehaviour : EnemyBehaviour {
 
     private Collider2D _platformCollider;
     private BoxCollider2D _physicsCollider;
-    private DroneMovement _movementScript;
+    private DroneMovement _movementDroneScript;
     public Animator animator;
 
     void Awake() {
         _platformCollider = this.transform.Find("PlatformCollider").GetComponent<BoxCollider2D>();
         _physicsCollider = this.transform.GetComponent<BoxCollider2D>();
-        _movementScript = this.transform.GetComponent<DroneMovement>();
+        _movementDroneScript = this.transform.GetComponent<DroneMovement>();
         _platformCollider.enabled = false;
     }
 
@@ -32,9 +32,13 @@ public class DroneBehaviour : EnemyBehaviour {
     }
 
     public override void Die() {
+        for(int i = 0; i < base.colliders.Length; i++) {
+            base.colliders[i].enabled = false;
+        }
+
         animator.SetTrigger("Dead");
         ChangePhysicsCollider();
-        _movementScript.Dying();
+        _movementDroneScript.Dying();
         _platformCollider.enabled = true;
     }
 
