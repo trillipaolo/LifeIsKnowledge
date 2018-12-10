@@ -184,18 +184,19 @@ public class ComboMenuManager : MonoBehaviour {
 
         for (int i = 0; i < combos.Length; i++)
         {
-            GameObject button = Instantiate(menuButton) as GameObject;
-            button.SetActive(true);
+            if (combos[i].unlocked)
+            {
+                GameObject button = Instantiate(menuButton) as GameObject;
+                button.SetActive(true);
 
-            button.GetComponent<SingleComboButton>().SetIndex(i);
-            button.GetComponent<SingleComboButton>().SetComboName(combos[i].comboName);
-            button.GetComponent<SingleComboButton>().SetImage(combos[i].comboSprite);
+                button.GetComponent<SingleComboButton>().SetIndex(i);
+                button.GetComponent<SingleComboButton>().SetComboName(combos[i].comboName);
+                button.GetComponent<SingleComboButton>().SetImage(combos[i].comboSprite);
 
-            button.transform.SetParent(menuButton.transform.parent, false);
+                button.transform.SetParent(menuButton.transform.parent, false);
 
-
-
-            _menuButtons.Add(button);
+                _menuButtons.Add(button);
+            }
         }
     }
 
