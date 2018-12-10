@@ -7,6 +7,7 @@ public class ScientistMovement : EnemyMovementPhysics {
     private Animator _hitboxAnimator;
     private float _lastAttack = -300;
     public float timeBetweenAttacks = 3f;
+    public bool canMove = true;
 
     private void Awake() {
         _hitboxAnimator = transform.Find("AttackCollider").GetComponent<Animator>();
@@ -22,7 +23,9 @@ public class ScientistMovement : EnemyMovementPhysics {
             }
 
             if (!movementDisabled) {
-                Move();
+                if (canMove) {
+                    Move();
+                }
             }
         } else {
             _animator.SetTrigger("Dead");
