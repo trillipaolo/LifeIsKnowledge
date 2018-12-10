@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyBehaviour : MonoBehaviour{
 
@@ -8,12 +9,19 @@ public class EnemyBehaviour : MonoBehaviour{
     public float health = 200;
     private EnemyMovementPhysics _movementScript;
 
+    [HideInInspector]
+    public Slider _healthBar;
+
     public Collider2D[] colliders;
     public float[] damageMultipliers;
     
 	void Awake () {
         _movementScript = transform.GetComponent<EnemyMovementPhysics>();
         lastHit = -1;
+
+        _healthBar = GetComponentInChildren<Slider>();
+        _healthBar.maxValue = health;
+        _healthBar.value = health;
 	}
 
     public virtual void TakeDamage(Collider2D collider, float baseDamage, bool unique) {
@@ -29,6 +37,8 @@ public class EnemyBehaviour : MonoBehaviour{
         if (health < 0) {
             Die();
         }
+
+        _healthBar.value = health;
     }
 
     public float GetMultiplier(Collider2D collider) {
@@ -65,6 +75,7 @@ public class EnemyBehaviour : MonoBehaviour{
             colliders[i].enabled = false;
         }
         _movementScript.isDead = true;
+        _healthBar.GetComponentInChildren<Image>().color = Color.clear;
     }
 
     private void Rekt() {

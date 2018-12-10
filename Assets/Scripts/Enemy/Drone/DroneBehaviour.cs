@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DroneBehaviour : EnemyBehaviour {
 
@@ -14,6 +15,10 @@ public class DroneBehaviour : EnemyBehaviour {
         _physicsCollider = this.transform.GetComponent<BoxCollider2D>();
         _movementDroneScript = this.transform.GetComponent<DroneMovement>();
         _platformCollider.enabled = false;
+
+        _healthBar = GetComponentInChildren<Slider>();
+        _healthBar.maxValue = health;
+        _healthBar.value = health;
     }
 
     public override void TakeDamage(Collider2D collider,float baseDamage,bool unique) {
@@ -29,6 +34,8 @@ public class DroneBehaviour : EnemyBehaviour {
         if (health < 0) {
             Die();
         }
+
+        _healthBar.value = health;
     }
 
     public override void Die() {
@@ -40,6 +47,7 @@ public class DroneBehaviour : EnemyBehaviour {
         ChangePhysicsCollider();
         _movementDroneScript.Dying();
         _platformCollider.enabled = true;
+        _healthBar.GetComponentInChildren<Image>().color = Color.clear;
     }
 
     private void ChangePhysicsCollider() {
