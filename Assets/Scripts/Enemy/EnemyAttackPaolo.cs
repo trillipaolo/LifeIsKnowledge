@@ -19,10 +19,10 @@ public class EnemyAttackPaolo : MonoBehaviour {
     void Awake() {
         // Setting up the references.
         _joel = GameObject.FindGameObjectWithTag("Player");
-        _joelHealth = _joel.GetComponent<JoelHealth>();
+        _joelHealth = _joel.GetComponentInChildren<JoelHealth>();
         _attackCollider = GetComponent<BoxCollider2D>();
         //enemyHealth = GetComponent<EnemyHealth>();
-        //_animator = GetComponent<Animator>();
+        _animator = transform.parent.GetComponent<Animator>();
         DeactivateAttackCollider();
     }
 
@@ -51,6 +51,8 @@ public class EnemyAttackPaolo : MonoBehaviour {
         if (_joelHealth.currentHealth > 0) {
             // ... damage the player.
             _joelHealth.TakeDamage(attackDamage);
+            _animator.SetTrigger("HasHit");
+            _playerInRange = false;
         }
     }
 

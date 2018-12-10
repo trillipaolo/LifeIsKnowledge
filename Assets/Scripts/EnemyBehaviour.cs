@@ -6,11 +6,13 @@ public class EnemyBehaviour : MonoBehaviour{
 
     public int lastHit = -1;
     public float health = 200;
+    private EnemyMovementPhysics _movementScript;
 
     public Collider2D[] colliders;
     public float[] damageMultipliers;
     
 	void Awake () {
+        _movementScript = transform.GetComponent<EnemyMovementPhysics>();
         lastHit = -1;
 	}
 
@@ -59,9 +61,10 @@ public class EnemyBehaviour : MonoBehaviour{
     }
 
     public virtual void Die() {
-        Invoke("Rekt",0.5f);
-
-        gameObject.SetActive(false);
+        for (int i = 0; i < colliders.Length; i++) {
+            colliders[i].enabled = false;
+        }
+        _movementScript.isDead = true;
     }
 
     private void Rekt() {

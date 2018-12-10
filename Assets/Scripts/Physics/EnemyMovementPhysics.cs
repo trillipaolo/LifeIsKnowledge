@@ -30,6 +30,8 @@ public class EnemyMovementPhysics : MonoBehaviour
     [HideInInspector]
     public bool movementDisabled;
 
+    public bool isDead = false;
+
     // Use this for initialization
     public virtual void Start()
     {

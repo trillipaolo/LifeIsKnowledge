@@ -5,10 +5,13 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "ScriptableObjects/Combo")]
 public class Combo : ScriptableObject {
 
+    
+
     [Header("Combo Properties")]
     public string comboName;
     public ComboButton[] buttonSequence;
     public Sprite comboSprite;
+    public bool unlocked;
 
     //Combo position in the grid
     [Header("Combo GridPosition: DOT NOT TOUCH")]
