@@ -95,9 +95,10 @@ public class PlayerPhysics : MonoBehaviour {
                 _attackMovementFrames -= 1;
             }
             
-            currentDistance = 0f;
-            _rolling = false;
-            _animator.SetBool("Roll", false);
+            // TODO roll and attack behaviour
+            //currentDistance = 0f;
+            //_rolling = false;
+            //_animator.SetBool("Roll", false);
         }
         
         controller.Move(velocity * Time.deltaTime);

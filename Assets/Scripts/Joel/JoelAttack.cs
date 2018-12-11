@@ -80,11 +80,21 @@ public class JoelAttack : MonoBehaviour {
     }
 
     void Update () {
+        UpdateComboCooldown();
         GetInput();
         SetComboEnum();
         UpdateAnimatorParameters();
         UpdateInputVariables();
 	}
+
+    private void UpdateComboCooldown() {
+        if (_lastTimeUsed.Length != joelCombos.combos.Length) {
+            _lastTimeUsed = new float[joelCombos.combos.Length];
+            for (int i = 0; i < _lastTimeUsed.Length; i++) {
+                _lastTimeUsed[i] = Time.time;
+            }
+        }
+    }
 
     private void GetInput() {
         _currentTopInput = Input.GetAxis("AttackTop") > 0;
@@ -167,6 +177,8 @@ public class JoelAttack : MonoBehaviour {
         if (ActivateColliders(_colliderPositions, _damage)) {
             basicAttack.damage[animationData.intParameter] += 3.0f;
         }
+
+        PlayAttackSound(animationData.stringParameter);
     }
 
     private void ComboAttack(AnimationEvent animationData) {

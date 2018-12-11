@@ -9,24 +9,28 @@ public class EnemyAttackPaolo : MonoBehaviour {
 
 
     private Animator _animator;                              // Reference to the animator component.
-    private GameObject _joel;                          // Reference to the player GameObject.
-    private JoelHealth _joelHealth;                  // Reference to the player's health.
-    private Collider2D _attackCollider;
+    [HideInInspector]
+    public GameObject joel;                          // Reference to the player GameObject.
+    [HideInInspector]
+    public JoelHealth joelHealth;                  // Reference to the player's health.
+    [HideInInspector]
+    public Collider2D attackCollider;
     //private EnemyHealth _enemyHealth;                    // Reference to this enemy's health.
-    private bool _playerInRange;                         // Whether player is within the trigger collider and can be attacked.
+    [HideInInspector]
+    public bool _playerInRange;                         // Whether player is within the trigger collider and can be attacked.
     private float _timer;                                // Timer for counting up to the next attack.
 
-    void Awake() {
+    public virtual void Awake() {
         // Setting up the references.
-        _joel = GameObject.FindGameObjectWithTag("Player");
-        _joelHealth = _joel.GetComponentInChildren<JoelHealth>();
-        _attackCollider = GetComponent<BoxCollider2D>();
+        joel = GameObject.FindGameObjectWithTag("Player");
+        joelHealth = joel.GetComponentInChildren<JoelHealth>();
+        attackCollider = GetComponent<BoxCollider2D>();
         //enemyHealth = GetComponent<EnemyHealth>();
         _animator = transform.parent.GetComponent<Animator>();
         DeactivateAttackCollider();
     }
 
-    void Update() {
+    public virtual void Update() {
         // Add the time since Update was last called to the timer.
         _timer += Time.deltaTime;
 
@@ -37,20 +41,20 @@ public class EnemyAttackPaolo : MonoBehaviour {
         }
 
         // If the player has zero or less health...
-        if (_joelHealth.currentHealth <= 0) {
+        if (joelHealth.currentHealth <= 0) {
             // ... tell the animator the player is dead.
             //_animator.SetTrigger("PlayerDead");
         }
     }
 
-    void Attack() {
+    public void Attack() {
         // Reset the timer.
         _timer = 0f;
 
         // If the player has health to lose...
-        if (_joelHealth.currentHealth > 0) {
+        if (joelHealth.currentHealth > 0) {
             // ... damage the player.
-            _joelHealth.TakeDamage(attackDamage);
+            joelHealth.TakeDamage(attackDamage);
             _animator.SetTrigger("HasHit");
             _playerInRange = false;
         }
@@ -58,7 +62,7 @@ public class EnemyAttackPaolo : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other) {
         // If the entering collider is the player...
-        if (other.gameObject == _joel) {
+        if (other.gameObject == joel) {
             // ... the player is in range.
             _playerInRange = true;
         }
@@ -66,17 +70,17 @@ public class EnemyAttackPaolo : MonoBehaviour {
 
     void OnTriggerExit2D(Collider2D other) {
         // If the exiting collider is the player...
-        if (other.gameObject == _joel) {
+        if (other.gameObject == joel) {
             // ... the player is no longer in range.
             _playerInRange = false;
         }
     }
 
     public void ActivateAttackCollider() {
-        _attackCollider.enabled = true;
+        attackCollider.enabled = true;
     }
 
     public void DeactivateAttackCollider() {
-        _attackCollider.enabled = false;
+        attackCollider.enabled = false;
     }
 }

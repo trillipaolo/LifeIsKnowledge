@@ -22,6 +22,7 @@ public class JoelHealth : MonoBehaviour {
     //PlayerShooting playerShooting;                              // Reference to the PlayerShooting script.
     private bool _isDead;                                                // Whether the player is dead.
     private bool _damaged;
+    private bool _healed;
 
     private void Awake() {
         // Setting up the references.
@@ -42,6 +43,10 @@ public class JoelHealth : MonoBehaviour {
         if (_damaged) {
             // ... set the colour of the damageImage to the flash colour.
             damageImage.color = flashColour;
+
+            if (_healed) {
+                damageImage.color = new Color32(0,255,0,100);
+            }
         }
         // Otherwise...
         else {
@@ -51,6 +56,7 @@ public class JoelHealth : MonoBehaviour {
 
         // Reset the damaged flag.
         _damaged = false;
+        _healed = false;
     }
 
     private void UpdateCollider() {
@@ -66,9 +72,14 @@ public class JoelHealth : MonoBehaviour {
         if (Time.time - _lastTimeHit > timeBetweenDamage) {
             // Set the damaged flag so the screen will flash.
             _damaged = true;
+            if(amount < 0) {
+                _healed = true;
+            }
 
             // Reduce the current health by the damage amount.
             currentHealth -= amount;
+
+            currentHealth = currentHealth > startingHealth ? startingHealth : currentHealth;
 
             // Set the health bar's value to the current health.
             healthSlider.value = currentHealth;

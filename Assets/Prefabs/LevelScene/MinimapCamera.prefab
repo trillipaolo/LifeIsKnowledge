@@ -99,14 +99,14 @@ MonoBehaviour:
   fogLayer:
     serializedVersion: 2
     m_Bits: 16777216
-  cleanRadius: 10
+  cleanRadius: 14
 --- !u!114 &114862216807528958
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1525912745821440}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2d61d802a67edc1498d967550ea6e2ff, type: 3}
   m_Name: 
