@@ -19,7 +19,8 @@ public class DroneMovement : EnemyMovementPhysics
     private bool isAttacking;
     private float _attackStartPosition;
     private float time;
-    private bool dead;
+    [HideInInspector]
+    public bool dead;
 
 
     private void Start()
@@ -124,7 +125,9 @@ public class DroneMovement : EnemyMovementPhysics
         }
         else
         {
-            velocity.y = -verticalMoveSpeed * 2;
+//            velocity.y = 0;
+//            velocity.y = -verticalMoveSpeed * 2;
+            velocity.y = -verticalMoveSpeed;
             // ApplyGravity()
         }
     }

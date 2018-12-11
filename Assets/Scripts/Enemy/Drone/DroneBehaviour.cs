@@ -47,6 +47,7 @@ public class DroneBehaviour : EnemyBehaviour {
         ChangePhysicsCollider();
         _movementDroneScript.Dying();
         _platformCollider.enabled = true;
+        _healthBar.value = 0;
         _healthBar.GetComponentInChildren<Image>().color = Color.clear;
     }
 
