@@ -5,10 +5,13 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "ScriptableObjects/Combo")]
 public class Combo : ScriptableObject {
 
+    
+
     [Header("Combo Properties")]
     public string comboName;
     public ComboButton[] buttonSequence;
     public Sprite comboSprite;
+    public bool unlocked;
 
     //Combo position in the grid
     [Header("Combo GridPosition: DOT NOT TOUCH")]
@@ -39,5 +42,24 @@ public class Combo : ScriptableObject {
     [Header("Combo Values")]
     public EnumCombo enumCombo;
     public float cooldown;
-    public float damage;
+    public float[] damage;
+
+    public void InitializeDamage() {
+        switch (enumCombo) {
+            case EnumCombo.UPANDSMASH:
+                damage = new float[2];
+                damage[0] = 10;
+                damage[1] = 100;
+                break;
+            case EnumCombo.HORIZONTALSPIN:
+                damage = new float[1];
+                damage[0] = 80;
+                break;
+            case EnumCombo.ROPETHROW:
+                damage = new float[2];
+                damage[0] = 40;
+                damage[1] = 80;
+                break;
+        }
+    }
 }

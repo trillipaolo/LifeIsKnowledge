@@ -17,6 +17,10 @@ public class Controller2D : RaycastController
     public CollisionInfo collisions;
     [HideInInspector] public Vector2 playerInput;
     public bool facingRight = true; // For determining which way the player is currently facing.
+    public bool movementDisable = false;
+    public Vector2 distanceAttack;
+
+//    public Camera camera;
 
     public override void Start()
     {
@@ -25,27 +29,32 @@ public class Controller2D : RaycastController
 
     public void Move(Vector2 moveAmount)
     {
-        UpdateRaycastOrigins();
-        collisions.Reset();
-
-        if (moveAmount.x != 0)
+//        if (!movementDisable)
         {
-            if (moveAmount.x > 0 && !facingRight)
-            {
-                Flip();
-            }
-            else if (moveAmount.x < 0 && facingRight)
-            {
-                Flip();
-            }
-            HorizontalCollisions(ref moveAmount);
-        }
-        if (moveAmount.y != 0)
-        {
-            VerticalCollisions(ref moveAmount);
-        }
+            UpdateRaycastOrigins();
+            collisions.Reset();
 
-        transform.Translate(moveAmount);
+            if (moveAmount.x != 0)
+            {
+                if (moveAmount.x > 0 && !facingRight)
+                {
+                    Flip();
+                }
+                else if (moveAmount.x < 0 && facingRight)
+                {
+                    Flip();
+                }
+
+                HorizontalCollisions(ref moveAmount);
+            }
+
+            if (moveAmount.y != 0)
+            {
+                VerticalCollisions(ref moveAmount);
+            }
+
+            transform.Translate(moveAmount);
+        }
     }
 
     void HorizontalCollisions(ref Vector2 moveAmount)
@@ -63,6 +72,7 @@ public class Controller2D : RaycastController
 
             if (hit)
             {
+                Debug.DrawRay(rayOrigin, Vector2.right * directionX, Color.green);
                 moveAmount.x = (hit.distance - skinWidth) * directionX;
                 rayLength = hit.distance;
 
@@ -87,6 +97,7 @@ public class Controller2D : RaycastController
 
             if (hit)
             {
+                Debug.DrawRay(rayOrigin, Vector2.up * directionY, Color.green);
                 moveAmount.y = (hit.distance - skinWidth) * directionY;
                 rayLength = hit.distance;
 
@@ -109,11 +120,10 @@ public class Controller2D : RaycastController
         }
     }
 
-    private void Flip()
+    public void Flip()
     {
         // Switch the way the player is labelled as facing.
         facingRight = !facingRight;
-
         // Multiply the player's x local scale by -1.
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;

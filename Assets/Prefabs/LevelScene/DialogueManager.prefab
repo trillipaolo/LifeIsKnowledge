@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1648424706832544}
+  m_IsPrefabAsset: 1
+--- !u!1 &1648424706832544
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4418239448592728}
+  - component: {fileID: 114990148016225220}
+  m_Layer: 0
+  m_Name: DialogueManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4418239448592728
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1648424706832544}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.0385675}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114990148016225220
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1648424706832544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6601320a766f48b44b1cd5604fc47dc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beginLevelDialogues:
+  - {fileID: 11400000, guid: 0505ba03e55f60e4792106ba4b1e24f0, type: 2}
+  - {fileID: 11400000, guid: 2e6c96c15ddf6314193226f79cc4f697, type: 2}
+  endLevelDialogues:
+  - {fileID: 11400000, guid: 7c3f324af40ad0d4c8353a8bbd2f7a58, type: 2}
+  - {fileID: 11400000, guid: fd58fac28f0585f4b976d5f36901d3f8, type: 2}
+  droneAdviceDialogues:
+  - {fileID: 11400000, guid: 7d59eb8187e5bc241a74ae0c9b309c84, type: 2}
+  - {fileID: 11400000, guid: 6e537a6bb073c834c94424931ca67d85, type: 2}
+  - {fileID: 11400000, guid: 86b8c3cfc7c796e4089559a6e9afaba7, type: 2}
+  joelDialogues:
+  - {fileID: 11400000, guid: 0280541c77bbea04c84aad4002853df0, type: 2}
+  - {fileID: 11400000, guid: 4d832fba5d4041e4487a05a95a17aec0, type: 2}
+  - {fileID: 11400000, guid: a77afa25fd821ef42a48af31f3e071b2, type: 2}
+  displayDialogue: {fileID: 0}

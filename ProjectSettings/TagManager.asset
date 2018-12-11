@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - ScrollBar
+  - ScrollList
+  - GridCell
   layers:
   - Default
   - TransparentFX
@@ -29,7 +32,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - FogOfWar
   - Minimap
   - 
   - 

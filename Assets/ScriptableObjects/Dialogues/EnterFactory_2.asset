@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8306bf2d6c0ac584080aae048d6799c8, type: 3}
+  m_Name: EnterFactory_2
+  m_EditorClassIdentifier: 
+  dialogueType: 0
+  repeatable: 1
+  played: 0
+  text: This old factory. Again. I wonder if this time it leads to something different.

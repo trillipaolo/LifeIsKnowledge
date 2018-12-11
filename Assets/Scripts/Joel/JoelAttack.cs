@@ -23,8 +23,8 @@ public class JoelAttack : MonoBehaviour {
     private int _comboEnum = 0;
     private float[] _cooldownCombo = new float[2];
 
+    public BasicAttack basicAttack;
     public JoelCombos joelCombos;
-    private Combo[] _combos;
     private float[] _lastTimeUsed;
     private bool _combo1 = false;
     private bool _combo2 = false;
@@ -33,15 +33,30 @@ public class JoelAttack : MonoBehaviour {
     private ContactFilter2D _attackContactFilter;
     private int _hitId = 0;
 
+    AudioManager audioManager;
+    public string knifeSlashSounds1Coll = "KnifeSlash2";
+    public string knifeSlashSounds2Coll = "KnifeSlash1";
+    public string knifeSlashSounds3Coll = "KnifeSlash3";
+
+
     void Awake() {
         _animator = GetComponent<Animator>();
         InitializeAttackColliders();
         InitializeAttackContactFilter();
         InitializeComboVariables();
+
+        basicAttack.InitializeDamage();
+        for(int i = 0; i < joelCombos.combos.Length; i++) {
+            joelCombos.combos[i].InitializeDamage();
+        }
+    }
+
+    private void Start() {
+        audioManager = AudioManager.instance;
     }
 
     private void InitializeAttackColliders() {
-        Transform _colliders = this.transform.Find("Colliders");
+        Transform _colliders = this.transform.Find("AttackColliders");
         _attackColliders[0] = _colliders.Find("FrontTop").GetComponent<BoxCollider2D>();
         _attackColliders[1] = _colliders.Find("FrontMiddle").GetComponent<BoxCollider2D>();
         _attackColliders[2] = _colliders.Find("FrontDown").GetComponent<BoxCollider2D>();
@@ -58,20 +73,28 @@ public class JoelAttack : MonoBehaviour {
     }
 
     private void InitializeComboVariables() {
-        _combos = joelCombos.combos.ToArray();
-
-        _lastTimeUsed = new float[_combos.Length];
+        _lastTimeUsed = new float[joelCombos.combos.Length];
         for(int i = 0; i < _lastTimeUsed.Length; i++) {
             _lastTimeUsed[i] = -300;
         }
     }
 
     void Update () {
+        UpdateComboCooldown();
         GetInput();
         SetComboEnum();
         UpdateAnimatorParameters();
         UpdateInputVariables();
 	}
+
+    private void UpdateComboCooldown() {
+        if (_lastTimeUsed.Length != joelCombos.combos.Length) {
+            _lastTimeUsed = new float[joelCombos.combos.Length];
+            for (int i = 0; i < _lastTimeUsed.Length; i++) {
+                _lastTimeUsed[i] = Time.time;
+            }
+        }
+    }
 
     private void GetInput() {
         _currentTopInput = Input.GetAxis("AttackTop") > 0;
@@ -79,10 +102,6 @@ public class JoelAttack : MonoBehaviour {
         _currentDownInput = Input.GetAxis("AttackDown") > 0;
         _combo1 = Input.GetAxis("Combo1") > 0;
         _combo2 = Input.GetAxis("Combo2") > 0;
-        //_combo1 = Input.GetButtonDown("Combo1");
-        //_combo2 = Input.GetButtonDown("Combo2");
-        Debug.Log("combo1" + _combo1);
-        Debug.Log("combo2" + _combo2);
 
         _topInput = (_lastTopInput != _currentTopInput) ? _currentTopInput : false;
         _middleInput = (_lastMiddleInput != _currentMiddleInput) ? _currentMiddleInput : false;
@@ -92,8 +111,8 @@ public class JoelAttack : MonoBehaviour {
 
     private void SetComboEnum() {
         if (_combo1 || _combo2) {
-            for (int i = 0; i < _combos.Length; i++) {
-                Combo _currentCombo = _combos[i];
+            for (int i = 0; i < joelCombos.combos.Length; i++) {
+                Combo _currentCombo = joelCombos.combos[i];
                 if (_combo1 == _currentCombo.combo1Key && _combo2 == _currentCombo.combo2Key &&
                     _topInput == _currentCombo.topKey && _middleInput == _currentCombo.middleKey && _downInput == _currentCombo.downKey) {
                     if(Time.time - _lastTimeUsed[i] > _currentCombo.cooldown) {
@@ -133,8 +152,8 @@ public class JoelAttack : MonoBehaviour {
     }
 
     private void ComboStarted() {
-        for (int i = 0; i < _combos.Length; i++) {
-            if (_combos[i].enumCombo == (EnumCombo)_comboEnum) {
+        for (int i = 0; i < joelCombos.combos.Length; i++) {
+            if (joelCombos.combos[i].enumCombo == (EnumCombo)_comboEnum) {
                 _lastTimeUsed[i] = Time.time;
                 _comboEnum = 0;
                 return;
@@ -150,7 +169,99 @@ public class JoelAttack : MonoBehaviour {
         _animator.SetInteger("ComboEnum",0);
     }
 
-    private void Attack(string colliderPositionString) {
+    private void BasicAttack(AnimationEvent animationData) {
+        bool[] _colliderPositions = EnumColliderPosition.StringToArray(animationData.stringParameter);
+
+        float _damage = basicAttack.damage[animationData.intParameter];
+        
+        if (ActivateColliders(_colliderPositions, _damage)) {
+            basicAttack.damage[animationData.intParameter] += 3.0f;
+        }
+
+        PlayAttackSound(animationData.stringParameter);
+    }
+
+    private void ComboAttack(AnimationEvent animationData) {
+        bool[] _colliderPositions = EnumColliderPosition.StringToArray(animationData.stringParameter);
+        float _damage = 0;
+        float[] _tempDamage = new float[10];
+        for (int i = 0; i < joelCombos.combos.Length; i++) {
+            if ((int)joelCombos.combos[i].enumCombo == animationData.intParameter) {
+                int index = Mathf.FloorToInt(animationData.floatParameter);
+                _damage = joelCombos.combos[i].damage[index];
+                _tempDamage = joelCombos.combos[i].damage;
+            }
+        }
+
+        if (ActivateColliders(_colliderPositions,_damage)) {
+            for (int i = 0; i < _tempDamage.Length; i++) {
+                _tempDamage[i] += 3.0f;
+            }
+        }
+    }
+
+    private bool ActivateColliders(bool[] colliderPositions, float damage) {
+        const int MAXCOLLIDERS = 100;
+        // activate one collider at time and get collision, if one enemy is already hit don't add anymore and set OneHit false,
+        // return true if it hits at least one enemy, false otherwise
+        Collider2D[] _enemyColliders = new Collider2D[MAXCOLLIDERS];
+        Collider2D[] _colliderToDamage = new Collider2D[MAXCOLLIDERS];
+        bool[] _uniqueAttack = new bool[MAXCOLLIDERS];
+        int _currLenght = 0;
+
+
+        for(int i = 0; i < colliderPositions.Length; i++) {
+            // for each collider of joel if is activated by the attack..
+            if (colliderPositions[i]) {
+                // ..take the collisions with enemies
+                int _enemyNumber = _attackColliders[i].OverlapCollider(_attackContactFilter,_enemyColliders);
+
+                // for each collider of the enemy..
+                for(int j = 0; j < _enemyNumber; j++) {
+                    int _enemyId = _enemyColliders[j].transform.parent.GetInstanceID();
+
+                    bool _toAdd = true;
+                    bool _unique = true;
+
+                    // check if is already in previous colliders stored
+                    for (int k = 0; k < _currLenght; k++) {
+
+                        // if two collider are of the same gameObject..
+                        if (_colliderToDamage[k].transform.parent.GetInstanceID() == _enemyId) {
+
+                            // ..and they are two different colliders
+                            if (_colliderToDamage[k].offset != _enemyColliders[j].offset) {
+                                // set unique to false
+                                _uniqueAttack[k] = false;
+                                _unique = false;
+                            }
+                            // ..and it is the same collider
+                            else {
+                                // set not to add
+                                _toAdd = false;
+                            }
+                        }
+                    }
+
+                    if (_toAdd) {
+                        _colliderToDamage[_currLenght] = _enemyColliders[j];
+                        _uniqueAttack[_currLenght] = _unique;
+                        _currLenght++;
+                    }
+                }
+            }
+        }
+
+        for (int i = 0; i < _currLenght; i++) {
+            if (_colliderToDamage[i].GetComponentInParent<EnemyBehaviour>() != null) {
+                _colliderToDamage[i].GetComponentInParent<EnemyBehaviour>().TakeDamage(_colliderToDamage[i],damage,_uniqueAttack[i]);
+            }
+        }
+
+        return _currLenght > 0;
+    }
+
+    /*private void Attack(string colliderPositionString) {
         bool[] _colliderPositions = EnumColliderPosition.StringToArray(colliderPositionString);
         int _damage = GetDamage(colliderPositionString);
 
@@ -163,8 +274,11 @@ public class JoelAttack : MonoBehaviour {
                 }
             }
         }
+
+        PlayAttackSound(colliderPositionString);
+        
         UpdateHitId();
-    }
+    }*/
 
     private int GetDamage(string colliderPositionString) {
         int _defaultDamage = 100;
@@ -193,5 +307,30 @@ public class JoelAttack : MonoBehaviour {
         }
 
         return _hitId;
+    }
+
+    void PlayAttackSound(string posStr) {
+        int x = Int32.Parse(posStr);
+        int sum = 0;
+
+        while (x != 0) {
+            sum += x % 10;
+            x /= 10;
+        }
+
+        if (sum == 1 && posStr != "010000")
+            audioManager.Play(knifeSlashSounds1Coll);
+        else
+        if (sum == 2)
+            audioManager.Play(knifeSlashSounds2Coll);
+        else
+        if (sum == 3)
+            audioManager.Play(knifeSlashSounds3Coll);
+        else
+            Debug.Log("Sound attack not found or mid-mid played!");
+    }
+
+    void PlaySoundMidMid() {
+        audioManager.Play(knifeSlashSounds1Coll);
     }
 }

@@ -32,6 +32,9 @@ public class ComboMenuManager : MonoBehaviour {
     public Sprite intermediateCell;
     public Sprite intermediateCellRotated;
 
+    [Header("Combos Available to Joel in-game")]
+    public JoelCombos joelCombos;
+
     //List of Buttons in the scrolling menu: each button refers to a combo
     private List<GameObject> _menuButtons;
 
@@ -52,7 +55,7 @@ public class ComboMenuManager : MonoBehaviour {
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -129,6 +132,12 @@ public class ComboMenuManager : MonoBehaviour {
         else
         {
             //What to do when we're in the scroll menu
+
+            //Save the combos chosen
+            if (Input.GetKeyDown(KeyCode.Z))
+            {
+                SetCombosChosen();
+            }
         }
 	}
 
@@ -175,16 +184,19 @@ public class ComboMenuManager : MonoBehaviour {
 
         for (int i = 0; i < combos.Length; i++)
         {
-            GameObject button = Instantiate(menuButton) as GameObject;
-            button.SetActive(true);
+            if (combos[i].unlocked)
+            {
+                GameObject button = Instantiate(menuButton) as GameObject;
+                button.SetActive(true);
 
-            button.GetComponent<SingleComboButton>().SetIndex(i);
-            button.GetComponent<SingleComboButton>().SetComboName(combos[i].comboName);
-            button.GetComponent<SingleComboButton>().SetImage(combos[i].comboSprite);
+                button.GetComponent<SingleComboButton>().SetIndex(i);
+                button.GetComponent<SingleComboButton>().SetComboName(combos[i].comboName);
+                button.GetComponent<SingleComboButton>().SetImage(combos[i].comboSprite);
 
-            button.transform.SetParent(menuButton.transform.parent, false);
+                button.transform.SetParent(menuButton.transform.parent, false);
 
-            _menuButtons.Add(button);
+                _menuButtons.Add(button);
+            }
         }
     }
 
@@ -646,6 +658,19 @@ public class ComboMenuManager : MonoBehaviour {
         for (int i = 0; i < _menuButtons.Count; i++)
         {
             _menuButtons[i].GetComponent<SingleComboButton>().EnableButton();
+        }
+    }
+
+    private void SetCombosChosen()
+    {
+        int j = 0;
+
+        for(int i = 0; i < combos.Length; i++) {
+            if (combos[i].rowSaved != -1)
+            {
+                joelCombos.combos[j] = combos[i];
+                j++;
+            }
         }
     }
 
