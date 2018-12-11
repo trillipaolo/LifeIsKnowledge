@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level 1 - Factory Level/Version 1.unity
     guid: dc49effabd68d414384d299db759f274
+  - enabled: 1
+    path: Assets/Scenes/Level 1 - Factory Level/Version 2.unity
+    guid: ffa8cfdebccb494448e25eba80c484a9
+  - enabled: 1
+    path: Assets/Scenes/ComboMenu.unity
+    guid: 2fc60933d88746c449c87ab2d33c278e
   m_configObjects: {}
