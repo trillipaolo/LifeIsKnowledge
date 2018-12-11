@@ -499,7 +499,11 @@ MonoBehaviour:
   movementDisabled: 0
   isDead: 0
   timeBetweenAttacks: 3.5
+  spawnDistance: 10
+  avoidDistance: 7
   canMove: 1
+  drone: {fileID: 1314413293395870, guid: a4eb8c2f1f086c847a066a775b7ceb7c, type: 2}
+  dronesAmount: 3
 --- !u!114 &114656521116171904
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -560,6 +564,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackDamage: 17
+  joel: {fileID: 0}
+  joelHealth: {fileID: 0}
+  attackCollider: {fileID: 0}
+  _playerInRange: 0
 --- !u!114 &114845565877744164
 MonoBehaviour:
   m_ObjectHideFlags: 1
