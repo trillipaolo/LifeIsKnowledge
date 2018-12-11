@@ -20,14 +20,13 @@ public class DialogueArea : MonoBehaviour {
 
     public void OnTriggerEnter2D(Collider2D other)
     {   
-        //Trigger the dialogue only once per area
-        //if (!_used)
-        //{
+        if (!_used)
+        {
             if (other.gameObject == target)
             {
                 DialogueManager.Instance.PlayDialogue(dialogueType);
                 _used = true;
             }
-        //}
+        }
     }
 }

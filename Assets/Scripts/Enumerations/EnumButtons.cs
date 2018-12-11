@@ -4,18 +4,18 @@ using UnityEngine;
 
 public enum Buttons
 {
-    CROSS,
-    CIRCLE,
-    SQUARE,
-    TRIANGLE,
-    L1CROSS,
-    L1CIRCLE,
-    L1SQUARE,
-    L1TRIANGLE,
-    R1CROSS,
-    R1CIRCLE,
-    R1SQUARE,
-    R1TRIANGLE
+    A,
+    B,
+    X,
+    Y,
+    LT_A,
+    LT_B,
+    LT_X,
+    LT_Y,
+    RT_A,
+    RT_B,
+    RT_X,
+    RT_Y
 }
 
 public static class EnumButtons

@@ -7,4 +7,9 @@ public class JoelCombos : ScriptableObject {
 
     public Combo[] combos;
 
+    public void SetNumberCombos(int number)
+    {
+        combos = new Combo[number];
+    }
+
 }
