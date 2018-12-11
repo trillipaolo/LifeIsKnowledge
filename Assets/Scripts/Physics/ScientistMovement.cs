@@ -25,7 +25,6 @@ public class ScientistMovement : EnemyMovementPhysics
     {
         //TODO: fix attack with the last drone
         //TODO: fix zero velocity stuck
-        //TODO: fix DEATH
         if (!isDead)
         {
             if (!spawned)
