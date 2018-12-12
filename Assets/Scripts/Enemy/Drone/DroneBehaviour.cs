@@ -15,6 +15,7 @@ public class DroneBehaviour : EnemyBehaviour {
         _physicsCollider = this.transform.GetComponent<BoxCollider2D>();
         _movementDroneScript = this.transform.GetComponent<DroneMovement>();
         _platformCollider.enabled = false;
+        _unlockScript = GameObject.FindWithTag("Player").GetComponent<JoelUnlockCombos>();
 
         _healthBar = GetComponentInChildren<Slider>();
         _healthBar.maxValue = health;
@@ -42,7 +43,7 @@ public class DroneBehaviour : EnemyBehaviour {
         for(int i = 0; i < base.colliders.Length; i++) {
             base.colliders[i].enabled = false;
         }
-
+        _unlockScript.KilledEnemy(enemyType);
         animator.SetTrigger("Dead");
         ChangePhysicsCollider();
         _movementDroneScript.Dying();

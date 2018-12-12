@@ -5,7 +5,10 @@ using UnityEngine.UI;
 
 public class EnemyBehaviour : MonoBehaviour{
 
-    public int lastHit = -1;
+    public EnumEnemies enemyType;
+    [HideInInspector]
+    public JoelUnlockCombos _unlockScript;
+
     public float health = 200;
     private EnemyMovementPhysics _movementScript;
 
@@ -17,7 +20,8 @@ public class EnemyBehaviour : MonoBehaviour{
     
 	void Awake () {
         _movementScript = transform.GetComponent<EnemyMovementPhysics>();
-        lastHit = -1;
+        _unlockScript = GameObject.FindWithTag("Player").GetComponent<JoelUnlockCombos>();
+        Debug.Log(_unlockScript);
 
         _healthBar = GetComponentInChildren<Slider>();
         if (_healthBar != null) {
@@ -76,6 +80,7 @@ public class EnemyBehaviour : MonoBehaviour{
         for (int i = 0; i < colliders.Length; i++) {
             colliders[i].enabled = false;
         }
+        _unlockScript.KilledEnemy(enemyType);
         _movementScript.isDead = true;
         _healthBar.GetComponentInChildren<Image>().color = Color.clear;
     }
