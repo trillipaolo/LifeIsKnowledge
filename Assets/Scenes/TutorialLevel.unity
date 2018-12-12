@@ -576,7 +576,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a774e46a918cb5f4b9510a846800cfb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lastHit: -1
+  enemyType: 0
+  _unlockScript: {fileID: 0}
   health: 200
   _healthBar: {fileID: 0}
   colliders:
@@ -585,6 +586,8 @@ MonoBehaviour:
   damageMultipliers:
   - 0
   - 0
+  audioManager: {fileID: 0}
+  enemyHitSound: 
 --- !u!212 &246766330
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1257,7 +1260,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a774e46a918cb5f4b9510a846800cfb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lastHit: -1
+  enemyType: 0
+  _unlockScript: {fileID: 0}
   health: 200
   _healthBar: {fileID: 0}
   colliders:
@@ -1266,6 +1270,8 @@ MonoBehaviour:
   damageMultipliers:
   - 0
   - 0
+  audioManager: {fileID: 0}
+  enemyHitSound: 
 --- !u!212 &385048908
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -37393,7 +37399,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a774e46a918cb5f4b9510a846800cfb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lastHit: -1
+  enemyType: 0
+  _unlockScript: {fileID: 0}
   health: 200
   _healthBar: {fileID: 0}
   colliders:
@@ -37402,6 +37409,8 @@ MonoBehaviour:
   damageMultipliers:
   - 0
   - 0
+  audioManager: {fileID: 0}
+  enemyHitSound: 
 --- !u!212 &500540537
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -38732,7 +38741,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a774e46a918cb5f4b9510a846800cfb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lastHit: -1
+  enemyType: 0
+  _unlockScript: {fileID: 0}
   health: 200
   _healthBar: {fileID: 0}
   colliders:
@@ -38741,6 +38751,8 @@ MonoBehaviour:
   damageMultipliers:
   - 0
   - 0
+  audioManager: {fileID: 0}
+  enemyHitSound: 
 --- !u!212 &742547801
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -41401,7 +41413,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 69.85, y: 4.75}
+  m_AnchoredPosition: {x: 68.82, y: 5.2}
   m_SizeDelta: {x: 10, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1414727628
@@ -41423,7 +41435,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Press ? to go throw doors!
+  m_text: Press up arrow to go throw doors!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0e3808399be045a459bf0b31073655fe, type: 2}
   m_sharedMaterial: {fileID: 21136784404628198, guid: 0e3808399be045a459bf0b31073655fe,
@@ -41489,13 +41501,13 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -2.7355804, w: 0}
   m_textInfo:
     textComponent: {fileID: 1414727628}
-    characterCount: 26
+    characterCount: 33
     spriteCount: 0
-    spaceCount: 5
-    wordCount: 5
+    spaceCount: 6
+    wordCount: 7
     linkCount: 0
     lineCount: 1
     pageCount: 1
@@ -65362,7 +65374,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a774e46a918cb5f4b9510a846800cfb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lastHit: -1
+  enemyType: 0
+  _unlockScript: {fileID: 0}
   health: 200
   _healthBar: {fileID: 0}
   colliders:
@@ -65371,6 +65384,8 @@ MonoBehaviour:
   damageMultipliers:
   - 0
   - 0
+  audioManager: {fileID: 0}
+  enemyHitSound: 
 --- !u!212 &1582726585
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -65756,7 +65771,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a774e46a918cb5f4b9510a846800cfb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lastHit: -1
+  enemyType: 0
+  _unlockScript: {fileID: 0}
   health: 200
   _healthBar: {fileID: 0}
   colliders:
@@ -65765,6 +65781,8 @@ MonoBehaviour:
   damageMultipliers:
   - 0
   - 0
+  audioManager: {fileID: 0}
+  enemyHitSound: 
 --- !u!212 &1830788915
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -126542,7 +126560,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 55.89, y: -3.45}
+  m_AnchoredPosition: {x: 58.42, y: -3.05}
   m_SizeDelta: {x: 10, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2086144413
@@ -126564,7 +126582,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Press ? to go throw doors..
+  m_text: Press up arrow to go throw doors..
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0e3808399be045a459bf0b31073655fe, type: 2}
   m_sharedMaterial: {fileID: 21136784404628198, guid: 0e3808399be045a459bf0b31073655fe,
@@ -126630,15 +126648,15 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 6.173874, w: 0}
   m_textInfo:
     textComponent: {fileID: 2086144413}
-    characterCount: 27
+    characterCount: 34
     spriteCount: 0
-    spaceCount: 5
-    wordCount: 5
+    spaceCount: 6
+    wordCount: 7
     linkCount: 0
-    lineCount: 1
+    lineCount: 2
     pageCount: 1
     materialCount: 1
   m_havePropertiesChanged: 0

@@ -478,13 +478,6 @@ MonoBehaviour:
   - m_Neighbors: 0000000000000000000000000000000000000000000000000000000000000000
     m_Sprites:
     - {fileID: 21300020, guid: 2a7fdea7e257fda4db8458d30e2e9c40, type: 3}
-    - {fileID: 21300020, guid: 2a7fdea7e257fda4db8458d30e2e9c40, type: 3}
-    - {fileID: 21300020, guid: 2a7fdea7e257fda4db8458d30e2e9c40, type: 3}
-    - {fileID: 21300020, guid: 2a7fdea7e257fda4db8458d30e2e9c40, type: 3}
-    - {fileID: 21300020, guid: 2a7fdea7e257fda4db8458d30e2e9c40, type: 3}
-    - {fileID: 21300020, guid: 2a7fdea7e257fda4db8458d30e2e9c40, type: 3}
-    - {fileID: 21300020, guid: 2a7fdea7e257fda4db8458d30e2e9c40, type: 3}
-    - {fileID: 21300020, guid: 2a7fdea7e257fda4db8458d30e2e9c40, type: 3}
     - {fileID: 21300012, guid: 2a7fdea7e257fda4db8458d30e2e9c40, type: 3}
     - {fileID: 21300030, guid: 2a7fdea7e257fda4db8458d30e2e9c40, type: 3}
     m_GameObject: {fileID: 0}
