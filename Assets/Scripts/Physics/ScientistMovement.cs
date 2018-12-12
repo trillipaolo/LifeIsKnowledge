@@ -15,6 +15,7 @@ public class ScientistMovement : EnemyMovementPhysics
     private GameObject currentDrone;
     public int dronesAmount = 3;
     private bool spawned;
+    public static int jumpAttempts = 3;
 
     public string spawnsDroneSound= "ScSpawnsDrone";
 
@@ -27,22 +28,20 @@ public class ScientistMovement : EnemyMovementPhysics
 
     public override void Update()
     {
-        //TODO: fix attack with the last drone
-        //TODO: fix zero velocity stuck
         if (!isDead)
         {
-            if (!spawned)
+            if (!spawned && dronesAmount != 0)
             {
                 if (!CheckForSpawn())
                 {
                     Patrol();
                 }
-                else
+                else if (dronesAmount > 0)
                 {
                     SpawnDrone();
                 }
             }
-            else if (dronesAmount > 1)
+            else if (dronesAmount > 0)
             {
                 AvoidPlayer();
                 if (currentDrone.GetComponent<DroneMovement>().dead)
@@ -78,7 +77,14 @@ public class ScientistMovement : EnemyMovementPhysics
         {
             _animator.SetTrigger("Dead");
             _hitboxAnimator.SetTrigger("Dead");
-            DisableMovement();
+            ApplyGravity();
+            velocity.x = 0;
+            controller.Move(velocity * Time.deltaTime);
+            if (controller.collisions.above || controller.collisions.below)
+            {
+                velocity.y = 0;
+            }
+
             currentDrone.GetComponent<DroneBehaviour>().Die();
         }
 
@@ -98,7 +104,7 @@ public class ScientistMovement : EnemyMovementPhysics
 
         if (controller.collisions.left || controller.collisions.right)
         {
-            Jump();
+            JumpOrChangeDirection();
         }
     }
 
@@ -125,7 +131,7 @@ public class ScientistMovement : EnemyMovementPhysics
         }
         else if (Mathf.Abs(target.position.y - transform.position.y) <= visionRadiusY)
         {
-            if (Time.time - _lastAttack > timeBetweenAttacks)
+            if (Time.timeSinceLevelLoad - _lastAttack > timeBetweenAttacks)
             {
                 if (Mathf.Sign(distance) < 0)
                 {
@@ -146,7 +152,7 @@ public class ScientistMovement : EnemyMovementPhysics
 
     private void AttackStart()
     {
-        _lastAttack = Time.time;
+        _lastAttack = Time.timeSinceLevelLoad;
     }
 
     public bool CheckForSpawn()
@@ -169,22 +175,55 @@ public class ScientistMovement : EnemyMovementPhysics
 
     public void AvoidPlayer()
     {
-        if(Mathf.Abs(target.position.x - transform.position.x) <= avoidDistance
+        
+        float distance = transform.position.x - target.position.x;
+        if (Mathf.Abs(distance) <= avoidDistance
             && Mathf.Abs(target.position.y - transform.position.y) <= visionRadiusY)
         {
-            if(target.position.x - transform.position.x > 0)
+            if (distance > 0)
             {
-                velocity.x = -moveSpeed;
+                velocity.x = moveSpeed;
+                facingRight = true;
             }
             else
             {
-                velocity.x = moveSpeed;
+                facingRight = false;
+                velocity.x = -moveSpeed;
             }
         }
         else
         {
             velocity.x = 0f;
         }
-        
+    }
+
+    public void JumpOrChangeDirection()
+    {
+        Vector2 rayOrigin;
+        Vector2 direction;
+        if (facingRight)
+        {
+            rayOrigin = controller.raycastOrigins.topRight;
+            direction = Vector2.right;
+        }
+        else
+        {
+            rayOrigin = controller.raycastOrigins.topLeft;
+            direction = Vector2.left;
+        }
+
+        RaycastHit2D inFrontRaycastHit2D =
+            Physics2D.Raycast(rayOrigin, direction, 0.1f, controller.collisionMask);
+
+        Debug.DrawRay(rayOrigin, direction * 0.1f, Color.blue);
+        if (inFrontRaycastHit2D)
+        {
+            ChangeDirection();
+            velocity.x = (facingRight ? 1 : -1) * moveSpeed;
+        }
+        else
+        {
+            Jump();
+        }
     }
 }

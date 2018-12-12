@@ -22,10 +22,11 @@ public class EnemyMovementPhysics : MonoBehaviour
     public float visionRadiusX = 2f;
     public float visionRadiusY = 0.5f;
     public bool foundTarget = false;
-    private float _anchor;
-
+    [HideInInspector]
+    public float _anchor;
+    [HideInInspector]
     public Controller2D controller;
-
+    [HideInInspector]
     public Transform target;
     [HideInInspector]
     public bool movementDisabled;

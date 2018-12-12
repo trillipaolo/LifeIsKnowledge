@@ -24,12 +24,12 @@ public class PlayerPhysics : MonoBehaviour {
     float gravity;
     float maxJumpVelocity;
     float minJumpVelocity;
-    Vector2 velocity;
+    public Vector2 velocity;
     float velocityXSmoothing;
 
     Controller2D controller;
     private Animator _animator;
-    Vector2 directionalInput;
+    public Vector2 directionalInput;
     private bool _rolling;
     [Header("Roll settings")] public int maxFrames = 15;
     public float maxDistance = 5.0f;
@@ -163,13 +163,13 @@ public class PlayerPhysics : MonoBehaviour {
     {
         //if (controller.collisions.below) ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ ROLL WHERE YOU WANT! 
         {
-            if (Time.time > _nextFireTime)
+            if (Time.timeSinceLevelLoad > _nextFireTime)
             {
                 _rolling = true;
                 _animator.SetBool("Roll", true);
                 _animator.SetTrigger("RollTrigger");
                 audioManager.Play(rollSound);
-                _nextFireTime = Time.time + rollColdownTime;
+                _nextFireTime = Time.timeSinceLevelLoad + rollColdownTime;
                 GameObject cd = Instantiate(coolDown, new Vector3(0, -170, 0), Quaternion.identity) as GameObject;
                 cd.transform.SetParent(canvas, false);
             }

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = System.Random;
 
 public class DroneMovement : EnemyMovementPhysics
 {
@@ -14,13 +15,14 @@ public class DroneMovement : EnemyMovementPhysics
     public float flyingHeight = 2f;
     public float droneSliding = 1f;
 
-    public float timeToDisable;
+    public float timeRangeMin = 0.5f;
+    public float timeRangeMax = 2f;
     private EnemyAttackPaolo attackScript;
     private bool isAttacking;
     private float _attackStartPosition;
     private float time;
-    [HideInInspector]
-    public bool dead;
+    private float randomAttackTime;
+    [HideInInspector] public bool dead;
 
     public string droneFallsSound="DroneFalls";
     bool fallSoundPlayed=false;
@@ -31,8 +33,8 @@ public class DroneMovement : EnemyMovementPhysics
 
         attackScript = GetComponentInChildren<EnemyAttackPaolo>();
         time = stuckCountdown;
-
         base.audioManager = AudioManager.instance;
+        randomAttackTime = UnityEngine.Random.Range(timeRangeMin, timeRangeMax);
     }
 
 
@@ -42,7 +44,6 @@ public class DroneMovement : EnemyMovementPhysics
         {
             if (!dead)
             {
-                //TODO: Losing the target
                 if (!foundTarget)
                 {
                     CheckIfFoundTarget();
@@ -56,13 +57,30 @@ public class DroneMovement : EnemyMovementPhysics
                 }
                 else
                 {
-                    Debug.Log(Math.Abs(target.position.y - transform.position.y) + " " +
-                              (Math.Abs(target.position.y - transform.position.y) <= visionRadiusY));
                     if (!(controller.collisions.right || controller.collisions.left))
                     {
                         if (Mathf.Abs(transform.position.x - _attackStartPosition) < attackDistance)
                         {
-                            Attack();
+                            // Random waiting before attacking
+                            if (randomAttackTime > 0)
+                            {
+                                randomAttackTime -= Time.deltaTime;
+                                
+                                if (Mathf.Sign(transform.position.x - target.position.x) < 0)
+                                {
+                                    facingRight = true;
+                                }
+                                else
+                                {
+                                    facingRight = false;
+                                }
+                            }
+                            else
+                            {
+                                _animator.SetBool("Attack", true);
+                                Attack();
+                                attackScript.ActivateAttackCollider();
+                            }
                         }
                         // Attack distance increased
                         else
@@ -70,6 +88,7 @@ public class DroneMovement : EnemyMovementPhysics
                             isAttacking = false;
                             _animator.SetBool("Attack", false);
                             attackScript.DeactivateAttackCollider();
+                            randomAttackTime = UnityEngine.Random.Range(timeRangeMin, timeRangeMax);
                         }
                     }
                     // Drone is stuck
@@ -77,15 +96,19 @@ public class DroneMovement : EnemyMovementPhysics
                     {
                         if (time > 0)
                         {
+                            _animator.SetBool("Stuck", true);
                             time -= Time.deltaTime;
+                            attackScript.DeactivateAttackCollider();
                         }
                         else
                         {
+                            _animator.SetBool("Stuck", false);
                             isAttacking = false;
                             _animator.SetBool("Attack", false);
                             _attackStartPosition = transform.position.x; // ?
                             attackScript.DeactivateAttackCollider();
                             time = stuckCountdown;
+                            randomAttackTime = UnityEngine.Random.Range(timeRangeMin, timeRangeMax);
                         }
                     }
                 }
@@ -99,7 +122,7 @@ public class DroneMovement : EnemyMovementPhysics
             else
             {
                 ApplyGravity();
-                if(velocity.x>=droneSliding)
+                if (velocity.x >= droneSliding)
                 {
                     velocity.x -= droneSliding;
                 }
@@ -107,6 +130,7 @@ public class DroneMovement : EnemyMovementPhysics
                 {
                     velocity.x = 0;
                 }
+
                 controller.Move(velocity * Time.deltaTime);
                 if (controller.collisions.above || controller.collisions.below)
                 {
@@ -134,6 +158,7 @@ public class DroneMovement : EnemyMovementPhysics
         }
         else
         {
+            // Here are possible ideas:
 //            velocity.y = 0;
 //            velocity.y = -verticalMoveSpeed * 2;
             velocity.y = -verticalMoveSpeed;
@@ -146,7 +171,7 @@ public class DroneMovement : EnemyMovementPhysics
         float distance = transform.position.x - target.position.x;
         if (Mathf.Abs(distance) > stopDistance)
         {
-            if (Mathf.Abs(target.position.y - transform.position.y) <= chaseDistance)
+            if (Mathf.Abs(target.position.x - transform.position.x) <= chaseDistance)
             {
                 if (Mathf.Sign(distance) < 0)
                 {
@@ -159,31 +184,26 @@ public class DroneMovement : EnemyMovementPhysics
                     velocity.x = -chaseSpeed;
                 }
             }
+            else
+            {
+                foundTarget = false;
+                _animator.SetBool("FoundTarget", false);
+                _anchor = transform.position.x;
+            }
         }
         else if (Math.Abs(target.position.y - transform.position.y) <= visionRadiusY)
             // Going to attack
         {
-            if (Mathf.Sign(distance) < 0)
-            {
-                velocity.x = chaseSpeed;
-                facingRight = true;
-            }
-            else
-            {
-                facingRight = false;
-                velocity.x = -chaseSpeed;
-            }
-
             isAttacking = true;
-            _animator.SetBool("Attack", true);
+            velocity.y = 0;
+            velocity.x = 0;
+//            _animator.SetBool("Attack", true);
             _attackStartPosition = transform.position.x;
-            attackScript.ActivateAttackCollider();
         }
     }
 
     void Attack()
     {
-        velocity.y = 0;
         velocity.x = (facingRight ? 1 : -1) * attackSpeed;
     }
 

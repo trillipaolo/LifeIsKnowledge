@@ -639,6 +639,7 @@ MonoBehaviour:
   visionRadiusX: 8
   visionRadiusY: 2
   foundTarget: 0
+  _anchor: 0
   controller: {fileID: 0}
   target: {fileID: 0}
   movementDisabled: 0
@@ -647,12 +648,13 @@ MonoBehaviour:
   verticalMoveSpeed: 2
   chaseSpeed: 4.5
   attackSpeed: 15
-  chaseDistance: 10
+  chaseDistance: 15
   attackDistance: 10
   stuckCountdown: 2
   flyingHeight: 2
   droneSliding: 0.3
-  timeToDisable: 0.5
+  timeRangeMin: 0.5
+  timeRangeMax: 2
   dead: 0
   droneFallsSound: DroneFalls
 --- !u!114 &114975719802253184
