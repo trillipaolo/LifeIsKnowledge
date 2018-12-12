@@ -15,30 +15,34 @@ public class ScientistMovement : EnemyMovementPhysics
     private GameObject currentDrone;
     public int dronesAmount = 3;
     private bool spawned;
+    public static int jumpAttempts = 3;
+    private int jumpAttemptCounter;
 
     private void Awake()
     {
         _hitboxAnimator = transform.Find("AttackCollider").GetComponent<Animator>();
+        jumpAttemptCounter = jumpAttempts;
     }
 
     public override void Update()
     {
         //TODO: fix attack with the last drone
         //TODO: fix zero velocity stuck
+        //TODO: fix DEATH
         if (!isDead)
         {
-            if (!spawned)
+            if (!spawned && dronesAmount != 0)
             {
                 if (!CheckForSpawn())
                 {
                     Patrol();
                 }
-                else
+                else if (dronesAmount > 0)
                 {
                     SpawnDrone();
                 }
             }
-            else if (dronesAmount > 1)
+            else if (dronesAmount > 0)
             {
                 AvoidPlayer();
                 if (currentDrone.GetComponent<DroneMovement>().dead)
@@ -74,7 +78,14 @@ public class ScientistMovement : EnemyMovementPhysics
         {
             _animator.SetTrigger("Dead");
             _hitboxAnimator.SetTrigger("Dead");
-            DisableMovement();
+            ApplyGravity();
+            velocity.x = 0;
+            controller.Move(velocity * Time.deltaTime);
+            if (controller.collisions.above || controller.collisions.below)
+            {
+                velocity.y = 0;
+            }
+
             currentDrone.GetComponent<DroneBehaviour>().Die();
         }
 
@@ -94,7 +105,7 @@ public class ScientistMovement : EnemyMovementPhysics
 
         if (controller.collisions.left || controller.collisions.right)
         {
-            Jump();
+            JumpOrChangeDirection();
         }
     }
 
@@ -164,10 +175,10 @@ public class ScientistMovement : EnemyMovementPhysics
 
     public void AvoidPlayer()
     {
-        if(Mathf.Abs(target.position.x - transform.position.x) <= avoidDistance
+        if (Mathf.Abs(target.position.x - transform.position.x) <= avoidDistance
             && Mathf.Abs(target.position.y - transform.position.y) <= visionRadiusY)
         {
-            if(target.position.x - transform.position.x > 0)
+            if (target.position.x - transform.position.x > 0)
             {
                 velocity.x = -moveSpeed;
             }
@@ -180,6 +191,35 @@ public class ScientistMovement : EnemyMovementPhysics
         {
             velocity.x = 0f;
         }
-        
+    }
+
+    public void JumpOrChangeDirection()
+    {
+        Vector2 rayOrigin;
+        Vector2 direction;
+        if (facingRight)
+        {
+            rayOrigin = controller.raycastOrigins.topRight;
+            direction = Vector2.right;
+        }
+        else
+        {
+            rayOrigin = controller.raycastOrigins.topLeft;
+            direction = Vector2.left;
+        }
+
+        RaycastHit2D inFrontRaycastHit2D =
+            Physics2D.Raycast(rayOrigin, direction, 0.1f, controller.collisionMask);
+
+        Debug.DrawRay(rayOrigin, direction * 0.1f, Color.blue);
+        if (inFrontRaycastHit2D)
+        {
+            ChangeDirection();
+            velocity.x = (facingRight ? 1 : -1) * moveSpeed;
+        }
+        else
+        {
+            Jump();
+        }
     }
 }
