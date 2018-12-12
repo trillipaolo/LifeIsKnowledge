@@ -16,9 +16,13 @@ public class ScientistMovement : EnemyMovementPhysics
     public int dronesAmount = 3;
     private bool spawned;
 
+    public string spawnsDroneSound= "ScSpawnsDrone";
+
     private void Awake()
     {
         _hitboxAnimator = transform.Find("AttackCollider").GetComponent<Animator>();
+
+        base.audioManager = AudioManager.instance;
     }
 
     public override void Update()
@@ -153,6 +157,7 @@ public class ScientistMovement : EnemyMovementPhysics
 
     public void SpawnDrone()
     {
+        base.audioManager.Play(spawnsDroneSound);
         _animator.SetBool("Spawn", true);
         spawned = true;
         currentDrone = Instantiate(drone, transform.position, Quaternion.identity);

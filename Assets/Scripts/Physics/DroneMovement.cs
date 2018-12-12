@@ -22,6 +22,8 @@ public class DroneMovement : EnemyMovementPhysics
     [HideInInspector]
     public bool dead;
 
+    public string droneFallsSound="DroneFalls";
+    bool fallSoundPlayed=false;
 
     private void Start()
     {
@@ -29,6 +31,8 @@ public class DroneMovement : EnemyMovementPhysics
 
         attackScript = GetComponentInChildren<EnemyAttackPaolo>();
         time = stuckCountdown;
+
+        base.audioManager = AudioManager.instance;
     }
 
 
@@ -106,7 +110,12 @@ public class DroneMovement : EnemyMovementPhysics
                 controller.Move(velocity * Time.deltaTime);
                 if (controller.collisions.above || controller.collisions.below)
                 {
-                    velocity.y = 0;
+                    if(fallSoundPlayed == false) {
+                        base.audioManager.Play(droneFallsSound);
+                        fallSoundPlayed = true;
+                    }
+                    
+                    velocity.y = 0;//add metal falling
                 }
             }
         }

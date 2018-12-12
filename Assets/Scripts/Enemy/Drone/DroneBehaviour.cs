@@ -10,6 +10,8 @@ public class DroneBehaviour : EnemyBehaviour {
     private DroneMovement _movementDroneScript;
     public Animator animator;
 
+    
+
     void Awake() {
         _platformCollider = this.transform.Find("PlatformCollider").GetComponent<BoxCollider2D>();
         _physicsCollider = this.transform.GetComponent<BoxCollider2D>();
@@ -19,12 +21,16 @@ public class DroneBehaviour : EnemyBehaviour {
         _healthBar = GetComponentInChildren<Slider>();
         _healthBar.maxValue = health;
         _healthBar.value = health;
+
+        base.audioManager = AudioManager.instance;
     }
 
     public override void TakeDamage(Collider2D collider,float baseDamage,bool unique) {
         float multiplier = base.GetMultiplier(collider);
         float damage = base.ComputeDamage(baseDamage,multiplier,unique);
         Color color = base.ComputeColor(multiplier,unique);
+
+        base.audioManager.Play(base.enemyHitSound);
 
         Vector3 textPosition = (Vector3)collider.offset + transform.position;
         FloatingTextController.CreateFloatingText(damage.ToString(),textPosition,color);

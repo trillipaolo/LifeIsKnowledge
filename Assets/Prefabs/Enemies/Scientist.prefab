@@ -186,9 +186,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1159132372385760}
-  m_LocalRotation: {x: -0, y: -0.0033116657, z: 0, w: 0.9999945}
-  m_LocalPosition: {x: 6.32, y: -18.04358, z: -0.06}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0.0033116657, z: -0, w: 0.9999945}
+  m_LocalPosition: {x: -3.2, y: -6.9, z: -14.9}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children:
   - {fileID: 4630949531945758}
   - {fileID: 4781482465565052}
@@ -433,6 +433,8 @@ MonoBehaviour:
   damageMultipliers:
   - 0.2
   - 0
+  audioManager: {fileID: 0}
+  enemyHitSound: StabFlesh
 --- !u!114 &114115496724876596
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -498,12 +500,14 @@ MonoBehaviour:
   target: {fileID: 0}
   movementDisabled: 0
   isDead: 0
+  audioManager: {fileID: 0}
   timeBetweenAttacks: 3.5
   spawnDistance: 10
   avoidDistance: 7
-  canMove: 1
+  canMove: 0
   drone: {fileID: 1314413293395870, guid: a4eb8c2f1f086c847a066a775b7ceb7c, type: 2}
   dronesAmount: 3
+  spawnsDroneSound: ScSpawnsDrone
 --- !u!114 &114656521116171904
 MonoBehaviour:
   m_ObjectHideFlags: 1
