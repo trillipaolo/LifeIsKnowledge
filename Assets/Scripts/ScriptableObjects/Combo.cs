@@ -21,9 +21,9 @@ public class Combo : ScriptableObject {
 
     public bool CheckConsistency()
     {
-        if ( buttonSequence[0].button == Buttons.CIRCLE &&
-             buttonSequence[0].button == Buttons.CROSS &&
-             buttonSequence[0].button == Buttons.TRIANGLE)
+        if ( buttonSequence[0].button == Buttons.B &&
+             buttonSequence[0].button == Buttons.A &&
+             buttonSequence[0].button == Buttons.Y)
         {
             return false;
         }

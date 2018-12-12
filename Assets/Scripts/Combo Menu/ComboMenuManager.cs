@@ -7,7 +7,7 @@ public class ComboMenuManager : MonoBehaviour {
 
     public static ComboMenuManager Instance { get; private set; }
 
-    [Header("Scriptable Objects")]
+    [Header("Scriptable Objects: All combos available to the Player")]
     public Combo[] combos;
 
     [Header("Scrolling Menu Prefab")]
@@ -666,6 +666,17 @@ public class ComboMenuManager : MonoBehaviour {
         int j = 0;
 
         for(int i = 0; i < combos.Length; i++) {
+            if (combos[i].rowSaved != -1)
+            {
+                j++;
+            }
+        }
+
+        joelCombos.SetNumberCombos(j);
+
+        j = 0;
+        for (int i = 0; i < combos.Length; i++)
+        {
             if (combos[i].rowSaved != -1)
             {
                 joelCombos.combos[j] = combos[i];
