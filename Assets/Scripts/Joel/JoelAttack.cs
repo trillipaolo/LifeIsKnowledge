@@ -91,7 +91,7 @@ public class JoelAttack : MonoBehaviour {
         if (_lastTimeUsed.Length != joelCombos.combos.Length) {
             _lastTimeUsed = new float[joelCombos.combos.Length];
             for (int i = 0; i < _lastTimeUsed.Length; i++) {
-                _lastTimeUsed[i] = Time.time;
+                _lastTimeUsed[i] = Time.timeSinceLevelLoad;
             }
         }
     }
@@ -115,7 +115,7 @@ public class JoelAttack : MonoBehaviour {
                 Combo _currentCombo = joelCombos.combos[i];
                 if (_combo1 == _currentCombo.combo1Key && _combo2 == _currentCombo.combo2Key &&
                     _topInput == _currentCombo.topKey && _middleInput == _currentCombo.middleKey && _downInput == _currentCombo.downKey) {
-                    if(Time.time - _lastTimeUsed[i] > _currentCombo.cooldown) {
+                    if(Time.timeSinceLevelLoad - _lastTimeUsed[i] > _currentCombo.cooldown) {
                         _comboEnum = (int)_currentCombo.enumCombo;
                     }
                     return;
@@ -154,7 +154,7 @@ public class JoelAttack : MonoBehaviour {
     private void ComboStarted() {
         for (int i = 0; i < joelCombos.combos.Length; i++) {
             if (joelCombos.combos[i].enumCombo == (EnumCombo)_comboEnum) {
-                _lastTimeUsed[i] = Time.time;
+                _lastTimeUsed[i] = Time.timeSinceLevelLoad;
                 _comboEnum = 0;
                 return;
             }

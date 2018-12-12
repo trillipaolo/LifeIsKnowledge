@@ -60,7 +60,7 @@ public class JoelHealth : MonoBehaviour {
     }
 
     private void UpdateCollider() {
-        bool _isRolling = _animator.GetCurrentAnimatorStateInfo(0).IsName("Roll");
+        bool _isRolling = _animator.GetCurrentAnimatorStateInfo(0).IsName("Roll") || _animator.GetCurrentAnimatorStateInfo(0).IsName("RollExit");
         if (_hitbox.enabled && _isRolling){
             _hitbox.enabled = false;
         } else if(!_hitbox.enabled && !_isRolling){
@@ -69,7 +69,7 @@ public class JoelHealth : MonoBehaviour {
     }
 
     public void TakeDamage(int amount) {
-        if (Time.time - _lastTimeHit > timeBetweenDamage) {
+        if (Time.timeSinceLevelLoad - _lastTimeHit > timeBetweenDamage) {
             // Set the damaged flag so the screen will flash.
             _damaged = true;
             if(amount < 0) {
@@ -93,7 +93,7 @@ public class JoelHealth : MonoBehaviour {
                 Death();
             }
 
-            _lastTimeHit = Time.time;
+            _lastTimeHit = Time.timeSinceLevelLoad;
         }
     }
 

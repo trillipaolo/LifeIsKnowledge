@@ -163,13 +163,13 @@ public class PlayerPhysics : MonoBehaviour {
     {
         //if (controller.collisions.below) ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ ROLL WHERE YOU WANT! 
         {
-            if (Time.time > _nextFireTime)
+            if (Time.timeSinceLevelLoad > _nextFireTime)
             {
                 _rolling = true;
                 _animator.SetBool("Roll", true);
                 _animator.SetTrigger("RollTrigger");
                 audioManager.Play(rollSound);
-                _nextFireTime = Time.time + rollColdownTime;
+                _nextFireTime = Time.timeSinceLevelLoad + rollColdownTime;
                 GameObject cd = Instantiate(coolDown, new Vector3(0, -170, 0), Quaternion.identity) as GameObject;
                 cd.transform.SetParent(canvas, false);
             }
