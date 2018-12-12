@@ -50,6 +50,14 @@ public class ComboMenuManager : MonoBehaviour {
     private bool _rotated;
     private bool _scrollToGrid;
 
+    //JoyPad Booleans
+    private bool _dpadDown = false;
+    private bool _dpadUp = false;
+    private bool _dpadLeft = false;
+    private bool _dpadRight = false;
+    private bool _rotationX = false;
+    private bool _insertionA = false;
+
     private void Awake()
     {
         if (Instance == null)
@@ -103,7 +111,7 @@ public class ComboMenuManager : MonoBehaviour {
             
 
             //Get back to Scroll menu pressing Backspace
-            if (Input.GetKeyDown(KeyCode.Backspace))
+            if (Input.GetButtonDown("BackToScroll"))
             {
                 StopHighlight();
                 _scrollToGrid = false;
@@ -111,6 +119,8 @@ public class ComboMenuManager : MonoBehaviour {
                 _currentCombo = -1;
                 _row = 0;
                 _coloumn = 0;
+
+                EnableScrollMenu();
                 return;
             }
 
@@ -123,10 +133,9 @@ public class ComboMenuManager : MonoBehaviour {
             GridRotation();
 
             //Insertion in the grid
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetButtonDown("GridInsertion"))
             {
                 GridInsertion();
-                
             }
         }
         else
@@ -275,15 +284,17 @@ public class ComboMenuManager : MonoBehaviour {
         }
     }
 
-    private void GridMovement()
+    private void GridDown()
     {
-        if (Input.GetKeyDown(KeyCode.S))
-        {   
+        bool _downInput = Input.GetAxis("GridDown") > 0;
+
+        if (_downInput && !_dpadDown)
+        {
             //Stop previous location fading effect
             StopHighlight();
 
             _row += 1;
-            
+
             if (!CheckMovementConsistency())
             {
                 _row -= 1;
@@ -294,7 +305,14 @@ public class ComboMenuManager : MonoBehaviour {
             Highlight();
         }
 
-        if (Input.GetKeyDown(KeyCode.W))
+        _dpadDown = _downInput;
+    }
+
+    private void GridUp()
+    {
+        bool _downInput = Input.GetAxis("GridUp") > 0;
+
+        if (_downInput && !_dpadUp)
         {
             //Stop previous location fading effect
             StopHighlight();
@@ -311,7 +329,14 @@ public class ComboMenuManager : MonoBehaviour {
             Highlight();
         }
 
-        if(Input.GetKeyDown(KeyCode.A))
+        _dpadUp = _downInput;
+    }
+
+    private void GridLeft()
+    {
+        bool _downInput = Input.GetAxis("GridLeft") > 0;
+
+        if (_downInput && !_dpadLeft)
         {
             //Stop previous location fading effect
             StopHighlight();
@@ -328,7 +353,14 @@ public class ComboMenuManager : MonoBehaviour {
             Highlight();
         }
 
-        if(Input.GetKeyDown(KeyCode.D))
+        _dpadLeft = _downInput;
+    }
+
+    private void GridRight()
+    {
+        bool _downInput = Input.GetAxis("GridRight") > 0;
+
+        if (_downInput && !_dpadRight)
         {
             //Stop previous location fading effect
             StopHighlight();
@@ -344,11 +376,27 @@ public class ComboMenuManager : MonoBehaviour {
             //Start next location fading effect
             Highlight();
         }
+
+        _dpadRight = _downInput;
+    }
+
+    private void GridMovement()
+    {
+
+        GridDown();
+
+        GridUp();
+
+        GridLeft();
+
+        GridRight();
     }
 
     private void GridRotation()
     {
-        if (Input.GetKeyDown(KeyCode.R))
+        bool _rotationInput = Input.GetAxis("GridRotation") > 0;
+
+        if (_rotationInput && !_rotationX)
         {
             //Stop previous location fading effect
             StopHighlight();
@@ -372,6 +420,8 @@ public class ComboMenuManager : MonoBehaviour {
             //Start next location fading effect
             Highlight();
         }
+
+        _rotationX = _rotationInput;
     }
 
     private void GridInsertion()
@@ -661,7 +711,7 @@ public class ComboMenuManager : MonoBehaviour {
         }
     }
 
-    private void SetCombosChosen()
+    public void SetCombosChosen()
     {
         int j = 0;
 

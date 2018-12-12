@@ -16,10 +16,14 @@ public class Teleport : MonoBehaviour {
     //True if the player is in front of the stairs (Colliders are actually colliding)
     //False otherwise
     private bool _teleport;
+    private bool _DPadInUse;
+
+    private bool _lastTeleport = false;
 
     private void Awake()
     {
         _teleport = false;
+        _DPadInUse = true;
     }
 
     public void OnTriggerEnter2D(Collider2D other)
@@ -40,13 +44,14 @@ public class Teleport : MonoBehaviour {
 
     private void Update()
     {
-        if (_teleport)
-        {      
-            if (Input.GetKeyDown(KeyCode.W))
-            {
-                StartCoroutine("Teleporting");
-            }
+        bool _teleportInput = Input.GetAxis("Teleport") > 0;
+
+        if(_teleportInput && !_lastTeleport && _teleport)
+        {
+            StartCoroutine("Teleporting");
         }
+
+        _lastTeleport = _teleportInput;
     }
 
     IEnumerator Teleporting()
