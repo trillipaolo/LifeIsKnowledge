@@ -20,8 +20,10 @@ public class EnemyBehaviour : MonoBehaviour{
         lastHit = -1;
 
         _healthBar = GetComponentInChildren<Slider>();
-        _healthBar.maxValue = health;
-        _healthBar.value = health;
+        if (_healthBar != null) {
+            _healthBar.maxValue = health;
+            _healthBar.value = health;
+        }
 	}
 
     public virtual void TakeDamage(Collider2D collider, float baseDamage, bool unique) {
