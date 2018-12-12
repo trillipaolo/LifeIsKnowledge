@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: f06b7e3c85cd74842aa100969294b8b5
+guid: 6c8723a7482ffea4cb0c67448a326c45
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Scientist_Die 1_0
-    21300002: Scientist_Die 1_1
-    21300004: Scientist_Die 1_2
-    21300006: Scientist_Die 1_3
-    21300008: Scientist_Die 1_4
-    21300010: Scientist_Die 1_5
-    21300012: Scientist_Die_0
-    21300014: Scientist_Die_1
-    21300016: Scientist_Die_2
-    21300018: Scientist_Die_3
-    21300020: Scientist_Die_4
-    21300022: Scientist_Die_5
+    21300000: Scientist_Die_0
+    21300002: Scientist_Die_1
+    21300004: Scientist_Die_2
+    21300006: Scientist_Die_3
+    21300008: Scientist_Die_4
+    21300010: Scientist_Die_5
+    21300012: Scientist_Die_With_Blood_0
+    21300014: Scientist_Die_With_Blood_1
+    21300016: Scientist_Die_With_Blood_2
+    21300018: Scientist_Die_With_Blood_3
+    21300020: Scientist_Die_With_Blood_4
+    21300022: Scientist_Die_With_Blood_5
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -104,7 +104,40 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
+    buildTarget: tvOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
     buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -118,7 +151,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Scientist_Die_0
+      name: Scientist_Die_With_Blood_0
       rect:
         serializedVersion: 2
         x: 0
@@ -132,13 +165,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0aacb684ac2e83d419115537ae55154a
+      spriteID: 3f18a5d9413051b4d927cc0f75794c6a
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Scientist_Die_1
+      name: Scientist_Die_With_Blood_1
       rect:
         serializedVersion: 2
         x: 30
@@ -152,13 +185,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7b16b9819b4e2484298398739195afa3
+      spriteID: 9ce377709831b244da963f16dd18f080
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Scientist_Die_2
+      name: Scientist_Die_With_Blood_2
       rect:
         serializedVersion: 2
         x: 60
@@ -172,13 +205,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8f333023ae2b30549ac799b30ebd183c
+      spriteID: 933d2f6c88287484880350fc9ccf9532
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Scientist_Die_3
+      name: Scientist_Die_With_Blood_3
       rect:
         serializedVersion: 2
         x: 90
@@ -192,13 +225,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 178364a466a2ccf4c923461e9e21bf2a
+      spriteID: 948f97e32e8b3524fbcd118c2d24681a
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Scientist_Die_4
+      name: Scientist_Die_With_Blood_4
       rect:
         serializedVersion: 2
         x: 120
@@ -212,13 +245,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fe399d72a960732428e5c62542450a8c
+      spriteID: 914cc47933c8a774f920109e0f093186
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Scientist_Die_5
+      name: Scientist_Die_With_Blood_5
       rect:
         serializedVersion: 2
         x: 150
@@ -232,7 +265,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3ad104069ec23b246b09c5b672b76ca1
+      spriteID: 96d53cf8fe316f349a4d63f33e726b33
       vertices: []
       indices: 
       edges: []
@@ -240,7 +273,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 8728ba8385900ad4caf9c6a4fd629d7c
+    spriteID: 599fa4e72c2270248a4077fce5b93d0a
     vertices: []
     indices: 
     edges: []
