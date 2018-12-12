@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class JoelHealth : MonoBehaviour {
@@ -23,6 +24,8 @@ public class JoelHealth : MonoBehaviour {
     private bool _isDead;                                                // Whether the player is dead.
     private bool _damaged;
     private bool _healed;
+    private PlayerInput _input;
+    public float timeBetweenReloading = 3f;
 
     private void Awake() {
         // Setting up the references.
@@ -34,6 +37,7 @@ public class JoelHealth : MonoBehaviour {
 
         // Set the initial health of the player.
         currentHealth = startingHealth;
+        _input = GetComponentInParent<PlayerInput>();
     }
 
     void Update () {
@@ -100,7 +104,14 @@ public class JoelHealth : MonoBehaviour {
     void Death() {
         // Set the death flag so this function won't be called again.
         _isDead = true;
-
+        _animator.SetBool("Dead", true);
+        _input.DisableInput();
+        PlayerPhysics pl = GetComponentInParent<PlayerPhysics>();
+        pl.directionalInput.x = 0;
+        pl.velocity.x = 0;
+        
+        Invoke("ReloadScene", timeBetweenReloading);
+        
         // Turn off any remaining shooting effects.
         //playerShooting.DisableEffects();
 
@@ -114,5 +125,10 @@ public class JoelHealth : MonoBehaviour {
         // Turn off the movement and shooting scripts.
         //playerMovement.enabled = false;
         //playerShooting.enabled = false;
+    }
+
+    private void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
