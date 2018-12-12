@@ -32,8 +32,12 @@ public class EnemyBehaviour : MonoBehaviour{
             _healthBar.maxValue = health;
             _healthBar.value = health;
         }
-        audioManager = AudioManager.instance;
+        
 	}
+
+    private void Start() {
+        audioManager = AudioManager.instance;
+    }
 
     public virtual void TakeDamage(Collider2D collider, float baseDamage, bool unique) {
         float multiplier = GetMultiplier(collider);

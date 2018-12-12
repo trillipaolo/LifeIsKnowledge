@@ -187,7 +187,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1159132372385760}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.32, y: -18.04358, z: 0}
+  m_LocalPosition: {x: -13.26775, y: -1.7753398, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4630949531945758}
@@ -497,6 +497,7 @@ MonoBehaviour:
   visionRadiusX: 6
   visionRadiusY: 2
   foundTarget: 0
+  _anchor: 0
   controller: {fileID: 0}
   target: {fileID: 0}
   movementDisabled: 0
@@ -505,7 +506,7 @@ MonoBehaviour:
   timeBetweenAttacks: 3.5
   spawnDistance: 10
   avoidDistance: 7
-  canMove: 0
+  canMove: 1
   drone: {fileID: 1314413293395870, guid: a4eb8c2f1f086c847a066a775b7ceb7c, type: 2}
   dronesAmount: 0
   spawnsDroneSound: ScSpawnsDrone

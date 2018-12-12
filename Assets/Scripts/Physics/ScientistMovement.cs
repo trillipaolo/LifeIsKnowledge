@@ -23,7 +23,7 @@ public class ScientistMovement : EnemyMovementPhysics
     {
         _hitboxAnimator = transform.Find("AttackCollider").GetComponent<Animator>();
 
-        base.audioManager = AudioManager.instance;
+        audioManager = AudioManager.instance;
     }
 
     public override void Update()
@@ -85,7 +85,9 @@ public class ScientistMovement : EnemyMovementPhysics
                 velocity.y = 0;
             }
 
-            currentDrone.GetComponent<DroneBehaviour>().Die();
+            if (currentDrone != null) {
+                currentDrone.GetComponent<DroneBehaviour>().Die();
+            }
         }
 
         float xSpeed = Mathf.Abs(_lastXPos - transform.position.x) / (Time.deltaTime * moveSpeed);

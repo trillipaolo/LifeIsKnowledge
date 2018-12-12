@@ -23,14 +23,18 @@ public class DroneBehaviour : EnemyBehaviour {
         _healthBar.maxValue = health;
         _healthBar.value = health;
 
-        base.audioManager = AudioManager.instance;
+        
+    }
+
+    private void Start() {
+        audioManager = AudioManager.instance;
     }
 
     public override void TakeDamage(Collider2D collider,float baseDamage,bool unique) {
         float multiplier = base.GetMultiplier(collider);
         float damage = base.ComputeDamage(baseDamage,multiplier,unique);
         Color color = base.ComputeColor(multiplier,unique);
-
+        
         base.audioManager.Play(base.enemyHitSound);
 
         Vector3 textPosition = (Vector3)collider.offset + transform.position;
@@ -56,6 +60,7 @@ public class DroneBehaviour : EnemyBehaviour {
         _platformCollider.enabled = true;
         _healthBar.value = 0;
         _healthBar.GetComponentInChildren<Image>().color = Color.clear;
+        GetComponent<AudioSource>().mute = true;
     }
 
     private void ChangePhysicsCollider() {

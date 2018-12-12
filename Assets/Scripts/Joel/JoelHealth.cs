@@ -40,8 +40,11 @@ public class JoelHealth : MonoBehaviour {
 
         // Set the initial health of the player.
         currentHealth = startingHealth;
-        audioManager = AudioManager.instance;
         _input = GetComponentInParent<PlayerInput>();
+    }
+
+    private void Start() {
+        audioManager = AudioManager.instance;
     }
 
     void Update () {
