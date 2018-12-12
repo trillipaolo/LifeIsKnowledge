@@ -27,6 +27,9 @@ public class JoelHealth : MonoBehaviour {
     private PlayerInput _input;
     public float timeBetweenReloading = 3f;
 
+    AudioManager audioManager;
+    public string joelTakeDmgSound = "JoelDamage";
+
     private void Awake() {
         // Setting up the references.
         _hitbox = GetComponent<BoxCollider2D>();
@@ -37,6 +40,7 @@ public class JoelHealth : MonoBehaviour {
 
         // Set the initial health of the player.
         currentHealth = startingHealth;
+        audioManager = AudioManager.instance;
         _input = GetComponentInParent<PlayerInput>();
     }
 
@@ -46,6 +50,7 @@ public class JoelHealth : MonoBehaviour {
         // If the player has just been damaged...
         if (_damaged) {
             // ... set the colour of the damageImage to the flash colour.
+            audioManager.Play(joelTakeDmgSound);
             damageImage.color = flashColour;
 
             if (_healed) {

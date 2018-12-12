@@ -33,6 +33,10 @@ public class EnemyMovementPhysics : MonoBehaviour
 
     public bool isDead = false;
 
+    [HideInInspector]
+    public AudioManager audioManager;
+    
+
     // Use this for initialization
     public virtual void Start()
     {
@@ -45,6 +49,8 @@ public class EnemyMovementPhysics : MonoBehaviour
         target = GameObject.FindWithTag("Player").transform;
         _jumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
         movementDisabled = false;
+
+        audioManager = AudioManager.instance;
     }
 
     // Update is called once per frame

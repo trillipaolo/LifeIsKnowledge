@@ -17,23 +17,31 @@ public class EnemyBehaviour : MonoBehaviour{
 
     public Collider2D[] colliders;
     public float[] damageMultipliers;
-    
-	void Awake () {
+
+    [HideInInspector]
+    public AudioManager audioManager;
+    public string enemyHitSound;
+
+    void Awake () {
         _movementScript = transform.GetComponent<EnemyMovementPhysics>();
         _unlockScript = GameObject.FindWithTag("Player").GetComponentInParent<JoelUnlockCombos>();
 
         _healthBar = GetComponentInChildren<Slider>();
+      
         if (_healthBar != null) {
             _healthBar.maxValue = health;
             _healthBar.value = health;
         }
+        audioManager = AudioManager.instance;
 	}
 
     public virtual void TakeDamage(Collider2D collider, float baseDamage, bool unique) {
         float multiplier = GetMultiplier(collider);
         float damage = ComputeDamage(baseDamage,multiplier,unique);
         Color color = ComputeColor(multiplier, unique);
-        
+
+        audioManager.Play(enemyHitSound);
+
         Vector3 textPosition = (Vector3)collider.offset + transform.position;
         FloatingTextController.CreateFloatingText(damage.ToString(), textPosition, color);
         
