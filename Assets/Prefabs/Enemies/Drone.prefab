@@ -547,6 +547,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackDamage: 17
+  joel: {fileID: 0}
+  joelHealth: {fileID: 0}
+  attackCollider: {fileID: 0}
+  _playerInRange: 0
 --- !u!114 &114754072933947486
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -645,7 +649,9 @@ MonoBehaviour:
   stuckCountdown: 2
   flyingHeight: 2
   droneSliding: 0.3
-  timeToDisable: 0.5
+  timeRangeMin: 0.5
+  timeRangeMax: 2
+  dead: 0
 --- !u!114 &114975719802253184
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = System.Random;
 
 public class DroneMovement : EnemyMovementPhysics
 {
@@ -14,11 +15,13 @@ public class DroneMovement : EnemyMovementPhysics
     public float flyingHeight = 2f;
     public float droneSliding = 1f;
 
-    public float timeToDisable;
+    public float timeRangeMin = 0.5f;
+    public float timeRangeMax = 2f;
     private EnemyAttackPaolo attackScript;
     private bool isAttacking;
     private float _attackStartPosition;
     private float time;
+    private float randomAttackTime;
     [HideInInspector]
     public bool dead;
 
@@ -29,6 +32,7 @@ public class DroneMovement : EnemyMovementPhysics
 
         attackScript = GetComponentInChildren<EnemyAttackPaolo>();
         time = stuckCountdown;
+        randomAttackTime = UnityEngine.Random.Range(timeRangeMin,timeRangeMax);
     }
 
 
@@ -58,7 +62,20 @@ public class DroneMovement : EnemyMovementPhysics
                     {
                         if (Mathf.Abs(transform.position.x - _attackStartPosition) < attackDistance)
                         {
-                            Attack();
+                            // Random waiting before attacking
+                            // TODO: fix direction choice
+                            if (randomAttackTime > 0)
+                            {
+                                randomAttackTime -= Time.deltaTime;
+                                Debug.Log(randomAttackTime);
+                            }
+                            else
+                            {
+                                
+                                _animator.SetBool("Attack", true);
+                                Debug.Log("ATTACKING");
+                                Attack();
+                            }
                         }
                         // Attack distance increased
                         else
@@ -66,6 +83,7 @@ public class DroneMovement : EnemyMovementPhysics
                             isAttacking = false;
                             _animator.SetBool("Attack", false);
                             attackScript.DeactivateAttackCollider();
+                            randomAttackTime = UnityEngine.Random.Range(timeRangeMin,timeRangeMax);
                         }
                     }
                     // Drone is stuck
@@ -73,15 +91,19 @@ public class DroneMovement : EnemyMovementPhysics
                     {
                         if (time > 0)
                         {
+                            _animator.SetBool("Stuck", true);
                             time -= Time.deltaTime;
+                            attackScript.DeactivateAttackCollider();
                         }
                         else
                         {
+                            _animator.SetBool("Stuck", false);
                             isAttacking = false;
                             _animator.SetBool("Attack", false);
                             _attackStartPosition = transform.position.x; // ?
                             attackScript.DeactivateAttackCollider();
                             time = stuckCountdown;
+                            randomAttackTime = UnityEngine.Random.Range(timeRangeMin,timeRangeMax);
                         }
                     }
                 }
@@ -166,7 +188,9 @@ public class DroneMovement : EnemyMovementPhysics
             }
 
             isAttacking = true;
-            _animator.SetBool("Attack", true);
+            velocity.y = 0;
+            velocity.x = 0;
+//            _animator.SetBool("Attack", true);
             _attackStartPosition = transform.position.x;
             attackScript.ActivateAttackCollider();
         }
@@ -174,7 +198,6 @@ public class DroneMovement : EnemyMovementPhysics
 
     void Attack()
     {
-        velocity.y = 0;
         velocity.x = (facingRight ? 1 : -1) * attackSpeed;
     }
 
