@@ -26,7 +26,6 @@ public class ScientistMovement : EnemyMovementPhysics
 
     public override void Update()
     {
-        //TODO: fix zero velocity stuck
         if (!isDead)
         {
             if (!spawned && dronesAmount != 0)
@@ -173,16 +172,20 @@ public class ScientistMovement : EnemyMovementPhysics
 
     public void AvoidPlayer()
     {
-        if (Mathf.Abs(target.position.x - transform.position.x) <= avoidDistance
+        
+        float distance = transform.position.x - target.position.x;
+        if (Mathf.Abs(distance) <= avoidDistance
             && Mathf.Abs(target.position.y - transform.position.y) <= visionRadiusY)
         {
-            if (target.position.x - transform.position.x > 0)
+            if (distance > 0)
             {
-                velocity.x = -moveSpeed;
+                velocity.x = moveSpeed;
+                facingRight = true;
             }
             else
             {
-                velocity.x = moveSpeed;
+                facingRight = false;
+                velocity.x = -moveSpeed;
             }
         }
         else
