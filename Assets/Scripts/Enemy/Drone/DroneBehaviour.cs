@@ -15,7 +15,7 @@ public class DroneBehaviour : EnemyBehaviour {
         _physicsCollider = this.transform.GetComponent<BoxCollider2D>();
         _movementDroneScript = this.transform.GetComponent<DroneMovement>();
         _platformCollider.enabled = false;
-        _unlockScript = GameObject.FindWithTag("Player").GetComponent<JoelUnlockCombos>();
+        _unlockScript = GameObject.FindWithTag("Player").GetComponentInParent<JoelUnlockCombos>();
 
         _healthBar = GetComponentInChildren<Slider>();
         _healthBar.maxValue = health;

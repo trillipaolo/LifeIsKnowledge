@@ -20,8 +20,7 @@ public class EnemyBehaviour : MonoBehaviour{
     
 	void Awake () {
         _movementScript = transform.GetComponent<EnemyMovementPhysics>();
-        _unlockScript = GameObject.FindWithTag("Player").GetComponent<JoelUnlockCombos>();
-        Debug.Log(_unlockScript);
+        _unlockScript = GameObject.FindWithTag("Player").GetComponentInParent<JoelUnlockCombos>();
 
         _healthBar = GetComponentInChildren<Slider>();
         if (_healthBar != null) {

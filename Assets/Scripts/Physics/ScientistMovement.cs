@@ -121,7 +121,7 @@ public class ScientistMovement : EnemyMovementPhysics
         }
         else if (Mathf.Abs(target.position.y - transform.position.y) <= visionRadiusY)
         {
-            if (Time.time - _lastAttack > timeBetweenAttacks)
+            if (Time.timeSinceLevelLoad - _lastAttack > timeBetweenAttacks)
             {
                 if (Mathf.Sign(distance) < 0)
                 {
@@ -142,7 +142,7 @@ public class ScientistMovement : EnemyMovementPhysics
 
     private void AttackStart()
     {
-        _lastAttack = Time.time;
+        _lastAttack = Time.timeSinceLevelLoad;
     }
 
     public bool CheckForSpawn()
