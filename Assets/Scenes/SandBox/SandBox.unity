@@ -3606,6 +3606,21 @@ Prefab:
       propertyPath: dronesAmount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 212941664791620328, guid: d624a52d383e1624ab53bd126dcacd23,
+        type: 2}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212941664791620328, guid: d624a52d383e1624ab53bd126dcacd23,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 1.7647059
+      objectReference: {fileID: 0}
+    - target: {fileID: 212941664791620328, guid: d624a52d383e1624ab53bd126dcacd23,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 2.1176472
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d624a52d383e1624ab53bd126dcacd23, type: 2}
   m_IsPrefabAsset: 0

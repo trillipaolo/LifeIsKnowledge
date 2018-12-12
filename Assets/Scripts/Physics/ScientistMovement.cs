@@ -26,9 +26,7 @@ public class ScientistMovement : EnemyMovementPhysics
 
     public override void Update()
     {
-        //TODO: fix attack with the last drone
         //TODO: fix zero velocity stuck
-        //TODO: fix DEATH
         if (!isDead)
         {
             if (!spawned && dronesAmount != 0)
