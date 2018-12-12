@@ -24,12 +24,12 @@ public class PlayerPhysics : MonoBehaviour {
     float gravity;
     float maxJumpVelocity;
     float minJumpVelocity;
-    Vector2 velocity;
+    public Vector2 velocity;
     float velocityXSmoothing;
 
     Controller2D controller;
     private Animator _animator;
-    Vector2 directionalInput;
+    public Vector2 directionalInput;
     private bool _rolling;
     [Header("Roll settings")] public int maxFrames = 15;
     public float maxDistance = 5.0f;

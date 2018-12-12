@@ -16,12 +16,10 @@ public class ScientistMovement : EnemyMovementPhysics
     public int dronesAmount = 3;
     private bool spawned;
     public static int jumpAttempts = 3;
-    private int jumpAttemptCounter;
 
     private void Awake()
     {
         _hitboxAnimator = transform.Find("AttackCollider").GetComponent<Animator>();
-        jumpAttemptCounter = jumpAttempts;
     }
 
     public override void Update()

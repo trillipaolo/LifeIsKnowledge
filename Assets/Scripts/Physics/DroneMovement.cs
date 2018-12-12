@@ -22,8 +22,7 @@ public class DroneMovement : EnemyMovementPhysics
     private float _attackStartPosition;
     private float time;
     private float randomAttackTime;
-    [HideInInspector]
-    public bool dead;
+    [HideInInspector] public bool dead;
 
 
     private void Start()
@@ -32,7 +31,7 @@ public class DroneMovement : EnemyMovementPhysics
 
         attackScript = GetComponentInChildren<EnemyAttackPaolo>();
         time = stuckCountdown;
-        randomAttackTime = UnityEngine.Random.Range(timeRangeMin,timeRangeMax);
+        randomAttackTime = UnityEngine.Random.Range(timeRangeMin, timeRangeMax);
     }
 
 
@@ -42,7 +41,6 @@ public class DroneMovement : EnemyMovementPhysics
         {
             if (!dead)
             {
-                //TODO: Losing the target
                 if (!foundTarget)
                 {
                     CheckIfFoundTarget();
@@ -56,25 +54,29 @@ public class DroneMovement : EnemyMovementPhysics
                 }
                 else
                 {
-                    Debug.Log(Math.Abs(target.position.y - transform.position.y) + " " +
-                              (Math.Abs(target.position.y - transform.position.y) <= visionRadiusY));
                     if (!(controller.collisions.right || controller.collisions.left))
                     {
                         if (Mathf.Abs(transform.position.x - _attackStartPosition) < attackDistance)
                         {
                             // Random waiting before attacking
-                            // TODO: fix direction choice
                             if (randomAttackTime > 0)
                             {
                                 randomAttackTime -= Time.deltaTime;
-                                Debug.Log(randomAttackTime);
+                                
+                                if (Mathf.Sign(transform.position.x - target.position.x) < 0)
+                                {
+                                    facingRight = true;
+                                }
+                                else
+                                {
+                                    facingRight = false;
+                                }
                             }
                             else
                             {
-                                
                                 _animator.SetBool("Attack", true);
-                                Debug.Log("ATTACKING");
                                 Attack();
+                                attackScript.ActivateAttackCollider();
                             }
                         }
                         // Attack distance increased
@@ -83,7 +85,7 @@ public class DroneMovement : EnemyMovementPhysics
                             isAttacking = false;
                             _animator.SetBool("Attack", false);
                             attackScript.DeactivateAttackCollider();
-                            randomAttackTime = UnityEngine.Random.Range(timeRangeMin,timeRangeMax);
+                            randomAttackTime = UnityEngine.Random.Range(timeRangeMin, timeRangeMax);
                         }
                     }
                     // Drone is stuck
@@ -103,7 +105,7 @@ public class DroneMovement : EnemyMovementPhysics
                             _attackStartPosition = transform.position.x; // ?
                             attackScript.DeactivateAttackCollider();
                             time = stuckCountdown;
-                            randomAttackTime = UnityEngine.Random.Range(timeRangeMin,timeRangeMax);
+                            randomAttackTime = UnityEngine.Random.Range(timeRangeMin, timeRangeMax);
                         }
                     }
                 }
@@ -117,7 +119,7 @@ public class DroneMovement : EnemyMovementPhysics
             else
             {
                 ApplyGravity();
-                if(velocity.x>=droneSliding)
+                if (velocity.x >= droneSliding)
                 {
                     velocity.x -= droneSliding;
                 }
@@ -125,6 +127,7 @@ public class DroneMovement : EnemyMovementPhysics
                 {
                     velocity.x = 0;
                 }
+
                 controller.Move(velocity * Time.deltaTime);
                 if (controller.collisions.above || controller.collisions.below)
                 {
@@ -147,6 +150,7 @@ public class DroneMovement : EnemyMovementPhysics
         }
         else
         {
+            // Here are possible ideas:
 //            velocity.y = 0;
 //            velocity.y = -verticalMoveSpeed * 2;
             velocity.y = -verticalMoveSpeed;
@@ -159,7 +163,7 @@ public class DroneMovement : EnemyMovementPhysics
         float distance = transform.position.x - target.position.x;
         if (Mathf.Abs(distance) > stopDistance)
         {
-            if (Mathf.Abs(target.position.y - transform.position.y) <= chaseDistance)
+            if (Mathf.Abs(target.position.x - transform.position.x) <= chaseDistance)
             {
                 if (Mathf.Sign(distance) < 0)
                 {
@@ -172,27 +176,21 @@ public class DroneMovement : EnemyMovementPhysics
                     velocity.x = -chaseSpeed;
                 }
             }
+            else
+            {
+                foundTarget = false;
+                _animator.SetBool("FoundTarget", false);
+                _anchor = transform.position.x;
+            }
         }
         else if (Math.Abs(target.position.y - transform.position.y) <= visionRadiusY)
             // Going to attack
         {
-            if (Mathf.Sign(distance) < 0)
-            {
-                velocity.x = chaseSpeed;
-                facingRight = true;
-            }
-            else
-            {
-                facingRight = false;
-                velocity.x = -chaseSpeed;
-            }
-
             isAttacking = true;
             velocity.y = 0;
             velocity.x = 0;
 //            _animator.SetBool("Attack", true);
             _attackStartPosition = transform.position.x;
-            attackScript.ActivateAttackCollider();
         }
     }
 

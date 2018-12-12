@@ -106,14 +106,12 @@ public class JoelHealth : MonoBehaviour {
         // Set the death flag so this function won't be called again.
         _isDead = true;
         _animator.SetBool("Dead", true);
+        _input.DisableInput();
+        PlayerPhysics pl = GetComponentInParent<PlayerPhysics>();
+        pl.directionalInput.x = 0;
+        pl.velocity.x = 0;
         
         Invoke("ReloadScene", timeBetweenReloading);
-        //TODO: disable input
-        _input.DisableInput();
-        
-        
-        
-        
         
         // Turn off any remaining shooting effects.
         //playerShooting.DisableEffects();
