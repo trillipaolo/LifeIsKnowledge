@@ -28,12 +28,15 @@ public class ComboGridCell : MonoBehaviour
 
     public void StartFading()
     {
-        StartCoroutine("Fading");
+        //StartCoroutine("Fading");
+        Color c = squareSprite.material.color;
+        c.a = 0.5f;
+        squareSprite.material.color = c;
     }
 
     public void StopFading()
     {
-        StopCoroutine("Fading");
+        //StopCoroutine("Fading");
         ResetColor();
     }
     

@@ -74,6 +74,7 @@ public class ComboMenuManager : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+
         //The Menu starts with the Scrolling Menu active
         _scrollToGrid = false;
 
@@ -267,6 +268,8 @@ public class ComboMenuManager : MonoBehaviour {
                     _menuGridCells[_row, _coloumn + i].StartFading();
                 }
             }
+
+            Debug.Log("Time scale value_ " + Time.timeScale);
         } 
         catch
         {
@@ -303,9 +306,10 @@ public class ComboMenuManager : MonoBehaviour {
 
     private void GridDown()
     {
-        bool _downInput = Input.GetAxis("GridDown") > 0;
+        bool _downInputButton = Input.GetButtonDown("GridDown");
+        bool _downInputAxis = Input.GetAxis("GridDown") > 0;
 
-        if (_downInput && !_dpadDown)
+        if ((_downInputButton || _downInputAxis) && !_dpadDown)
         {
             //Stop previous location fading effect
             StopHighlight();
@@ -322,14 +326,15 @@ public class ComboMenuManager : MonoBehaviour {
             Highlight();
         }
 
-        _dpadDown = _downInput;
+        _dpadDown = (_downInputButton || _downInputAxis);
     }
 
     private void GridUp()
     {
-        bool _downInput = Input.GetAxis("GridUp") > 0;
+        bool _downInputButton = Input.GetButtonDown("GridUp");
+        bool _downInputAxis = Input.GetAxis("GridUp") > 0;
 
-        if (_downInput && !_dpadUp)
+        if ((_downInputButton || _downInputAxis) && !_dpadUp)
         {
             //Stop previous location fading effect
             StopHighlight();
@@ -345,15 +350,17 @@ public class ComboMenuManager : MonoBehaviour {
             //Start next location fading effect
             Highlight();
         }
+        
 
-        _dpadUp = _downInput;
+        _dpadUp = (_downInputButton || _downInputAxis);
     }
 
     private void GridLeft()
     {
-        bool _downInput = Input.GetAxis("GridLeft") > 0;
+        bool _downInputButton = Input.GetButtonDown("GridLeft");
+        bool _downInputAxis = Input.GetAxis("GridLeft") > 0;
 
-        if (_downInput && !_dpadLeft)
+        if ((_downInputButton || _downInputAxis) && !_dpadLeft)
         {
             //Stop previous location fading effect
             StopHighlight();
@@ -370,14 +377,15 @@ public class ComboMenuManager : MonoBehaviour {
             Highlight();
         }
 
-        _dpadLeft = _downInput;
+        _dpadLeft = (_downInputButton || _downInputAxis);
     }
 
     private void GridRight()
     {
-        bool _downInput = Input.GetAxis("GridRight") > 0;
+        bool _downInputButton = Input.GetButtonDown("GridRight");
+        bool _downInputAxis = Input.GetAxis("GridRight") > 0;
 
-        if (_downInput && !_dpadRight)
+        if ((_downInputButton || _downInputAxis) && !_dpadRight)
         {
             //Stop previous location fading effect
             StopHighlight();
@@ -394,7 +402,7 @@ public class ComboMenuManager : MonoBehaviour {
             Highlight();
         }
 
-        _dpadRight = _downInput;
+        _dpadRight = _downInputButton || _downInputAxis;
     }
 
     private void GridMovement()
@@ -411,7 +419,7 @@ public class ComboMenuManager : MonoBehaviour {
 
     private void GridRotation()
     {
-        bool _rotationInput = Input.GetAxis("GridRotation") > 0;
+        bool _rotationInput = Input.GetButtonDown("GridRotation");
 
         if (_rotationInput && !_rotationX)
         {
