@@ -14,9 +14,9 @@ public class FloatingTextController : MonoBehaviour {
         if (!popupText) {
             popupText = Resources.Load<FloatingText>("Prefabs/PopupTextParent");
         }
-        //if (!unlockComboText) {
+        if (!unlockComboText) {
             unlockComboText = Resources.Load<FloatingText>("Prefabs/ComboUnlockedTextParent");
-        //}
+        }
     }
 	
 	public static void CreateFloatingText(string text, Vector3 location, Color color) {
