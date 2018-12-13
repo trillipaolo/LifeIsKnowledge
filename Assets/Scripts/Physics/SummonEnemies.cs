@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class SummonEnemies : MonoBehaviour {
@@ -13,8 +14,10 @@ public class SummonEnemies : MonoBehaviour {
     
     [Header("Enemy to spawn")]
     public GameObject enemy;
+
+    public int amount;
     private GameObject currentEnemy;
-    private bool _lastInput = false;
+    private bool _lastInput;
 
     private void Awake()
     {
@@ -53,8 +56,15 @@ public class SummonEnemies : MonoBehaviour {
     private void Summon()
     {
         currentEnemy = Instantiate(enemy, transform.position, Quaternion.identity);
-        currentEnemy.GetComponent<DroneMovement>().foundTarget = true;
-//        currentEnemy.GetComponent<ScientistMovement>().
+        if (currentEnemy.GetComponent<DroneMovement>())
+        {
+            currentEnemy.GetComponent<DroneMovement>().foundTarget = true;
+        }else if (currentEnemy.GetComponent<ScientistMovement>())
+        {
+            currentEnemy.GetComponent<ScientistMovement>().dronesAmount = amount;
+        }
+//        currentEnemy.GetComponent<DroneMovement>().foundTarget = true;
+//        Debug.Log(enemy.name);
     }
     
     
