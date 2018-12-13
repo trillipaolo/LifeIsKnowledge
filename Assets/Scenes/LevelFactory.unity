@@ -350,7 +350,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &499515430 stripped
 Transform:
@@ -9766,11 +9766,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4410395731041182, guid: d624a52d383e1624ab53bd126dcacd23, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -2.360528
+      value: -3.125
       objectReference: {fileID: 0}
     - target: {fileID: 4410395731041182, guid: d624a52d383e1624ab53bd126dcacd23, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.67851543
+      value: -1.94
       objectReference: {fileID: 0}
     - target: {fileID: 4410395731041182, guid: d624a52d383e1624ab53bd126dcacd23, type: 2}
       propertyPath: m_LocalPosition.z
@@ -17418,7 +17418,7 @@ Prefab:
     - target: {fileID: 224259760767353872, guid: 8c4cec3a9dccb524ba9bec098e74d4a2,
         type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 224259760767353872, guid: 8c4cec3a9dccb524ba9bec098e74d4a2,
         type: 2}
@@ -17864,7 +17864,7 @@ Transform:
   - {fileID: 2092528766}
   - {fileID: 1329887337}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1323894129
 GameObject:
@@ -30218,7 +30218,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4102829514326396, guid: 9bd1e8722fd92804281be6e3a614f800, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1.52
+      value: -1.7
       objectReference: {fileID: 0}
     - target: {fileID: 4102829514326396, guid: 9bd1e8722fd92804281be6e3a614f800, type: 2}
       propertyPath: m_LocalPosition.z
@@ -30242,7 +30242,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4102829514326396, guid: 9bd1e8722fd92804281be6e3a614f800, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 114782820560498924, guid: 9bd1e8722fd92804281be6e3a614f800,
         type: 2}
