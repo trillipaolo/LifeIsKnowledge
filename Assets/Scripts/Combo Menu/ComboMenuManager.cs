@@ -91,6 +91,10 @@ public class ComboMenuManager : MonoBehaviour {
         InitializeScrollingMenu();
         InitializeGridMenu();
 
+
+        //Reset combo not unlocked (prevent inconsistent state for Scriptable Objects)
+        SoftResetGrid();
+
         //Set if the Grid must be re-set each time the Scene is played
         if (reset)
         {
@@ -149,6 +153,19 @@ public class ComboMenuManager : MonoBehaviour {
             }
         }
 	}
+
+    private void SoftResetGrid()
+    {
+        for (int i = 0; i < combos.Length; i++)
+        {   
+            if (combos[i].unlocked == false)
+            {
+                combos[i].coloumnSaved = -1;
+                combos[i].rowSaved = -1;
+                combos[i].rotatedSaved = false;
+            }
+        }
+    }
 
     private void ResetGrid()
     {
