@@ -30291,6 +30291,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 114726886825209804, guid: 7a8f94e3c9941ba46816b45a27873599,
+        type: 2}
+      propertyPath: joelCombos
+      value: 
+      objectReference: {fileID: 11400000, guid: 5ccaef3f2a6581e4f9016f4e4ae8d9b9,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a8f94e3c9941ba46816b45a27873599, type: 2}
   m_IsPrefabAsset: 0

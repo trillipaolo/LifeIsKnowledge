@@ -52,4 +52,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   joelEnemiesKilled: {fileID: 11400000, guid: b56d3d78bcf1eff4fb51eef80dcc8550, type: 2}
+  joelCombos: {fileID: 11400000, guid: 5ccaef3f2a6581e4f9016f4e4ae8d9b9, type: 2}
+  horizontalSpin: {fileID: 11400000, guid: 3e26fb9ccde2d0b4581710b0433286bb, type: 2}
   resetAtStart: 1

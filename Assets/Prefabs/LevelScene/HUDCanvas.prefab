@@ -330,15 +330,17 @@ MonoBehaviour:
     m_LineSpacing: 0.7
   m_Text: 'Commands:
 
-    - movement A-D
+    - move LEFT STICK
 
-    - jump Space
+    - jump A
 
-    - attack J-K-L
+    - roll LB or RB
 
-    - reset R
+    - door UP
 
-    - quit esc :('
+    - attack B-X-Y
+
+    - combo menu PAUSE'
 --- !u!114 &114314308974063492
 MonoBehaviour:
   m_ObjectHideFlags: 1
