@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 4712592751054812}
   - component: {fileID: 114230027055864282}
   m_Layer: 0
-  m_Name: Background_BGx3
+  m_Name: Background_FixedBGx3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -179,7 +179,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1777709368207996}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.64, y: 3.97, z: 0}
+  m_LocalPosition: {x: 9.9, y: 4.09, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children:
   - {fileID: 4144532682265148}

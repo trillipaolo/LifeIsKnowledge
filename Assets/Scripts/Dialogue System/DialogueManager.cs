@@ -60,13 +60,13 @@ public class DialogueManager : MonoBehaviour {
                     break;
                 }
             case DialogueType.ADVICE_DRONE:
-                {   
-
+                {
+                    PlayDroneAdviceDialogue();
                     break;
                 }
             case DialogueType.JOEL:
                 {
-
+                    PlayJoelDialogue();
                     break;
                 }
         }
