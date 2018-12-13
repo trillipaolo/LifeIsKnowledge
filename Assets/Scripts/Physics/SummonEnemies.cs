@@ -18,11 +18,13 @@ public class SummonEnemies : MonoBehaviour {
     public int amount;
     private GameObject currentEnemy;
     private bool _lastInput;
+    private Transform _spawnPoint;
 
     private void Awake()
     {
         _target = GameObject.FindWithTag("Player");
         _playerDetected = false;
+        _spawnPoint = transform.Find("RespawnPoint");
     }
 
     public void OnTriggerEnter2D(Collider2D other)
@@ -55,7 +57,7 @@ public class SummonEnemies : MonoBehaviour {
 
     private void Summon()
     {
-        currentEnemy = Instantiate(enemy, transform.position, Quaternion.identity);
+        currentEnemy = Instantiate(enemy, _spawnPoint.transform.position, Quaternion.identity);
         if (currentEnemy.GetComponent<DroneMovement>())
         {
             currentEnemy.GetComponent<DroneMovement>().foundTarget = true;
@@ -64,7 +66,7 @@ public class SummonEnemies : MonoBehaviour {
             currentEnemy.GetComponent<ScientistMovement>().dronesAmount = amount;
         }
 //        currentEnemy.GetComponent<DroneMovement>().foundTarget = true;
-//        Debug.Log(enemy.name);
+        Debug.Log(_spawnPoint.transform);
     }
     
     
