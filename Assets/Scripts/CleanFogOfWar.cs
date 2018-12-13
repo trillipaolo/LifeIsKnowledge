@@ -15,7 +15,7 @@ public class CleanFogOfWar : MonoBehaviour {
     private Vector3[] _vertices;
     private Color[] _colors;
 
-    void Awake() {
+    void Start() {
         Initialize();
         InvokeRepeating("UpdateFogOfWar", 0f, updateTime);
     }

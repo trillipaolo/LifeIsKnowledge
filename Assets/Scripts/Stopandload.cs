@@ -44,7 +44,7 @@ public class Stopandload : MonoBehaviour {
 
                 Time.timeScale = 1f;
 
-                SceneManager.UnloadSceneAsync("ComboMenu");
+                SceneManager.UnloadScene("ComboMenu");
 
                 canvas.GetComponent<Canvas>().enabled = true;
                 minimap.GetComponent<Camera>().enabled = true;
