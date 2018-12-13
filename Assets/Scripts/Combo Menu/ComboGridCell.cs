@@ -2,11 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ComboGridCell : MonoBehaviour
-{
+public class ComboGridCell : MonoBehaviour { 
+
+    public Transform target;
 
     [Header("GridCell Properties")]
     private bool _occupied;
+
+    private Transform oldCamera;
+    private Transform newCamera;
+    private Transform diffCamera;
+
+    private Vector3 offset;
 
     private SpriteRenderer squareSprite;
 
@@ -14,6 +21,16 @@ public class ComboGridCell : MonoBehaviour
     {
         _occupied = false;
         squareSprite = GetComponent<SpriteRenderer>();
+        oldCamera = GetComponent<Transform>();
+        newCamera = GetComponent<Transform>();
+        offset = target.position - transform.position + Vector3.forward*20;
+        Debug.Log(offset.z);
+    }
+    
+
+    public void Update()
+    {
+        transform.position = target.position + offset;
     }
 
     public void SetOccupied(bool occupied)

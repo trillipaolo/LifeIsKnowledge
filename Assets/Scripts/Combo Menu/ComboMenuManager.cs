@@ -7,6 +7,8 @@ public class ComboMenuManager : MonoBehaviour {
 
     public static ComboMenuManager Instance { get; private set; }
 
+    public Transform mainCamera;
+
     [Header("Scriptable Objects: All combos available to the Player")]
     public Combo[] combos;
 
@@ -36,13 +38,13 @@ public class ComboMenuManager : MonoBehaviour {
     public JoelCombos joelCombos;
 
     //List of Buttons in the scrolling menu: each button refers to a combo
-    private List<GameObject> _menuButtons;
+    public List<GameObject> _menuButtons;
 
     //Combo Selected in the scrolling menu
     private int _currentCombo;
 
     //List of cells in the grid menu: each cells can contain one button of a combo
-    private ComboGridCell[,] _menuGridCells;
+    public ComboGridCell[,] _menuGridCells;
 
     //Current position and state in the grid
     private int _row;
@@ -72,7 +74,7 @@ public class ComboMenuManager : MonoBehaviour {
     }
 
     // Use this for initialization
-    void Start()
+    void OnEnable()
     {
 
         //The Menu starts with the Scrolling Menu active
@@ -106,9 +108,29 @@ public class ComboMenuManager : MonoBehaviour {
             ReconstructGrid();
         }
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    void OnDisable()
+    {
+        Debug.Log("OnDisable diost");
+
+        foreach (GameObject g in _menuButtons)
+        {
+            Destroy(g);
+        }
+
+        _menuButtons = new List<GameObject>();
+
+        for (int i = 0; i < rows; i++)
+        {
+            for (int j = 0; j < coloumns; j++)
+            {
+                Destroy(_menuGridCells[i, j].gameObject);
+            }
+        }
+    }
+
+    // Update is called once per frame
+    void Update () {
 
         if (_scrollToGrid)
         {
@@ -233,18 +255,35 @@ public class ComboMenuManager : MonoBehaviour {
 
         Vector3 cellOffset = menuCell.GetComponent<Transform>().position;
 
-        for(int i = 0; i < rows; i++)
+        /*for(int i = 0; i < rows; i++)
         {
             for(int j = 0; j < coloumns; j++)
             {
                 GameObject newGridCell = Instantiate(menuCell, cellOffset, new Quaternion(0, 0, 0, 0));
                 newGridCell.SetActive(true);
                 cellOffset += new Vector3(xOffset, 0, 0);
+                newGridCell.GetComponent<ComboGridCell>().target = mainCamera;
 
                 _menuGridCells[i, j] = newGridCell.GetComponent<ComboGridCell>();
             }
 
             cellOffset += new Vector3(-xOffset * coloumns, -yOffset, 0);   
+        }*/
+
+        cellOffset = mainCamera.position - new Vector3(6.40f, 1.28f, 0);
+        for (int i = 0; i < rows; i++)
+        {
+            for (int j = 0; j < coloumns; j++)
+            {
+                GameObject newGridCell = Instantiate(menuCell, cellOffset + Vector3.forward*10, new Quaternion(0, 0, 0, 0));
+                newGridCell.SetActive(true);
+                cellOffset += new Vector3(-xOffset, 0, 0);
+                newGridCell.GetComponent<ComboGridCell>().target = mainCamera;
+
+                _menuGridCells[i, j] = newGridCell.GetComponent<ComboGridCell>();
+            }
+
+            cellOffset += new Vector3(xOffset * coloumns, yOffset, 0);
         }
     }
 

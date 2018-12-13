@@ -61,6 +61,8 @@ public class DroneBehaviour : EnemyBehaviour {
         _healthBar.value = 0;
         _healthBar.GetComponentInChildren<Image>().color = Color.clear;
         GetComponent<AudioSource>().mute = true;
+
+        Debug.Log("morto");
     }
 
     private void ChangePhysicsCollider() {

@@ -16,6 +16,7 @@ public class ScientistMovement : EnemyMovementPhysics
     public int dronesAmount = 3;
     private bool spawned;
     public static int jumpAttempts = 3;
+    private bool _lastDead = false;
 
     public string spawnsDroneSound= "ScSpawnsDrone";
 
@@ -86,7 +87,11 @@ public class ScientistMovement : EnemyMovementPhysics
             }
 
             if (currentDrone != null) {
-                currentDrone.GetComponent<DroneBehaviour>().Die();
+                if (!_lastDead)
+                {
+                    currentDrone.GetComponent<DroneBehaviour>().Die();
+                    _lastDead = true;
+                }
             }
         }
 

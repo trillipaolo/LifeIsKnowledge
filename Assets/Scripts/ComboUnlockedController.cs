@@ -13,9 +13,7 @@ public class ComboUnlockedController : MonoBehaviour {
         if (resetAtStart) {
             joelEnemiesKilled.Reset();
             for (int i = 0; i < joelEnemiesKilled.enemies.Length; i++) {
-                if (joelEnemiesKilled.enemies[i].comboUnlocked.comboName != "Horizontal Spin") {
-                    joelEnemiesKilled.enemies[i].comboUnlocked.unlocked = false;
-                }
+                joelEnemiesKilled.enemies[i].comboUnlocked.unlocked = false;
             }
 
             joelCombos.combos = new Combo[0];
