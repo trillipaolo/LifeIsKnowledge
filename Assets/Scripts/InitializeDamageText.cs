@@ -13,7 +13,7 @@ public class InitializeDamageText : MonoBehaviour {
 
     //TODO: delete!!!!!
     private void Update() {
-        if (Input.GetKeyDown(KeyCode.R)) {
+        if (Input.GetKeyDown(KeyCode.T)) {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         } else if (Input.GetKeyDown("escape")) {
             Application.Quit();

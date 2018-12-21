@@ -160,7 +160,7 @@ public class ComboMenuManager : MonoBehaviour {
             GridRotation();
 
             //Insertion in the grid
-            if (Input.GetButtonDown("GridInsertion"))
+            if (Input.GetButtonDown("GridInsertion") || Input.GetAxis("GridInsertion") > 0)
             {
                 GridInsertion();
             }
@@ -270,7 +270,7 @@ public class ComboMenuManager : MonoBehaviour {
             cellOffset += new Vector3(-xOffset * coloumns, -yOffset, 0);   
         }*/
 
-        cellOffset = mainCamera.position - new Vector3(6.40f, 1.28f, 0);
+        cellOffset = mainCamera.position - new Vector3(2.56f, 1.28f, 0);
         for (int i = 0; i < rows; i++)
         {
             for (int j = 0; j < coloumns; j++)

@@ -53,11 +53,13 @@ public class JoelHealth : MonoBehaviour {
         // If the player has just been damaged...
         if (_damaged) {
             // ... set the colour of the damageImage to the flash colour.
-            audioManager.Play(joelTakeDmgSound);
+            
             damageImage.color = flashColour;
 
             if (_healed) {
                 damageImage.color = new Color32(0,255,0,100);
+            } else {
+                audioManager.Play(joelTakeDmgSound);
             }
         }
         // Otherwise...

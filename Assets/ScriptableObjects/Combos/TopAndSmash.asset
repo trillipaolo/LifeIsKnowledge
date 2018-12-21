@@ -14,7 +14,7 @@ MonoBehaviour:
   comboName: Top and Smash
   buttonSequence:
   - {fileID: 11400000, guid: 289e06bf494169f48949ed9bea75ee9e, type: 2}
-  - {fileID: 11400000, guid: ac029e6e21347d146a2198da36437501, type: 2}
+  - {fileID: 11400000, guid: 7f5927d0a6d39324baaccf940d57c128, type: 2}
   comboSprite: {fileID: 21300000, guid: f2b72aae7a00c5747bb0c718e24c39f3, type: 3}
   unlocked: 0
   rowSaved: -1
