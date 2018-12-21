@@ -36190,6 +36190,26 @@ Prefab:
       propertyPath: startingHealth
       value: 999999999
       objectReference: {fileID: 0}
+    - target: {fileID: 114503954876427694, guid: 9bd1e8722fd92804281be6e3a614f800,
+        type: 2}
+      propertyPath: comboMenu
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114503954876427694, guid: 9bd1e8722fd92804281be6e3a614f800,
+        type: 2}
+      propertyPath: background
+      value: 
+      objectReference: {fileID: 1870813991}
+    - target: {fileID: 114503954876427694, guid: 9bd1e8722fd92804281be6e3a614f800,
+        type: 2}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 1992274303}
+    - target: {fileID: 114503954876427694, guid: 9bd1e8722fd92804281be6e3a614f800,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bd1e8722fd92804281be6e3a614f800, type: 2}
   m_IsPrefabAsset: 0
@@ -36355,3 +36375,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1870813991 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1140797518703200, guid: 14ad4cacb79280b469c21cb1621fe2d2,
+    type: 2}
+  m_PrefabInternal: {fileID: 770206245}
+--- !u!223 &1992274303 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 223289394606578930, guid: 8c4cec3a9dccb524ba9bec098e74d4a2,
+    type: 2}
+  m_PrefabInternal: {fileID: 708978656}
