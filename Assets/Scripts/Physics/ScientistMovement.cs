@@ -48,6 +48,7 @@ public class ScientistMovement : EnemyMovementPhysics
                 if (currentDrone.GetComponent<DroneMovement>().dead)
                 {
                     dronesAmount -= 1;
+                    _anchor = transform.position.x;
                     spawned = false;
                 }
             }
