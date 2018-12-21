@@ -48,7 +48,7 @@ public class EnemyBehaviour : MonoBehaviour{
 
         Vector3 textPosition = (Vector3)collider.offset + transform.position;
         FloatingTextController.CreateFloatingText(damage.ToString(), textPosition, color);
-        
+
         health -= damage;
 
         if (health < 0) {

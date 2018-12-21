@@ -12,6 +12,7 @@ public class DialogueManager : MonoBehaviour {
     public DialogueText[] droneAdviceDialogues;
     public DialogueText[] joelDialogues;
     public Text displayDialogue;
+    public float timeToDisappear;
 
     //Control variables
     private int _beginLevelNR;
@@ -24,7 +25,7 @@ public class DialogueManager : MonoBehaviour {
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -60,13 +61,13 @@ public class DialogueManager : MonoBehaviour {
                     break;
                 }
             case DialogueType.ADVICE_DRONE:
-                {   
-
+                {
+                    PlayDroneAdviceDialogue();
                     break;
                 }
             case DialogueType.JOEL:
                 {
-
+                    PlayJoelDialogue();
                     break;
                 }
         }
@@ -139,7 +140,7 @@ public class DialogueManager : MonoBehaviour {
             yield return null;
         }
 
-        yield return new WaitForSeconds(3.0f);
+        yield return new WaitForSeconds(timeToDisappear);
 
         displayDialogue.text = "";
     }

@@ -7,6 +7,8 @@ public class ComboMenuManager : MonoBehaviour {
 
     public static ComboMenuManager Instance { get; private set; }
 
+    public Transform mainCamera;
+
     [Header("Scriptable Objects: All combos available to the Player")]
     public Combo[] combos;
 
@@ -36,13 +38,13 @@ public class ComboMenuManager : MonoBehaviour {
     public JoelCombos joelCombos;
 
     //List of Buttons in the scrolling menu: each button refers to a combo
-    private List<GameObject> _menuButtons;
+    public List<GameObject> _menuButtons;
 
     //Combo Selected in the scrolling menu
     private int _currentCombo;
 
     //List of cells in the grid menu: each cells can contain one button of a combo
-    private ComboGridCell[,] _menuGridCells;
+    public ComboGridCell[,] _menuGridCells;
 
     //Current position and state in the grid
     private int _row;
@@ -72,8 +74,9 @@ public class ComboMenuManager : MonoBehaviour {
     }
 
     // Use this for initialization
-    void Start()
+    void OnEnable()
     {
+
         //The Menu starts with the Scrolling Menu active
         _scrollToGrid = false;
 
@@ -91,6 +94,10 @@ public class ComboMenuManager : MonoBehaviour {
         InitializeScrollingMenu();
         InitializeGridMenu();
 
+
+        //Reset combo not unlocked (prevent inconsistent state for Scriptable Objects)
+        SoftResetGrid();
+
         //Set if the Grid must be re-set each time the Scene is played
         if (reset)
         {
@@ -101,9 +108,29 @@ public class ComboMenuManager : MonoBehaviour {
             ReconstructGrid();
         }
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    void OnDisable()
+    {
+        Debug.Log("OnDisable diost");
+
+        foreach (GameObject g in _menuButtons)
+        {
+            Destroy(g);
+        }
+
+        _menuButtons = new List<GameObject>();
+
+        for (int i = 0; i < rows; i++)
+        {
+            for (int j = 0; j < coloumns; j++)
+            {
+                Destroy(_menuGridCells[i, j].gameObject);
+            }
+        }
+    }
+
+    // Update is called once per frame
+    void Update () {
 
         if (_scrollToGrid)
         {
@@ -133,7 +160,7 @@ public class ComboMenuManager : MonoBehaviour {
             GridRotation();
 
             //Insertion in the grid
-            if (Input.GetButtonDown("GridInsertion"))
+            if (Input.GetButtonDown("GridInsertion") || Input.GetAxis("GridInsertion") > 0)
             {
                 GridInsertion();
             }
@@ -149,6 +176,19 @@ public class ComboMenuManager : MonoBehaviour {
             }
         }
 	}
+
+    private void SoftResetGrid()
+    {
+        for (int i = 0; i < combos.Length; i++)
+        {   
+            if (combos[i].unlocked == false)
+            {
+                combos[i].coloumnSaved = -1;
+                combos[i].rowSaved = -1;
+                combos[i].rotatedSaved = false;
+            }
+        }
+    }
 
     private void ResetGrid()
     {
@@ -215,18 +255,35 @@ public class ComboMenuManager : MonoBehaviour {
 
         Vector3 cellOffset = menuCell.GetComponent<Transform>().position;
 
-        for(int i = 0; i < rows; i++)
+        /*for(int i = 0; i < rows; i++)
         {
             for(int j = 0; j < coloumns; j++)
             {
                 GameObject newGridCell = Instantiate(menuCell, cellOffset, new Quaternion(0, 0, 0, 0));
                 newGridCell.SetActive(true);
                 cellOffset += new Vector3(xOffset, 0, 0);
+                newGridCell.GetComponent<ComboGridCell>().target = mainCamera;
 
                 _menuGridCells[i, j] = newGridCell.GetComponent<ComboGridCell>();
             }
 
             cellOffset += new Vector3(-xOffset * coloumns, -yOffset, 0);   
+        }*/
+
+        cellOffset = mainCamera.position - new Vector3(2.56f, 1.28f, 0);
+        for (int i = 0; i < rows; i++)
+        {
+            for (int j = 0; j < coloumns; j++)
+            {
+                GameObject newGridCell = Instantiate(menuCell, cellOffset + Vector3.forward*10, new Quaternion(0, 0, 0, 0));
+                newGridCell.SetActive(true);
+                cellOffset += new Vector3(-xOffset, 0, 0);
+                newGridCell.GetComponent<ComboGridCell>().target = mainCamera;
+
+                _menuGridCells[i, j] = newGridCell.GetComponent<ComboGridCell>();
+            }
+
+            cellOffset += new Vector3(xOffset * coloumns, yOffset, 0);
         }
     }
 
@@ -250,6 +307,8 @@ public class ComboMenuManager : MonoBehaviour {
                     _menuGridCells[_row, _coloumn + i].StartFading();
                 }
             }
+
+            Debug.Log("Time scale value_ " + Time.timeScale);
         } 
         catch
         {
@@ -286,9 +345,10 @@ public class ComboMenuManager : MonoBehaviour {
 
     private void GridDown()
     {
-        bool _downInput = Input.GetAxis("GridDown") > 0;
+        bool _downInputButton = Input.GetButtonDown("GridDown");
+        bool _downInputAxis = Input.GetAxis("GridDown") > 0;
 
-        if (_downInput && !_dpadDown)
+        if ((_downInputButton || _downInputAxis) && !_dpadDown)
         {
             //Stop previous location fading effect
             StopHighlight();
@@ -305,14 +365,15 @@ public class ComboMenuManager : MonoBehaviour {
             Highlight();
         }
 
-        _dpadDown = _downInput;
+        _dpadDown = (_downInputButton || _downInputAxis);
     }
 
     private void GridUp()
     {
-        bool _downInput = Input.GetAxis("GridUp") > 0;
+        bool _downInputButton = Input.GetButtonDown("GridUp");
+        bool _downInputAxis = Input.GetAxis("GridUp") > 0;
 
-        if (_downInput && !_dpadUp)
+        if ((_downInputButton || _downInputAxis) && !_dpadUp)
         {
             //Stop previous location fading effect
             StopHighlight();
@@ -328,15 +389,17 @@ public class ComboMenuManager : MonoBehaviour {
             //Start next location fading effect
             Highlight();
         }
+        
 
-        _dpadUp = _downInput;
+        _dpadUp = (_downInputButton || _downInputAxis);
     }
 
     private void GridLeft()
     {
-        bool _downInput = Input.GetAxis("GridLeft") > 0;
+        bool _downInputButton = Input.GetButtonDown("GridLeft");
+        bool _downInputAxis = Input.GetAxis("GridLeft") > 0;
 
-        if (_downInput && !_dpadLeft)
+        if ((_downInputButton || _downInputAxis) && !_dpadLeft)
         {
             //Stop previous location fading effect
             StopHighlight();
@@ -353,14 +416,15 @@ public class ComboMenuManager : MonoBehaviour {
             Highlight();
         }
 
-        _dpadLeft = _downInput;
+        _dpadLeft = (_downInputButton || _downInputAxis);
     }
 
     private void GridRight()
     {
-        bool _downInput = Input.GetAxis("GridRight") > 0;
+        bool _downInputButton = Input.GetButtonDown("GridRight");
+        bool _downInputAxis = Input.GetAxis("GridRight") > 0;
 
-        if (_downInput && !_dpadRight)
+        if ((_downInputButton || _downInputAxis) && !_dpadRight)
         {
             //Stop previous location fading effect
             StopHighlight();
@@ -377,7 +441,7 @@ public class ComboMenuManager : MonoBehaviour {
             Highlight();
         }
 
-        _dpadRight = _downInput;
+        _dpadRight = _downInputButton || _downInputAxis;
     }
 
     private void GridMovement()
@@ -394,7 +458,7 @@ public class ComboMenuManager : MonoBehaviour {
 
     private void GridRotation()
     {
-        bool _rotationInput = Input.GetAxis("GridRotation") > 0;
+        bool _rotationInput = Input.GetButtonDown("GridRotation");
 
         if (_rotationInput && !_rotationX)
         {

@@ -17,6 +17,7 @@ public class TeleportScene : MonoBehaviour {
     //True if the player is in front of the stairs (Colliders are actually colliding)
     //False otherwise
     private bool _teleport;
+    private bool _lastTeleport = false;
 
     private void Awake() {
         _teleport = false;
@@ -35,16 +36,12 @@ public class TeleportScene : MonoBehaviour {
     }
 
     private void Update() {
-        if (_teleport) {
-            if (Input.GetKeyDown(KeyCode.W)) {
-                StartCoroutine("Teleporting");
-            }
+        bool _teleportInput = Input.GetAxis("Teleport") > 0;
+
+        if (_teleportInput && !_lastTeleport && _teleport) {
+            SceneManager.LoadScene(scene);
         }
-    }
 
-    IEnumerator Teleporting() {
-        yield return new WaitForSeconds(0.01f);
-
-        SceneManager.LoadScene(scene);
+        _lastTeleport = _teleportInput;
     }
 }

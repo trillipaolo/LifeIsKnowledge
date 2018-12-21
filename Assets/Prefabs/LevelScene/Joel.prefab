@@ -142,6 +142,7 @@ GameObject:
   - component: {fileID: 114452524371897472}
   - component: {fileID: 50072437180672400}
   - component: {fileID: 81267331566715774}
+  - component: {fileID: 114503954876427694}
   m_Layer: 10
   m_Name: Joel
   m_TagString: Player
@@ -263,7 +264,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1727067693750102}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.86, y: -1.52, z: 0}
+  m_LocalPosition: {x: -3.9, y: 0.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4038266271272254}
@@ -796,6 +797,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dustSpread: {fileID: 1969911721492344, guid: 023d9a92c970ab04d9e1ee23afba27c0, type: 2}
   transform: {fileID: 4312760277403098}
+--- !u!114 &114503954876427694
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1727067693750102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41d206326259ca24ab21c9650edb1693, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  comboMenu: {fileID: 0}
+  background: {fileID: 0}
+  canvas: {fileID: 0}
+  minimap: {fileID: 20024410602706260}
 --- !u!114 &114592569853303740
 MonoBehaviour:
   m_ObjectHideFlags: 1

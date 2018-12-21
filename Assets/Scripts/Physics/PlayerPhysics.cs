@@ -170,7 +170,7 @@ public class PlayerPhysics : MonoBehaviour {
                 _animator.SetTrigger("RollTrigger");
                 audioManager.Play(rollSound);
                 _nextFireTime = Time.timeSinceLevelLoad + rollColdownTime;
-                GameObject cd = Instantiate(coolDown, new Vector3(0, -170, 0), Quaternion.identity) as GameObject;
+                GameObject cd = Instantiate(coolDown, new Vector3(0, -280, 0), Quaternion.identity) as GameObject;
                 cd.transform.SetParent(canvas, false);
             }
         }

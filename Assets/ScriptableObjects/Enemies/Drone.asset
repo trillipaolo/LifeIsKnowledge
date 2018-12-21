@@ -13,5 +13,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: 0
   timesKilled: 0
-  timesUnlockCombo: 1
-  comboUnlocked: {fileID: 11400000, guid: 3e26fb9ccde2d0b4581710b0433286bb, type: 2}
+  timesUnlockCombo: 15
+  comboUnlocked: {fileID: 11400000, guid: 296ac282c52457e44bd3251e22e6a4b4, type: 2}

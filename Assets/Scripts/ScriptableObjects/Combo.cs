@@ -49,11 +49,11 @@ public class Combo : ScriptableObject {
             case EnumCombo.UPANDSMASH:
                 damage = new float[2];
                 damage[0] = 10;
-                damage[1] = 100;
+                damage[1] = 200;
                 break;
             case EnumCombo.HORIZONTALSPIN:
                 damage = new float[1];
-                damage[0] = 80;
+                damage[0] = 40;
                 break;
             case EnumCombo.ROPETHROW:
                 damage = new float[2];

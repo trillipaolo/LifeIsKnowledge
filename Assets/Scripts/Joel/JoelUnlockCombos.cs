@@ -20,6 +20,7 @@ public class JoelUnlockCombos : MonoBehaviour {
                 Combo combo = enemiesKilled[i].comboUnlocked;
                 if (!combo.unlocked) {
                     combo.unlocked = true;
+                    FloatingTextController.CreateUnlockComboText(combo.comboName + " combo unlocked!!",transform.position + Vector3.up);
                 }
             }
         }

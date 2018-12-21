@@ -20,7 +20,9 @@ public class Stopandload : MonoBehaviour {
         {
             if (_menu)
             {
+                Debug.Log("time before: " + Time.timeScale);
                 Time.timeScale = 0f;
+                Debug.Log("time after: " + Time.timeScale);
 
                 SceneManager.LoadScene("ComboMenu", LoadSceneMode.Additive);
 
@@ -42,7 +44,7 @@ public class Stopandload : MonoBehaviour {
 
                 Time.timeScale = 1f;
 
-                SceneManager.UnloadSceneAsync("ComboMenu");
+                SceneManager.UnloadScene("ComboMenu");
 
                 canvas.GetComponent<Canvas>().enabled = true;
                 minimap.GetComponent<Camera>().enabled = true;
