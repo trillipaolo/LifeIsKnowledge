@@ -282,6 +282,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minimapCamera: {fileID: 0}
+  target: {fileID: 0}
+  mapPosition: {x: 47, y: 71}
+  mapZoom: 110
 --- !u!114 &114218251669723598
 MonoBehaviour:
   m_ObjectHideFlags: 1

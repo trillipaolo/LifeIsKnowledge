@@ -40,7 +40,7 @@ public class CleanFogOfWar : MonoBehaviour {
     }*/
 
     private void UpdateFogOfWar() {
-        Ray r = new Ray(transform.position,joel.position - transform.position);
+        Ray r = new Ray(joel.position,Vector3.forward);
         RaycastHit hit;
 
         if (Physics.Raycast(r,out hit,1000,fogLayer,QueryTriggerInteraction.Collide)) {

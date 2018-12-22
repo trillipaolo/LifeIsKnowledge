@@ -6,10 +6,17 @@ using UnityEngine.UI;
 public class FullMapScript : MonoBehaviour {
 
     public Camera minimapCamera;
+    public Transform target;
+
     private RectTransform _rect;
     private Image _border;
 
     private bool _isMinimap = true;
+    [SerializeField]
+    private Vector2 mapPosition = new Vector2(47,71);
+    [SerializeField]
+    private float mapZoom = 120;
+
 
     void Awake() {
         _rect = GetComponent<RectTransform>();
@@ -26,6 +33,10 @@ public class FullMapScript : MonoBehaviour {
                 _isMinimap = true;
             }
         }
+
+        if (_isMinimap) {
+            MoveMinimap();
+        }
     }
 
     private void SetAsFullmap() {
@@ -36,9 +47,8 @@ public class FullMapScript : MonoBehaviour {
 
         _border.enabled = false;
 
-        minimapCamera.transform.position = new Vector3(47,71,-10);
-        minimapCamera.orthographicSize = 120;
-        Time.timeScale = 0.01f;
+        minimapCamera.transform.position = new Vector3(mapPosition.x, mapPosition.y, -10);
+        minimapCamera.orthographicSize = mapZoom;
     }
 
     private void SetAsMinimap() {
@@ -49,8 +59,10 @@ public class FullMapScript : MonoBehaviour {
 
         _border.enabled = true;
 
-        minimapCamera.transform.localPosition = new Vector3(0,0,-10);
         minimapCamera.orthographicSize = 50;
-        Time.timeScale = 1;
+    }
+
+    private void MoveMinimap() {
+        minimapCamera.transform.position = target.position - Vector3.forward*10;
     }
 }
