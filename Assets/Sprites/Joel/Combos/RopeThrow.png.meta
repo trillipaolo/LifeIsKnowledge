@@ -152,16 +152,16 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 69
+        width: 66
         height: 48
       alignment: 9
-      pivot: {x: 0.36231884, y: 0.5208334}
+      pivot: {x: 0.37878788, y: 0.5208334}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c0876dac80acace468effb78144693f4
+      spriteID: b974c911789caa743b9d456c9ebeb3ba
       vertices: []
       indices: 
       edges: []
@@ -170,18 +170,18 @@ TextureImporter:
       name: RopeThrow_1
       rect:
         serializedVersion: 2
-        x: 69
+        x: 66
         y: 0
-        width: 69
+        width: 66
         height: 48
       alignment: 9
-      pivot: {x: 0.3478261, y: 0.5208334}
+      pivot: {x: 0.40909094, y: 0.5208334}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e3a761ae39b027a458d670d546d5e759
+      spriteID: 900aa7d90f282f546b7aaf70f08e8907
       vertices: []
       indices: 
       edges: []
@@ -190,18 +190,18 @@ TextureImporter:
       name: RopeThrow_2
       rect:
         serializedVersion: 2
-        x: 138
+        x: 132
         y: 0
-        width: 69
+        width: 66
         height: 48
       alignment: 9
-      pivot: {x: 0.33333334, y: 0.5208334}
+      pivot: {x: 0.43939394, y: 0.5208334}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 734cd525db10f3e43b78cff53b44c1d3
+      spriteID: a85ce42f37940ea499f3d71f4cf97551
       vertices: []
       indices: 
       edges: []
@@ -210,18 +210,18 @@ TextureImporter:
       name: RopeThrow_3
       rect:
         serializedVersion: 2
-        x: 207
+        x: 198
         y: 0
-        width: 69
+        width: 66
         height: 48
       alignment: 9
-      pivot: {x: 0.2753623, y: 0.5208334}
+      pivot: {x: 0.40909094, y: 0.5208334}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eff6febfaeb2b974ca043e94b717a501
+      spriteID: 2ae9c10a9cd19894c87a2c79c6337ee6
       vertices: []
       indices: 
       edges: []
@@ -230,18 +230,18 @@ TextureImporter:
       name: RopeThrow_4
       rect:
         serializedVersion: 2
-        x: 276
+        x: 279
         y: 0
-        width: 69
+        width: 66
         height: 48
       alignment: 9
-      pivot: {x: 0.30434784, y: 0.5208334}
+      pivot: {x: 0.25757575, y: 0.5208334}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 17219a98e578b374a995ec6bd8914b98
+      spriteID: 062e19673d549184381ebb142f584aee
       vertices: []
       indices: 
       edges: []
@@ -250,18 +250,18 @@ TextureImporter:
       name: RopeThrow_5
       rect:
         serializedVersion: 2
-        x: 345
+        x: 347
         y: 0
-        width: 69
+        width: 66
         height: 48
       alignment: 9
-      pivot: {x: 0.26086956, y: 0.5208334}
+      pivot: {x: 0.24242425, y: 0.5208334}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4d1c98f5bddc0e3469948bd2887d518b
+      spriteID: cb063a3a59a8ea44999b05293156aa01
       vertices: []
       indices: 
       edges: []
@@ -270,18 +270,18 @@ TextureImporter:
       name: RopeThrow_6
       rect:
         serializedVersion: 2
-        x: 414
+        x: 416
         y: 0
-        width: 69
+        width: 66
         height: 48
       alignment: 9
-      pivot: {x: 0.42028987, y: 0.5208334}
+      pivot: {x: 0.3939394, y: 0.5208334}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cbb6bfb1cf010f746b0e04c418e49860
+      spriteID: 292bec17b3f73c643b0160e3f6c441e4
       vertices: []
       indices: 
       edges: []
@@ -290,18 +290,18 @@ TextureImporter:
       name: RopeThrow_7
       rect:
         serializedVersion: 2
-        x: 483
+        x: 486
         y: 0
-        width: 69
+        width: 66
         height: 48
       alignment: 9
-      pivot: {x: 0.39130434, y: 0.5208334}
+      pivot: {x: 0.34848487, y: 0.5208334}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b5ebedf972ac67b4ea2cc902bb492bff
+      spriteID: f0fa1edc5ea3d2f419ddbf82a92c8dce
       vertices: []
       indices: 
       edges: []
@@ -309,7 +309,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: e626289a1be3d104191db380b6c7e318
+    spriteID: 09170ef9128e6e94a9bd6a70be2cd68c
     vertices: []
     indices: 
     edges: []
