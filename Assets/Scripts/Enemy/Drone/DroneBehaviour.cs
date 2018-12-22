@@ -55,7 +55,7 @@ public class DroneBehaviour : EnemyBehaviour {
         }
         _unlockScript.KilledEnemy(enemyType);
         animator.SetTrigger("Dead");
-        ChangePhysicsCollider();
+        //ChangePhysicsCollider();
         _movementDroneScript.Dying();
         _platformCollider.enabled = true;
         _healthBar.value = 0;
