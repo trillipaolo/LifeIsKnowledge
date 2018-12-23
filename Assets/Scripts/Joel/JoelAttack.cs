@@ -21,11 +21,11 @@ public class JoelAttack : MonoBehaviour {
     private bool _currentDownInput = false;
 
     private int _comboEnum = 0;
-    private float[] _cooldownCombo = new float[2];
 
     public BasicAttack basicAttack;
     public JoelCombos joelCombos;
-    private float[] _lastTimeUsed;
+    [HideInInspector]
+    public float[] _lastTimeUsed;
     private bool _combo1 = false;
     private bool _combo2 = false;
 

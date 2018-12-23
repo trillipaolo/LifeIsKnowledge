@@ -136322,6 +136322,31 @@ Prefab:
       propertyPath: m_LocalPosition.y
       value: -0.43
       objectReference: {fileID: 0}
+    - target: {fileID: 114898536288765536, guid: 9bd1e8722fd92804281be6e3a614f800,
+        type: 2}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 1495626968}
+    - target: {fileID: 114931401231629206, guid: 9bd1e8722fd92804281be6e3a614f800,
+        type: 2}
+      propertyPath: comboMenu
+      value: 
+      objectReference: {fileID: 1572688968}
+    - target: {fileID: 114931401231629206, guid: 9bd1e8722fd92804281be6e3a614f800,
+        type: 2}
+      propertyPath: background
+      value: 
+      objectReference: {fileID: 1022453128}
+    - target: {fileID: 114931401231629206, guid: 9bd1e8722fd92804281be6e3a614f800,
+        type: 2}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 1495626968}
+    - target: {fileID: 114931401231629206, guid: 9bd1e8722fd92804281be6e3a614f800,
+        type: 2}
+      propertyPath: minimap
+      value: 
+      objectReference: {fileID: 1487536064}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bd1e8722fd92804281be6e3a614f800, type: 2}
   m_IsPrefabAsset: 0

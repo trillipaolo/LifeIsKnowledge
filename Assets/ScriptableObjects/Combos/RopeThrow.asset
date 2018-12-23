@@ -30,3 +30,4 @@ MonoBehaviour:
   damage:
   - 40
   - 80
+  cooldownImage: {fileID: 21300010, guid: 40b569acccfbbf7488ce90622a937f10, type: 3}

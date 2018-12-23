@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [CreateAssetMenu(menuName = "ScriptableObjects/Combo")]
 public class Combo : ScriptableObject {
@@ -43,6 +44,9 @@ public class Combo : ScriptableObject {
     public EnumCombo enumCombo;
     public float cooldown;
     public float[] damage;
+
+    [Header("Combo Cooldown Image")]
+    public Sprite cooldownImage;
 
     public void InitializeDamage() {
         switch (enumCombo) {

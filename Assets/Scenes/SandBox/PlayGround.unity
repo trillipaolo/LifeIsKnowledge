@@ -25665,6 +25665,10 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1654073534486682, guid: 8c4cec3a9dccb524ba9bec098e74d4a2, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c4cec3a9dccb524ba9bec098e74d4a2, type: 2}
   m_IsPrefabAsset: 0
@@ -36053,6 +36057,16 @@ Prefab:
       value: 
       objectReference: {fileID: 11400000, guid: b6cbc4cad0220284cb960ed35a592ad6,
         type: 2}
+    - target: {fileID: 114898536288765536, guid: 9bd1e8722fd92804281be6e3a614f800,
+        type: 2}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 1992274303}
+    - target: {fileID: 114898536288765536, guid: 9bd1e8722fd92804281be6e3a614f800,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bd1e8722fd92804281be6e3a614f800, type: 2}
   m_IsPrefabAsset: 0
