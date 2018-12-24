@@ -17,5 +17,6 @@ public class BasicAttack : ScriptableObject {
         damage[(int)EnumBasicAttack.DOWNTOP] = 40;
         damage[(int)EnumBasicAttack.DOWNMIDDLE] = 55;
         damage[(int)EnumBasicAttack.DOWNDOWN] = 100;
+        damage[(int)EnumBasicAttack.JUMP] = 30;
     }
 }

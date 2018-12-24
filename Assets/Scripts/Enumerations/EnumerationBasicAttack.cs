@@ -12,7 +12,8 @@ public enum EnumBasicAttack {
     MIDDLEDOWN = 5,
     DOWNTOP = 6,
     DOWNMIDDLE = 7,
-    DOWNDOWN = 8
+    DOWNDOWN = 8,
+    JUMP = 9
 }
 
 public static class EnumerationBasicAttack {

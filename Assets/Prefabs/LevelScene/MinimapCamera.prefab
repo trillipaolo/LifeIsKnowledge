@@ -9,19 +9,18 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1525912745821440}
+  m_RootGameObject: {fileID: 1429119694036748}
   m_IsPrefabAsset: 1
---- !u!1 &1525912745821440
+--- !u!1 &1429119694036748
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4320083332589052}
-  - component: {fileID: 20532582268192674}
-  - component: {fileID: 114046122955994986}
-  - component: {fileID: 114862216807528958}
+  - component: {fileID: 4895357822873434}
+  - component: {fileID: 20397308550541798}
+  - component: {fileID: 114912627993575574}
   m_Layer: 0
   m_Name: MinimapCamera
   m_TagString: Untagged
@@ -29,25 +28,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4320083332589052
+--- !u!4 &4895357822873434
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1525912745821440}
+  m_GameObject: {fileID: 1429119694036748}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 6.36, y: 3.38, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!20 &20532582268192674
+--- !u!20 &20397308550541798
 Camera:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1525912745821440}
+  m_GameObject: {fileID: 1429119694036748}
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
@@ -82,12 +81,12 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!114 &114046122955994986
+--- !u!114 &114912627993575574
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1525912745821440}
+  m_GameObject: {fileID: 1429119694036748}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dd6cf89164bb6c0408f8e8a4903958a1, type: 3}
@@ -100,20 +99,3 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 16777216
   cleanRadius: 14
---- !u!114 &114862216807528958
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1525912745821440}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d61d802a67edc1498d967550ea6e2ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  verticalOffset: 1
-  lookAheadDisntanceX: 2
-  lookSmoothTimeX: 0.5
-  verticalSmoothTime: 1
-  focusAreaSize: {x: 3, y: 5}

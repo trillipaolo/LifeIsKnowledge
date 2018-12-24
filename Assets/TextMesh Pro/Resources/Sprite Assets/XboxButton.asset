@@ -1,0 +1,234 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84a92b25f83d49b9bc132d206b370281, type: 3}
+  m_Name: XboxButton
+  m_EditorClassIdentifier: 
+  hashCode: 898008987
+  material: {fileID: 21558958347945016}
+  materialHashCode: 0
+  spriteSheet: {fileID: 2800000, guid: d977a80c49ba8234b9c49b45188cddcc, type: 3}
+  spriteInfoList:
+  - id: 0
+    x: 0
+    y: 64
+    width: 32
+    height: 32
+    xOffset: 0
+    yOffset: 32
+    xAdvance: 32
+    scale: 1
+    name: arrow
+    hashCode: 119075993
+    unicode: 720895
+    pivot: {x: 0.5, y: 0.5}
+    sprite: {fileID: 0}
+  - id: 1
+    x: 32
+    y: 64
+    width: 32
+    height: 32
+    xOffset: 0
+    yOffset: 32
+    xAdvance: 32
+    scale: 1
+    name: lpad
+    hashCode: 3797369
+    unicode: 65453
+    pivot: {x: 0.5, y: 0.5}
+    sprite: {fileID: 0}
+  - id: 2
+    x: 64
+    y: 64
+    width: 32
+    height: 32
+    xOffset: 0
+    yOffset: 32
+    xAdvance: 32
+    scale: 1
+    name: rpad
+    hashCode: 4117415
+    unicode: 65453
+    pivot: {x: 0.5, y: 0.5}
+    sprite: {fileID: 0}
+  - id: 3
+    x: 128
+    y: 64
+    width: 32
+    height: 32
+    xOffset: 0
+    yOffset: 32
+    xAdvance: 32
+    scale: 1
+    name: lt
+    hashCode: 3480
+    unicode: 255
+    pivot: {x: 0.5, y: 0.5}
+    sprite: {fileID: 0}
+  - id: 4
+    x: 96
+    y: 64
+    width: 32
+    height: 32
+    xOffset: 0
+    yOffset: 32
+    xAdvance: 32
+    scale: 1
+    name: rt
+    hashCode: 3782
+    unicode: 255
+    pivot: {x: 0.5, y: 0.5}
+    sprite: {fileID: 0}
+  - id: 5
+    x: 0
+    y: 32
+    width: 32
+    height: 32
+    xOffset: 0
+    yOffset: 24
+    xAdvance: 32
+    scale: 1
+    name: lb
+    hashCode: 3470
+    unicode: 251
+    pivot: {x: 0.5, y: 0.5}
+    sprite: {fileID: 0}
+  - id: 6
+    x: 32
+    y: 32
+    width: 32
+    height: 32
+    xOffset: 0
+    yOffset: 24
+    xAdvance: 32
+    scale: 1
+    name: rb
+    hashCode: 3792
+    unicode: 251
+    pivot: {x: 0.5, y: 0.5}
+    sprite: {fileID: 0}
+  - id: 7
+    x: 64
+    y: 32
+    width: 32
+    height: 32
+    xOffset: 0
+    yOffset: 24
+    xAdvance: 32
+    scale: 1
+    name: back
+    hashCode: 3558699
+    unicode: 47823
+    pivot: {x: 0.5, y: 0.5}
+    sprite: {fileID: 0}
+  - id: 8
+    x: 96
+    y: 32
+    width: 32
+    height: 32
+    xOffset: 0
+    yOffset: 24
+    xAdvance: 32
+    scale: 1
+    name: start
+    hashCode: 134904608
+    unicode: 1047295
+    pivot: {x: 0.5, y: 0.5}
+    sprite: {fileID: 0}
+  - id: 9
+    x: 0
+    y: 0
+    width: 32
+    height: 32
+    xOffset: 0
+    yOffset: 32
+    xAdvance: 32
+    scale: 1
+    name: a
+    hashCode: 97
+    unicode: 10
+    pivot: {x: 0.5, y: 0.5}
+    sprite: {fileID: 0}
+  - id: 10
+    x: 32
+    y: 0
+    width: 32
+    height: 32
+    xOffset: 0
+    yOffset: 32
+    xAdvance: 32
+    scale: 1
+    name: b
+    hashCode: 98
+    unicode: 11
+    pivot: {x: 0.5, y: 0.5}
+    sprite: {fileID: 0}
+  - id: 11
+    x: 64
+    y: 0
+    width: 32
+    height: 32
+    xOffset: 0
+    yOffset: 32
+    xAdvance: 32
+    scale: 1
+    name: x
+    hashCode: 120
+    unicode: 15
+    pivot: {x: 0.5, y: 0.5}
+    sprite: {fileID: 0}
+  - id: 12
+    x: 96
+    y: 0
+    width: 32
+    height: 32
+    xOffset: 0
+    yOffset: 32
+    xAdvance: 32
+    scale: 1
+    name: y
+    hashCode: 121
+    unicode: 15
+    pivot: {x: 0.5, y: 0.5}
+    sprite: {fileID: 0}
+  fallbackSpriteAssets: []
+--- !u!21 &21558958347945016
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: TextMeshPro/Sprite
+  m_Shader: {fileID: 4800000, guid: cf81c85f95fe47e1a27f6ae460cf182c, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: d977a80c49ba8234b9c49b45188cddcc, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _ColorMask: 15
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseUIAlphaClip: 0
+    m_Colors:
+    - _ClipRect: {r: -32767, g: -32767, b: 32767, a: 32767}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
