@@ -45,7 +45,7 @@ public class CooldownComboScript : MonoBehaviour {
         float offset = (xDistance.Length % 2) == 0 ? 0 : -_canvasDistance/2;
         for(int i = 0; i < xDistance.Length; i++) {
             float temp = i - Mathf.Floor(xDistance.Length / 2);
-            xDistance[i] = _canvasDistance * temp;
+            xDistance[i] = offset + _canvasDistance * temp;
         }
 
         // add new cooldownPrefabs
@@ -58,8 +58,10 @@ public class CooldownComboScript : MonoBehaviour {
 
             // set the position
             _canvasCooldowns[i].GetComponent<RectTransform>().localPosition = new Vector2(xDistance[i],0);
-            // set the image
+            // set the combo image
             _canvasCooldowns[i].transform.Find("ComboTile").GetComponent<Image>().sprite = _attack.joelCombos.combos[i].cooldownImage;
+            // set the button image
+            _canvasCooldowns[i].transform.Find("FirstKey").GetComponent<Image>().sprite = _attack.joelCombos.combos[i].cooldownKey;
 
             // set reference to rotating cooldown
             _unlocking[i] = _canvasCooldowns[i].transform.Find("Unlocking").GetComponent<Image>();

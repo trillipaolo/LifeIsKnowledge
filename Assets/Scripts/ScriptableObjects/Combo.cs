@@ -47,6 +47,7 @@ public class Combo : ScriptableObject {
 
     [Header("Combo Cooldown Image")]
     public Sprite cooldownImage;
+    public Sprite cooldownKey;
 
     public void InitializeDamage() {
         switch (enumCombo) {

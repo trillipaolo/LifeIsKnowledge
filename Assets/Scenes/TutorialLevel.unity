@@ -136347,6 +136347,11 @@ Prefab:
       propertyPath: minimap
       value: 
       objectReference: {fileID: 1487536064}
+    - target: {fileID: 114068633684816966, guid: 9bd1e8722fd92804281be6e3a614f800,
+        type: 2}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 1319184847}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bd1e8722fd92804281be6e3a614f800, type: 2}
   m_IsPrefabAsset: 0

@@ -31,3 +31,4 @@ MonoBehaviour:
   - 40
   - 80
   cooldownImage: {fileID: 21300010, guid: 40b569acccfbbf7488ce90622a937f10, type: 3}
+  cooldownKey: {fileID: 21300004, guid: e9a2bc93fc6da0b4dba52717f9a770e8, type: 3}
