@@ -79,11 +79,11 @@ public class EnemyBehaviour : MonoBehaviour{
 
     public float ComputeDamage(float baseDamage, float multiplier, bool unique) {
         if (multiplier > 0 && unique) {
-            return baseDamage + baseDamage * multiplier;
+            return Mathf.Floor(baseDamage + baseDamage * multiplier);
         } else if (multiplier < 0) {
-            return Mathf.Max(0, baseDamage + baseDamage * multiplier);
+            return Mathf.Floor(Mathf.Max(0, baseDamage + baseDamage * multiplier));
         } else {
-            return baseDamage;
+            return Mathf.Floor(baseDamage);
         }
     }
 

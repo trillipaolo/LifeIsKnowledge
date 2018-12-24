@@ -646,7 +646,7 @@ MonoBehaviour:
   maxFrames: 21
   maxDistance: 5.28
   rollingSpeed: 25
-  rollColdownTime: 1
+  rollColdownTime: 0.8
   coolDown: {fileID: 1132810735227494, guid: 91f3aa74bbc1e904da720be58b5a7838, type: 2}
   canvas: {fileID: 0}
   rollSound: Roll
