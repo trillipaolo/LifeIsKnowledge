@@ -871,10 +871,10 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Press B to attack down!
+  m_text: Press <sprite=10> to attack down!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0e3808399be045a459bf0b31073655fe, type: 2}
-  m_sharedMaterial: {fileID: 21136784404628198, guid: 0e3808399be045a459bf0b31073655fe,
+  m_fontAsset: {fileID: 11400000, guid: f32fa79b6fe15c64184a48f888ca0879, type: 2}
+  m_sharedMaterial: {fileID: 21724742028793196, guid: f32fa79b6fe15c64184a48f888ca0879,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -890,7 +890,7 @@ MonoBehaviour:
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
+  m_spriteAsset: {fileID: 11400000, guid: f013ed586b2773a419a52bdf1f0564d6, type: 2}
   m_tintAllSprites: 0
   m_overrideHtmlColors: 0
   m_faceColor:
@@ -943,11 +943,11 @@ MonoBehaviour:
     characterCount: 23
     spriteCount: 0
     spaceCount: 4
-    wordCount: 5
+    wordCount: 4
     linkCount: 0
     lineCount: 1
     pageCount: 1
-    materialCount: 1
+    materialCount: 2
   m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -984,7 +984,7 @@ GameObject:
   - component: {fileID: 341131479}
   - component: {fileID: 341131478}
   m_Layer: 0
-  m_Name: TMP SubMeshUI [5X5-B___ SDF_FA(missing) Material + LiberationSans SDF Atlas]
+  m_Name: TMP SubMeshUI [TextMeshPro/Sprite]
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1019,7 +1019,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 058cba836c1846c3aa1c5fd2e28aea77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 21558958347945016, guid: f013ed586b2773a419a52bdf1f0564d6,
+    type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -1027,11 +1028,12 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_spriteAsset: {fileID: 0}
+  m_fontAsset: {fileID: 11400000, guid: f32fa79b6fe15c64184a48f888ca0879, type: 2}
+  m_spriteAsset: {fileID: 11400000, guid: f013ed586b2773a419a52bdf1f0564d6, type: 2}
   m_material: {fileID: 0}
-  m_sharedMaterial: {fileID: 0}
-  m_isDefaultMaterial: 0
+  m_sharedMaterial: {fileID: 21558958347945016, guid: f013ed586b2773a419a52bdf1f0564d6,
+    type: 2}
+  m_isDefaultMaterial: 1
   m_padding: 0
   m_canvasRenderer: {fileID: 341131479}
   m_TextComponent: {fileID: 333078984}
@@ -1160,12 +1162,12 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: 'Press LB or RB to ROLL
+  m_text: 'Press <sprite=5> or <sprite=6> to ROLL
 
     and avoid damage!'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0e3808399be045a459bf0b31073655fe, type: 2}
-  m_sharedMaterial: {fileID: 21136784404628198, guid: 0e3808399be045a459bf0b31073655fe,
+  m_fontAsset: {fileID: 11400000, guid: f32fa79b6fe15c64184a48f888ca0879, type: 2}
+  m_sharedMaterial: {fileID: 21724742028793196, guid: f32fa79b6fe15c64184a48f888ca0879,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1181,7 +1183,7 @@ MonoBehaviour:
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
+  m_spriteAsset: {fileID: 11400000, guid: f013ed586b2773a419a52bdf1f0564d6, type: 2}
   m_tintAllSprites: 0
   m_overrideHtmlColors: 0
   m_faceColor:
@@ -1231,14 +1233,14 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 365828009}
-    characterCount: 40
+    characterCount: 38
     spriteCount: 0
     spaceCount: 8
-    wordCount: 9
+    wordCount: 7
     linkCount: 0
     lineCount: 2
     pageCount: 1
-    materialCount: 1
+    materialCount: 2
   m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -40424,10 +40426,10 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Use LEFT STICK to MOVE!
+  m_text: 'Use <sprite=1> to MOVE! '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0e3808399be045a459bf0b31073655fe, type: 2}
-  m_sharedMaterial: {fileID: 21136784404628198, guid: 0e3808399be045a459bf0b31073655fe,
+  m_fontAsset: {fileID: 11400000, guid: f32fa79b6fe15c64184a48f888ca0879, type: 2}
+  m_sharedMaterial: {fileID: 21724742028793196, guid: f32fa79b6fe15c64184a48f888ca0879,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -40443,7 +40445,7 @@ MonoBehaviour:
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
+  m_spriteAsset: {fileID: 11400000, guid: f013ed586b2773a419a52bdf1f0564d6, type: 2}
   m_tintAllSprites: 0
   m_overrideHtmlColors: 0
   m_faceColor:
@@ -40493,14 +40495,14 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 445960605}
-    characterCount: 23
+    characterCount: 15
     spriteCount: 0
     spaceCount: 4
-    wordCount: 5
+    wordCount: 3
     linkCount: 0
     lineCount: 1
     pageCount: 1
-    materialCount: 1
+    materialCount: 2
   m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -41558,7 +41560,7 @@ GameObject:
   - component: {fileID: 596110267}
   - component: {fileID: 596110266}
   m_Layer: 0
-  m_Name: TMP SubMeshUI [AGENCYR SDF_FA Material + LiberationSans SDF Atlas]
+  m_Name: TMP SubMeshUI [TextMeshPro/Sprite]
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41593,7 +41595,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 058cba836c1846c3aa1c5fd2e28aea77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 21558958347945016, guid: f013ed586b2773a419a52bdf1f0564d6,
+    type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -41601,12 +41604,13 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_spriteAsset: {fileID: 0}
+  m_fontAsset: {fileID: 11400000, guid: f32fa79b6fe15c64184a48f888ca0879, type: 2}
+  m_spriteAsset: {fileID: 11400000, guid: f013ed586b2773a419a52bdf1f0564d6, type: 2}
   m_material: {fileID: 0}
-  m_sharedMaterial: {fileID: 0}
-  m_isDefaultMaterial: 0
-  m_padding: 7.8125
+  m_sharedMaterial: {fileID: 21558958347945016, guid: f013ed586b2773a419a52bdf1f0564d6,
+    type: 2}
+  m_isDefaultMaterial: 1
+  m_padding: 0
   m_canvasRenderer: {fileID: 596110267}
   m_TextComponent: {fileID: 365828009}
   m_materialReferenceIndex: 1
@@ -41674,8 +41678,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Combine ROLL and JUMP to make a LOOONGJUMP!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0e3808399be045a459bf0b31073655fe, type: 2}
-  m_sharedMaterial: {fileID: 21136784404628198, guid: 0e3808399be045a459bf0b31073655fe,
+  m_fontAsset: {fileID: 11400000, guid: f32fa79b6fe15c64184a48f888ca0879, type: 2}
+  m_sharedMaterial: {fileID: 21724742028793196, guid: f32fa79b6fe15c64184a48f888ca0879,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -41691,7 +41695,7 @@ MonoBehaviour:
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
+  m_spriteAsset: {fileID: 11400000, guid: f013ed586b2773a419a52bdf1f0564d6, type: 2}
   m_tintAllSprites: 0
   m_overrideHtmlColors: 0
   m_faceColor:
@@ -41872,7 +41876,7 @@ GameObject:
   - component: {fileID: 687173857}
   - component: {fileID: 687173856}
   m_Layer: 0
-  m_Name: TMP SubMeshUI [5X5-B___ SDF_FA(missing) Material + LiberationSans SDF Atlas]
+  m_Name: TMP SubMeshUI [TextMeshPro/Sprite]
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41907,7 +41911,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 058cba836c1846c3aa1c5fd2e28aea77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 21558958347945016, guid: f013ed586b2773a419a52bdf1f0564d6,
+    type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -41915,11 +41920,12 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_spriteAsset: {fileID: 0}
+  m_fontAsset: {fileID: 11400000, guid: f32fa79b6fe15c64184a48f888ca0879, type: 2}
+  m_spriteAsset: {fileID: 11400000, guid: f013ed586b2773a419a52bdf1f0564d6, type: 2}
   m_material: {fileID: 0}
-  m_sharedMaterial: {fileID: 0}
-  m_isDefaultMaterial: 0
+  m_sharedMaterial: {fileID: 21558958347945016, guid: f013ed586b2773a419a52bdf1f0564d6,
+    type: 2}
+  m_isDefaultMaterial: 1
   m_padding: 0
   m_canvasRenderer: {fileID: 687173857}
   m_TextComponent: {fileID: 1344428641}
@@ -42204,7 +42210,7 @@ GameObject:
   - component: {fileID: 747475870}
   - component: {fileID: 747475869}
   m_Layer: 0
-  m_Name: TMP SubMeshUI [5X5-B___ SDF_FA(missing) Material + LiberationSans SDF Atlas]
+  m_Name: TMP SubMeshUI [TextMeshPro/Sprite]
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42239,7 +42245,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 058cba836c1846c3aa1c5fd2e28aea77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 21558958347945016, guid: f013ed586b2773a419a52bdf1f0564d6,
+    type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -42247,11 +42254,12 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_spriteAsset: {fileID: 0}
+  m_fontAsset: {fileID: 11400000, guid: f32fa79b6fe15c64184a48f888ca0879, type: 2}
+  m_spriteAsset: {fileID: 11400000, guid: f013ed586b2773a419a52bdf1f0564d6, type: 2}
   m_material: {fileID: 0}
-  m_sharedMaterial: {fileID: 0}
-  m_isDefaultMaterial: 0
+  m_sharedMaterial: {fileID: 21558958347945016, guid: f013ed586b2773a419a52bdf1f0564d6,
+    type: 2}
+  m_isDefaultMaterial: 1
   m_padding: 0
   m_canvasRenderer: {fileID: 747475870}
   m_TextComponent: {fileID: 1056110931}
@@ -42377,8 +42385,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Try different combinations of attacks and see where you can do damage!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0e3808399be045a459bf0b31073655fe, type: 2}
-  m_sharedMaterial: {fileID: 21136784404628198, guid: 0e3808399be045a459bf0b31073655fe,
+  m_fontAsset: {fileID: 11400000, guid: f32fa79b6fe15c64184a48f888ca0879, type: 2}
+  m_sharedMaterial: {fileID: 21724742028793196, guid: f32fa79b6fe15c64184a48f888ca0879,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -42394,7 +42402,7 @@ MonoBehaviour:
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
+  m_spriteAsset: {fileID: 11400000, guid: f013ed586b2773a419a52bdf1f0564d6, type: 2}
   m_tintAllSprites: 0
   m_overrideHtmlColors: 0
   m_faceColor:
@@ -42449,7 +42457,7 @@ MonoBehaviour:
     spaceCount: 11
     wordCount: 12
     linkCount: 0
-    lineCount: 2
+    lineCount: 3
     pageCount: 1
     materialCount: 1
   m_havePropertiesChanged: 0
@@ -43746,10 +43754,10 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Press X to attack!
+  m_text: Press <sprite=11> to attack!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0e3808399be045a459bf0b31073655fe, type: 2}
-  m_sharedMaterial: {fileID: 21136784404628198, guid: 0e3808399be045a459bf0b31073655fe,
+  m_fontAsset: {fileID: 11400000, guid: f32fa79b6fe15c64184a48f888ca0879, type: 2}
+  m_sharedMaterial: {fileID: 21724742028793196, guid: f32fa79b6fe15c64184a48f888ca0879,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -43765,7 +43773,7 @@ MonoBehaviour:
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
+  m_spriteAsset: {fileID: 11400000, guid: f013ed586b2773a419a52bdf1f0564d6, type: 2}
   m_tintAllSprites: 0
   m_overrideHtmlColors: 0
   m_faceColor:
@@ -43818,11 +43826,11 @@ MonoBehaviour:
     characterCount: 18
     spriteCount: 0
     spaceCount: 3
-    wordCount: 4
+    wordCount: 3
     linkCount: 0
     lineCount: 1
     pageCount: 1
-    materialCount: 1
+    materialCount: 2
   m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -43907,8 +43915,8 @@ MonoBehaviour:
 
     You have earned the Movement Diploma, you should be proud of yourself ;)'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0e3808399be045a459bf0b31073655fe, type: 2}
-  m_sharedMaterial: {fileID: 21136784404628198, guid: 0e3808399be045a459bf0b31073655fe,
+  m_fontAsset: {fileID: 11400000, guid: f32fa79b6fe15c64184a48f888ca0879, type: 2}
+  m_sharedMaterial: {fileID: 21724742028793196, guid: f32fa79b6fe15c64184a48f888ca0879,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -43924,7 +43932,7 @@ MonoBehaviour:
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
+  m_spriteAsset: {fileID: 11400000, guid: f013ed586b2773a419a52bdf1f0564d6, type: 2}
   m_tintAllSprites: 0
   m_overrideHtmlColors: 0
   m_faceColor:
@@ -43979,7 +43987,7 @@ MonoBehaviour:
     spaceCount: 13
     wordCount: 13
     linkCount: 0
-    lineCount: 3
+    lineCount: 4
     pageCount: 1
     materialCount: 1
   m_havePropertiesChanged: 0
@@ -44064,8 +44072,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Press MORE to jump MORE!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0e3808399be045a459bf0b31073655fe, type: 2}
-  m_sharedMaterial: {fileID: 21136784404628198, guid: 0e3808399be045a459bf0b31073655fe,
+  m_fontAsset: {fileID: 11400000, guid: f32fa79b6fe15c64184a48f888ca0879, type: 2}
+  m_sharedMaterial: {fileID: 21724742028793196, guid: f32fa79b6fe15c64184a48f888ca0879,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -44081,7 +44089,7 @@ MonoBehaviour:
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
+  m_spriteAsset: {fileID: 11400000, guid: f013ed586b2773a419a52bdf1f0564d6, type: 2}
   m_tintAllSprites: 0
   m_overrideHtmlColors: 0
   m_faceColor:
@@ -44175,7 +44183,7 @@ GameObject:
   - component: {fileID: 1129234662}
   - component: {fileID: 1129234661}
   m_Layer: 0
-  m_Name: TMP SubMeshUI [5X5-B___ SDF_FA(missing) Material + LiberationSans SDF Atlas]
+  m_Name: TMP SubMeshUI [TextMeshPro/Sprite]
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44210,7 +44218,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 058cba836c1846c3aa1c5fd2e28aea77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 21558958347945016, guid: f013ed586b2773a419a52bdf1f0564d6,
+    type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -44218,11 +44227,12 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_spriteAsset: {fileID: 0}
+  m_fontAsset: {fileID: 11400000, guid: f32fa79b6fe15c64184a48f888ca0879, type: 2}
+  m_spriteAsset: {fileID: 11400000, guid: f013ed586b2773a419a52bdf1f0564d6, type: 2}
   m_material: {fileID: 0}
-  m_sharedMaterial: {fileID: 0}
-  m_isDefaultMaterial: 0
+  m_sharedMaterial: {fileID: 21558958347945016, guid: f013ed586b2773a419a52bdf1f0564d6,
+    type: 2}
+  m_isDefaultMaterial: 1
   m_padding: 0
   m_canvasRenderer: {fileID: 1129234662}
   m_TextComponent: {fileID: 445960605}
@@ -44396,8 +44406,8 @@ MonoBehaviour:
 
     THIS IS A PRIVATE AREA!'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0e3808399be045a459bf0b31073655fe, type: 2}
-  m_sharedMaterial: {fileID: 21136784404628198, guid: 0e3808399be045a459bf0b31073655fe,
+  m_fontAsset: {fileID: 11400000, guid: f32fa79b6fe15c64184a48f888ca0879, type: 2}
+  m_sharedMaterial: {fileID: 21724742028793196, guid: f32fa79b6fe15c64184a48f888ca0879,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -44413,7 +44423,7 @@ MonoBehaviour:
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
+  m_spriteAsset: {fileID: 11400000, guid: f013ed586b2773a419a52bdf1f0564d6, type: 2}
   m_tintAllSprites: 0
   m_overrideHtmlColors: 0
   m_faceColor:
@@ -44551,10 +44561,10 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Press Y to attack up!
+  m_text: Press <sprite=12> to attack up!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0e3808399be045a459bf0b31073655fe, type: 2}
-  m_sharedMaterial: {fileID: 21136784404628198, guid: 0e3808399be045a459bf0b31073655fe,
+  m_fontAsset: {fileID: 11400000, guid: f32fa79b6fe15c64184a48f888ca0879, type: 2}
+  m_sharedMaterial: {fileID: 21724742028793196, guid: f32fa79b6fe15c64184a48f888ca0879,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -44570,7 +44580,7 @@ MonoBehaviour:
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
+  m_spriteAsset: {fileID: 11400000, guid: f013ed586b2773a419a52bdf1f0564d6, type: 2}
   m_tintAllSprites: 0
   m_overrideHtmlColors: 0
   m_faceColor:
@@ -44623,11 +44633,11 @@ MonoBehaviour:
     characterCount: 21
     spriteCount: 0
     spaceCount: 4
-    wordCount: 5
+    wordCount: 4
     linkCount: 0
     lineCount: 1
     pageCount: 1
-    materialCount: 1
+    materialCount: 2
   m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -44903,8 +44913,8 @@ MonoBehaviour:
 
     End the tutorial by going upstairs'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0e3808399be045a459bf0b31073655fe, type: 2}
-  m_sharedMaterial: {fileID: 21136784404628198, guid: 0e3808399be045a459bf0b31073655fe,
+  m_fontAsset: {fileID: 11400000, guid: f32fa79b6fe15c64184a48f888ca0879, type: 2}
+  m_sharedMaterial: {fileID: 21724742028793196, guid: f32fa79b6fe15c64184a48f888ca0879,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -44920,7 +44930,7 @@ MonoBehaviour:
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
+  m_spriteAsset: {fileID: 11400000, guid: f013ed586b2773a419a52bdf1f0564d6, type: 2}
   m_tintAllSprites: 0
   m_overrideHtmlColors: 0
   m_faceColor:
@@ -45089,10 +45099,10 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Press START to open the COMBO MENU
+  m_text: Press <sprite=8> to open the COMBO MENU
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0e3808399be045a459bf0b31073655fe, type: 2}
-  m_sharedMaterial: {fileID: 21136784404628198, guid: 0e3808399be045a459bf0b31073655fe,
+  m_fontAsset: {fileID: 11400000, guid: f32fa79b6fe15c64184a48f888ca0879, type: 2}
+  m_sharedMaterial: {fileID: 21724742028793196, guid: f32fa79b6fe15c64184a48f888ca0879,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -45108,7 +45118,7 @@ MonoBehaviour:
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
+  m_spriteAsset: {fileID: 11400000, guid: f013ed586b2773a419a52bdf1f0564d6, type: 2}
   m_tintAllSprites: 0
   m_overrideHtmlColors: 0
   m_faceColor:
@@ -45158,14 +45168,14 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 4.143097, w: 0}
   m_textInfo:
     textComponent: {fileID: 1344428641}
-    characterCount: 34
+    characterCount: 30
     spriteCount: 0
     spaceCount: 6
-    wordCount: 7
+    wordCount: 6
     linkCount: 0
     lineCount: 2
     pageCount: 1
-    materialCount: 1
+    materialCount: 2
   m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -45202,7 +45212,7 @@ GameObject:
   - component: {fileID: 1347368953}
   - component: {fileID: 1347368952}
   m_Layer: 0
-  m_Name: TMP SubMeshUI [5X5-B___ SDF_FA(missing) Material + LiberationSans SDF Atlas]
+  m_Name: TMP SubMeshUI [TextMeshPro/Sprite]
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45237,7 +45247,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 058cba836c1846c3aa1c5fd2e28aea77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 21558958347945016, guid: f013ed586b2773a419a52bdf1f0564d6,
+    type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -45245,11 +45256,12 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_spriteAsset: {fileID: 0}
+  m_fontAsset: {fileID: 11400000, guid: f32fa79b6fe15c64184a48f888ca0879, type: 2}
+  m_spriteAsset: {fileID: 11400000, guid: f013ed586b2773a419a52bdf1f0564d6, type: 2}
   m_material: {fileID: 0}
-  m_sharedMaterial: {fileID: 0}
-  m_isDefaultMaterial: 0
+  m_sharedMaterial: {fileID: 21558958347945016, guid: f013ed586b2773a419a52bdf1f0564d6,
+    type: 2}
+  m_isDefaultMaterial: 1
   m_padding: 0
   m_canvasRenderer: {fileID: 1347368953}
   m_TextComponent: {fileID: 1375859503}
@@ -45316,10 +45328,10 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Press LT and X more times for a combo!
+  m_text: Press <sprite=3> and <sprite=11> more times for a combo!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0e3808399be045a459bf0b31073655fe, type: 2}
-  m_sharedMaterial: {fileID: 21136784404628198, guid: 0e3808399be045a459bf0b31073655fe,
+  m_fontAsset: {fileID: 11400000, guid: f32fa79b6fe15c64184a48f888ca0879, type: 2}
+  m_sharedMaterial: {fileID: 21724742028793196, guid: f32fa79b6fe15c64184a48f888ca0879,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -45335,7 +45347,7 @@ MonoBehaviour:
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
+  m_spriteAsset: {fileID: 11400000, guid: f013ed586b2773a419a52bdf1f0564d6, type: 2}
   m_tintAllSprites: 0
   m_overrideHtmlColors: 0
   m_faceColor:
@@ -45385,14 +45397,14 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: -0.7714844, w: 0}
   m_textInfo:
     textComponent: {fileID: 1375859503}
-    characterCount: 38
+    characterCount: 37
     spriteCount: 0
     spaceCount: 8
-    wordCount: 9
+    wordCount: 7
     linkCount: 0
-    lineCount: 1
+    lineCount: 2
     pageCount: 1
-    materialCount: 1
+    materialCount: 2
   m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -45476,7 +45488,7 @@ GameObject:
   - component: {fileID: 1393046884}
   - component: {fileID: 1393046883}
   m_Layer: 0
-  m_Name: TMP SubMeshUI [5X5-B___ SDF_FA(missing) Material + LiberationSans SDF Atlas]
+  m_Name: TMP SubMeshUI [TextMeshPro/Sprite]
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45511,7 +45523,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 058cba836c1846c3aa1c5fd2e28aea77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 21558958347945016, guid: f013ed586b2773a419a52bdf1f0564d6,
+    type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -45519,11 +45532,12 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_spriteAsset: {fileID: 0}
+  m_fontAsset: {fileID: 11400000, guid: f32fa79b6fe15c64184a48f888ca0879, type: 2}
+  m_spriteAsset: {fileID: 11400000, guid: f013ed586b2773a419a52bdf1f0564d6, type: 2}
   m_material: {fileID: 0}
-  m_sharedMaterial: {fileID: 0}
-  m_isDefaultMaterial: 0
+  m_sharedMaterial: {fileID: 21558958347945016, guid: f013ed586b2773a419a52bdf1f0564d6,
+    type: 2}
+  m_isDefaultMaterial: 1
   m_padding: 0
   m_canvasRenderer: {fileID: 1393046884}
   m_TextComponent: {fileID: 1907555368}
@@ -45546,7 +45560,7 @@ GameObject:
   - component: {fileID: 1412262081}
   - component: {fileID: 1412262080}
   m_Layer: 0
-  m_Name: TMP SubMeshUI [5X5-B___ SDF_FA(missing) Material + LiberationSans SDF Atlas]
+  m_Name: TMP SubMeshUI [TextMeshPro/Sprite]
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45581,7 +45595,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 058cba836c1846c3aa1c5fd2e28aea77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 21558958347945016, guid: f013ed586b2773a419a52bdf1f0564d6,
+    type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
@@ -45589,11 +45604,12 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_spriteAsset: {fileID: 0}
+  m_fontAsset: {fileID: 11400000, guid: f32fa79b6fe15c64184a48f888ca0879, type: 2}
+  m_spriteAsset: {fileID: 11400000, guid: f013ed586b2773a419a52bdf1f0564d6, type: 2}
   m_material: {fileID: 0}
-  m_sharedMaterial: {fileID: 0}
-  m_isDefaultMaterial: 0
+  m_sharedMaterial: {fileID: 21558958347945016, guid: f013ed586b2773a419a52bdf1f0564d6,
+    type: 2}
+  m_isDefaultMaterial: 1
   m_padding: 0
   m_canvasRenderer: {fileID: 1412262081}
   m_TextComponent: {fileID: 1220233947}
@@ -45662,8 +45678,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Press UP ARROW to go throw DOORS!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0e3808399be045a459bf0b31073655fe, type: 2}
-  m_sharedMaterial: {fileID: 21136784404628198, guid: 0e3808399be045a459bf0b31073655fe,
+  m_fontAsset: {fileID: 11400000, guid: f32fa79b6fe15c64184a48f888ca0879, type: 2}
+  m_sharedMaterial: {fileID: 21724742028793196, guid: f32fa79b6fe15c64184a48f888ca0879,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -45679,7 +45695,7 @@ MonoBehaviour:
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
+  m_spriteAsset: {fileID: 11400000, guid: f013ed586b2773a419a52bdf1f0564d6, type: 2}
   m_tintAllSprites: 0
   m_overrideHtmlColors: 0
   m_faceColor:
@@ -135937,12 +135953,12 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: 'Press A to JUMP!
+  m_text: 'Press <sprite=9> to JUMP!
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0e3808399be045a459bf0b31073655fe, type: 2}
-  m_sharedMaterial: {fileID: 21136784404628198, guid: 0e3808399be045a459bf0b31073655fe,
+  m_fontAsset: {fileID: 11400000, guid: f32fa79b6fe15c64184a48f888ca0879, type: 2}
+  m_sharedMaterial: {fileID: 21724742028793196, guid: f32fa79b6fe15c64184a48f888ca0879,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -135958,7 +135974,7 @@ MonoBehaviour:
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
+  m_spriteAsset: {fileID: 11400000, guid: f013ed586b2773a419a52bdf1f0564d6, type: 2}
   m_tintAllSprites: 0
   m_overrideHtmlColors: 0
   m_faceColor:
@@ -136011,11 +136027,11 @@ MonoBehaviour:
     characterCount: 17
     spriteCount: 0
     spaceCount: 4
-    wordCount: 4
+    wordCount: 3
     linkCount: 0
     lineCount: 1
     pageCount: 1
-    materialCount: 1
+    materialCount: 2
   m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -136531,8 +136547,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: Press UP ARROW to go throw DOORS..
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0e3808399be045a459bf0b31073655fe, type: 2}
-  m_sharedMaterial: {fileID: 21136784404628198, guid: 0e3808399be045a459bf0b31073655fe,
+  m_fontAsset: {fileID: 11400000, guid: f32fa79b6fe15c64184a48f888ca0879, type: 2}
+  m_sharedMaterial: {fileID: 21724742028793196, guid: f32fa79b6fe15c64184a48f888ca0879,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -136548,7 +136564,7 @@ MonoBehaviour:
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
   m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
+  m_spriteAsset: {fileID: 11400000, guid: f013ed586b2773a419a52bdf1f0564d6, type: 2}
   m_tintAllSprites: 0
   m_overrideHtmlColors: 0
   m_faceColor:
@@ -136603,7 +136619,7 @@ MonoBehaviour:
     spaceCount: 6
     wordCount: 7
     linkCount: 0
-    lineCount: 2
+    lineCount: 3
     pageCount: 1
     materialCount: 1
   m_havePropertiesChanged: 0
