@@ -25,6 +25,8 @@ public class AudioManager : MonoBehaviour {
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
+
+            s.source.outputAudioMixerGroup = s.group;
         }
 	}
 
@@ -38,6 +40,8 @@ public class AudioManager : MonoBehaviour {
             Debug.LogWarning("Sound:" + name + "not found!");
             return;
         }
+        s.source.volume = s.volume * (1 + UnityEngine.Random.Range(-s.randomVolume / 2f, s.randomVolume / 2f));
+        s.source.pitch = s.pitch * (1 + UnityEngine.Random.Range(-s.randomPitch / 2f, s.randomPitch / 2f));
         s.source.Play();
     }
 
