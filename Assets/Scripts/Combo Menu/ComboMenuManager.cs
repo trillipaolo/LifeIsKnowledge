@@ -19,8 +19,14 @@ public class ComboMenuManager : MonoBehaviour {
     public GameObject menuCell;
     public int rows;
     public int coloumns;
+    [Tooltip("Offset between each cells in the grid - X Axis")]
     public float xOffset;
+    [Tooltip("Offset between each cells in the grid - Y Axis")]
     public float yOffset;
+    [Tooltip("Offset w.r.t the MainCamera - X Axis")]
+    public float xGlobalOffset;
+    [Tooltip("Offset w.r.t the MainCamera - Y Axis")]
+    public float yGlobalOffset;
 
     [Header("Reset Grid Status")]
     public bool reset;
@@ -246,24 +252,10 @@ public class ComboMenuManager : MonoBehaviour {
     {
         _menuGridCells = new ComboGridCell[rows, coloumns];
 
-        Vector3 cellOffset = menuCell.GetComponent<Transform>().position;
+        Vector3 cellsGlobalOffset = new Vector3(xGlobalOffset, yGlobalOffset, 0);
 
-        /*for(int i = 0; i < rows; i++)
-        {
-            for(int j = 0; j < coloumns; j++)
-            {
-                GameObject newGridCell = Instantiate(menuCell, cellOffset, new Quaternion(0, 0, 0, 0));
-                newGridCell.SetActive(true);
-                cellOffset += new Vector3(xOffset, 0, 0);
-                newGridCell.GetComponent<ComboGridCell>().target = mainCamera;
+        Vector3 cellOffset = mainCamera.position - cellsGlobalOffset;
 
-                _menuGridCells[i, j] = newGridCell.GetComponent<ComboGridCell>();
-            }
-
-            cellOffset += new Vector3(-xOffset * coloumns, -yOffset, 0);   
-        }*/
-
-        cellOffset = mainCamera.position - new Vector3(2.56f, 1.28f, 0);
         for (int i = 0; i < rows; i++)
         {
             for (int j = 0; j < coloumns; j++)
@@ -271,7 +263,6 @@ public class ComboMenuManager : MonoBehaviour {
                 GameObject newGridCell = Instantiate(menuCell, cellOffset + Vector3.forward*10, new Quaternion(0, 0, 0, 0));
                 newGridCell.SetActive(true);
                 cellOffset += new Vector3(-xOffset, 0, 0);
-                newGridCell.GetComponent<ComboGridCell>().target = mainCamera;
 
                 _menuGridCells[i, j] = newGridCell.GetComponent<ComboGridCell>();
             }

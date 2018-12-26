@@ -27,23 +27,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1089008233835992
-GameObject:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 224285701355000286}
-  - component: {fileID: 222404497222628126}
-  - component: {fileID: 114530306276472720}
-  m_Layer: 5
-  m_Name: Instructions
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1250005066545386
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,7 +274,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1615134984882184}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -639.75, y: 523.69, z: 0.484375}
+  m_LocalPosition: {x: -639.9, y: 528.06, z: 0.484375}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 4826209152846774}
@@ -369,6 +352,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  _occupied: 0
 --- !u!114 &114037625202310478
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -590,54 +574,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   comboMenuManager: {fileID: 114714103047614062}
---- !u!114 &114530306276472720
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1089008233835992}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 20
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 0
-    m_MaxSize: 40
-    m_Alignment: 0
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: 'How to use the menu:
-
-    1. Click on the combo you want to insert
-
-    2. Move the combo with the Arrow Keys
-
-    3. Rotate the combo with R
-
-    4. Insert the combo with Spacebar
-
-    5. REMEMBER: Push the Save button!
-
-    6. Close the menu with P
-
-
-    This menu is still a work in progress, sorry for bothering you!'
 --- !u!114 &114588480951910218
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -784,10 +720,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 296ac282c52457e44bd3251e22e6a4b4, type: 2}
   menuButton: {fileID: 1341581890223708}
   menuCell: {fileID: 1615134984882184}
-  rows: 2
-  coloumns: 4
+  rows: 5
+  coloumns: 5
   xOffset: 1.28
   yOffset: 1.28
+  xGlobalOffset: 3.5
+  yGlobalOffset: 2.5
   reset: 0
   emptyCell: {fileID: 21300000, guid: d25e8dd7b64ee9149a039cbcce376dcc, type: 3}
   initialCell: {fileID: 21300000, guid: 63a31b0882a7a0e4786c1c503570ce1d, type: 3}
@@ -970,13 +908,6 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1502274320408556}
   m_CullTransparentMesh: 0
---- !u!222 &222404497222628126
-CanvasRenderer:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1089008233835992}
-  m_CullTransparentMesh: 0
 --- !u!222 &222535790234617362
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -1055,8 +986,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -134.9, y: 0}
-  m_SizeDelta: {x: 20, y: 400}
+  m_AnchoredPosition: {x: -185.00002, y: 0}
+  m_SizeDelta: {x: 20, y: 600}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224244181521993098
 RectTransform:
@@ -1070,7 +1001,6 @@ RectTransform:
   m_Children:
   - {fileID: 224323940836137176}
   - {fileID: 224907127876026848}
-  - {fileID: 224285701355000286}
   m_Father: {fileID: 4309848311513656}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1079,24 +1009,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!224 &224285701355000286
-RectTransform:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1089008233835992}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 224244181521993098}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 206, y: 258}
-  m_SizeDelta: {x: 599.4, y: 213.5}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224323940836137176
 RectTransform:
   m_ObjectHideFlags: 1
@@ -1131,8 +1043,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -12.5, y: 0}
-  m_SizeDelta: {x: 275, y: 400}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 350, y: 600}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224410833304490780
 RectTransform:
@@ -1169,7 +1081,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.00002682209, y: 200.00006}
+  m_AnchoredPosition: {x: -0.0000071525574, y: 300}
   m_SizeDelta: {x: 0, y: 50}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!224 &224649625926386872
@@ -1189,7 +1101,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 14, y: -25}
-  m_SizeDelta: {x: 250, y: 50}
+  m_SizeDelta: {x: 350, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224907127876026848
 RectTransform:
@@ -1208,8 +1120,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -344, y: -0.0000033377}
-  m_SizeDelta: {x: 250, y: 400}
+  m_AnchoredPosition: {x: -480, y: -0.0000033377}
+  m_SizeDelta: {x: 350, y: 600}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224930463800122050
 RectTransform:
@@ -1243,7 +1155,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 0.99999994}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
