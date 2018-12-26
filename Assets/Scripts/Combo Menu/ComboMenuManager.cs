@@ -73,7 +73,6 @@ public class ComboMenuManager : MonoBehaviour {
         }
     }
 
-    // Use this for initialization
     void OnEnable()
     {
 
@@ -110,8 +109,8 @@ public class ComboMenuManager : MonoBehaviour {
     }
 
     void OnDisable()
-    {
-        Debug.Log("OnDisable diost");
+    {   
+        //Destroy every object of the menu
 
         foreach (GameObject g in _menuButtons)
         {
@@ -168,12 +167,6 @@ public class ComboMenuManager : MonoBehaviour {
         else
         {
             //What to do when we're in the scroll menu
-
-            //Save the combos chosen
-            if (Input.GetKeyDown(KeyCode.Z))
-            {
-                SetCombosChosen();
-            }
         }
 	}
 
