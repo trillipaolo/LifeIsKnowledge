@@ -5,6 +5,7 @@ using UnityEngine;
 public class ComboMenu : MonoBehaviour {
 
     public GameObject comboMenu;
+    public GameObject comboMenuManager;
     public GameObject background;
     public Canvas canvas;
     public Camera minimap;
@@ -26,6 +27,10 @@ public class ComboMenu : MonoBehaviour {
             else
             {
                 Time.timeScale = 1;
+
+                ComboMenuManager menuManager = comboMenuManager.GetComponent<ComboMenuManager>();
+                menuManager.SetCombosChosen();
+
                 comboMenu.SetActive(false);
                 background.SetActive(false);
                 canvas.enabled = true;
