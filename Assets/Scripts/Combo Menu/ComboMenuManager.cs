@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class ComboMenuManager : MonoBehaviour {
 
@@ -28,6 +29,13 @@ public class ComboMenuManager : MonoBehaviour {
     [Tooltip("Offset w.r.t the MainCamera - Y Axis")]
     public float yGlobalOffset;
 
+    [Header("Activate/Deactivate ScrollBar in the ScrollMenu")]
+    public bool hideScrollBar;
+    public GameObject scrollBar;
+    public GameObject slidingArea;
+    public GameObject handle;
+
+
     [Header("Reset Grid Status")]
     public bool reset;
 
@@ -45,6 +53,8 @@ public class ComboMenuManager : MonoBehaviour {
 
     //List of Buttons in the scrolling menu: each button refers to a combo
     public List<GameObject> _menuButtons;
+    private int _menuButtonsIndex;
+    private bool _updateSelectedButton;
 
     //Combo Selected in the scrolling menu
     private int _currentCombo;
@@ -81,7 +91,6 @@ public class ComboMenuManager : MonoBehaviour {
 
     void OnEnable()
     {
-
         //The Menu starts with the Scrolling Menu active
         _scrollToGrid = false;
 
@@ -95,10 +104,13 @@ public class ComboMenuManager : MonoBehaviour {
         _row = 0;
         _coloumn = 0;
 
+        //Initialize menuButtons index and flag
+        _menuButtonsIndex = 0;
+        _updateSelectedButton = false;
+
         //Initialize Menus
         InitializeScrollingMenu();
         InitializeGridMenu();
-
 
         //Reset combo not unlocked (prevent inconsistent state for Scriptable Objects)
         SoftResetGrid();
@@ -173,6 +185,10 @@ public class ComboMenuManager : MonoBehaviour {
         else
         {
             //What to do when we're in the scroll menu
+
+            //Manual select of menuButtons (Combos in the Scroll menu)
+            Debug.Log("You can select one combo now");
+            ScrollSelection();
         }
 	}
 
@@ -246,6 +262,20 @@ public class ComboMenuManager : MonoBehaviour {
                 _menuButtons.Add(button);
             }
         }
+
+        //Selecting the first button of the List
+        SelectMenuButton(_menuButtons[_menuButtonsIndex].GetComponent<Button>());
+
+        //Hide the scrollbar if hideScrollBar = true
+        if (hideScrollBar)
+        {
+            handle.SetActive(false);
+            slidingArea.SetActive(false);
+
+            Image scrollBarImage = scrollBar.GetComponent<Image>();
+            scrollBarImage.enabled = false;
+        }
+
     }
 
     private void InitializeGridMenu()
@@ -263,6 +293,8 @@ public class ComboMenuManager : MonoBehaviour {
                 GameObject newGridCell = Instantiate(menuCell, cellOffset + Vector3.forward*10, new Quaternion(0, 0, 0, 0));
                 newGridCell.SetActive(true);
                 cellOffset += new Vector3(-xOffset, 0, 0);
+
+                newGridCell.transform.SetParent(menuCell.transform.parent, false);
 
                 _menuGridCells[i, j] = newGridCell.GetComponent<ComboGridCell>();
             }
@@ -324,6 +356,81 @@ public class ComboMenuManager : MonoBehaviour {
         catch
         {
             Debug.Log("Trying to reach a Cell outside the grid: highlight is misscalled, combo is misplaced");
+        }
+    }
+
+    private void ScrollSelection()
+    {   
+        ScrollMenuUp();
+
+        ScrollMenuDown();
+        
+        PressMenuButton();
+    }
+
+    private void ScrollMenuUp()
+    {
+        if (Input.GetKeyDown(KeyCode.UpArrow) && (_menuButtonsIndex > 0))
+        {   
+            _menuButtonsIndex -= 1;
+            _updateSelectedButton = true;
+            Debug.Log("New _menuButtonsIndex value: " + _menuButtonsIndex);
+        }
+
+        if (_updateSelectedButton)
+        {
+            UpdateButtonSelected(_menuButtonsIndex + 1);
+
+            _updateSelectedButton = false;
+        }
+    }
+
+    private void ScrollMenuDown()
+    {
+        if (Input.GetKeyDown(KeyCode.DownArrow) && (_menuButtonsIndex < _menuButtons.Count - 1))
+        {
+            _menuButtonsIndex += 1;
+            _updateSelectedButton = true;
+            Debug.Log("New _menuButtonsIndex value: " + _menuButtonsIndex);
+        }
+
+        if (_updateSelectedButton)
+        {
+            UpdateButtonSelected(_menuButtonsIndex - 1);
+
+            _updateSelectedButton = false;
+        }
+    }
+
+    private void UpdateButtonSelected(int previousIndex)
+    {
+        Button currentButton = _menuButtons[_menuButtonsIndex].GetComponent<Button>();
+        SelectMenuButton(currentButton);
+
+        Button previousButton =  _menuButtons[previousIndex].GetComponent<Button>();
+        DeselectMenuButton(previousButton);
+    }
+
+    private void SelectMenuButton(Button button)
+    {
+        Debug.Log("Trying to change the color of the new selected button");
+        Graphic graphic = button.GetComponent<Graphic>();
+        graphic.CrossFadeColor(button.colors.pressedColor, button.colors.fadeDuration, true, true);
+    }
+
+    private void DeselectMenuButton(Button button)
+    {
+        Debug.Log("Trying to change the color of the previous selected button");
+        Graphic graphic = button.GetComponent<Graphic>();
+        graphic.CrossFadeColor(button.colors.normalColor, button.colors.fadeDuration, true, true);
+    }
+
+    private void PressMenuButton()
+    {
+        if(Input.GetKeyDown(KeyCode.Return))
+        {
+            Button currentButton = _menuButtons[_menuButtonsIndex].GetComponent<Button>();
+            currentButton.onClick.Invoke();
         }
     }
 
@@ -747,8 +854,10 @@ public class ComboMenuManager : MonoBehaviour {
     {
         Debug.Log("Trying to enable ScrollMenu");
 
-        GameObject scrollBar = GameObject.FindGameObjectWithTag("ScrollBar");
-        scrollBar.GetComponent<Scrollbar>().interactable = true;
+        if (!hideScrollBar)
+        {
+            scrollBar.GetComponent<Scrollbar>().interactable = true;
+        }
 
         GameObject scrollRect = GameObject.FindGameObjectWithTag("ScrollList");
         scrollRect.GetComponent<Image>().GetComponent<ScrollRect>().enabled = true;

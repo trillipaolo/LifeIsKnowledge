@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class SingleComboButton : MonoBehaviour {
 
-    public ComboMenuManager comboMenuManager;
-
     private string _comboName;
     private int _menuIndex;
 
@@ -24,8 +22,7 @@ public class SingleComboButton : MonoBehaviour {
     
     public void OnClick ()
     {
-        Debug.Log("Button number " + _menuIndex + " has been clicked");
-        comboMenuManager.SetCurrentCombo(_menuIndex);
+        ComboMenuManager.Instance.SetCurrentCombo(_menuIndex);
     }
 
     public void SetImage(Sprite comboSprite)
