@@ -34,7 +34,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1887809964994536}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.2510223, y: 1.5768298, z: 6.8710938}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -53,5 +53,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   joelEnemiesKilled: {fileID: 11400000, guid: b56d3d78bcf1eff4fb51eef80dcc8550, type: 2}
   joelCombos: {fileID: 11400000, guid: 5ccaef3f2a6581e4f9016f4e4ae8d9b9, type: 2}
+  basicAttacks: {fileID: 11400000, guid: 1c1c9d3b8981d834a8c4da0097c75a36, type: 2}
   horizontalSpin: {fileID: 11400000, guid: 3e26fb9ccde2d0b4581710b0433286bb, type: 2}
   resetAtStart: 1

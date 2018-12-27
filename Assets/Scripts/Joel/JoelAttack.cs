@@ -45,10 +45,10 @@ public class JoelAttack : MonoBehaviour {
         InitializeAttackContactFilter();
         InitializeComboVariables();
 
-        basicAttack.InitializeDamage();
+        /*basicAttack.InitializeDamage();
         for(int i = 0; i < joelCombos.combos.Length; i++) {
             joelCombos.combos[i].InitializeDamage();
-        }
+        }*/
     }
 
     private void Start() {
