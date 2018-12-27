@@ -45,10 +45,10 @@ public class JoelAttack : MonoBehaviour {
         InitializeAttackContactFilter();
         InitializeComboVariables();
 
-        basicAttack.InitializeDamage();
+        /*basicAttack.InitializeDamage();
         for(int i = 0; i < joelCombos.combos.Length; i++) {
             joelCombos.combos[i].InitializeDamage();
-        }
+        }*/
     }
 
     private void Start() {
@@ -174,7 +174,7 @@ public class JoelAttack : MonoBehaviour {
 
         float _damage = basicAttack.damage[animationData.intParameter];
         
-        if (ActivateColliders(_colliderPositions, _damage)) {
+        if (ActivateColliders(_colliderPositions, _damage, 0, 0)) {
             basicAttack.damage[animationData.intParameter] += 3.0f;
         }
 
@@ -193,14 +193,62 @@ public class JoelAttack : MonoBehaviour {
             }
         }
 
-        if (ActivateColliders(_colliderPositions,_damage)) {
+        if (ActivateColliders(_colliderPositions,_damage, animationData.intParameter, Mathf.FloorToInt(animationData.floatParameter))) {
             for (int i = 0; i < _tempDamage.Length; i++) {
                 _tempDamage[i] += 3.0f;
             }
         }
     }
 
-    private bool ActivateColliders(bool[] colliderPositions, float damage) {
+    private void ComboCustomColliderAttack(AnimationEvent animationData) {
+        // take input from animation event
+        int _nAttack = Int32.Parse(animationData.stringParameter.Substring(0,1));
+        int _colliderIndex = Int32.Parse(animationData.stringParameter.Substring(1));
+        int _nCombo = animationData.intParameter;
+        float _xSize = animationData.floatParameter;
+
+        bool[] _colliderPositions = new bool[EnumColliderPosition.Size()];
+        _colliderPositions[_colliderIndex] = true;
+
+        // take current values of colliders
+        Vector2 _oldOffset = _attackColliders[_colliderIndex].offset;
+        Vector2 _oldSize = _attackColliders[_colliderIndex].size;
+
+        // set new values of colliders in respect to size on animation event
+        float _oldLeft = _oldOffset.x - _oldSize.x * 0.5f;
+        _attackColliders[_colliderIndex].offset = new Vector2(_oldLeft + _xSize * 0.5f, _oldOffset.y);
+        _attackColliders[_colliderIndex].size = new Vector2(_xSize,_oldSize.y);
+
+        // extract damage
+        float _damage = 0;
+        float[] _tempDamage = new float[10];
+        for (int i = 0; i < joelCombos.combos.Length; i++) {
+            if ((int)joelCombos.combos[i].enumCombo == animationData.intParameter) {
+                _damage = joelCombos.combos[i].damage[_nAttack];
+                _tempDamage = joelCombos.combos[i].damage;
+            }
+        }
+
+        Debug.Log("nCombo: " + _nCombo);
+        Debug.Log("nAttack: " + _nAttack);
+        Debug.Log("collIndec: " + _colliderIndex);
+        for (int i = 0; i < _colliderPositions.Length; i++) {
+            Debug.Log("_colliderPositions: " + i + "  " + _colliderPositions[i]);
+        }
+
+        // overlap collider and deal damage (and upgrade damage)
+        if (ActivateColliders(_colliderPositions,_damage,_nCombo,_nAttack)) {
+            for (int i = 0; i < _tempDamage.Length; i++) {
+                _tempDamage[i] += 3.0f;
+            }
+        }
+
+        // reset collider values
+        _attackColliders[_colliderIndex].offset = _oldOffset;
+        _attackColliders[_colliderIndex].size = _oldSize;
+    }
+
+    private bool ActivateColliders(bool[] colliderPositions, float damage, int comboNum, int attackNum) {
         const int MAXCOLLIDERS = 100;
         // activate one collider at time and get collision, if one enemy is already hit don't add anymore and set OneHit false,
         // return true if it hits at least one enemy, false otherwise
@@ -254,7 +302,7 @@ public class JoelAttack : MonoBehaviour {
 
         for (int i = 0; i < _currLenght; i++) {
             if (_colliderToDamage[i].GetComponentInParent<EnemyBehaviour>() != null) {
-                _colliderToDamage[i].GetComponentInParent<EnemyBehaviour>().TakeDamage(_colliderToDamage[i],damage,_uniqueAttack[i]);
+                _colliderToDamage[i].GetComponentInParent<EnemyBehaviour>().TakeDamage(_colliderToDamage[i],damage,_uniqueAttack[i],comboNum,attackNum);
             }
         }
 

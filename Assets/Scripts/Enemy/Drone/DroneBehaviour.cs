@@ -30,7 +30,7 @@ public class DroneBehaviour : EnemyBehaviour {
         audioManager = AudioManager.instance;
     }
 
-    public override void TakeDamage(Collider2D collider,float baseDamage,bool unique) {
+    public override void TakeDamage(Collider2D collider,float baseDamage,bool unique, int comboNum, int attackNum) {
         float multiplier = base.GetMultiplier(collider);
         float damage = base.ComputeDamage(baseDamage,multiplier,unique);
         Color color = base.ComputeColor(multiplier,unique);

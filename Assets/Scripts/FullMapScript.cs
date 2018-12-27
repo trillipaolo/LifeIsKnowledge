@@ -24,7 +24,7 @@ public class FullMapScript : MonoBehaviour {
     }
     
     void Update () {
-        if (Input.GetKeyDown(KeyCode.M)) {
+        if (Input.GetButtonDown("Map")) {
             if (_isMinimap) {
                 SetAsFullmap();
                 _isMinimap = false;
