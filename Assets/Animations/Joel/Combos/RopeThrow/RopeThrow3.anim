@@ -117,9 +117,16 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 0.25
-    functionName: ComboAttack
-    data: 110000
+    functionName: ComboCustomColliderAttack
+    data: 10
     objectReferenceParameter: {fileID: 0}
-    floatParameter: 1
+    floatParameter: 3.2
+    intParameter: 3
+    messageOptions: 0
+  - time: 0.25
+    functionName: ComboCustomColliderAttack
+    data: 11
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 3.2
     intParameter: 3
     messageOptions: 0
