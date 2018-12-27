@@ -39,7 +39,7 @@ public class EnemyBehaviour : MonoBehaviour{
         audioManager = AudioManager.instance;
     }
 
-    public virtual void TakeDamage(Collider2D collider, float baseDamage, bool unique) {
+    public virtual void TakeDamage(Collider2D collider, float baseDamage, bool unique, int comboNum, int attackNum) {
         float multiplier = GetMultiplier(collider);
         float damage = ComputeDamage(baseDamage,multiplier,unique);
         Color color = ComputeColor(multiplier, unique);

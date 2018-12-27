@@ -63,7 +63,7 @@ public class Combo : ScriptableObject {
             case EnumCombo.ROPETHROW:
                 damage = new float[2];
                 damage[0] = 40;
-                damage[1] = 80;
+                damage[1] = 200;
                 break;
         }
     }

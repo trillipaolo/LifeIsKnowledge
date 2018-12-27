@@ -174,7 +174,7 @@ public class JoelAttack : MonoBehaviour {
 
         float _damage = basicAttack.damage[animationData.intParameter];
         
-        if (ActivateColliders(_colliderPositions, _damage)) {
+        if (ActivateColliders(_colliderPositions, _damage, 0, 0)) {
             basicAttack.damage[animationData.intParameter] += 3.0f;
         }
 
@@ -193,7 +193,7 @@ public class JoelAttack : MonoBehaviour {
             }
         }
 
-        if (ActivateColliders(_colliderPositions,_damage)) {
+        if (ActivateColliders(_colliderPositions,_damage, animationData.intParameter, Mathf.FloorToInt(animationData.floatParameter))) {
             for (int i = 0; i < _tempDamage.Length; i++) {
                 _tempDamage[i] += 3.0f;
             }
@@ -237,7 +237,7 @@ public class JoelAttack : MonoBehaviour {
         }
 
         // overlap collider and deal damage (and upgrade damage)
-        if (ActivateColliders(_colliderPositions,_damage)) {
+        if (ActivateColliders(_colliderPositions,_damage,_nCombo,_nAttack)) {
             for (int i = 0; i < _tempDamage.Length; i++) {
                 _tempDamage[i] += 3.0f;
             }
@@ -248,7 +248,7 @@ public class JoelAttack : MonoBehaviour {
         _attackColliders[_colliderIndex].size = _oldSize;
     }
 
-    private bool ActivateColliders(bool[] colliderPositions, float damage) {
+    private bool ActivateColliders(bool[] colliderPositions, float damage, int comboNum, int attackNum) {
         const int MAXCOLLIDERS = 100;
         // activate one collider at time and get collision, if one enemy is already hit don't add anymore and set OneHit false,
         // return true if it hits at least one enemy, false otherwise
@@ -302,7 +302,7 @@ public class JoelAttack : MonoBehaviour {
 
         for (int i = 0; i < _currLenght; i++) {
             if (_colliderToDamage[i].GetComponentInParent<EnemyBehaviour>() != null) {
-                _colliderToDamage[i].GetComponentInParent<EnemyBehaviour>().TakeDamage(_colliderToDamage[i],damage,_uniqueAttack[i]);
+                _colliderToDamage[i].GetComponentInParent<EnemyBehaviour>().TakeDamage(_colliderToDamage[i],damage,_uniqueAttack[i],comboNum,attackNum);
             }
         }
 
