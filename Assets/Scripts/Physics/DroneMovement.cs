@@ -80,7 +80,6 @@ public class DroneMovement : EnemyMovementPhysics
                             {
                                 _animator.SetBool("Attack", true);
                                 Attack();
-                                attackScript.ActivateAttackCollider();
                             }
                         }
                         // Attack distance increased
@@ -146,6 +145,11 @@ public class DroneMovement : EnemyMovementPhysics
                 }
             }
         }
+        else
+        {
+            
+            attackScript.DeactivateAttackCollider();
+        }
     }
 
     void Flying()
@@ -209,6 +213,7 @@ public class DroneMovement : EnemyMovementPhysics
     void Attack()
     {
         velocity.x = (facingRight ? 1 : -1) * attackSpeed;
+        attackScript.ActivateAttackCollider();
     }
 
 
