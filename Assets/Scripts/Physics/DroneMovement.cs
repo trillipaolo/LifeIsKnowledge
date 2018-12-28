@@ -14,6 +14,7 @@ public class DroneMovement : EnemyMovementPhysics
     public float stuckCountdown;
     public float flyingHeight = 2f;
     public float droneSliding = 1f;
+    public float attackVisionRadiusY = 1.5f;
 
     public float timeRangeMin = 0.5f;
     public float timeRangeMax = 2f;
@@ -85,6 +86,7 @@ public class DroneMovement : EnemyMovementPhysics
                         // Attack distance increased
                         else
                         {
+                            velocity.x = 0;
                             isAttacking = false;
                             _animator.SetBool("Attack", false);
                             attackScript.DeactivateAttackCollider();
@@ -94,6 +96,7 @@ public class DroneMovement : EnemyMovementPhysics
                     // Drone is stuck
                     else
                     {
+                        velocity.x = 0;
                         if (time > 0)
                         {
                             _animator.SetBool("Stuck", true);
@@ -191,7 +194,8 @@ public class DroneMovement : EnemyMovementPhysics
                 _anchor = transform.position.x;
             }
         }
-        else if (Math.Abs(target.position.y - transform.position.y) <= visionRadiusY)
+        else if ((transform.position.y - target.position.y) >= 0 &&
+                (transform.position.y - target.position.y) <= attackVisionRadiusY)
             // Going to attack
         {
             isAttacking = true;
