@@ -11,8 +11,11 @@ public class LaserMachineLaser : MonoBehaviour {
     public Vector2 rightPosition;
     public float moveSpeed;
     public bool right;
+    public bool endStop;
 
     public bool on;
+    [HideInInspector]
+    public bool hit = false;
 
     private float _startTime;
     private Vector2 _startPosition;
@@ -49,6 +52,8 @@ public class LaserMachineLaser : MonoBehaviour {
         float distCovered = (Time.timeSinceLevelLoad - _startTime) * moveSpeed;
         float fracJourney = distCovered / _distanceStartEnd;
         transform.localPosition = Vector2.Lerp(_startPosition,(right ? rightPosition : leftPosition),fracJourney);
+
+        endStop = transform.localPosition.x == (right ? rightPosition.x : leftPosition.x) && transform.localPosition.y == (right ? rightPosition.y : leftPosition.y);
     }
 
     private void Active() {
@@ -73,6 +78,11 @@ public class LaserMachineLaser : MonoBehaviour {
         right = true;
     }
 
+    public void Stop() {
+        _startPosition = transform.localPosition;
+        _distanceStartEnd = Mathf.Infinity;
+    }
+
     public void SetSpeed(float speed) {
         moveSpeed = speed;
         _startTime = Time.timeSinceLevelLoad;
@@ -82,16 +92,19 @@ public class LaserMachineLaser : MonoBehaviour {
 
     public void On() {
         on = true;
+        _animator.SetBool("On",true);
     }
 
     public void Off() {
         on = false;
+        _animator.SetBool("On",false);
         _collider.enabled = false;
     }
 
     private void OnTriggerStay2D(Collider2D other) {
         if(other.tag == "Player") {
             other.GetComponentInChildren<JoelHealth>().TakeDamage(1);
+            hit = true;
         }
     }
 }
