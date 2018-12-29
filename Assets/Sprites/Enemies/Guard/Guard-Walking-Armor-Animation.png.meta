@@ -126,7 +126,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ab1e634a05a778841b2b1e8ff4de36d7
+      spriteID: afe4cd68b4eba2c44b45ddd42af2276a
       vertices: []
       indices: 
       edges: []
@@ -146,73 +146,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4348582f329961b42b3c594f80de287e
+      spriteID: 5ac3b3b055782de43be2d604fb2fba3f
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
       name: Guard-Walking-Armor-Animation_2
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 80
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a76144c91ff276e4aa7a20ba1f7921d5
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Guard-Walking-Armor-Animation_3
-      rect:
-        serializedVersion: 2
-        x: 144
-        y: 80
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 184c394bd154fe4488007b21dedd66e9
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Guard-Walking-Armor-Animation_4
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 80
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 64e42bf9281d2da42b731011b623ea88
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Guard-Walking-Armor-Animation_5
       rect:
         serializedVersion: 2
         x: 0
@@ -226,7 +166,27 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8c79fca5f68382d4f8a2f1313fce8544
+      spriteID: 4db8098731ecff34084403039fdeb90e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guard-Walking-Armor-Animation_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 32
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 362a361a242c0c544b92476343493882
       vertices: []
       indices: 
       edges: []
