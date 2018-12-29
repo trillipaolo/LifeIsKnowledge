@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class JoelUnlockCombos : MonoBehaviour {
 
+    public GameObject[] combos;
 	public JoelEnemiesKilled joelEnemiesKilled;
     private bool _changed = false;
 
@@ -20,6 +21,17 @@ public class JoelUnlockCombos : MonoBehaviour {
                 Combo combo = enemiesKilled[i].comboUnlocked;
                 if (!combo.unlocked) {
                     combo.unlocked = true;
+
+                    int tmp=0;
+                    for(int j=0; j < combos.Length; j++)
+                    {
+                        //Debug.Log(combos[j].name + "==" + combo.name + "Drop" + "result" + combos[j].name.Equals(combo.name + "Drop"));
+                        if (combos[j].name.Equals(combo.name + "Drop"))
+                            tmp = j;
+                    }
+                    
+                    Instantiate(combos[tmp], transform.position, Quaternion.identity);
+                    
                     FloatingTextController.CreateUnlockComboText(combo.comboName + " combo unlocked!!",transform.position + Vector3.up);
                 }
             }
