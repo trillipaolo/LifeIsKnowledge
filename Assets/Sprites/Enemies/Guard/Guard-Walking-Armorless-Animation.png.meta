@@ -126,7 +126,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9c2553005f846274693b5f4d9af2028d
+      spriteID: 4f4ea294a5be8fe49bcf6df4c8656a63
       vertices: []
       indices: 
       edges: []
@@ -146,73 +146,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2a1b86351a93704489a5232697fb73a7
+      spriteID: 1c79d8757c6b41f478caf863359ced2e
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
       name: Guard-Walking-Armorless-Animation_2
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 80
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 99499f4d9651f66468089502e5969d1c
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Guard-Walking-Armorless-Animation_3
-      rect:
-        serializedVersion: 2
-        x: 144
-        y: 80
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4ce3c078e7d88524ab9db0858bfb080a
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Guard-Walking-Armorless-Animation_4
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 80
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8b6b482f7508a894b8ef5c0d4a51adb5
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Guard-Walking-Armorless-Animation_5
       rect:
         serializedVersion: 2
         x: 0
@@ -226,7 +166,27 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6d0bb6fa774930041a69e513e34c3cdb
+      spriteID: 9b94cd8c9a62ea848b4c47197ffcc4c4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guard-Walking-Armorless-Animation_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 32
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5fcf9ea9df2a0047ba9fd7c1d390551
       vertices: []
       indices: 
       edges: []
