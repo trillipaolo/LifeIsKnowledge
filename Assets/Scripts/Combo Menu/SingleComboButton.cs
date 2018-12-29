@@ -18,7 +18,6 @@ public class SingleComboButton : MonoBehaviour {
         Text buttonText = GetComponentInChildren<Text>();
         buttonText.text = name;
     }
-
     
     public void OnClick ()
     {
@@ -32,6 +31,12 @@ public class SingleComboButton : MonoBehaviour {
         imageComponent.sprite = comboSprite;
     }
 
+    public void SetKeyFrame(Sprite keyFrame)
+    {
+        SpriteRenderer keyFrameSprite = GetComponentInChildren<SpriteRenderer>();
+        keyFrameSprite.sprite = keyFrame;
+    }
+
     public void DisableButton()
     {
         GetComponent<Button>().interactable = false;
@@ -41,4 +46,5 @@ public class SingleComboButton : MonoBehaviour {
     {
         GetComponent<Button>().interactable = true;
     }
+
 }

@@ -256,6 +256,7 @@ public class ComboMenuManager : MonoBehaviour {
                 button.GetComponent<SingleComboButton>().SetIndex(i);
                 button.GetComponent<SingleComboButton>().SetComboName(combos[i].comboName);
                 button.GetComponent<SingleComboButton>().SetImage(combos[i].comboSprite);
+                button.GetComponent<SingleComboButton>().SetKeyFrame(combos[i].cooldownImage);
 
                 button.transform.SetParent(menuButton.transform.parent, false);
 
@@ -837,9 +838,10 @@ public class ComboMenuManager : MonoBehaviour {
     private void DisableScrollMenu()
     {
         Debug.Log("Trying to disable ScrollMenu");
-
-        GameObject scrollBar = GameObject.FindGameObjectWithTag("ScrollBar");
-        scrollBar.GetComponent<Scrollbar>().interactable = false;
+        if (!hideScrollBar)
+        {
+            scrollBar.GetComponent<Scrollbar>().interactable = false;
+        }
 
         GameObject scrollRect = GameObject.FindGameObjectWithTag("ScrollList");
         scrollRect.GetComponent<Image>().GetComponent<ScrollRect>().enabled = false;
