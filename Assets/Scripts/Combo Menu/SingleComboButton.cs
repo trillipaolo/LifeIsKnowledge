@@ -6,14 +6,15 @@ using TMPro;
 
 public class SingleComboButton : MonoBehaviour {
 
+    [Header("Combo Name Text Options")]
+    public float fontSize;
+    public float characterSpacing;
+    public TextAlignmentOptions textAlignmentOptions;
+
+
     private int _menuIndex;
     private SpriteRenderer _comboSpriteHighlighted;
     private SpriteRenderer _glowEffect;
-
-    public void Start()
-    {
-        
-    }
 
     public void SetIndex(int index)
     {
@@ -22,8 +23,11 @@ public class SingleComboButton : MonoBehaviour {
 
     public void SetComboName(string name)
     {
-        Text buttonText = GetComponentInChildren<Text>();
-        buttonText.text = name;
+        TextMeshProUGUI buttonTMP = GetComponentInChildren<TextMeshProUGUI>();
+        buttonTMP.fontSize = fontSize;
+        buttonTMP.characterSpacing = characterSpacing;
+        buttonTMP.alignment = textAlignmentOptions;
+        buttonTMP.text = name;
     }
     
     public void OnClick ()
