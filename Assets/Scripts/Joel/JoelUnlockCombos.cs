@@ -5,7 +5,8 @@ using UnityEngine;
 public class JoelUnlockCombos : MonoBehaviour {
 
     public GameObject[] combos;
-	public JoelEnemiesKilled joelEnemiesKilled;
+    public GameObject experienceOrb;
+    public JoelEnemiesKilled joelEnemiesKilled;
     private bool _changed = false;
 
     void Update() {
@@ -39,13 +40,15 @@ public class JoelUnlockCombos : MonoBehaviour {
     }
 
     public void KilledEnemy(EnumEnemies enemy) {
-        for(int i = 0; i < joelEnemiesKilled.enemies.Length; i++) {
+        Instantiate(experienceOrb, transform.position, Quaternion.identity);
+
+        for (int i = 0; i < joelEnemiesKilled.enemies.Length; i++) {
             if(joelEnemiesKilled.enemies[i].enemy == enemy) {
                 joelEnemiesKilled.enemies[i].timesKilled++;
 
                 _changed = true;
                 return;
             }
-        }
+        }        
     }
 }

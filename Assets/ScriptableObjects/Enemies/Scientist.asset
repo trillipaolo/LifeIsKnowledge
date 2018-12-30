@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Name: Scientist
   m_EditorClassIdentifier: 
   enemy: 1
-  timesKilled: 2
+  timesKilled: 5
   timesUnlockCombo: 2
   comboUnlocked: {fileID: 11400000, guid: b72773f9de5d7544c97bf6903cf30957, type: 2}

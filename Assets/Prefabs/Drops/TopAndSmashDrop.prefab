@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4163254528972352}
   - component: {fileID: 212939818844924090}
   - component: {fileID: 114010211554078186}
-  - component: {fileID: 61888601732747766}
   m_Layer: 0
   m_Name: TopAndSmashDrop
   m_TagString: Untagged
@@ -42,31 +41,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &61888601732747766
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1441589622264340}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.41666666, y: 0.4791667}
-    oldSize: {x: 2.25, y: 3}
-    newSize: {x: 2.75, y: 3}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 2.75, y: 3}
-  m_EdgeRadius: 0
 --- !u!114 &114010211554078186
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -78,7 +52,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdfb77bff0f5d5c40990210e4647ad34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 4102829514326396, guid: 9bd1e8722fd92804281be6e3a614f800, type: 2}
   timeLeft: 3
   smoothSpeed: 4
   shrinkSpeed: 5
@@ -86,6 +59,8 @@ MonoBehaviour:
   dst: 3
   jiggleY: 0.75
   jiggleFreq: 3
+  autoDestruct: 1
+  isclose: 0
 --- !u!212 &212939818844924090
 SpriteRenderer:
   m_ObjectHideFlags: 1

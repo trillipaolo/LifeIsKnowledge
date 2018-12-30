@@ -23,7 +23,6 @@ public class ScientistMovement : EnemyMovementPhysics
     private void Awake()
     {
         _hitboxAnimator = transform.Find("AttackCollider").GetComponent<Animator>();
-
         audioManager = AudioManager.instance;
     }
 

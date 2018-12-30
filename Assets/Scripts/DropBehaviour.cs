@@ -12,18 +12,22 @@ public class DropBehaviour : MonoBehaviour {
     public float dst = 2f;
     public float jiggleY=0.5f;
     public float jiggleFreq = 0.5f;
+    public bool autoDestruct = true;
+
+    [HideInInspector]
+    public bool isclose = false;
     
     
     private Vector3 _startPosition;
     Vector3 smoothedPosition;
     Vector3 growScale;
 
-    private void Start() {
+    public void Start() {
         _startPosition = transform.position;
         target = GameObject.FindWithTag("Player").transform;
     }
 
-    void FixedUpdate() {
+    public void FixedUpdate() {
 
 
 
@@ -36,7 +40,7 @@ public class DropBehaviour : MonoBehaviour {
                 smoothedPosition = Vector3.Lerp(transform.position, target.position, smoothSpeed * Time.deltaTime);
             }
             else {
-                
+                isclose = true;
                 smoothedPosition = Vector3.Lerp(transform.position, target.position, speedAccel * smoothSpeed * Time.deltaTime);
                 /*
                 if (growScale.x > 0 && growScale.y > 0 && growScale.z > 0) { 
@@ -49,7 +53,8 @@ public class DropBehaviour : MonoBehaviour {
 
                 if (transform.localScale.sqrMagnitude <= 0.001)
                 {
-                    Destroy(gameObject);
+                    if(autoDestruct)
+                        Destroy(gameObject);
                 }
 
                 transform.localScale = Vector3.Lerp(transform.localScale, Vector3.zero, shrinkSpeed * Time.deltaTime);
