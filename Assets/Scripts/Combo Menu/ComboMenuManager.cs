@@ -258,6 +258,10 @@ public class ComboMenuManager : MonoBehaviour {
                 button.GetComponent<SingleComboButton>().SetImage(combos[i].comboSprite);
                 button.GetComponent<SingleComboButton>().SetKeyFrame(combos[i].cooldownImage);
 
+                SpriteState st = new SpriteState();
+                st.highlightedSprite = combos[i].highlightedComboSprite;
+                button.GetComponent<Button>().spriteState = st;
+
                 button.transform.SetParent(menuButton.transform.parent, false);
 
                 _menuButtons.Add(button);
@@ -265,7 +269,7 @@ public class ComboMenuManager : MonoBehaviour {
         }
 
         //Selecting the first button of the List
-        SelectMenuButton(_menuButtons[_menuButtonsIndex].GetComponent<Button>());
+        UpdateButtonSelected();
 
         //Hide the scrollbar if hideScrollBar = true
         if (hideScrollBar)
@@ -380,7 +384,7 @@ public class ComboMenuManager : MonoBehaviour {
 
         if (_updateSelectedButton)
         {
-            UpdateButtonSelected(_menuButtonsIndex + 1);
+            UpdateButtonSelected();
 
             _updateSelectedButton = false;
         }
@@ -397,33 +401,16 @@ public class ComboMenuManager : MonoBehaviour {
 
         if (_updateSelectedButton)
         {
-            UpdateButtonSelected(_menuButtonsIndex - 1);
+            UpdateButtonSelected();
 
             _updateSelectedButton = false;
         }
     }
 
-    private void UpdateButtonSelected(int previousIndex)
+    private void UpdateButtonSelected()
     {
         Button currentButton = _menuButtons[_menuButtonsIndex].GetComponent<Button>();
-        SelectMenuButton(currentButton);
-
-        Button previousButton =  _menuButtons[previousIndex].GetComponent<Button>();
-        DeselectMenuButton(previousButton);
-    }
-
-    private void SelectMenuButton(Button button)
-    {
-        Debug.Log("Trying to change the color of the new selected button");
-        Graphic graphic = button.GetComponent<Graphic>();
-        graphic.CrossFadeColor(button.colors.pressedColor, button.colors.fadeDuration, true, true);
-    }
-
-    private void DeselectMenuButton(Button button)
-    {
-        Debug.Log("Trying to change the color of the previous selected button");
-        Graphic graphic = button.GetComponent<Graphic>();
-        graphic.CrossFadeColor(button.colors.normalColor, button.colors.fadeDuration, true, true);
+        currentButton.GetComponent<Button>().Select();
     }
 
     private void PressMenuButton()

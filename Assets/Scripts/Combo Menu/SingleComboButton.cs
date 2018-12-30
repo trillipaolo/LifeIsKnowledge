@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class SingleComboButton : MonoBehaviour {
 
@@ -29,6 +30,7 @@ public class SingleComboButton : MonoBehaviour {
         Image imageComponent = GetComponent<Image>();
         imageComponent.preserveAspect = true;
         imageComponent.sprite = comboSprite;
+        
     }
 
     public void SetKeyFrame(Sprite keyFrame)

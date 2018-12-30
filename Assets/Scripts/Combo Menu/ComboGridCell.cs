@@ -43,15 +43,12 @@ public class ComboGridCell : MonoBehaviour {
 
     public void StartFading()
     {
-        //StartCoroutine("Fading");
-        Color c = _squareSprite.material.color;
-        c.a = 0.5f;
-        _squareSprite.material.color = c;
+        StartCoroutine("Fading");
     }
 
     public void StopFading()
     {
-        //StopCoroutine("Fading");
+        StopCoroutine("Fading");
         ResetColor();
     }
     
@@ -64,7 +61,7 @@ public class ComboGridCell : MonoBehaviour {
                 Color c = _squareSprite.material.color;
                 c.a = f;
                 _squareSprite.material.color = c;
-                yield return new WaitForSeconds(0.05f);
+                yield return new WaitForSecondsRealtime(0.05f);
             }
 
             for (float f = 1f; f >= -0.05f; f -= 0.05f)
@@ -72,7 +69,7 @@ public class ComboGridCell : MonoBehaviour {
                 Color c = _squareSprite.material.color;
                 c.a = f;
                 _squareSprite.material.color = c;
-                yield return new WaitForSeconds(0.05f);
+                yield return new WaitForSecondsRealtime(0.05f);
             }
         } while (true);
     }
