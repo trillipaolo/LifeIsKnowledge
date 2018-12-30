@@ -16,7 +16,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 27dd60be33fee8e4cb3c4d95f0354adb, type: 2}
   - {fileID: 11400000, guid: fdbfa47f94ea38b4fa89dceeac869132, type: 2}
   comboSprite: {fileID: 21300000, guid: ad04e9de6db17134880a47e4a59ac447, type: 3}
-  highlightedComboSprite: {fileID: 21300000, guid: 5d4f8a9e70837864aacf0da352af55fa,
+  highlightedComboSprite: {fileID: 21300000, guid: 4d1337b68448058468d03200f6c4a39c,
     type: 3}
   unlocked: 1
   rowSaved: -1

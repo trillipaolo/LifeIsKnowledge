@@ -257,10 +257,7 @@ public class ComboMenuManager : MonoBehaviour {
                 button.GetComponent<SingleComboButton>().SetComboName(combos[i].comboName);
                 button.GetComponent<SingleComboButton>().SetImage(combos[i].comboSprite);
                 button.GetComponent<SingleComboButton>().SetKeyFrame(combos[i].cooldownImage);
-
-                SpriteState st = new SpriteState();
-                st.highlightedSprite = combos[i].highlightedComboSprite;
-                button.GetComponent<Button>().spriteState = st;
+                button.GetComponent<SingleComboButton>().SetGlowEffect(combos[i].highlightedComboSprite);
 
                 button.transform.SetParent(menuButton.transform.parent, false);
 
@@ -269,7 +266,7 @@ public class ComboMenuManager : MonoBehaviour {
         }
 
         //Selecting the first button of the List
-        UpdateButtonSelected();
+        UpdateButtonSelected(-1);
 
         //Hide the scrollbar if hideScrollBar = true
         if (hideScrollBar)
@@ -384,7 +381,7 @@ public class ComboMenuManager : MonoBehaviour {
 
         if (_updateSelectedButton)
         {
-            UpdateButtonSelected();
+            UpdateButtonSelected(_menuButtonsIndex + 1);
 
             _updateSelectedButton = false;
         }
@@ -401,16 +398,24 @@ public class ComboMenuManager : MonoBehaviour {
 
         if (_updateSelectedButton)
         {
-            UpdateButtonSelected();
+            UpdateButtonSelected(_menuButtonsIndex - 1);
 
             _updateSelectedButton = false;
         }
     }
 
-    private void UpdateButtonSelected()
+    //Call the method with parameter -1 in order to highlight only the current button
+    //without "de"-highlighting the previous one
+    private void UpdateButtonSelected(int previousButtonIndex)
     {
-        Button currentButton = _menuButtons[_menuButtonsIndex].GetComponent<Button>();
-        currentButton.GetComponent<Button>().Select();
+        SingleComboButton currentComboButton = _menuButtons[_menuButtonsIndex].GetComponent<SingleComboButton>();
+        currentComboButton.StartHighlight();
+
+        if (previousButtonIndex != -1)
+        {
+            SingleComboButton previousComboButton = _menuButtons[previousButtonIndex].GetComponent<SingleComboButton>();
+            previousComboButton.StopHighlight();
+        }
     }
 
     private void PressMenuButton()
