@@ -27,7 +27,7 @@ public class SingleEnemySlider : MonoBehaviour {
         sliderTMP.fontSize = fontSize;
         sliderTMP.characterSpacing = characterSpacing;
         sliderTMP.alignment = textAlignmentOptions;
-        sliderTMP.text = name;
+        sliderTMP.text = name + "'s understanding:";
     }
 
     public void SetBarFilling(int maxValue, int value)

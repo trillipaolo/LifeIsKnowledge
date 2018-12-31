@@ -22,7 +22,7 @@ public class EnemyMenuManager : MonoBehaviour {
 
     private void OnDisable()
     {   
-        //Destroy the List of Enemy in the menuSlider
+        //Destroy the List of Enemy in the menuSlider when the Menu is closed
         foreach (GameObject g in _menuSliders)
         {
             Destroy(g);
@@ -39,16 +39,20 @@ public class EnemyMenuManager : MonoBehaviour {
     private void InitializeScrollbarMenu()
     {
         for (int i = 0; i < enemyList.enemies.Length; i++)
-        {
-            GameObject slider = Instantiate(menuSlider) as GameObject;
-            slider.SetActive(true);
+        {   
+            //Instantiate the Bar only if the enemy was killed at least once
+            if (enemyList.enemies[i].timesKilled != 0)
+            {
+                GameObject slider = Instantiate(menuSlider) as GameObject;
+                slider.SetActive(true);
 
-            SingleEnemySlider singleEnemySlider = slider.GetComponent<SingleEnemySlider>();
-            singleEnemySlider.SetEnemyName(enemyList.enemies[i].name);
-            singleEnemySlider.SetBarFilling(enemyList.enemies[i].timesUnlockCombo, enemyList.enemies[i].timesKilled);
+                SingleEnemySlider singleEnemySlider = slider.GetComponent<SingleEnemySlider>();
+                singleEnemySlider.SetEnemyName(enemyList.enemies[i].name);
+                singleEnemySlider.SetBarFilling(enemyList.enemies[i].timesUnlockCombo, enemyList.enemies[i].timesKilled);
 
-            slider.transform.SetParent(menuSlider.transform.parent, false);
-            _menuSliders.Add(slider);
+                slider.transform.SetParent(menuSlider.transform.parent, false);
+                _menuSliders.Add(slider);
+            }
         }
     }
 }
