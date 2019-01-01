@@ -372,12 +372,17 @@ public class ComboMenuManager : MonoBehaviour {
 
     private void ScrollMenuUp()
     {
-        if (Input.GetKeyDown(KeyCode.UpArrow) && (_menuButtonsIndex > 0))
+        bool _downInputButton = Input.GetButtonDown("GridUp");
+        bool _downInputAxis = Input.GetAxis("GridUp") > 0;
+
+        if ((_downInputButton || _downInputAxis) && !_dpadUp && (_menuButtonsIndex > 0))
         {   
             _menuButtonsIndex -= 1;
             _updateSelectedButton = true;
             Debug.Log("New _menuButtonsIndex value: " + _menuButtonsIndex);
         }
+
+        _dpadUp = (_downInputButton || _downInputAxis);
 
         if (_updateSelectedButton)
         {
@@ -389,12 +394,17 @@ public class ComboMenuManager : MonoBehaviour {
 
     private void ScrollMenuDown()
     {
-        if (Input.GetKeyDown(KeyCode.DownArrow) && (_menuButtonsIndex < _menuButtons.Count - 1))
+        bool _downInputButton = Input.GetButtonDown("GridDown");
+        bool _downInputAxis = Input.GetAxis("GridDown") > 0;
+
+        if ((_downInputButton || _downInputAxis) && !_dpadDown && (_menuButtonsIndex < _menuButtons.Count - 1))
         {
             _menuButtonsIndex += 1;
             _updateSelectedButton = true;
             Debug.Log("New _menuButtonsIndex value: " + _menuButtonsIndex);
         }
+
+        _dpadDown = (_downInputButton || _downInputAxis);
 
         if (_updateSelectedButton)
         {
@@ -404,7 +414,7 @@ public class ComboMenuManager : MonoBehaviour {
         }
     }
 
-    //Call the method with parameter -1 in order to highlight only the current button
+    //Call this method with parameter -1 in order to highlight only the current button
     //without "de"-highlighting the previous one
     private void UpdateButtonSelected(int previousButtonIndex)
     {

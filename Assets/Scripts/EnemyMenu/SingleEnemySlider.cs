@@ -11,6 +11,8 @@ public class SingleEnemySlider : MonoBehaviour {
     public int characterSpacing;
     public TextAlignmentOptions textAlignmentOptions;
 
+    private string enemyName;
+
     // Use this for initialization
     void Start () {
 		
@@ -28,6 +30,13 @@ public class SingleEnemySlider : MonoBehaviour {
         sliderTMP.characterSpacing = characterSpacing;
         sliderTMP.alignment = textAlignmentOptions;
         sliderTMP.text = name + "'s understanding:";
+
+        enemyName = name;
+    }
+
+    public string GetEnemyName()
+    {
+        return enemyName;
     }
 
     public void SetBarFilling(int maxValue, int value)
