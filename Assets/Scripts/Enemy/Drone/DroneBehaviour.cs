@@ -65,6 +65,21 @@ public class DroneBehaviour : EnemyBehaviour {
         Debug.Log("morto");
     }
 
+    public void Deactivate() {
+        for (int i = 0; i < base.colliders.Length; i++) {
+            base.colliders[i].enabled = false;
+        }
+        animator.SetTrigger("Dead");
+        //ChangePhysicsCollider();
+        _movementDroneScript.Dying();
+        _platformCollider.enabled = true;
+        _healthBar.value = 0;
+        _healthBar.GetComponentInChildren<Image>().color = Color.clear;
+        GetComponent<AudioSource>().mute = true;
+
+        Debug.Log("deattivato");
+    }
+
     private void ChangePhysicsCollider() {
         _physicsCollider.offset = new Vector2(0f,-0.32f);
         _physicsCollider.size = new Vector2(1.17f, 0.58f);

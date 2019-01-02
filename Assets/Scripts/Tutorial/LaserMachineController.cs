@@ -13,6 +13,7 @@ public class LaserMachineController : MonoBehaviour {
     public bool active = false;
     public bool defeated = false;
     public bool laserOn = false;
+    private float _startSpeed;
 
     private float _lastTimeHit;
     public float timeToDefeat;
@@ -26,6 +27,7 @@ public class LaserMachineController : MonoBehaviour {
         _entranceDoor = transform.Find("EntranceDoor").GetComponent<LaserMachineDoor>();
         _exitDoor = transform.Find("ExitDoor").GetComponent<LaserMachineDoor>();
         _activeCollider = GetComponent<BoxCollider2D>();
+        _startSpeed = _laser.moveSpeed;
     }
 
     void Update () {
@@ -39,6 +41,7 @@ public class LaserMachineController : MonoBehaviour {
                 } else {
                     _laser.Right();
                 }
+                _laser.SetSpeed(_laser.moveSpeed + 1);
             }
 
             // defeated
@@ -55,6 +58,7 @@ public class LaserMachineController : MonoBehaviour {
     private void LaserHit() {
         _laser.hit = false;
         _lastTimeHit = Time.timeSinceLevelLoad;
+        _laser.SetSpeed(_startSpeed);
     }
 
     private void Defeated() {
@@ -85,6 +89,10 @@ public class LaserMachineController : MonoBehaviour {
 
     private void ActivateLaser() {
         _laser.On();
+        Invoke("AfterActivateLaser",1f);
+    }
+
+    private void AfterActivateLaser() {
         laserOn = true;
         _lastTimeHit = Time.timeSinceLevelLoad;
     }
