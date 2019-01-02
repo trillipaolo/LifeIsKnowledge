@@ -90,7 +90,7 @@ public class ScientistMovement : EnemyMovementPhysics
             if (currentDrone != null) {
                 if (!_lastDead)
                 {
-                    currentDrone.GetComponent<DroneBehaviour>().Die();
+                    currentDrone.GetComponent<DroneBehaviour>().Deactivate();
                     _lastDead = true;
                 }
             }
