@@ -12,6 +12,7 @@ public class Combo : ScriptableObject {
     public string comboName;
     public ComboButton[] buttonSequence;
     public Sprite comboSprite;
+    public Sprite highlightedComboSprite;
     public bool unlocked;
 
     //Combo position in the grid

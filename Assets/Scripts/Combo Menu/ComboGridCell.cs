@@ -6,30 +6,28 @@ public class ComboGridCell : MonoBehaviour {
 
     public Transform target;
 
-    [Header("GridCell Properties")]
+    [SerializeField]
     private bool _occupied;
 
-    private Transform oldCamera;
-    private Transform newCamera;
-    private Transform diffCamera;
-
+    //Offset of the GridCell w.r.t. the Target (MainCamera)
     private Vector3 offset;
 
-    private SpriteRenderer squareSprite;
+    private SpriteRenderer _squareSprite;
 
     private void Awake()
     {
         _occupied = false;
-        squareSprite = GetComponent<SpriteRenderer>();
-        oldCamera = GetComponent<Transform>();
-        newCamera = GetComponent<Transform>();
+        _squareSprite = GetComponent<SpriteRenderer>();
+
+        //Set the current Offset w.r.t. the Target (MainCamera)
         offset = target.position - transform.position + Vector3.forward*20;
-        Debug.Log(offset.z);
     }
     
 
     public void Update()
-    {
+    {   
+        //Update the current position of the Grid given Target (Main Camera) position
+        //and offset w.r.t the Target (Main Camera)
         transform.position = target.position + offset;
     }
 
@@ -45,15 +43,12 @@ public class ComboGridCell : MonoBehaviour {
 
     public void StartFading()
     {
-        //StartCoroutine("Fading");
-        Color c = squareSprite.material.color;
-        c.a = 0.5f;
-        squareSprite.material.color = c;
+        StartCoroutine("Fading");
     }
 
     public void StopFading()
     {
-        //StopCoroutine("Fading");
+        StopCoroutine("Fading");
         ResetColor();
     }
     
@@ -63,26 +58,26 @@ public class ComboGridCell : MonoBehaviour {
         {
             for (float f = 0.05f; f <= 1; f += 0.05f)
             {
-                Color c = squareSprite.material.color;
+                Color c = _squareSprite.material.color;
                 c.a = f;
-                squareSprite.material.color = c;
-                yield return new WaitForSeconds(0.05f);
+                _squareSprite.material.color = c;
+                yield return new WaitForSecondsRealtime(0.05f);
             }
 
             for (float f = 1f; f >= -0.05f; f -= 0.05f)
             {
-                Color c = squareSprite.material.color;
+                Color c = _squareSprite.material.color;
                 c.a = f;
-                squareSprite.material.color = c;
-                yield return new WaitForSeconds(0.05f);
+                _squareSprite.material.color = c;
+                yield return new WaitForSecondsRealtime(0.05f);
             }
         } while (true);
     }
 
     private void ResetColor()
     {
-        Color c = squareSprite.material.color;
+        Color c = _squareSprite.material.color;
         c.a = 1;
-        squareSprite.material.color = c;
+        _squareSprite.material.color = c;
     }
 }
