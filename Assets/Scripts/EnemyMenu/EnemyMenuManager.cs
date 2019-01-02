@@ -62,6 +62,8 @@ public class EnemyMenuManager : MonoBehaviour {
         }
 
         _menuSliders = new List<GameObject>();
+
+        ResetEnemyInformation();
     }
 
     // Update is called once per frame
@@ -140,6 +142,7 @@ public class EnemyMenuManager : MonoBehaviour {
                 if (enemyInformation.name == enemySlider.GetEnemyName())
                 {
                     enemyInformationObject.SetActive(false);
+                    enemySlider.StopFading();
                 }
             }
         }
@@ -152,12 +155,22 @@ public class EnemyMenuManager : MonoBehaviour {
             if (enemyInformation.name == enemySlider.GetEnemyName())
             {
                 enemyInformationObject.SetActive(true);
+                enemySlider.StartFading();
 
                 if (enemyList.enemies[_menuSlidersIndex].timesKilled >= enemyList.enemies[_menuSlidersIndex].timesUnlockCombo)
                 {
                     enemyInformation.EnableCombo();
+                    
                 }
             }
+        }
+    }
+
+    private void ResetEnemyInformation()
+    {
+        foreach(GameObject enemyInformation in enemyInformationList)
+        {
+            enemyInformation.SetActive(false);
         }
     }
 }

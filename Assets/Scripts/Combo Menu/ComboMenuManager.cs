@@ -265,8 +265,12 @@ public class ComboMenuManager : MonoBehaviour {
             }
         }
 
-        //Selecting the first button of the List
-        UpdateButtonSelected(-1);
+
+        //Selecting the first button of the List if there is at least one
+        if (_menuButtons.Count > 0)
+        {
+            UpdateButtonSelected(-1);
+        }
 
         //Hide the scrollbar if hideScrollBar = true
         if (hideScrollBar)
