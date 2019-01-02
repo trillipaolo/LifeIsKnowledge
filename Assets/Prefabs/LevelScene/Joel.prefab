@@ -264,7 +264,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1727067693750102}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.9, y: 4.5, z: 0}
+  m_LocalPosition: {x: 9, y: 3.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4038266271272254}
@@ -752,6 +752,8 @@ MonoBehaviour:
   - {fileID: 1418817012308618, guid: 31841b5f8cb998543949f143b5fc3682, type: 2}
   - {fileID: 1795682517402682, guid: 44818c8aae3c41f4da9db2f5bc2d2097, type: 2}
   - {fileID: 1441589622264340, guid: 4ab878826419d344fbc6fb131350047e, type: 2}
+  experienceOrb: {fileID: 1102200051657280, guid: 755eb3d47f5af75498afcb7549a328c9,
+    type: 2}
   joelEnemiesKilled: {fileID: 11400000, guid: b56d3d78bcf1eff4fb51eef80dcc8550, type: 2}
 --- !u!114 &114322629376589784
 MonoBehaviour:
