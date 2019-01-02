@@ -28,7 +28,7 @@ MonoBehaviour:
   combo2Key: 0
   topKey: 0
   middleKey: 1
-  downKey: 0
+  downKey: 1
   enumCombo: 2
   cooldown: 5
   damage:

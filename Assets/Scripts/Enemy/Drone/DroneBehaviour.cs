@@ -62,7 +62,7 @@ public class DroneBehaviour : EnemyBehaviour {
         _healthBar.GetComponentInChildren<Image>().color = Color.clear;
         GetComponent<AudioSource>().mute = true;
 
-        Debug.Log("morto");
+        
     }
 
     public void Deactivate() {
