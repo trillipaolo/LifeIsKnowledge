@@ -43581,11 +43581,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!1 &1022453128 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1140797518703200, guid: 14ad4cacb79280b469c21cb1621fe2d2,
-    type: 2}
-  m_PrefabInternal: {fileID: 1387357918}
 --- !u!1 &1030224868
 GameObject:
   m_ObjectHideFlags: 0
@@ -45338,6 +45333,11 @@ Prefab:
       propertyPath: target
       value: 
       objectReference: {fileID: 297918664}
+    - target: {fileID: 20752380294848240, guid: 14ad4cacb79280b469c21cb1621fe2d2,
+        type: 2}
+      propertyPath: m_CullingMask.m_Bits
+      value: 3895
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14ad4cacb79280b469c21cb1621fe2d2, type: 2}
   m_IsPrefabAsset: 0
@@ -138060,7 +138060,7 @@ Prefab:
         type: 2}
       propertyPath: background
       value: 
-      objectReference: {fileID: 1022453128}
+      objectReference: {fileID: 0}
     - target: {fileID: 114503954876427694, guid: 9bd1e8722fd92804281be6e3a614f800,
         type: 2}
       propertyPath: canvas
@@ -138118,7 +138118,7 @@ Prefab:
         type: 2}
       propertyPath: background
       value: 
-      objectReference: {fileID: 1022453128}
+      objectReference: {fileID: 0}
     - target: {fileID: 114931401231629206, guid: 9bd1e8722fd92804281be6e3a614f800,
         type: 2}
       propertyPath: canvas

@@ -40,22 +40,24 @@ public class EnemyBehaviour : MonoBehaviour{
     }
 
     public virtual void TakeDamage(Collider2D collider, float baseDamage, bool unique, int comboNum, int attackNum) {
-        float multiplier = GetMultiplier(collider);
-        float damage = ComputeDamage(baseDamage,multiplier,unique);
-        Color color = ComputeColor(multiplier, unique);
+        if (health >= 0) {
+            float multiplier = GetMultiplier(collider);
+            float damage = ComputeDamage(baseDamage,multiplier,unique);
+            Color color = ComputeColor(multiplier,unique);
 
-        audioManager.Play(enemyHitSound);
+            audioManager.Play(enemyHitSound);
 
-        Vector3 textPosition = (Vector3)collider.offset + transform.position;
-        FloatingTextController.CreateFloatingText(damage.ToString(), textPosition, color);
+            Vector3 textPosition = (Vector3)collider.offset + transform.position;
+            FloatingTextController.CreateFloatingText(damage.ToString(),textPosition,color);
 
-        health -= damage;
+            health -= damage;
 
-        if (health < 0) {
-            Die();
+            if (health < 0) {
+                Die();
+            }
+
+            _healthBar.value = health;
         }
-
-        _healthBar.value = health;
     }
 
     public float GetMultiplier(Collider2D collider) {
