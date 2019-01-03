@@ -344,7 +344,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1960080971953640}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.36, y: 3.38, z: 0}
+  m_LocalPosition: {x: 6.12, y: 3.42, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4355697508197630}
@@ -786,6 +786,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b329bf8c0d37294eb7a123a2636df6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  combos:
+  - {fileID: 1418817012308618, guid: 31841b5f8cb998543949f143b5fc3682, type: 2}
+  - {fileID: 1795682517402682, guid: 44818c8aae3c41f4da9db2f5bc2d2097, type: 2}
+  - {fileID: 1441589622264340, guid: 4ab878826419d344fbc6fb131350047e, type: 2}
+  experienceOrb: {fileID: 1102200051657280, guid: 755eb3d47f5af75498afcb7549a328c9,
+    type: 2}
   joelEnemiesKilled: {fileID: 11400000, guid: b56d3d78bcf1eff4fb51eef80dcc8550, type: 2}
 --- !u!114 &114931401231629206
 MonoBehaviour:
@@ -800,9 +806,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   comboMenu: {fileID: 0}
   comboMenuManager: {fileID: 0}
-  background: {fileID: 0}
+  enemyMenu: {fileID: 0}
+  enemyMenuManager: {fileID: 0}
   canvas: {fileID: 0}
   minimap: {fileID: 0}
+  resetEnemyKilled: 0
 --- !u!114 &114984834787850176
 MonoBehaviour:
   m_ObjectHideFlags: 1
