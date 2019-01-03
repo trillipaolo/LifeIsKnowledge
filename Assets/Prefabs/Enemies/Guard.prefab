@@ -22,7 +22,6 @@ GameObject:
   - component: {fileID: 212425977022256442}
   - component: {fileID: 95394345223863168}
   - component: {fileID: 114219133266619620}
-  - component: {fileID: 114068624236946396}
   - component: {fileID: 61990739872926588}
   - component: {fileID: 114899720261302770}
   m_Layer: 0
@@ -88,34 +87,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114068624236946396
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1928224320947320}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1503266b95d8ac4db93e93ec91c3e47, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _animator: {fileID: 0}
-  moveSpeed: 3
-  stopDistance: 1
-  jumpHeight: 1.5
-  timeToJumpApex: 0.4
-  velocity: {x: 0, y: 0}
-  facingRight: 1
-  patrolRadius: 5
-  visionRadiusX: 2
-  visionRadiusY: 0.5
-  foundTarget: 0
-  _anchor: 0
-  controller: {fileID: 0}
-  target: {fileID: 0}
-  movementDisabled: 0
-  isDead: 0
-  audioManager: {fileID: 0}
 --- !u!114 &114219133266619620
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -135,7 +106,7 @@ MonoBehaviour:
   velocity: {x: 0, y: 0}
   facingRight: 1
   patrolRadius: 5
-  visionRadiusX: 2
+  visionRadiusX: 6
   visionRadiusY: 0.5
   foundTarget: 0
   _anchor: 0
@@ -144,6 +115,7 @@ MonoBehaviour:
   movementDisabled: 0
   isDead: 0
   audioManager: {fileID: 0}
+  chillTimer: 2
 --- !u!114 &114899720261302770
 MonoBehaviour:
   m_ObjectHideFlags: 1
