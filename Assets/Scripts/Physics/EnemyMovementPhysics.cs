@@ -101,7 +101,7 @@ public class EnemyMovementPhysics : MonoBehaviour
                       && (Mathf.Abs(target.position.y - transform.position.y) <= visionRadiusY);
     }
 
-    public void Patrol()
+    public virtual void Patrol()
     {
         float patrolDistance = transform.position.x - _anchor;
 //        Debug.Log(patrolDistance);
