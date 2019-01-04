@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class ElevatorController : MonoBehaviour {
 
@@ -116,10 +117,16 @@ public class ElevatorController : MonoBehaviour {
         PlayerPhysics _temp = _joel.GetComponent<PlayerPhysics>();
         _temp.DisableMovement();
         _temp.velocity = Vector2.zero;
-
+        
         // To avoid strange behaviour with colliders
         _callDown.ResetCalled();
         _callUp.ResetCalled();
+        try{
+            _callDown.GetComponent<ShowInteractButton>().HideButton();
+        } catch(Exception e) { }
+        try {
+            _callUp.GetComponent<ShowInteractButton>().HideButton();
+        } catch (Exception e) { }
     }
 
     private void ReleaseJoelControl() {
