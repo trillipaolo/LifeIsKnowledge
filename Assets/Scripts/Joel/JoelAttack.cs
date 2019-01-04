@@ -266,7 +266,7 @@ public class JoelAttack : MonoBehaviour {
 
                 // for each collider of the enemy..
                 for(int j = 0; j < _enemyNumber; j++) {
-                    int _enemyId = _enemyColliders[j].transform.parent.GetInstanceID();
+                    int _enemyId = _enemyColliders[j].transform.root.GetInstanceID();
 
                     bool _toAdd = true;
                     bool _unique = true;
@@ -275,7 +275,7 @@ public class JoelAttack : MonoBehaviour {
                     for (int k = 0; k < _currLenght; k++) {
 
                         // if two collider are of the same gameObject..
-                        if (_colliderToDamage[k].transform.parent.GetInstanceID() == _enemyId) {
+                        if (_colliderToDamage[k].transform.root.GetInstanceID() == _enemyId) {
 
                             // ..and they are two different colliders
                             if (_colliderToDamage[k].offset != _enemyColliders[j].offset) {
