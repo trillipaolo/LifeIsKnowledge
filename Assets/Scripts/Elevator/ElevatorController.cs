@@ -112,7 +112,10 @@ public class ElevatorController : MonoBehaviour {
         _fakeJoel.SetActive(true);
         _mainCamera.target = _fakeJoel.GetComponent<Controller2D>();
         _withJoel = true;
-        _joel.GetComponent<PlayerPhysics>().velocity = Vector2.zero;
+
+        PlayerPhysics _temp = _joel.GetComponent<PlayerPhysics>();
+        _temp.DisableMovement();
+        _temp.velocity = Vector2.zero;
 
         // To avoid strange behaviour with colliders
         _callDown.ResetCalled();
@@ -126,7 +129,9 @@ public class ElevatorController : MonoBehaviour {
         _mainCamera.target = _joel.GetComponent<Controller2D>();
         _withJoel = false;
 
-        _joel.GetComponent<PlayerPhysics>().velocity = Vector2.zero;
+        PlayerPhysics _temp = _joel.GetComponent<PlayerPhysics>();
+        _temp.EnableMovement();
+        _temp.velocity = Vector2.zero;
     }
 
     private void MovingUp() {
