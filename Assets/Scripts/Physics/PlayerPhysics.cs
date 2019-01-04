@@ -232,12 +232,12 @@ public class PlayerPhysics : MonoBehaviour {
         _attackMovementFrames = animationEvent.intParameter;
     }
 
-    private void DisableMovement()
+    public void DisableMovement()
     {
         _attackMovement = true;
     }
 
-    private void EnableMovement()
+    public void EnableMovement()
     {
         _attackMovement = false;
     }

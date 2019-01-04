@@ -18,7 +18,7 @@ MonoBehaviour:
   comboSprite: {fileID: 21300000, guid: f2b72aae7a00c5747bb0c718e24c39f3, type: 3}
   highlightedComboSprite: {fileID: 21300000, guid: 327a52a8b19c0bb4e9a06d2d16efc539,
     type: 3}
-  unlocked: 0
+  unlocked: 1
   rowSaved: -1
   coloumnSaved: -1
   rotatedSaved: 0

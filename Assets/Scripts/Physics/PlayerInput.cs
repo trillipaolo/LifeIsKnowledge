@@ -41,4 +41,9 @@ public class PlayerInput : MonoBehaviour {
 	{
 		_inputDisabled = true;
 	}
+
+    public void EnableInput()
+    {
+        _inputDisabled = false;
+    }
 }

@@ -671,6 +671,8 @@ public class ComboMenuManager : MonoBehaviour {
         }
 
         _scrollToGrid = false;
+        _row = 0;
+        _coloumn = 0;
         EnableScrollMenu();
     }
 
