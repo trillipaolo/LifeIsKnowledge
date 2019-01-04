@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class ContinueButton : MonoBehaviour {
 
+    [Header("Joel Reference")]
+    public GameObject target;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -16,6 +19,8 @@ public class ContinueButton : MonoBehaviour {
 
     public void OnClick()
     {
+        target.GetComponent<Animator>().SetBool("isMeditating", false);
+        target.GetComponent<Animator>().SetBool("isSleeping", false);
         transform.parent.gameObject.transform.parent.gameObject.GetComponent<SafeArea>().CloseSafeAreaMenu();
     }
 }

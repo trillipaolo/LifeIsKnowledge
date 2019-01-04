@@ -59,7 +59,7 @@ public class ComboMenu : MonoBehaviour
         }
 
         //While in ComboMenu switch to the EnemyMenu
-        if ((Input.GetAxis("SwitchToEnemyMenu") == 1) && _comboMenu && !_enemyMenu) 
+        if ( ( (Input.GetAxis("SwitchToEnemyMenu") == 1) || (Input.GetButtonDown("SwitchToEnemyMenu") ) ) && _comboMenu && !_enemyMenu) 
         {
             DeactivateComboMenu();
 
@@ -67,7 +67,7 @@ public class ComboMenu : MonoBehaviour
         }
 
         //While in EnemyMenu switch to the ComboMenu
-        if((Input.GetAxis("SwitchToComboMenu") == 1) && !_comboMenu && _enemyMenu)
+        if( ( (Input.GetAxis("SwitchToComboMenu") == 1) || (Input.GetButtonDown("SwitchToComboMenu") ) ) && !_comboMenu && _enemyMenu)
         {
             DeactivateEnemyMenu();
 

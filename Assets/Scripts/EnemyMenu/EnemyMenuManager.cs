@@ -20,6 +20,17 @@ public class EnemyMenuManager : MonoBehaviour {
     public GameObject slidingArea;
     public GameObject handle;
 
+    [Header("Button reference: Safe Area interaction")]
+    public GameObject journalButton;
+    public bool _calledByButton = false;
+
+    [Header("Back Button Sprites")]
+    public Sprite backButtonStart;
+    public Sprite backButtonB;
+
+    [Header("Canvas Back Button Reference")]
+    public GameObject backButton;
+
     private List<GameObject> _menuSliders;
     private int _menuSlidersIndex;
     private bool _updateSlider;
@@ -51,6 +62,15 @@ public class EnemyMenuManager : MonoBehaviour {
             Image scrollBarImage = scrollBar.GetComponent<Image>();
             scrollBarImage.enabled = false;
         }
+
+        if(_calledByButton)
+        {
+            backButton.GetComponent<SpriteRenderer>().sprite = backButtonB;
+        }
+        else
+        {
+            backButton.GetComponent<SpriteRenderer>().sprite = backButtonStart;
+        }
     }
 
     private void OnDisable()
@@ -69,6 +89,11 @@ public class EnemyMenuManager : MonoBehaviour {
     // Update is called once per frame
     void Update () {
         SliderSelection();
+
+        if (_calledByButton && Input.GetButtonDown("BackToScroll"))
+        {
+            journalButton.GetComponent<JournalButton>().CloseMenu();
+        }
 	}
 
     private void InitializeScrollbarMenu()

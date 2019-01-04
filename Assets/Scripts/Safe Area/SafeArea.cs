@@ -7,6 +7,10 @@ public class SafeArea : MonoBehaviour {
     [Header("Joel Reference")]
     public GameObject target;
 
+    [Header("HUD Reference for disabling")]
+    public Canvas canvas;
+    public Camera minimap;
+
     //Safe Areas Components
     private Collider2D _collider;
 
@@ -34,11 +38,6 @@ public class SafeArea : MonoBehaviour {
         {
             EnableInteraction();
         }
-
-        if(Input.GetKeyDown(KeyCode.H))
-        {
-            DisableMeditating();
-        }
 	}
 
     private void EnableInteraction()
@@ -56,6 +55,8 @@ public class SafeArea : MonoBehaviour {
     
     private void OpenSafeAreaMenu()
     {
+        canvas.enabled = false;
+        minimap.enabled = false;
         DisableJoel();
         target.GetComponent<Animator>().updateMode = AnimatorUpdateMode.UnscaledTime;
         Time.timeScale = 0f;
@@ -68,21 +69,11 @@ public class SafeArea : MonoBehaviour {
         Time.timeScale = 1f;
         target.GetComponent<Animator>().updateMode = AnimatorUpdateMode.Normal;
         EnableJoel();
+        minimap.enabled = true;
+        canvas.enabled = true;
     }
 
-    private void EnableMeditating()
-    {
-        DisableJoel();
-        target.GetComponent<Animator>().SetBool("isMeditating", true);
-    }
-
-    private void DisableMeditating()
-    {
-        _isColliding = false;
-
-        EnableJoel();
-        target.GetComponent<Animator>().SetBool("isMeditating", false);
-    }
+    
 
     private void DisableJoel()
     {
@@ -95,5 +86,4 @@ public class SafeArea : MonoBehaviour {
         target.GetComponent<PlayerInput>().EnableInput();
         target.GetComponent<PlayerPhysics>().EnableMovement();
     }
-    
 }

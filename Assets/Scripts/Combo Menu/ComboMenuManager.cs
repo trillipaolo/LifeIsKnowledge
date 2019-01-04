@@ -51,7 +51,21 @@ public class ComboMenuManager : MonoBehaviour {
     [Header("Combos Available to Joel in-game")]
     public JoelCombos joelCombos;
 
+    [Header("Button Reference: Safe Area interaction")]
+    public GameObject meditationButton;
+    public bool _calledByButton = false;
+    //To decouple the B button between normal menu and meditation menu
+    private bool _backToScroll;
+
+    [Header("Back Button Sprites")]
+    public Sprite backButtonStart;
+    public Sprite backButtonB;
+
+    [Header("Canvas Back Button Reference")]
+    public GameObject backButton;
+
     //List of Buttons in the scrolling menu: each button refers to a combo
+    [Header("ScrollMenu Button List")]
     public List<GameObject> _menuButtons;
     private int _menuButtonsIndex;
     private bool _updateSelectedButton;
@@ -124,6 +138,15 @@ public class ComboMenuManager : MonoBehaviour {
         {
             ReconstructGrid();
         }
+
+        if (_calledByButton)
+        {
+            backButton.GetComponent<SpriteRenderer>().sprite = backButtonB;
+        }
+        else
+        {
+            backButton.GetComponent<SpriteRenderer>().sprite = backButtonStart;
+        }
     }
 
     void OnDisable()
@@ -148,6 +171,7 @@ public class ComboMenuManager : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
+        _backToScroll = false;
 
         if (_scrollToGrid)
         {
@@ -165,6 +189,8 @@ public class ComboMenuManager : MonoBehaviour {
                 _coloumn = 0;
 
                 EnableScrollMenu();
+                _backToScroll = true;
+
                 return;
             }
 
@@ -191,6 +217,14 @@ public class ComboMenuManager : MonoBehaviour {
             ScrollSelection();
         }
 	}
+
+    private void LateUpdate()
+    {
+        if (!_backToScroll && _calledByButton && Input.GetButtonDown("BackToScroll"))
+        {
+            meditationButton.GetComponent<MeditationButton>().CloseMenu();
+        }
+    }
 
     private void SoftResetGrid()
     {
