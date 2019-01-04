@@ -16,6 +16,7 @@ public class LaserMachineLaser : MonoBehaviour {
     public bool on;
     [HideInInspector]
     public bool hit = false;
+    private bool _inCollider = false;
 
     private float _startTime;
     private Vector2 _startPosition;
@@ -23,6 +24,7 @@ public class LaserMachineLaser : MonoBehaviour {
 
     private Animator _animator;
     private BoxCollider2D _collider;
+    private JoelHealth _joel;
 
     private void Awake() {
         _animator = GetComponent<Animator>();
@@ -34,9 +36,14 @@ public class LaserMachineLaser : MonoBehaviour {
         _collider.enabled = on;
     }
 
+    private void Start() {
+        _joel = GameObject.FindGameObjectsWithTag("Player")[0].transform.root.GetComponentInChildren<JoelHealth>();
+    }
+
     private void Update() {
         Move();
         Active();
+        Damage();
 
         if (openDoor) {
             Left();
@@ -61,6 +68,15 @@ public class LaserMachineLaser : MonoBehaviour {
             if (_animator.GetCurrentAnimatorStateInfo(0).IsName("LaserOn")) {
                 _collider.enabled = true;
             }
+        }
+    }
+
+    private void Damage() {
+        if (_inCollider) {
+            _joel.TakeDamage(1);
+            hit = true;
+        } else {
+            hit = false;
         }
     }
 
@@ -101,10 +117,15 @@ public class LaserMachineLaser : MonoBehaviour {
         _collider.enabled = false;
     }
 
-    private void OnTriggerStay2D(Collider2D other) {
-        if(other.tag == "Player") {
-            other.GetComponentInChildren<JoelHealth>().TakeDamage(1);
-            hit = true;
+    private void OnTriggerEnter2D(Collider2D other) {
+        if (other.tag == "Player") {
+            _inCollider = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other) {
+        if (other.tag == "Player") {
+            _inCollider = false;
         }
     }
 }
