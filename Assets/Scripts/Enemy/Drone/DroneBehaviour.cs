@@ -31,22 +31,24 @@ public class DroneBehaviour : EnemyBehaviour {
     }
 
     public override void TakeDamage(Collider2D collider,float baseDamage,bool unique, int comboNum, int attackNum) {
-        float multiplier = base.GetMultiplier(collider);
-        float damage = base.ComputeDamage(baseDamage,multiplier,unique);
-        Color color = base.ComputeColor(multiplier,unique);
-        
-        base.audioManager.Play(base.enemyHitSound);
+        if (health > 0) {
+            float multiplier = base.GetMultiplier(collider);
+            float damage = base.ComputeDamage(baseDamage,multiplier,unique);
+            Color color = base.ComputeColor(multiplier,unique);
 
-        Vector3 textPosition = (Vector3)collider.offset + transform.position;
-        FloatingTextController.CreateFloatingText(damage.ToString(),textPosition,color);
+            base.audioManager.Play(base.enemyHitSound);
 
-        health -= damage;
+            Vector3 textPosition = (Vector3)collider.offset + transform.position;
+            FloatingTextController.CreateFloatingText(damage.ToString(),textPosition,color);
 
-        if (health < 0) {
-            Die();
+            health -= damage;
+
+            if (health <= 0) {
+                Die();
+            }
+
+            _healthBar.value = health;
         }
-
-        _healthBar.value = health;
     }
 
     public override void Die() {

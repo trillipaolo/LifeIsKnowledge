@@ -7,7 +7,6 @@ public class ComboUnlockedController : MonoBehaviour {
 	public JoelEnemiesKilled joelEnemiesKilled;
     public JoelCombos joelCombos;
     public BasicAttack basicAttacks;
-    public Combo horizontalSpin;
     public bool resetAtStart = false;
 
     private void Awake() {
@@ -20,10 +19,6 @@ public class ComboUnlockedController : MonoBehaviour {
             basicAttacks.InitializeDamage();
 
             joelCombos.combos = new Combo[0];
-
-            horizontalSpin.coloumnSaved = -1;
-            horizontalSpin.rowSaved = -1;
-            horizontalSpin.rotatedSaved = false;
         }
     }
 }

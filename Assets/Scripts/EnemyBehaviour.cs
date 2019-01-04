@@ -40,7 +40,7 @@ public class EnemyBehaviour : MonoBehaviour{
     }
 
     public virtual void TakeDamage(Collider2D collider, float baseDamage, bool unique, int comboNum, int attackNum) {
-        if (health >= 0) {
+        if (health > 0) {
             float multiplier = GetMultiplier(collider);
             float damage = ComputeDamage(baseDamage,multiplier,unique);
             Color color = ComputeColor(multiplier,unique);
@@ -52,7 +52,7 @@ public class EnemyBehaviour : MonoBehaviour{
 
             health -= damage;
 
-            if (health < 0) {
+            if (health <= 0) {
                 Die();
             }
 
