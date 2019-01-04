@@ -170,6 +170,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1800768631243508
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4042214317413694}
+  - component: {fileID: 212114591222474724}
+  - component: {fileID: 114454722636334618}
+  m_Layer: 10
+  m_Name: InteractButton
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
 --- !u!1 &1816522358646020
 GameObject:
   m_ObjectHideFlags: 1
@@ -226,6 +243,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4657258496068330}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4042214317413694
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1800768631243508}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.8, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4730197574058182}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4316576948976432
 Transform:
@@ -344,7 +374,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1960080971953640}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.36, y: 3.38, z: 0}
+  m_LocalPosition: {x: 82.51, y: 24.45, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4355697508197630}
@@ -352,6 +382,7 @@ Transform:
   - {fileID: 4316576948976432}
   - {fileID: 4473174486325344}
   - {fileID: 4657258496068330}
+  - {fileID: 4042214317413694}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -688,6 +719,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dustSpread: {fileID: 1969911721492344, guid: 023d9a92c970ab04d9e1ee23afba27c0, type: 2}
   transform: {fileID: 4865816577892190}
+--- !u!114 &114454722636334618
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1800768631243508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492701a1b8dce2340ba3022ecfbff972, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114737645269471198
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -786,6 +828,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b329bf8c0d37294eb7a123a2636df6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  combos: []
+  experienceOrb: {fileID: 1102200051657280, guid: 755eb3d47f5af75498afcb7549a328c9,
+    type: 2}
   joelEnemiesKilled: {fileID: 11400000, guid: b56d3d78bcf1eff4fb51eef80dcc8550, type: 2}
 --- !u!114 &114931401231629206
 MonoBehaviour:
@@ -800,9 +845,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   comboMenu: {fileID: 0}
   comboMenuManager: {fileID: 0}
-  background: {fileID: 0}
+  enemyMenu: {fileID: 0}
+  enemyMenuManager: {fileID: 0}
   canvas: {fileID: 0}
   minimap: {fileID: 0}
+  resetEnemyKilled: 0
 --- !u!114 &114984834787850176
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -814,6 +861,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95c12ed5a450ddb4aa86461d3a6ffde9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!212 &212114591222474724
+SpriteRenderer:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1800768631243508}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: d79023e362ce5994c9c802e2883ffe27, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!212 &212287731873802976
 SpriteRenderer:
   m_ObjectHideFlags: 1
