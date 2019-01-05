@@ -20,6 +20,18 @@ public class EnemyMenuManager : MonoBehaviour {
     public GameObject slidingArea;
     public GameObject handle;
 
+    [Header("References: Safe Area interaction")]
+    public GameObject blurBackground;
+    public GameObject journalButton;
+    public bool _calledByButton = false;
+
+    [Header("Back Button Sprites")]
+    public Sprite backButtonStart;
+    public Sprite backButtonB;
+
+    [Header("Canvas Back Button Reference")]
+    public GameObject backButton;
+
     private List<GameObject> _menuSliders;
     private int _menuSlidersIndex;
     private bool _updateSlider;
@@ -51,6 +63,17 @@ public class EnemyMenuManager : MonoBehaviour {
             Image scrollBarImage = scrollBar.GetComponent<Image>();
             scrollBarImage.enabled = false;
         }
+
+        if(_calledByButton)
+        {
+            backButton.GetComponent<SpriteRenderer>().sprite = backButtonB;
+            blurBackground.SetActive(false);
+        }
+        else
+        {
+            backButton.GetComponent<SpriteRenderer>().sprite = backButtonStart;
+            blurBackground.SetActive(true);
+        }
     }
 
     private void OnDisable()
@@ -62,11 +85,18 @@ public class EnemyMenuManager : MonoBehaviour {
         }
 
         _menuSliders = new List<GameObject>();
+
+        ResetEnemyInformation();
     }
 
     // Update is called once per frame
     void Update () {
         SliderSelection();
+
+        if (_calledByButton && Input.GetButtonDown("BackToScroll"))
+        {
+            journalButton.GetComponent<JournalButton>().CloseMenu();
+        }
 	}
 
     private void InitializeScrollbarMenu()
@@ -140,6 +170,7 @@ public class EnemyMenuManager : MonoBehaviour {
                 if (enemyInformation.name == enemySlider.GetEnemyName())
                 {
                     enemyInformationObject.SetActive(false);
+                    enemySlider.StopFading();
                 }
             }
         }
@@ -152,12 +183,22 @@ public class EnemyMenuManager : MonoBehaviour {
             if (enemyInformation.name == enemySlider.GetEnemyName())
             {
                 enemyInformationObject.SetActive(true);
+                enemySlider.StartFading();
 
                 if (enemyList.enemies[_menuSlidersIndex].timesKilled >= enemyList.enemies[_menuSlidersIndex].timesUnlockCombo)
                 {
                     enemyInformation.EnableCombo();
+                    
                 }
             }
+        }
+    }
+
+    private void ResetEnemyInformation()
+    {
+        foreach(GameObject enemyInformation in enemyInformationList)
+        {
+            enemyInformation.SetActive(false);
         }
     }
 }

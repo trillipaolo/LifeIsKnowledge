@@ -381,4 +381,9 @@ public class JoelAttack : MonoBehaviour {
     void PlaySoundMidMid() {
         audioManager.Play(knifeSlashSounds1Coll);
     }
+
+    void PlaySound(string soundName)
+    {
+        audioManager.Play(soundName);
+    }
 }

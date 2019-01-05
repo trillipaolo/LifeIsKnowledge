@@ -19,7 +19,9 @@ public class ComboMenu : MonoBehaviour
 
     private bool _comboMenu = false;
     private bool _enemyMenu = false;
-    private bool _menu = false;
+
+    //Boolean to prevent ComboMenu from working while in Safe Area
+    public bool _menu = false;
 
     public void Start()
     {
@@ -36,42 +38,46 @@ public class ComboMenu : MonoBehaviour
 
     private void Update()
     {
-
-        //Open the menu: ComboMenu is opened as first by default
-        if (Input.GetButtonDown("OpenMenu"))
-        {   
-            if (!_comboMenu && !_enemyMenu)
+        if (!_menu)
+        {
+            //Open the menu: ComboMenu is opened as first by default
+            if (Input.GetButtonDown("OpenMenu"))
             {
-                Debug.Log("Here");
+                if (!_comboMenu && !_enemyMenu)
+                {
+                    DisableJoel();
+                    ActivateComboMenu();
+                }
+                else
+                {
+                    if (_comboMenu)
+                    {   
+                        DeactivateComboMenu();
+                        EnableJoel();
+                    }
+                    if (_enemyMenu)
+                    {
+                        DeactivateEnemyMenu();
+                        EnableJoel();
+                    }
+                }
+            }
+
+            //While in ComboMenu switch to the EnemyMenu
+            if (((Input.GetAxis("SwitchToEnemyMenu") == 1) || (Input.GetButtonDown("SwitchToEnemyMenu"))) && _comboMenu && !_enemyMenu)
+            {
+                DeactivateComboMenu();
+
+                ActivateEnemyMenu();
+            }
+
+            //While in EnemyMenu switch to the ComboMenu
+            if (((Input.GetAxis("SwitchToComboMenu") == 1) || (Input.GetButtonDown("SwitchToComboMenu"))) && !_comboMenu && _enemyMenu)
+            {
+                DeactivateEnemyMenu();
+
                 ActivateComboMenu();
             }
-            else
-            {
-                if(_comboMenu)
-                {
-                    DeactivateComboMenu();
-                }
-                if(_enemyMenu)
-                {
-                    DeactivateEnemyMenu();
-                }
-            }
-        }
-
-        //While in ComboMenu switch to the EnemyMenu
-        if (Input.GetButtonDown("SwitchToEnemyMenu") && _comboMenu && !_enemyMenu) 
-        {
-            DeactivateComboMenu();
-
-            ActivateEnemyMenu();
-        }
-
-        //While in EnemyMenu switch to the ComboMenu
-        if(Input.GetButtonDown("SwitchToComboMenu") && !_comboMenu && _enemyMenu)
-        {
-            DeactivateEnemyMenu();
-
-            ActivateComboMenu();
         }
     }
 
@@ -82,6 +88,7 @@ public class ComboMenu : MonoBehaviour
         canvas.enabled = false;
         minimap.enabled = true;
         _comboMenu = true;
+        AudioListener.pause = true;
     }
 
     private void DeactivateComboMenu()
@@ -95,6 +102,7 @@ public class ComboMenu : MonoBehaviour
         canvas.enabled = true;
         minimap.enabled = true;
         _comboMenu = false;
+        AudioListener.pause = false;
     }
 
     private void ActivateEnemyMenu()
@@ -104,6 +112,7 @@ public class ComboMenu : MonoBehaviour
         canvas.enabled = false;
         minimap.enabled = false;
         _enemyMenu = true;
+        AudioListener.pause = true;
     }
 
     private void DeactivateEnemyMenu()
@@ -114,6 +123,19 @@ public class ComboMenu : MonoBehaviour
         canvas.enabled = true;
         minimap.enabled = true;
         _enemyMenu = false;
+        AudioListener.pause = false;
+    }
+
+    private void DisableJoel()
+    {
+        GetComponent<PlayerInput>().DisableInput();
+        GetComponent<PlayerPhysics>().DisableMovement();
+    }
+
+    private void EnableJoel()
+    {
+        GetComponent<PlayerInput>().EnableInput();
+        GetComponent<PlayerPhysics>().EnableMovement();
     }
 }
 

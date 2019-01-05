@@ -12,6 +12,7 @@ public class SingleEnemySlider : MonoBehaviour {
     public TextAlignmentOptions textAlignmentOptions;
 
     private string enemyName;
+    private Image _glowEffect;
 
     // Use this for initialization
     void Start () {
@@ -45,5 +46,51 @@ public class SingleEnemySlider : MonoBehaviour {
         slider.minValue = 0;
         slider.maxValue = maxValue;
         slider.value = value;
+    }
+
+    public void StartFading()
+    {
+        Debug.Log("StartFading");
+
+        _glowEffect = transform.Find("Background_Glow").GetComponent<Image>();
+
+        StartCoroutine("Fading");
+    }
+
+    public void StopFading()
+    {
+        StopCoroutine("Fading");
+        ResetColor();
+    }
+
+    private void ResetColor()
+    {
+        Color glowEffectColor = _glowEffect.color;
+        glowEffectColor.a = 0;
+        _glowEffect.color = glowEffectColor;
+    }
+
+    IEnumerator Fading()
+    {
+        do
+        {
+            for (float f = 0.05f; f <= 1; f += 0.05f)
+            {
+                Debug.Log("Setting a to " + f);
+
+                Color c = _glowEffect.color;
+                c.a = f;
+                _glowEffect.color = c;
+                yield return new WaitForSecondsRealtime(0.05f);
+            }
+
+            for (float f = 1f; f >= -0.05f; f -= 0.05f)
+            {
+                Color c = _glowEffect.color;
+                c.a = f;
+                _glowEffect.color = c;
+                yield return new WaitForSecondsRealtime(0.05f);
+            }
+        } while (true);
     }
 }
