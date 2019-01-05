@@ -29,8 +29,9 @@ public class EnemyMenuManager : MonoBehaviour {
     public Sprite backButtonStart;
     public Sprite backButtonB;
 
-    [Header("Canvas Back Button Reference")]
+    [Header("Canvas Button References")]
     public GameObject backButton;
+    public GameObject changeMenuButton;
 
     private List<GameObject> _menuSliders;
     private int _menuSlidersIndex;
@@ -68,11 +69,13 @@ public class EnemyMenuManager : MonoBehaviour {
         {
             backButton.GetComponent<SpriteRenderer>().sprite = backButtonB;
             blurBackground.SetActive(false);
+            changeMenuButton.SetActive(false);
         }
         else
         {
             backButton.GetComponent<SpriteRenderer>().sprite = backButtonStart;
             blurBackground.SetActive(true);
+            changeMenuButton.SetActive(true);
         }
     }
 

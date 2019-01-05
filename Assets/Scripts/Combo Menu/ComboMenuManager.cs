@@ -63,8 +63,9 @@ public class ComboMenuManager : MonoBehaviour {
     public Sprite backButtonStart;
     public Sprite backButtonB;
 
-    [Header("Canvas Back Button Reference")]
+    [Header("Canvas Button References")]
     public GameObject backButton;
+    public GameObject changeMenuButton;
 
     //List of Buttons in the scrolling menu: each button refers to a combo
     [Header("ScrollMenu Button List")]
@@ -112,12 +113,14 @@ public class ComboMenuManager : MonoBehaviour {
         {
             backButton.GetComponent<SpriteRenderer>().sprite = backButtonB;
             blurBackground.SetActive(false);
+            changeMenuButton.SetActive(false);
             menuCell.GetComponent<SpriteRenderer>().sprite = emptyCellWhite;
         }
         else
         {
             backButton.GetComponent<SpriteRenderer>().sprite = backButtonStart;
             blurBackground.SetActive(true);
+            changeMenuButton.SetActive(true);
             menuCell.GetComponent<SpriteRenderer>().sprite = emptyCell;
         }
 
