@@ -61,18 +61,20 @@ public class RestButton : MonoBehaviour {
     }
 
     IEnumerator Heal()
-    {
-        for (; _healthSlider.value < _healthSlider.maxValue;)
+    {   
+        for (; target.GetComponentInChildren<JoelHealth>().currentHealth < target.GetComponentInChildren<JoelHealth>().joelHealth.health;)
         {
-            float tmpValue = _healthSlider.value + 10f;
+            int tmpValue = target.GetComponentInChildren<JoelHealth>().currentHealth + 10;
 
-            if (tmpValue < _healthSlider.maxValue)
+            if (tmpValue < target.GetComponentInChildren<JoelHealth>().joelHealth.health)
             {
+                target.GetComponentInChildren<JoelHealth>().currentHealth = tmpValue;
                 _healthSlider.value = tmpValue;
             }
             else
             {
-                _healthSlider.value = _healthSlider.maxValue;
+                target.GetComponentInChildren<JoelHealth>().currentHealth = target.GetComponentInChildren<JoelHealth>().joelHealth.health;
+                _healthSlider.value = target.GetComponentInChildren<JoelHealth>().joelHealth.health;
             }
             yield return new WaitForSecondsRealtime(1.0f);
         }
