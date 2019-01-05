@@ -769,6 +769,7 @@ MonoBehaviour:
   stuckCountdown: 2
   flyingHeight: 2
   droneSliding: 0.3
+  attackVisionRadiusY: 1.5
   timeRangeMin: 0.5
   timeRangeMax: 2
   dead: 0
