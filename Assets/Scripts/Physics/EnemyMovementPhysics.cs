@@ -116,7 +116,7 @@ public class EnemyMovementPhysics : MonoBehaviour
         }
     }
 
-    public void FollowAndAttack()
+    public virtual void FollowAndAttack()
     {
         float distance = transform.position.x - target.position.x;
         if (Mathf.Abs(distance) > stopDistance)

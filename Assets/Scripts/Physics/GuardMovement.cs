@@ -74,4 +74,46 @@ public class GuardMovement : EnemyMovementPhysics
             velocity.x = (facingRight ? 1 : -1) * moveSpeed;
         }
     }
+
+	public override void FollowAndAttack()
+	{
+		float distance = transform.position.x - target.position.x;
+
+		// if too distant go near joel
+		if (Mathf.Abs(distance) > stopDistance)
+		{
+			if (Mathf.Abs(target.position.y - transform.position.y) <= visionRadiusY)
+			{
+				if (Mathf.Sign(distance) < 0)
+				{
+					velocity.x = moveSpeed;
+					facingRight = true;
+				}
+				else
+				{
+					facingRight = false;
+					velocity.x = -moveSpeed;
+				}
+			}
+		}
+		else if (Mathf.Abs(target.position.y - transform.position.y) <= visionRadiusY)
+		{
+//			if (Time.timeSinceLevelLoad - _lastAttack > timeBetweenAttacks)
+//			{
+//				if (Mathf.Sign(distance) < 0)
+//				{
+//					velocity.x = moveSpeed;
+//					facingRight = true;
+//				}
+//				else
+//				{
+//					facingRight = false;
+//					velocity.x = -moveSpeed;
+//				}
+//
+//				_animator.SetTrigger("Attack");
+//				_hitboxAnimator.SetTrigger("Attack");
+//			}
+		}
+	}
 }
