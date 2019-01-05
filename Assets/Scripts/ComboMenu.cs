@@ -88,6 +88,7 @@ public class ComboMenu : MonoBehaviour
         canvas.enabled = false;
         minimap.enabled = true;
         _comboMenu = true;
+        AudioListener.pause = true;
     }
 
     private void DeactivateComboMenu()
@@ -101,6 +102,7 @@ public class ComboMenu : MonoBehaviour
         canvas.enabled = true;
         minimap.enabled = true;
         _comboMenu = false;
+        AudioListener.pause = false;
     }
 
     private void ActivateEnemyMenu()
@@ -110,6 +112,7 @@ public class ComboMenu : MonoBehaviour
         canvas.enabled = false;
         minimap.enabled = false;
         _enemyMenu = true;
+        AudioListener.pause = true;
     }
 
     private void DeactivateEnemyMenu()
@@ -120,6 +123,7 @@ public class ComboMenu : MonoBehaviour
         canvas.enabled = true;
         minimap.enabled = true;
         _enemyMenu = false;
+        AudioListener.pause = false;
     }
 
     private void DisableJoel()

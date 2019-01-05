@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class JoelHealth : MonoBehaviour {
 
-    public int startingHealth = 100;                            // The amount of health the player starts the game with.
+    private int startingHealth;                            // The amount of health the player starts the game with.
     public int currentHealth;                                   // The current health the player has.
     public Slider healthSlider;                                 // Reference to the UI's health bar.
     public Image damageImage;                                   // Reference to an image to flash on the screen on being hurt.
@@ -30,6 +31,10 @@ public class JoelHealth : MonoBehaviour {
     AudioManager audioManager;
     public string joelTakeDmgSound = "JoelDamage";
 
+    [Header("Joel Health Scriptable Object")]
+    public Health joelHealth;
+    public bool resetHealthAtStart;
+
     private void Awake() {
         // Setting up the references.
         _hitbox = GetComponent<BoxCollider2D>();
@@ -38,8 +43,22 @@ public class JoelHealth : MonoBehaviour {
         //playerMovement = GetComponent<PlayerMovement>();
         //playerShooting = GetComponentInChildren<PlayerShooting>();
 
+        if (resetHealthAtStart)
+        {
+            ResetHealthAtStart();
+        }
+
+        //Importing Joel's Health scriptable object info
+        startingHealth = joelHealth.health;
+
+        //Setting up Joel health bar values
+        healthSlider.minValue = 0;
+        healthSlider.maxValue = startingHealth;
+        healthSlider.value = startingHealth;
+
         // Set the initial health of the player.
         currentHealth = startingHealth;
+
         _input = GetComponentInParent<PlayerInput>();
     }
 
@@ -71,6 +90,10 @@ public class JoelHealth : MonoBehaviour {
         // Reset the damaged flag.
         _damaged = false;
         _healed = false;
+
+
+        //Update HealthBar Text
+        UpdateText();
     }
 
     private void UpdateCollider() {
@@ -98,7 +121,7 @@ public class JoelHealth : MonoBehaviour {
             // Set the health bar's value to the current health.
             healthSlider.value = currentHealth;
 
-            // Play the hurt sound effect.
+            //Play the hurt sound effect.
             //playerAudio.Play();
 
             // If the player has lost all it's health and the death flag hasn't been set yet...
@@ -140,5 +163,37 @@ public class JoelHealth : MonoBehaviour {
     private void ReloadScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void UpdateJoelHealth()
+    {
+        //Resetting StartingHealth for code compatibility
+        startingHealth = joelHealth.health;
+
+        //Setting up Joel health bar values
+        healthSlider.minValue = 0;
+        healthSlider.maxValue = joelHealth.health;
+        healthSlider.value = joelHealth.health;
+
+        // Set the initial health of the player.
+        currentHealth = joelHealth.health;
+    }
+
+    private void UpdateText()
+    {
+        TextMeshProUGUI healthBarText = healthSlider.GetComponentInChildren<TextMeshProUGUI>();
+        if (healthSlider.value > 0)
+        {
+            healthBarText.text = healthSlider.value + "/" + healthSlider.maxValue;
+        }
+        else
+        {
+            healthBarText.text = healthSlider.minValue + "/" + healthSlider.maxValue;
+        }
+    }
+
+    private void ResetHealthAtStart()
+    {
+        joelHealth.health = joelHealth.initialHealth;
     }
 }

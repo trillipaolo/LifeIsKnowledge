@@ -54,103 +54,190 @@ MonoBehaviour:
   sounds:
   - name: Theme
     clip: {fileID: 8300000, guid: defdb97d89a7f3548bf7e21ce9624caa, type: 3}
-    volume: 0.3
+    group: {fileID: 243307984207351158, guid: c331b99e435eab84082dc47340cab267, type: 2}
+    volume: 0
     pitch: 1
     loop: 1
+    randomVolume: 0
+    randomPitch: 0
     source: {fileID: 0}
   - name: KnifeSlash1
     clip: {fileID: 8300000, guid: 76bdeb813bf20214aa5054f4592105cf, type: 3}
+    group: {fileID: 243334754797210906, guid: c331b99e435eab84082dc47340cab267, type: 2}
     volume: 1
     pitch: 1
     loop: 0
+    randomVolume: 0
+    randomPitch: 0
     source: {fileID: 0}
   - name: KnifeSlash2
     clip: {fileID: 8300000, guid: 0c64db5804e2ed94484dca78ef674c02, type: 3}
+    group: {fileID: 243334754797210906, guid: c331b99e435eab84082dc47340cab267, type: 2}
     volume: 0.4
     pitch: 1
     loop: 0
+    randomVolume: 0
+    randomPitch: 0
     source: {fileID: 0}
   - name: KnifeSlash3
     clip: {fileID: 8300000, guid: 97eea24b9203c0b40888cfd3ac2f91d0, type: 3}
+    group: {fileID: 243334754797210906, guid: c331b99e435eab84082dc47340cab267, type: 2}
     volume: 0.8
     pitch: 1
     loop: 0
+    randomVolume: 0
+    randomPitch: 0
     source: {fileID: 0}
   - name: KnifeSlash4
     clip: {fileID: 8300000, guid: a8789faafe578284a9a9b846a788ae9a, type: 3}
+    group: {fileID: 243334754797210906, guid: c331b99e435eab84082dc47340cab267, type: 2}
     volume: 1
     pitch: 1
     loop: 0
+    randomVolume: 0
+    randomPitch: 0
     source: {fileID: 0}
   - name: JumpUp
-    clip: {fileID: 8300000, guid: 39b45936d310b284fb0e2c5278c0fd92, type: 3}
-    volume: 0.15
+    clip: {fileID: 8300000, guid: b5da338cfd859204a92131ce9e09429d, type: 3}
+    group: {fileID: 243334754797210906, guid: c331b99e435eab84082dc47340cab267, type: 2}
+    volume: 0.5
     pitch: 1
     loop: 0
+    randomVolume: 0
+    randomPitch: 0.1
     source: {fileID: 0}
   - name: JumpDown
-    clip: {fileID: 8300000, guid: de57e6abd1c66374eaa0154b2a17c2fc, type: 3}
-    volume: 0.15
+    clip: {fileID: 8300000, guid: 09a496e2ea4e73a40841f4c8da060397, type: 3}
+    group: {fileID: 243334754797210906, guid: c331b99e435eab84082dc47340cab267, type: 2}
+    volume: 0.5
     pitch: 1
     loop: 0
+    randomVolume: 0
+    randomPitch: 0
     source: {fileID: 0}
   - name: Roll
     clip: {fileID: 8300000, guid: 488a1ef9937892842b79c1bd825700e8, type: 3}
+    group: {fileID: 243334754797210906, guid: c331b99e435eab84082dc47340cab267, type: 2}
     volume: 0.1
     pitch: 1
     loop: 0
+    randomVolume: 0
+    randomPitch: 0
     source: {fileID: 0}
   - name: StepHigh
     clip: {fileID: 8300000, guid: 893eca9d0859ba34eb8c3c8b964afd99, type: 3}
+    group: {fileID: 243334754797210906, guid: c331b99e435eab84082dc47340cab267, type: 2}
     volume: 0.05
     pitch: 1
     loop: 0
+    randomVolume: 0
+    randomPitch: 0
     source: {fileID: 0}
   - name: StepLow
     clip: {fileID: 8300000, guid: 97e97114002976a45b0fa630e3b81094, type: 3}
+    group: {fileID: 243334754797210906, guid: c331b99e435eab84082dc47340cab267, type: 2}
     volume: 0.05
     pitch: 1
     loop: 0
+    randomVolume: 0
+    randomPitch: 0
     source: {fileID: 0}
   - name: StabFlesh
     clip: {fileID: 8300000, guid: a3904cd20258b6740a3ad112552fa72d, type: 3}
+    group: {fileID: 243334754797210906, guid: c331b99e435eab84082dc47340cab267, type: 2}
     volume: 1
     pitch: 1
     loop: 0
+    randomVolume: 0
+    randomPitch: 0
     source: {fileID: 0}
   - name: StabMetal(Low)
     clip: {fileID: 8300000, guid: 4a9b17b452cf84341ab47e7474fc849a, type: 3}
+    group: {fileID: 243334754797210906, guid: c331b99e435eab84082dc47340cab267, type: 2}
     volume: 0.8
     pitch: 1
     loop: 0
+    randomVolume: 0
+    randomPitch: 0
     source: {fileID: 0}
   - name: StabMetal(High)_NOTUSED
     clip: {fileID: 8300000, guid: 6839c15e46809b948b53caceef9828b8, type: 3}
+    group: {fileID: 243334754797210906, guid: c331b99e435eab84082dc47340cab267, type: 2}
     volume: 1
     pitch: 1
     loop: 0
+    randomVolume: 0
+    randomPitch: 0
     source: {fileID: 0}
   - name: ScSpawnsDrone
     clip: {fileID: 8300000, guid: 7e67ac5771e0bde4181cc4483579000f, type: 3}
+    group: {fileID: 243334754797210906, guid: c331b99e435eab84082dc47340cab267, type: 2}
     volume: 0.2
     pitch: 1
     loop: 0
+    randomVolume: 0
+    randomPitch: 0
     source: {fileID: 0}
   - name: DroneFalls
     clip: {fileID: 8300000, guid: f84717bcb7fb92249a18f7c63daf186f, type: 3}
+    group: {fileID: 243334754797210906, guid: c331b99e435eab84082dc47340cab267, type: 2}
     volume: 0.05
     pitch: 1
     loop: 0
+    randomVolume: 0
+    randomPitch: 0
     source: {fileID: 0}
   - name: JoelDamage
     clip: {fileID: 8300000, guid: 67120f8180304d54f8d8ad347b1dc5b0, type: 3}
+    group: {fileID: 243334754797210906, guid: c331b99e435eab84082dc47340cab267, type: 2}
     volume: 0.2
     pitch: 0.9
     loop: 0
+    randomVolume: 0
+    randomPitch: 0
     source: {fileID: 0}
   - name: Confetti
     clip: {fileID: 8300000, guid: 49f7f7a09c45ac94db3680cc15b67a5b, type: 3}
+    group: {fileID: 243334754797210906, guid: c331b99e435eab84082dc47340cab267, type: 2}
     volume: 1
     pitch: 0.9
     loop: 1
+    randomVolume: 0
+    randomPitch: 0
+    source: {fileID: 0}
+  - name: HorizontalSpin
+    clip: {fileID: 8300000, guid: 39220c834a8df814585f29ef1325308b, type: 3}
+    group: {fileID: 243334754797210906, guid: c331b99e435eab84082dc47340cab267, type: 2}
+    volume: 0.7
+    pitch: 0.9
+    loop: 0
+    randomVolume: 0
+    randomPitch: 0
+    source: {fileID: 0}
+  - name: HorizontalSpin+
+    clip: {fileID: 8300000, guid: 1d6e2ae90ce0a054e94070a8bf86cecc, type: 3}
+    group: {fileID: 243334754797210906, guid: c331b99e435eab84082dc47340cab267, type: 2}
+    volume: 0.4
+    pitch: 0.75
+    loop: 0
+    randomVolume: 0
+    randomPitch: 0
+    source: {fileID: 0}
+  - name: RopeThrow1
+    clip: {fileID: 8300000, guid: ee71db05a5736a9409115d0145f29c29, type: 3}
+    group: {fileID: 243334754797210906, guid: c331b99e435eab84082dc47340cab267, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 0
+    randomVolume: 0
+    randomPitch: 0
+    source: {fileID: 0}
+  - name: RopeThrow2
+    clip: {fileID: 8300000, guid: c9cac3836148bc8458566c0123cd14c9, type: 3}
+    group: {fileID: 243334754797210906, guid: c331b99e435eab84082dc47340cab267, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 0
+    randomVolume: 0
+    randomPitch: 0
     source: {fileID: 0}

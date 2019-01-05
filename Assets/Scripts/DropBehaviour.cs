@@ -4,52 +4,54 @@ using UnityEngine;
 
 public class DropBehaviour : MonoBehaviour {
 
-    private Transform target;
+    
+    [Header("Following Player speed and delay settings:")]
     public float timeLeft = 5f;
     public float smoothSpeed=5f;
     public float shrinkSpeed = 5f;
     public float speedAccel = 3f;
-    public float dst = 2f;
+    public float dstAccel = 2f;
+    public bool autoDestruct = true;
+    [Header("Jiggle-Y settings:")]
     public float jiggleY=0.5f;
     public float jiggleFreq = 0.5f;
-    public bool autoDestruct = true;
+    
+
 
     [HideInInspector]
     public bool isclose = false;
-    
-    
-    private Vector3 _startPosition;
-    Vector3 smoothedPosition;
-    Vector3 growScale;
+    [HideInInspector]
+    public GameObject player;
+    [HideInInspector]
+    public Transform target;
+    [HideInInspector]
+    public Vector3 _startPosition;
+    [HideInInspector]
+    public Vector3 smoothedPosition;
+    [HideInInspector]
+    public Vector3 growScale;
+    [HideInInspector]
+    public bool followPlayer = false;
 
-    public void Start() {
+    public virtual void  Start() {
         _startPosition = transform.position;
-        target = GameObject.FindWithTag("Player").transform;
+        player = GameObject.FindWithTag("Player");
+        target = player.transform;
     }
 
-    public void FixedUpdate() {
+    public virtual void  FixedUpdate() {
 
 
 
-
-        
         if (timeLeft < 0) {
             
-            if ((transform.position - target.position).magnitude > dst ) {
+            if ((transform.position - target.position).magnitude > dstAccel ) {
 
                 smoothedPosition = Vector3.Lerp(transform.position, target.position, smoothSpeed * Time.deltaTime);
             }
             else {
                 isclose = true;
                 smoothedPosition = Vector3.Lerp(transform.position, target.position, speedAccel * smoothSpeed * Time.deltaTime);
-                /*
-                if (growScale.x > 0 && growScale.y > 0 && growScale.z > 0) { 
-                    growScale -= new Vector3(1, 1, 1) * 0.0001f;
-                }
-                else
-                {
-                    Destroy(gameObject);
-                }*/
 
                 if (transform.localScale.sqrMagnitude <= 0.001)
                 {
@@ -64,9 +66,7 @@ public class DropBehaviour : MonoBehaviour {
 
         }
         else {
-            timeLeft -= Time.deltaTime;
-
-
+                timeLeft -= Time.deltaTime;
             transform.position = _startPosition + new Vector3( 0.0f, jiggleY * (1+ Mathf.Sin(Time.time * jiggleFreq)), 0.0f);
         }
 
