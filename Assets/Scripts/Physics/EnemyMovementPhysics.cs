@@ -101,7 +101,7 @@ public class EnemyMovementPhysics : MonoBehaviour
                       && (Mathf.Abs(target.position.y - transform.position.y) <= visionRadiusY);
     }
 
-    public void Patrol()
+    public virtual void Patrol()
     {
         float patrolDistance = transform.position.x - _anchor;
 //        Debug.Log(patrolDistance);
@@ -116,7 +116,7 @@ public class EnemyMovementPhysics : MonoBehaviour
         }
     }
 
-    public void FollowAndAttack()
+    public virtual void FollowAndAttack()
     {
         float distance = transform.position.x - target.position.x;
         if (Mathf.Abs(distance) > stopDistance)
