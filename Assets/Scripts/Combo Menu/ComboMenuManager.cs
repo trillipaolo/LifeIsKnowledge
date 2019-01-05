@@ -40,6 +40,7 @@ public class ComboMenuManager : MonoBehaviour {
     public bool reset;
 
     [Header("Grid Sprites for Combos")]
+    public Sprite emptyCellWhite;
     public Sprite emptyCell;
     public Sprite initialCell;
     public Sprite initialCellRotated;
@@ -51,7 +52,22 @@ public class ComboMenuManager : MonoBehaviour {
     [Header("Combos Available to Joel in-game")]
     public JoelCombos joelCombos;
 
+    [Header("References: Safe Area interaction")]
+    public GameObject meditationButton;
+    public GameObject blurBackground;
+    public bool _calledByButton = false;
+    //To decouple the B button between normal menu and meditation menu
+    private bool _backToScroll;
+
+    [Header("Back Button Sprites")]
+    public Sprite backButtonStart;
+    public Sprite backButtonB;
+
+    [Header("Canvas Back Button Reference")]
+    public GameObject backButton;
+
     //List of Buttons in the scrolling menu: each button refers to a combo
+    [Header("ScrollMenu Button List")]
     public List<GameObject> _menuButtons;
     private int _menuButtonsIndex;
     private bool _updateSelectedButton;
@@ -90,7 +106,21 @@ public class ComboMenuManager : MonoBehaviour {
     }
 
     void OnEnable()
-    {
+    {   
+        //Manage differences between calling the Menu in the game and in the Safe Areas
+        if (_calledByButton)
+        {
+            backButton.GetComponent<SpriteRenderer>().sprite = backButtonB;
+            blurBackground.SetActive(false);
+            menuCell.GetComponent<SpriteRenderer>().sprite = emptyCellWhite;
+        }
+        else
+        {
+            backButton.GetComponent<SpriteRenderer>().sprite = backButtonStart;
+            blurBackground.SetActive(true);
+            menuCell.GetComponent<SpriteRenderer>().sprite = emptyCell;
+        }
+
         //The Menu starts with the Scrolling Menu active
         _scrollToGrid = false;
 
@@ -148,49 +178,63 @@ public class ComboMenuManager : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
+        _backToScroll = false;
 
-        if (_scrollToGrid)
+        if (_calledByButton)
         {
-            //What to do when we're in the grid menu
-            
-
-            //Get back to Scroll menu pressing Backspace
-            if (Input.GetButtonDown("BackToScroll"))
+            if (_scrollToGrid)
             {
-                StopHighlight();
-                _scrollToGrid = false;
-                _rotated = false;
-                _currentCombo = -1;
-                _row = 0;
-                _coloumn = 0;
+                //What to do when we're in the grid menu
 
-                EnableScrollMenu();
-                return;
+
+                //Get back to Scroll menu pressing Backspace
+                if (Input.GetButtonDown("BackToScroll"))
+                {
+                    StopHighlight();
+                    _scrollToGrid = false;
+                    _rotated = false;
+                    _currentCombo = -1;
+                    _row = 0;
+                    _coloumn = 0;
+
+                    EnableScrollMenu();
+                    _backToScroll = true;
+
+                    return;
+                }
+
+                Combo currentCombo = combos[_currentCombo];
+
+                //Movement in the grid
+                GridMovement();
+
+                //Rotation in the grid
+                GridRotation();
+
+                //Insertion in the grid
+                if (Input.GetButtonDown("GridInsertion") || Input.GetAxis("GridInsertion") > 0)
+                {
+                    GridInsertion();
+                }
             }
-
-            Combo currentCombo = combos[_currentCombo];
-
-            //Movement in the grid
-            GridMovement();
-
-            //Rotation in the grid
-            GridRotation();
-
-            //Insertion in the grid
-            if (Input.GetButtonDown("GridInsertion") || Input.GetAxis("GridInsertion") > 0)
+            else
             {
-                GridInsertion();
-            }
-        }
-        else
-        {
-            //What to do when we're in the scroll menu
+                //What to do when we're in the scroll menu
 
-            //Manual select of menuButtons (Combos in the Scroll menu)
-            Debug.Log("You can select one combo now");
-            ScrollSelection();
+                //Manual select of menuButtons (Combos in the Scroll menu)
+                Debug.Log("You can select one combo now");
+                ScrollSelection();
+            }
         }
 	}
+
+    private void LateUpdate()
+    {
+        if (!_backToScroll && _calledByButton && Input.GetButtonDown("BackToScroll"))
+        {
+            meditationButton.GetComponent<MeditationButton>().CloseMenu();
+        }
+    }
 
     private void SoftResetGrid()
     {
@@ -265,8 +309,12 @@ public class ComboMenuManager : MonoBehaviour {
             }
         }
 
-        //Selecting the first button of the List
-        UpdateButtonSelected(-1);
+
+        //Selecting the first button of the List if there is at least one
+        if (_menuButtons.Count > 0 && _calledByButton)
+        {
+            UpdateButtonSelected(-1);
+        }
 
         //Hide the scrollbar if hideScrollBar = true
         if (hideScrollBar)
@@ -667,6 +715,8 @@ public class ComboMenuManager : MonoBehaviour {
         }
 
         _scrollToGrid = false;
+        _row = 0;
+        _coloumn = 0;
         EnableScrollMenu();
     }
 
