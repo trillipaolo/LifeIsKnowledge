@@ -36,7 +36,7 @@ public class TeleportScene : MonoBehaviour {
     }
 
     private void Update() {
-        bool _teleportInput = Input.GetAxis("Teleport") > 0;
+        bool _teleportInput = Input.GetAxis("Teleport") > 0.75f;
 
         if (_teleportInput && !_lastTeleport && _teleport) {
             SceneManager.LoadScene(scene);

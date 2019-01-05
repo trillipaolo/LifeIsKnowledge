@@ -43,7 +43,7 @@ public class SafeArea : MonoBehaviour {
     private void EnableInteraction()
     {
         bool _upInputButton = Input.GetButtonDown("Teleport");
-        bool _upInputAxis = Input.GetAxis("Teleport") > 0;
+        bool _upInputAxis = Input.GetAxis("Teleport") > 0.75f;
 
         if ((_upInputButton || _upInputAxis) && !_stickUp)
         {

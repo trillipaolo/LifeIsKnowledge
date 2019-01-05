@@ -45,7 +45,7 @@ public class SummonEnemies : MonoBehaviour {
 
     private void Update()
     {
-        bool _input = Input.GetAxis("Teleport") > 0;
+        bool _input = Input.GetAxis("Teleport") > 0.75f;
 
         if(_input && _playerDetected && !_lastInput)
         {

@@ -11,7 +11,7 @@ public class ElevatorCall : MonoBehaviour {
 
     private void Update() {
         if (_inCollider) {
-            if (Input.GetButton("Teleport")) {
+            if (Input.GetAxis("Teleport") > 0.75f) {
                 _hasCalled = true;
             } else {
                 _hasCalled = false;
