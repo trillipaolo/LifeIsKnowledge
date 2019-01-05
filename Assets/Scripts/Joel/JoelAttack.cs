@@ -175,7 +175,8 @@ public class JoelAttack : MonoBehaviour {
         float _damage = basicAttack.damage[animationData.intParameter];
         
         if (ActivateColliders(_colliderPositions, _damage, 0, 0)) {
-            basicAttack.damage[animationData.intParameter] += 3.0f;
+            // increase damage for every attack
+            //basicAttack.damage[animationData.intParameter] += 3.0f;
         }
 
         PlayAttackSound(animationData.stringParameter);
@@ -194,9 +195,10 @@ public class JoelAttack : MonoBehaviour {
         }
 
         if (ActivateColliders(_colliderPositions,_damage, animationData.intParameter, Mathf.FloorToInt(animationData.floatParameter))) {
-            for (int i = 0; i < _tempDamage.Length; i++) {
+            // increase damage for every attack
+            /*for (int i = 0; i < _tempDamage.Length; i++) {
                 _tempDamage[i] += 3.0f;
-            }
+            }*/
         }
     }
 
@@ -238,9 +240,10 @@ public class JoelAttack : MonoBehaviour {
 
         // overlap collider and deal damage (and upgrade damage)
         if (ActivateColliders(_colliderPositions,_damage,_nCombo,_nAttack)) {
-            for (int i = 0; i < _tempDamage.Length; i++) {
+            // increase damage for every attack
+            /*for (int i = 0; i < _tempDamage.Length; i++) {
                 _tempDamage[i] += 3.0f;
-            }
+            }*/
         }
 
         // reset collider values
