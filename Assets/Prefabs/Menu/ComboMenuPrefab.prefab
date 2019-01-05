@@ -1150,6 +1150,7 @@ MonoBehaviour:
   slidingArea: {fileID: 1935910872770918}
   handle: {fileID: 1952457918419994}
   reset: 0
+  emptyCellWhite: {fileID: 21300000, guid: 8c45925cf56a234449f687f9f7de2b26, type: 3}
   emptyCell: {fileID: 21300000, guid: d25e8dd7b64ee9149a039cbcce376dcc, type: 3}
   initialCell: {fileID: 21300000, guid: 63a31b0882a7a0e4786c1c503570ce1d, type: 3}
   initialCellRotated: {fileID: 21300000, guid: 909b57c1386c74345a448625bce98a92, type: 3}
@@ -1160,6 +1161,7 @@ MonoBehaviour:
     type: 3}
   joelCombos: {fileID: 11400000, guid: 5ccaef3f2a6581e4f9016f4e4ae8d9b9, type: 2}
   meditationButton: {fileID: 0}
+  blurBackground: {fileID: 1169104711992710}
   _calledByButton: 0
   backButtonStart: {fileID: 21300000, guid: eec5d728dda41944698cabfb93d15cfe, type: 3}
   backButtonB: {fileID: 21300000, guid: 07e6ed75ad8b4fe4a89e9ec426fa8075, type: 3}

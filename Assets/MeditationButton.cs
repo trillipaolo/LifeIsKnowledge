@@ -23,6 +23,7 @@ public class MeditationButton : MonoBehaviour {
     public void OnClick()
     {   
         target.GetComponent<Animator>().SetBool("isMeditating", true);
+        target.GetComponent<Animator>().SetBool("isSleeping", false);
 
         transform.parent.gameObject.GetComponent<Menu>().HideAllButtons();
         transform.parent.gameObject.GetComponent<Menu>()._buttonPressed = true;

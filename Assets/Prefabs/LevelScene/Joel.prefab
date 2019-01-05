@@ -344,7 +344,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1960080971953640}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.12, y: 3.42, z: 0}
+  m_LocalPosition: {x: 6.22, y: 4.35, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4355697508197630}
@@ -811,6 +811,7 @@ MonoBehaviour:
   canvas: {fileID: 0}
   minimap: {fileID: 0}
   resetEnemyKilled: 0
+  _menu: 0
 --- !u!114 &114984834787850176
 MonoBehaviour:
   m_ObjectHideFlags: 1

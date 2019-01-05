@@ -20,7 +20,8 @@ public class EnemyMenuManager : MonoBehaviour {
     public GameObject slidingArea;
     public GameObject handle;
 
-    [Header("Button reference: Safe Area interaction")]
+    [Header("References: Safe Area interaction")]
+    public GameObject blurBackground;
     public GameObject journalButton;
     public bool _calledByButton = false;
 
@@ -66,10 +67,12 @@ public class EnemyMenuManager : MonoBehaviour {
         if(_calledByButton)
         {
             backButton.GetComponent<SpriteRenderer>().sprite = backButtonB;
+            blurBackground.SetActive(false);
         }
         else
         {
             backButton.GetComponent<SpriteRenderer>().sprite = backButtonStart;
+            blurBackground.SetActive(true);
         }
     }
 

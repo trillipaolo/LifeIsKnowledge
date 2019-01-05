@@ -33,11 +33,10 @@ public class RestButton : MonoBehaviour {
     public void OnClick()
     {
         target.GetComponent<Animator>().SetBool("isSleeping", true);
+        target.GetComponent<Animator>().SetBool("isMeditating", false);
 
         ShowHealthBar();
-
         _healthSlider = healthBar.GetComponent<Slider>();
-
         StartCoroutine("Heal");
     }
 

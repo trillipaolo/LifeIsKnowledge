@@ -174,7 +174,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1243578803225554
 GameObject:
   m_ObjectHideFlags: 1
@@ -2136,6 +2136,7 @@ MonoBehaviour:
   scrollBar: {fileID: 1243578803225554}
   slidingArea: {fileID: 1114761845629072}
   handle: {fileID: 1412758362425660}
+  blurBackground: {fileID: 1167635773197050}
   journalButton: {fileID: 0}
   _calledByButton: 0
   backButtonStart: {fileID: 21300000, guid: eec5d728dda41944698cabfb93d15cfe, type: 3}

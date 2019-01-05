@@ -47,6 +47,7 @@ public class SafeArea : MonoBehaviour {
 
         if ((_upInputButton || _upInputAxis) && !_stickUp)
         {
+            
             OpenSafeAreaMenu();
         }
 
@@ -55,6 +56,7 @@ public class SafeArea : MonoBehaviour {
     
     private void OpenSafeAreaMenu()
     {
+        target.GetComponent<ComboMenu>()._menu = true;
         canvas.enabled = false;
         minimap.enabled = false;
         DisableJoel();
@@ -71,9 +73,8 @@ public class SafeArea : MonoBehaviour {
         EnableJoel();
         minimap.enabled = true;
         canvas.enabled = true;
+        target.GetComponent<ComboMenu>()._menu = false;
     }
-
-    
 
     private void DisableJoel()
     {

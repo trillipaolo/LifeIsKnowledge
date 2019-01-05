@@ -28,6 +28,7 @@ public class Menu : MonoBehaviour {
 
     private void Update()
     {
+        //Avoid input detection if another menu is opened
         if (!_buttonPressed)
         {
             ButtonSelection();
@@ -40,9 +41,7 @@ public class Menu : MonoBehaviour {
     {
         if (Input.GetButtonDown("GridInsertion"))
         {
-            
             menuButtons[_menuButtonsIndex].GetComponent<Button>().onClick.Invoke();
-            HideAllButtons();
         }
     }
 
