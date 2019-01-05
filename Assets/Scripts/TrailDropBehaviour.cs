@@ -5,6 +5,7 @@ using UnityEngine;
 public class TrailDropBehaviour : DropBehaviour
 {
     private TrailRenderer trail;
+    [Header("Set Trail Fade Velocity:")]
     public float velocityTimeTrail = 5f;
     private float smoothedTrailTime; 
     // Use this for initialization

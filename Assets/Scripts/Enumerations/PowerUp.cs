@@ -36,7 +36,7 @@ public class PowerUp : MonoBehaviour {
 
 	}
 
-    private void IncreaseAttack()
+    public void IncreaseAttack()
     {   
         //Increase damage of the basic attacks
         for (int i = 0; i < basicAttack.damage.Length; i++)
@@ -54,8 +54,9 @@ public class PowerUp : MonoBehaviour {
         }
     }
 
-    private void IncreaseHealth()
+    public void IncreaseHealth()
     {
         health.health = health.health + healthAugment;
+
     }
 }
