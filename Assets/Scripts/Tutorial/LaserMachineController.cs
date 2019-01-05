@@ -56,14 +56,17 @@ public class LaserMachineController : MonoBehaviour {
 	}
 
     private void LaserHit() {
-        _laser.hit = false;
-        _lastTimeHit = Time.timeSinceLevelLoad;
-        _laser.SetSpeed(_startSpeed);
+        if (Time.timeSinceLevelLoad - _lastTimeHit > 0.5f) {
+            _laser.hit = false;
+            _lastTimeHit = Time.timeSinceLevelLoad;
+            _laser.SetSpeed(_startSpeed);
+        }
     }
 
     private void Defeated() {
         defeated = true;
         _scientist.Angry();
+        _entranceDoor.Open();
         _exitDoor.Open();
         _laser.Off();
         _laser.Stop();

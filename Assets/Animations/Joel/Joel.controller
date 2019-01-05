@@ -1201,10 +1201,10 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: ComboEnum
     m_EventTreshold: 0
-  - m_ConditionMode: 1
+  - m_ConditionMode: 2
     m_ConditionEvent: AttackTop
     m_EventTreshold: 0
-  - m_ConditionMode: 2
+  - m_ConditionMode: 1
     m_ConditionEvent: AttackMiddle
     m_EventTreshold: 0
   - m_ConditionMode: 2
