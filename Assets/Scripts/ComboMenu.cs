@@ -45,18 +45,20 @@ public class ComboMenu : MonoBehaviour
             {
                 if (!_comboMenu && !_enemyMenu)
                 {
-                    Debug.Log("Here");
+                    DisableJoel();
                     ActivateComboMenu();
                 }
                 else
                 {
                     if (_comboMenu)
-                    {
+                    {   
                         DeactivateComboMenu();
+                        EnableJoel();
                     }
                     if (_enemyMenu)
                     {
                         DeactivateEnemyMenu();
+                        EnableJoel();
                     }
                 }
             }
@@ -118,6 +120,18 @@ public class ComboMenu : MonoBehaviour
         canvas.enabled = true;
         minimap.enabled = true;
         _enemyMenu = false;
+    }
+
+    private void DisableJoel()
+    {
+        GetComponent<PlayerInput>().DisableInput();
+        GetComponent<PlayerPhysics>().DisableMovement();
+    }
+
+    private void EnableJoel()
+    {
+        GetComponent<PlayerInput>().EnableInput();
+        GetComponent<PlayerPhysics>().EnableMovement();
     }
 }
 

@@ -47,7 +47,6 @@ public class SafeArea : MonoBehaviour {
 
         if ((_upInputButton || _upInputAxis) && !_stickUp)
         {
-            
             OpenSafeAreaMenu();
         }
 
