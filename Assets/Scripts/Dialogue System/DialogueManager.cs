@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class DialogueManager : MonoBehaviour {
 
@@ -12,6 +13,7 @@ public class DialogueManager : MonoBehaviour {
     public DialogueText[] droneAdviceDialogues;
     public DialogueText[] joelDialogues;
     public Text displayDialogue;
+    public TextMeshProUGUI displayDialogueTMP;
     public float timeToDisappear;
 
     //Control variables
@@ -134,14 +136,17 @@ public class DialogueManager : MonoBehaviour {
     IEnumerator TypeDialogue(string dialogue)
     {
         displayDialogue.text = "";
+        displayDialogueTMP.text = "";
         foreach (char letter in dialogue.ToCharArray())
         {
-            displayDialogue.text += letter;
+            //displayDialogue.text += letter;
+            displayDialogueTMP.text += letter;
             yield return null;
         }
 
         yield return new WaitForSeconds(timeToDisappear);
 
         displayDialogue.text = "";
+        displayDialogueTMP.text = "";
     }
 }
