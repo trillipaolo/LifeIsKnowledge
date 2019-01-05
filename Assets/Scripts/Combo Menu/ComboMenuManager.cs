@@ -737,7 +737,7 @@ public class ComboMenuManager : MonoBehaviour {
                     _menuGridCells[startingRow + i, startingColoumn].SetOccupied(false);
 
                     //Reset Gridcell sprite
-                    _menuGridCells[startingRow + i, startingColoumn].GetComponent<SpriteRenderer>().sprite = emptyCell;
+                    _menuGridCells[startingRow + i, startingColoumn].GetComponent<SpriteRenderer>().sprite = emptyCellWhite;
 
                     //Reset Gridcell content
                     SpriteRenderer gridContent = _menuGridCells[startingRow + i, startingColoumn].transform.GetChild(0).transform.GetComponent<SpriteRenderer>();
@@ -752,7 +752,7 @@ public class ComboMenuManager : MonoBehaviour {
                     _menuGridCells[startingRow, startingColoumn + i].SetOccupied(false);
 
                     //Reset Gridcell sprite
-                    _menuGridCells[startingRow, startingColoumn + i].GetComponent<SpriteRenderer>().sprite = emptyCell;
+                    _menuGridCells[startingRow, startingColoumn + i].GetComponent<SpriteRenderer>().sprite = emptyCellWhite;
 
                     //Reset GridCell content
                     SpriteRenderer gridContent = _menuGridCells[startingRow, startingColoumn + i].transform.GetChild(0).transform.GetComponent<SpriteRenderer>();
