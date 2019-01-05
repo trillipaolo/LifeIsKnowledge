@@ -2,12 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Menu : MonoBehaviour {
 
     [Header("Menu Buttons: Rest, Meditate, Continue")]
     public GameObject[] menuButtons;
     private int _menuButtonsIndex;
+
+    //Menu Booleans
+    public bool _buttonPressed = false;
 
     //JoyPad Booleans
     private bool _dpadUp = false;
@@ -24,16 +28,21 @@ public class Menu : MonoBehaviour {
 
     private void Update()
     {
-        ButtonSelection();
+        if (!_buttonPressed)
+        {
+            ButtonSelection();
 
-        ButtonPressed();
+            ButtonPressed();
+        }
     }
 
     private void ButtonPressed()
     {
         if (Input.GetButtonDown("GridInsertion"))
         {
+            
             menuButtons[_menuButtonsIndex].GetComponent<Button>().onClick.Invoke();
+            HideAllButtons();
         }
     }
 
@@ -75,5 +84,24 @@ public class Menu : MonoBehaviour {
     public void PressContinueButton()
     {
         transform.parent.gameObject.GetComponent<SafeArea>().CloseSafeAreaMenu();
+    }
+
+    public void HideAllButtons()
+    {
+        foreach (GameObject button in menuButtons)
+        {
+            GameObject myEventSystem = GameObject.Find("EventSystem");
+            myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
+
+            button.GetComponentInChildren<TextMeshProUGUI>().enabled = false;
+        }
+    }
+
+    public void ShowAllButtons()
+    {
+        foreach (GameObject button in menuButtons)
+        {
+            button.GetComponentInChildren<TextMeshProUGUI>().enabled = true;
+        }
     }
 }

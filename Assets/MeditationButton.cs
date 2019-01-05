@@ -24,13 +24,19 @@ public class MeditationButton : MonoBehaviour {
     {   
         target.GetComponent<Animator>().SetBool("isMeditating", true);
 
+        transform.parent.gameObject.GetComponent<Menu>().HideAllButtons();
+        transform.parent.gameObject.GetComponent<Menu>()._buttonPressed = true;
+
         comboMenu.GetComponentInChildren<ComboMenuManager>()._calledByButton = true;
         comboMenu.SetActive(true);
     }
 
     public void CloseMenu()
     {
+        comboMenu.GetComponentInChildren<ComboMenuManager>().SetCombosChosen();
         comboMenu.SetActive(false);
         comboMenu.GetComponentInChildren<ComboMenuManager>()._calledByButton = false;
+        transform.parent.gameObject.GetComponent<Menu>()._buttonPressed = false;
+        transform.parent.gameObject.GetComponent<Menu>().ShowAllButtons();
     }
 }
