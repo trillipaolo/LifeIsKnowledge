@@ -2,11 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class TeleportScene : MonoBehaviour {
 
     //New Scene to load
     public string scene;
+
+    //Loading screen reference
+    public GameObject loadingScreen;
+
+    //Canvas reference
+    public Canvas canvas;
 
     //Player GameObject
     public GameObject target;
@@ -39,9 +46,27 @@ public class TeleportScene : MonoBehaviour {
         bool _teleportInput = Input.GetAxis("Teleport") > 0.75f;
 
         if (_teleportInput && !_lastTeleport && _teleport) {
-            SceneManager.LoadScene(scene);
+            //SceneManager.LoadScene(scene);
+            StartCoroutine("LoadAsynchronously");
         }
 
         _lastTeleport = _teleportInput;
+    }
+
+    IEnumerator LoadAsynchronously ()
+    {
+        canvas.enabled = false;
+        loadingScreen.SetActive(true);
+
+        AsyncOperation operation = SceneManager.LoadSceneAsync(scene);
+        while (!operation.isDone)
+        {
+            float progress = Mathf.Clamp01(operation.progress / .9f);
+
+            loadingScreen.GetComponentInChildren<Slider>().value = progress;
+
+            yield return null;
+        }
+        
     }
 }

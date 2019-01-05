@@ -36,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1477006666173686}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 198.5, y: 25, z: 0}
+  m_LocalPosition: {x: 106.182, y: 48.012, z: 0}
   m_LocalScale: {x: 3, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -79,6 +79,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scene: Version 2
+  loadingScreen: {fileID: 0}
+  canvas: {fileID: 0}
   target: {fileID: 0}
   teleportType: 0
 --- !u!114 &114941689935733364
