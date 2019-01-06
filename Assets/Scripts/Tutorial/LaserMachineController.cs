@@ -9,6 +9,7 @@ public class LaserMachineController : MonoBehaviour {
     private LaserMachineDoor _entranceDoor;
     private LaserMachineDoor _exitDoor;
     private BoxCollider2D _activeCollider;
+    private AudioSource[] _laserSounds;
 
     public bool active = false;
     public bool defeated = false;
@@ -28,6 +29,7 @@ public class LaserMachineController : MonoBehaviour {
         _exitDoor = transform.Find("ExitDoor").GetComponent<LaserMachineDoor>();
         _activeCollider = GetComponent<BoxCollider2D>();
         _startSpeed = _laser.moveSpeed;
+        _laserSounds = GetComponentsInChildren<AudioSource>();
     }
 
     void Update () {
@@ -71,6 +73,7 @@ public class LaserMachineController : MonoBehaviour {
         _laser.Off();
         _laser.Stop();
         laserOn = false;
+        _laserSounds[0].Stop();
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
@@ -92,6 +95,8 @@ public class LaserMachineController : MonoBehaviour {
 
     private void ActivateLaser() {
         _laser.On();
+        _laserSounds[1].Play();
+        _laserSounds[0].PlayDelayed(0.35f);
         Invoke("AfterActivateLaser",1f);
     }
 
