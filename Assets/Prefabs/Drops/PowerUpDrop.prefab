@@ -172,6 +172,7 @@ MonoBehaviour:
   jiggleY: 0.5
   jiggleFreq: 0.5
   isclose: 0
+  player: {fileID: 0}
   target: {fileID: 0}
   _startPosition: {x: 0, y: 0, z: 0}
   smoothedPosition: {x: 0, y: 0, z: 0}

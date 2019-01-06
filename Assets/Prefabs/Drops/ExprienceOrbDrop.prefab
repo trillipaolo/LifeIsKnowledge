@@ -167,11 +167,17 @@ MonoBehaviour:
   smoothSpeed: 4
   shrinkSpeed: 5
   speedAccel: 6
-  dst: 3
+  dstAccel: 2
+  autoDestruct: 0
   jiggleY: 0.5
   jiggleFreq: 3
-  autoDestruct: 0
   isclose: 0
+  player: {fileID: 0}
+  target: {fileID: 0}
+  _startPosition: {x: 0, y: 0, z: 0}
+  smoothedPosition: {x: 0, y: 0, z: 0}
+  growScale: {x: 0, y: 0, z: 0}
+  followPlayer: 0
   velocityTimeTrail: 4
 --- !u!212 &212470623170713636
 SpriteRenderer:
@@ -207,7 +213,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 9ea021b65072c294fa9858eab7a2cd19, type: 3}
   m_Color: {r: 0, g: 1, b: 1, a: 1}
   m_FlipX: 0

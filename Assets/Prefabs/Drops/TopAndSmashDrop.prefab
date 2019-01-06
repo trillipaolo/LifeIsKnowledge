@@ -56,11 +56,17 @@ MonoBehaviour:
   smoothSpeed: 4
   shrinkSpeed: 5
   speedAccel: 6
-  dst: 3
+  dstAccel: 2
+  autoDestruct: 1
   jiggleY: 0.75
   jiggleFreq: 3
-  autoDestruct: 1
   isclose: 0
+  player: {fileID: 0}
+  target: {fileID: 0}
+  _startPosition: {x: 0, y: 0, z: 0}
+  smoothedPosition: {x: 0, y: 0, z: 0}
+  growScale: {x: 0, y: 0, z: 0}
+  followPlayer: 0
 --- !u!212 &212939818844924090
 SpriteRenderer:
   m_ObjectHideFlags: 1
