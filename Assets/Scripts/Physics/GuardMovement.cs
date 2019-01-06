@@ -5,6 +5,11 @@ using UnityEngine;
 public class GuardMovement : EnemyMovementPhysics
 {
     public float chillTimer = 2f;
+    private Animator _armorAnimator;
+
+    private Animator _hitboxAnimator;
+    private float _lastAttack = -300;
+    public float timeBetweenAttacks = 3f;
 
     private float _countdown;
 
@@ -12,45 +17,79 @@ public class GuardMovement : EnemyMovementPhysics
     void Start()
     {
         base.Start();
+        _armorAnimator = transform.Find("Armor").GetComponent<Animator>();
+        _hitboxAnimator = transform.Find("AttackCollider").GetComponent<Animator>();
         _countdown = chillTimer;
     }
 
     // Update is called once per frame
-	void Update () {
-	    if (!movementDisabled)
-	    {
-	        if (!foundTarget)
-	        {
-	            CheckIfFoundTarget();
-	            Patrol();
-	        }
-	        else
-	        {
-	            FollowAndAttack();
-	        }
+    void Update()
+    {
+        if (!isDead)
+        {
+            if (!movementDisabled)
+            {
+                if (!foundTarget)
+                {
+                    CheckIfFoundTarget();
+                    Patrol();
+                }
+                else
+                {
+                    FollowAndAttack();
+                }
+                Move();
+//                ApplyGravity();
+//                controller.Move(velocity * Time.deltaTime);
+//                if (controller.collisions.above || controller.collisions.below)
+//                {
+//                    velocity.y = 0;
+//                }
 
-	        ApplyGravity();
-	        controller.Move(velocity * Time.deltaTime);
-	        if (controller.collisions.above || controller.collisions.below)
-	        {
-	            velocity.y = 0;
-	        }
+                if (Mathf.Abs(velocity.x) > 0)
+                {
+                    _animator.SetBool("isMoving", true);
+                    _armorAnimator.SetBool("isMoving", true);
+                }
 
-	        if (velocity.x > 0)
-	        {
-	            _animator.SetBool("isMoving", true);
-	        }
-
-	        if (controller.collisions.left || controller.collisions.right)
-	        {
-	            Jump();
-	            _animator.SetBool("isMoving", false);
-	        }
+                if (controller.collisions.left || controller.collisions.right)
+                {
+                    Jump();
+                    _animator.SetBool("isMoving", false);
+                    _armorAnimator.SetBool("isMoving", false);
+                }
 
 //        BlindStrategy();
-	    }
-	}
+            }
+        }
+        else
+        {
+            _animator.SetTrigger("Dead");
+            _hitboxAnimator.SetTrigger("Dead");
+//            ApplyGravity();
+            velocity.x = 0;
+//            controller.Move(velocity * Time.deltaTime);
+            if (controller.collisions.above || controller.collisions.below || controller.collisions.right ||
+                controller.collisions.left)
+            {
+                velocity.y = 0;
+            }
+        }
+    }
+    private void Move()
+    {
+        ApplyGravity();
+        controller.Move(velocity * Time.deltaTime);
+        if (controller.collisions.above || controller.collisions.below)
+        {
+            velocity.y = 0;
+        }
 
+        if (controller.collisions.left || controller.collisions.right)
+        {
+            JumpOrChangeDirection();
+        }
+    }
     public override void Patrol()
     {
         float patrolDistance = transform.position.x - _anchor;
@@ -60,60 +99,113 @@ public class GuardMovement : EnemyMovementPhysics
             velocity.x = (facingRight ? 1 : -1) * moveSpeed;
 //			Debug.Log(Mathf.Abs(patrolDistance) + " " + patrolRadius);
         }
-        else if (Mathf.Abs(patrolDistance) > patrolRadius && (_countdown > 0))
+        else if (!foundTarget)
         {
-            velocity.x = 0;
-            _animator.SetBool("isMoving", false);
-            _countdown -= Time.deltaTime;
-        }
-        else
-        {
-            _countdown = chillTimer;
-            ChangeDirection();
-            _animator.SetBool("isMoving", true);
-            velocity.x = (facingRight ? 1 : -1) * moveSpeed;
+            if (Mathf.Abs(patrolDistance) > patrolRadius && (_countdown > 0))
+            {
+                velocity.x = 0;
+                _animator.SetBool("isMoving", false);
+                _armorAnimator.SetBool("isMoving", false);
+                _countdown -= Time.deltaTime;
+            }
+            else
+            {
+                _countdown = chillTimer;
+                ChangeDirection();
+                _animator.SetBool("isMoving", true);
+                _armorAnimator.SetBool("isMoving", true);
+                velocity.x = (facingRight ? 1 : -1) * moveSpeed;
+            }
         }
     }
 
-	public override void FollowAndAttack()
-	{
-		float distance = transform.position.x - target.position.x;
+    public override void FollowAndAttack()
+    {
+        float distance = transform.position.x - target.position.x;
 
-		// if too distant go near joel
-		if (Mathf.Abs(distance) > stopDistance)
-		{
-			if (Mathf.Abs(target.position.y - transform.position.y) <= visionRadiusY)
-			{
-				if (Mathf.Sign(distance) < 0)
-				{
-					velocity.x = moveSpeed;
-					facingRight = true;
-				}
-				else
-				{
-					facingRight = false;
-					velocity.x = -moveSpeed;
-				}
-			}
-		}
-		else if (Mathf.Abs(target.position.y - transform.position.y) <= visionRadiusY)
-		{
-//			if (Time.timeSinceLevelLoad - _lastAttack > timeBetweenAttacks)
-//			{
-//				if (Mathf.Sign(distance) < 0)
-//				{
-//					velocity.x = moveSpeed;
-//					facingRight = true;
-//				}
-//				else
-//				{
-//					facingRight = false;
-//					velocity.x = -moveSpeed;
-//				}
-//
-//				_animator.SetTrigger("Attack");
-//				_hitboxAnimator.SetTrigger("Attack");
-//			}
-		}
-	}
+        // if too distant go near joel
+        if (Mathf.Abs(distance) > stopDistance)
+        {
+            if (Mathf.Abs(target.position.y - transform.position.y) <= visionRadiusY)
+            {
+                if (Mathf.Sign(distance) < 0)
+                {
+                    velocity.x = moveSpeed;
+                    facingRight = true;
+                }
+                else
+                {
+                    facingRight = false;
+                    velocity.x = -moveSpeed;
+                }
+            }
+        }
+        else if (Mathf.Abs(target.position.y - transform.position.y) <= visionRadiusY)
+        {
+            if (Time.timeSinceLevelLoad - _lastAttack > timeBetweenAttacks)
+            {
+                if (Mathf.Sign(distance) < 0)
+                {
+                    velocity.x = moveSpeed;
+                    facingRight = true;
+                }
+                else
+                {
+                    facingRight = false;
+                    velocity.x = -moveSpeed;
+                }
+
+                Attack();
+            }
+        }
+    }
+
+    public void Attack()
+    {
+        _animator.SetBool("isMoving", false);
+        _armorAnimator.SetBool("isMoving", false);
+        _lastAttack = Time.timeSinceLevelLoad;
+        _animator.SetBool("Attack", true);
+        _armorAnimator.SetBool("Attack", true);
+        _hitboxAnimator.SetBool("Attack", true);
+    }
+
+    private void FinishAttack()
+    {
+        _animator.SetBool("isMoving", true);
+        _armorAnimator.SetBool("isMoving", true);
+        _animator.SetBool("Attack", false);
+        _armorAnimator.SetBool("Attack", false);
+        _hitboxAnimator.SetBool("Attack", true);
+    }
+    
+    public void JumpOrChangeDirection()
+    {
+        Vector2 rayOrigin;
+        Vector2 direction;
+        if (facingRight)
+        {
+            rayOrigin = controller.raycastOrigins.topRight;
+            direction = Vector2.right;
+        }
+        else
+        {
+            rayOrigin = controller.raycastOrigins.topLeft;
+            direction = Vector2.left;
+        }
+
+        RaycastHit2D inFrontRaycastHit2D =
+            Physics2D.Raycast(rayOrigin, direction, 0.1f, controller.collisionMask);
+
+        Debug.DrawRay(rayOrigin, direction * 0.1f, Color.blue);
+        if (inFrontRaycastHit2D)
+        {
+            ChangeDirection();
+            velocity.x = (facingRight ? 1 : -1) * moveSpeed;
+        }
+        else
+        {
+            Jump();
+        }
+    }
 }
