@@ -13,5 +13,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   x_initial: 5
   y_initial: 4.1
-  x: 5
-  y: 4.1
+  x: 128
+  y: 32

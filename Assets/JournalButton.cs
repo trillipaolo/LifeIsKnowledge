@@ -25,6 +25,7 @@ public class JournalButton : MonoBehaviour {
         transform.parent.gameObject.GetComponent<Menu>().HideAllButtons();
         transform.parent.gameObject.GetComponent<Menu>()._buttonPressed = true;
         enemyMenu.GetComponentInChildren<EnemyMenuManager>()._calledByButton = true;
+        enemyMenu.GetComponentInChildren<EnemyMenuManager>().SetJournalButton(this);
         enemyMenu.SetActive(true);
     }
 

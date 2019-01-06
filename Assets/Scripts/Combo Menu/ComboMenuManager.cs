@@ -53,7 +53,7 @@ public class ComboMenuManager : MonoBehaviour {
     public JoelCombos joelCombos;
 
     [Header("References: Safe Area interaction")]
-    public GameObject meditationButton;
+    private MeditationButton _meditationButton;
     public GameObject blurBackground;
     public bool _calledByButton = false;
     //To decouple the B button between normal menu and meditation menu
@@ -235,7 +235,8 @@ public class ComboMenuManager : MonoBehaviour {
     {
         if (!_backToScroll && _calledByButton && Input.GetButtonDown("BackToScroll"))
         {
-            meditationButton.GetComponent<MeditationButton>().CloseMenu();
+            Debug.Log("The Combo Menu works fine");
+            _meditationButton.CloseMenu();
         }
     }
 
@@ -966,5 +967,10 @@ public class ComboMenuManager : MonoBehaviour {
             Debug.Log("Trying to delete");
             GridDeletion();
         }
+    }
+
+    public void SetMeditationButton(MeditationButton mButton)
+    {
+        _meditationButton = mButton;
     }
 }

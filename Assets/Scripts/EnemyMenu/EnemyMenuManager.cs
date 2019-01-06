@@ -22,7 +22,7 @@ public class EnemyMenuManager : MonoBehaviour {
 
     [Header("References: Safe Area interaction")]
     public GameObject blurBackground;
-    public GameObject journalButton;
+    private JournalButton _journalButton;
     public bool _calledByButton = false;
 
     [Header("Back Button Sprites")]
@@ -98,7 +98,8 @@ public class EnemyMenuManager : MonoBehaviour {
 
         if (_calledByButton && Input.GetButtonDown("BackToScroll"))
         {
-            journalButton.GetComponent<JournalButton>().CloseMenu();
+            Debug.Log("The EnemyMenu works fine");
+            _journalButton.CloseMenu();
         }
 	}
 
@@ -203,5 +204,10 @@ public class EnemyMenuManager : MonoBehaviour {
         {
             enemyInformation.SetActive(false);
         }
+    }
+
+    public void SetJournalButton(JournalButton jButton)
+    {
+        _journalButton = jButton;
     }
 }

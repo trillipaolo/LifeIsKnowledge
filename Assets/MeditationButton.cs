@@ -30,6 +30,7 @@ public class MeditationButton : MonoBehaviour {
         transform.parent.gameObject.GetComponent<Menu>()._buttonPressed = true;
 
         comboMenu.GetComponentInChildren<ComboMenuManager>()._calledByButton = true;
+        comboMenu.GetComponentInChildren<ComboMenuManager>().SetMeditationButton(this);
         comboMenu.SetActive(true);
     }
 

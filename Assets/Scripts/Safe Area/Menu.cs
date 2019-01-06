@@ -30,9 +30,13 @@ public class Menu : MonoBehaviour {
 
     private void Update()
     {
+        Debug.Log("_buttonPressed: " + _buttonPressed);
+
         //Avoid input detection if another menu is opened
         if (!_buttonPressed)
         {
+            Debug.Log("You should be able to select button in the Menu");
+
             ButtonSelection();
 
             ButtonPressed();
@@ -60,7 +64,8 @@ public class Menu : MonoBehaviour {
         bool _upInputAxis = Input.GetAxis("GridUp") > 0;
 
         if ((_upInputButton || _upInputAxis) && !_dpadUp && (_menuButtonsIndex != 0))
-        {   
+        {
+            Debug.Log("ButtonUp Pressed");
             StopHighlight();
             _menuButtonsIndex -= 1;
             _currentButton = menuButtons[_menuButtonsIndex].GetComponent<Button>();
@@ -77,6 +82,7 @@ public class Menu : MonoBehaviour {
 
         if ((_downInputButton || _downInputAxis) && !_dpadDown && (_menuButtonsIndex < menuButtons.Length - 1))
         {
+            Debug.Log("ButtonUp Pressed");
             StopHighlight();
             _menuButtonsIndex += 1;
             _currentButton = menuButtons[_menuButtonsIndex].GetComponent<Button>();
@@ -95,9 +101,6 @@ public class Menu : MonoBehaviour {
     {
         foreach (GameObject button in menuButtons)
         {
-            GameObject myEventSystem = GameObject.Find("EventSystem");
-            myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(null);
-
             button.GetComponentInChildren<TextMeshProUGUI>().enabled = false;
         }
     }
@@ -106,6 +109,7 @@ public class Menu : MonoBehaviour {
     {
         foreach (GameObject button in menuButtons)
         {
+            Debug.Log("Trying to re-show all buttons");
             button.GetComponentInChildren<TextMeshProUGUI>().enabled = true;
         }
     }
