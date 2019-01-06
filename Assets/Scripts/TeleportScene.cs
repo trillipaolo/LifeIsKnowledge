@@ -21,6 +21,9 @@ public class TeleportScene : MonoBehaviour {
     //Teleport Kind
     public TeleportType teleportType;
 
+    //Reference to the Respawn point
+    public JoelRespawn joelRespawn;
+
     //True if the player is in front of the stairs (Colliders are actually colliding)
     //False otherwise
     private bool _teleport;
@@ -57,6 +60,7 @@ public class TeleportScene : MonoBehaviour {
     {
         canvas.enabled = false;
         loadingScreen.SetActive(true);
+        joelRespawn.ResetRespawnPoint();
 
         AsyncOperation operation = SceneManager.LoadSceneAsync(scene);
         while (!operation.isDone)
