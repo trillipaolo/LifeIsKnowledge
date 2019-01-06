@@ -38,6 +38,7 @@ public class JoelAttack : MonoBehaviour {
     public string knifeSlashSounds2Coll = "KnifeSlash1";
     public string knifeSlashSounds3Coll = "KnifeSlash3";
 
+    public bool smashes;
 
     void Awake() {
         _animator = GetComponent<Animator>();
@@ -388,5 +389,15 @@ public class JoelAttack : MonoBehaviour {
     void PlaySound(string soundName)
     {
         audioManager.Play(soundName);
+    }
+
+    private void UpAndSmashStarted()
+    {
+        smashes = true;
+    }
+
+    private void UpAndSmashEnded()
+    {
+        smashes = false;
     }
 }

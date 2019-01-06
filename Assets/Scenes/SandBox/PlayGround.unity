@@ -25613,16 +25613,16 @@ Prefab:
     - target: {fileID: 224585422226422116, guid: d624a52d383e1624ab53bd126dcacd23,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224585422226422116, guid: d624a52d383e1624ab53bd126dcacd23,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1159132372385760, guid: d624a52d383e1624ab53bd126dcacd23, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d624a52d383e1624ab53bd126dcacd23, type: 2}
@@ -25890,6 +25890,16 @@ Prefab:
         type: 2}
       propertyPath: m_isInputParsingRequired
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114604692008000230, guid: 8c4cec3a9dccb524ba9bec098e74d4a2,
+        type: 2}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114604692008000230, guid: 8c4cec3a9dccb524ba9bec098e74d4a2,
+        type: 2}
+      propertyPath: m_sharedMaterial
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c4cec3a9dccb524ba9bec098e74d4a2, type: 2}
@@ -35841,16 +35851,10 @@ Prefab:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1928224320947320, guid: 9c9f50f0fc787254aa673188ef6cc18c, type: 2}
+    - target: {fileID: 1023910856956570, guid: 9c9f50f0fc787254aa673188ef6cc18c, type: 2}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 212425977022256442, guid: 9c9f50f0fc787254aa673188ef6cc18c,
-        type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 9bae7ce983f6e3c45a8b294e04f42cf5,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c9f50f0fc787254aa673188ef6cc18c, type: 2}
   m_IsPrefabAsset: 0
@@ -36364,6 +36368,12 @@ Prefab:
       propertyPath: experienceOrb
       value: 
       objectReference: {fileID: 1102200051657280, guid: 755eb3d47f5af75498afcb7549a328c9,
+        type: 2}
+    - target: {fileID: 114776942695849812, guid: 9bd1e8722fd92804281be6e3a614f800,
+        type: 2}
+      propertyPath: joelHealth
+      value: 
+      objectReference: {fileID: 11400000, guid: 8b7f1b9845809c2489666e523699573d,
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bd1e8722fd92804281be6e3a614f800, type: 2}

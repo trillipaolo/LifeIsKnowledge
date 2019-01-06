@@ -5,7 +5,8 @@ using System;
 
 public enum EnumEnemies {
     DRONE,
-    SCIENTIST
+    SCIENTIST,
+    GUARD
 }
 
 public class EnumerationEnemies {
