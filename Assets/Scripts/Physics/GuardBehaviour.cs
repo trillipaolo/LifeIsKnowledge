@@ -75,17 +75,30 @@ public class GuardBehaviour : EnemyBehaviour
             {
                 Debug.Log("You have smashed Armor");
                 audioManager.Play(enemyHitSound);
+                // Regular Guard Settings
+                _movementScript.moveSpeed = 4f;
+                _movementScript.timeBetweenAttacks = 2f;
                 hasArmor = false;
                 Instantiate(destroyedArmor, transform.position, Quaternion.identity);
                 _armor = transform.Find("Armor").gameObject;
                 _armor.SetActive(false);
             }
+            else
+            {
+                Vector3 textPosition = (Vector3) collider.offset + transform.position;
+                damage = 0f;
+                FloatingTextController.CreateFloatingText(damage.ToString(), textPosition, new Color(204,204,204));
+            }
         }
     }
-    public override void Die() {
-        for (int i = 0; i < colliders.Length; i++) {
+
+    public override void Die()
+    {
+        for (int i = 0; i < colliders.Length; i++)
+        {
             colliders[i].enabled = false;
         }
+
         _unlockScript.KilledEnemy(enemyType);
         _movementScript.isDead = true;
         _healthBar.GetComponentInChildren<Image>().color = Color.clear;

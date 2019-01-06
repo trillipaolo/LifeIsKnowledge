@@ -204,7 +204,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1160827297839616}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.164214, y: -1.6412532, z: 0}
+  m_LocalPosition: {x: -9.755004, y: -0.03140354, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4990506534169576}
@@ -426,7 +426,7 @@ Animator:
   m_GameObject: {fileID: 1210780553678900}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 44d0928273cf79146b57b70ec03e1e3b, type: 2}
+  m_Controller: {fileID: 9100000, guid: 56ce369d1643d5c49a7031b211878799, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -446,7 +446,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2218815fb6955548b10748372194e16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDamage: 17
+  attackDamage: 25
   joel: {fileID: 0}
   joelHealth: {fileID: 0}
   attackCollider: {fileID: 0}
@@ -581,7 +581,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 0}
-  moveSpeed: 3.5
+  moveSpeed: 4
   stopDistance: 2
   jumpHeight: 1.5
   timeToJumpApex: 0.4
@@ -656,7 +656,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyType: 2
   _unlockScript: {fileID: 0}
-  health: 200
+  health: 300
   _healthBar: {fileID: 0}
   colliders: []
   damageMultipliers: []
@@ -664,6 +664,7 @@ MonoBehaviour:
   enemyHitSound: 
   hasArmor: 0
   joelSmashes: 0
+  destroyedArmor: {fileID: 0}
 --- !u!212 &212811530621215552
 SpriteRenderer:
   m_ObjectHideFlags: 1

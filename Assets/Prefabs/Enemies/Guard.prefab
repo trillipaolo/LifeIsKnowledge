@@ -390,7 +390,7 @@ Animator:
   m_GameObject: {fileID: 1474691201608492}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 44d0928273cf79146b57b70ec03e1e3b, type: 2}
+  m_Controller: {fileID: 9100000, guid: 56ce369d1643d5c49a7031b211878799, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -473,7 +473,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2218815fb6955548b10748372194e16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDamage: 17
+  attackDamage: 25
   joel: {fileID: 0}
   joelHealth: {fileID: 0}
   attackCollider: {fileID: 0}
@@ -491,7 +491,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyType: 2
   _unlockScript: {fileID: 0}
-  health: 200
+  health: 300
   _healthBar: {fileID: 0}
   colliders: []
   damageMultipliers: []
@@ -513,7 +513,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 0}
-  moveSpeed: 3.5
+  moveSpeed: 2
   stopDistance: 2
   jumpHeight: 1.5
   timeToJumpApex: 0.4
@@ -530,7 +530,7 @@ MonoBehaviour:
   isDead: 0
   audioManager: {fileID: 0}
   chillTimer: 2
-  timeBetweenAttacks: 2
+  timeBetweenAttacks: 4
 --- !u!114 &114352548111471630
 MonoBehaviour:
   m_ObjectHideFlags: 1
