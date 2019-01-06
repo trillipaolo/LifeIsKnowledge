@@ -6,7 +6,7 @@ using TMPro;
 
 public class Menu : MonoBehaviour {
 
-    [Header("Menu Buttons: Rest, Meditate, Continue")]
+    [Header("Menu Buttons: Meditate, Journal, Continue")]
     public GameObject[] menuButtons;
     private int _menuButtonsIndex;
 
