@@ -38,13 +38,13 @@ public class GuardMovement : EnemyMovementPhysics
                 {
                     FollowAndAttack();
                 }
-
-                ApplyGravity();
-                controller.Move(velocity * Time.deltaTime);
-                if (controller.collisions.above || controller.collisions.below)
-                {
-                    velocity.y = 0;
-                }
+                Move();
+//                ApplyGravity();
+//                controller.Move(velocity * Time.deltaTime);
+//                if (controller.collisions.above || controller.collisions.below)
+//                {
+//                    velocity.y = 0;
+//                }
 
                 if (Mathf.Abs(velocity.x) > 0)
                 {
@@ -76,7 +76,20 @@ public class GuardMovement : EnemyMovementPhysics
             }
         }
     }
+    private void Move()
+    {
+        ApplyGravity();
+        controller.Move(velocity * Time.deltaTime);
+        if (controller.collisions.above || controller.collisions.below)
+        {
+            velocity.y = 0;
+        }
 
+        if (controller.collisions.left || controller.collisions.right)
+        {
+            JumpOrChangeDirection();
+        }
+    }
     public override void Patrol()
     {
         float patrolDistance = transform.position.x - _anchor;
@@ -165,8 +178,34 @@ public class GuardMovement : EnemyMovementPhysics
         _armorAnimator.SetBool("Attack", false);
         _hitboxAnimator.SetBool("Attack", true);
     }
-
-    private void AttackStart()
+    
+    public void JumpOrChangeDirection()
     {
+        Vector2 rayOrigin;
+        Vector2 direction;
+        if (facingRight)
+        {
+            rayOrigin = controller.raycastOrigins.topRight;
+            direction = Vector2.right;
+        }
+        else
+        {
+            rayOrigin = controller.raycastOrigins.topLeft;
+            direction = Vector2.left;
+        }
+
+        RaycastHit2D inFrontRaycastHit2D =
+            Physics2D.Raycast(rayOrigin, direction, 0.1f, controller.collisionMask);
+
+        Debug.DrawRay(rayOrigin, direction * 0.1f, Color.blue);
+        if (inFrontRaycastHit2D)
+        {
+            ChangeDirection();
+            velocity.x = (facingRight ? 1 : -1) * moveSpeed;
+        }
+        else
+        {
+            Jump();
+        }
     }
 }

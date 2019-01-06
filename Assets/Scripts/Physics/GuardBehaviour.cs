@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class GuardBehaviour : EnemyBehaviour
 {
-    [HideInInspector] public bool noArmor = false;
+    public bool hasArmor = true;
     [HideInInspector] public bool joelSmashes = false;
     private JoelAttack joel;
     private GuardMovement _movementScript;
@@ -53,7 +53,7 @@ public class GuardBehaviour : EnemyBehaviour
             float multiplier = GetMultiplier(collider);
             float damage = ComputeDamage(baseDamage, multiplier, unique);
             Color color = ComputeColor(multiplier, unique);
-            if (noArmor)
+            if (!hasArmor)
             {
                 audioManager.Play(enemyHitSound);
 
@@ -74,7 +74,7 @@ public class GuardBehaviour : EnemyBehaviour
             {
                 Debug.Log("You have smashed Armor");
                 audioManager.Play(enemyHitSound);
-                noArmor = true;
+                hasArmor = false;
                 _armor = transform.Find("Armor").gameObject;
                 _armor.SetActive(false);
             }
