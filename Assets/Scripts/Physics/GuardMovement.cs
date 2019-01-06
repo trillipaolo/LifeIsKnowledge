@@ -5,6 +5,9 @@ using UnityEngine;
 public class GuardMovement : EnemyMovementPhysics
 {
     public float chillTimer = 2f;
+	private Animator _hitboxAnimator;
+	private float _lastAttack = -300;
+	public float timeBetweenAttacks = 3f;
 
     private float _countdown;
 
@@ -12,6 +15,7 @@ public class GuardMovement : EnemyMovementPhysics
     void Start()
     {
         base.Start();
+	    _hitboxAnimator = transform.Find("AttackCollider").GetComponent<Animator>();
         _countdown = chillTimer;
     }
 
@@ -36,7 +40,7 @@ public class GuardMovement : EnemyMovementPhysics
 	            velocity.y = 0;
 	        }
 
-	        if (velocity.x > 0)
+	        if (Mathf.Abs(velocity.x) > 0)
 	        {
 	            _animator.SetBool("isMoving", true);
 	        }
@@ -60,18 +64,21 @@ public class GuardMovement : EnemyMovementPhysics
             velocity.x = (facingRight ? 1 : -1) * moveSpeed;
 //			Debug.Log(Mathf.Abs(patrolDistance) + " " + patrolRadius);
         }
-        else if (Mathf.Abs(patrolDistance) > patrolRadius && (_countdown > 0))
+        else if (!foundTarget)
         {
-            velocity.x = 0;
-            _animator.SetBool("isMoving", false);
-            _countdown -= Time.deltaTime;
-        }
-        else
-        {
-            _countdown = chillTimer;
-            ChangeDirection();
-            _animator.SetBool("isMoving", true);
-            velocity.x = (facingRight ? 1 : -1) * moveSpeed;
+	        if (Mathf.Abs(patrolDistance) > patrolRadius && (_countdown > 0))
+	        {
+		        velocity.x = 0;
+		        _animator.SetBool("isMoving", false);
+		        _countdown -= Time.deltaTime;
+	        }
+	        else
+	        {
+		        _countdown = chillTimer;
+		        ChangeDirection();
+		        _animator.SetBool("isMoving", true);
+		        velocity.x = (facingRight ? 1 : -1) * moveSpeed;
+	        }
         }
     }
 
@@ -98,22 +105,22 @@ public class GuardMovement : EnemyMovementPhysics
 		}
 		else if (Mathf.Abs(target.position.y - transform.position.y) <= visionRadiusY)
 		{
-//			if (Time.timeSinceLevelLoad - _lastAttack > timeBetweenAttacks)
-//			{
-//				if (Mathf.Sign(distance) < 0)
-//				{
-//					velocity.x = moveSpeed;
-//					facingRight = true;
-//				}
-//				else
-//				{
-//					facingRight = false;
-//					velocity.x = -moveSpeed;
-//				}
-//
-//				_animator.SetTrigger("Attack");
-//				_hitboxAnimator.SetTrigger("Attack");
-//			}
+			if (Time.timeSinceLevelLoad - _lastAttack > timeBetweenAttacks)
+			{
+				if (Mathf.Sign(distance) < 0)
+				{
+					velocity.x = moveSpeed;
+					facingRight = true;
+				}
+				else
+				{
+					facingRight = false;
+					velocity.x = -moveSpeed;
+				}
+
+				_animator.SetTrigger("Attack");
+				_hitboxAnimator.SetTrigger("Attack");
+			}
 		}
 	}
 }
