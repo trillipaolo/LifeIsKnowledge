@@ -35855,6 +35855,41 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114219133266619620, guid: 9c9f50f0fc787254aa673188ef6cc18c,
+        type: 2}
+      propertyPath: timeBetweenAttacks
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114219133266619620, guid: 9c9f50f0fc787254aa673188ef6cc18c,
+        type: 2}
+      propertyPath: stopDistance
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114219133266619620, guid: 9c9f50f0fc787254aa673188ef6cc18c,
+        type: 2}
+      propertyPath: moveSpeed
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 61178297669876952, guid: 9c9f50f0fc787254aa673188ef6cc18c,
+        type: 2}
+      propertyPath: m_Offset.x
+      value: -0.8039223
+      objectReference: {fileID: 0}
+    - target: {fileID: 61178297669876952, guid: 9c9f50f0fc787254aa673188ef6cc18c,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 1.2376926
+      objectReference: {fileID: 0}
+    - target: {fileID: 61178297669876952, guid: 9c9f50f0fc787254aa673188ef6cc18c,
+        type: 2}
+      propertyPath: m_Offset.y
+      value: -0.34178478
+      objectReference: {fileID: 0}
+    - target: {fileID: 61178297669876952, guid: 9c9f50f0fc787254aa673188ef6cc18c,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 0.4452113
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c9f50f0fc787254aa673188ef6cc18c, type: 2}
   m_IsPrefabAsset: 0

@@ -64,6 +64,7 @@ public class GuardBehaviour : EnemyBehaviour
 
                 if (health <= 0)
                 {
+                    Debug.Log("Hello");
                     Die();
                 }
 
@@ -78,5 +79,13 @@ public class GuardBehaviour : EnemyBehaviour
                 _armor.SetActive(false);
             }
         }
+    }
+    public override void Die() {
+        for (int i = 0; i < colliders.Length; i++) {
+            colliders[i].enabled = false;
+        }
+        _unlockScript.KilledEnemy(enemyType);
+        _movementScript.isDead = true;
+        _healthBar.GetComponentInChildren<Image>().color = Color.clear;
     }
 }
