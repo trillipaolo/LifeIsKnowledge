@@ -22,6 +22,7 @@ public class ContinueButton : MonoBehaviour {
     {
         target.GetComponent<Animator>().SetBool("isMeditating", false);
         target.GetComponent<Animator>().SetBool("isSleeping", false);
+        transform.parent.gameObject.GetComponent<Menu>().ResetColor();
         transform.parent.gameObject.transform.parent.gameObject.GetComponent<SafeArea>().CloseSafeAreaMenu();
     }
 }

@@ -335,7 +335,7 @@ Prefab:
     - target: {fileID: 224259760767353872, guid: 8c4cec3a9dccb524ba9bec098e74d4a2,
         type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 224722086603636942, guid: 8c4cec3a9dccb524ba9bec098e74d4a2,
         type: 2}
@@ -385,7 +385,7 @@ Prefab:
     - target: {fileID: 224259760767353872, guid: 8c4cec3a9dccb524ba9bec098e74d4a2,
         type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 224259760767353872, guid: 8c4cec3a9dccb524ba9bec098e74d4a2,
         type: 2}
@@ -1492,7 +1492,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1860282209
   m_SortingLayer: -3
-  m_SortingOrder: 2
+  m_SortingOrder: 11
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -41553,7 +41553,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1860282209
   m_SortingLayer: -3
-  m_SortingOrder: 1
+  m_SortingOrder: 10
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -41670,7 +41670,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4730197574058182, guid: 9bd1e8722fd92804281be6e3a614f800, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 114776942695849812, guid: 9bd1e8722fd92804281be6e3a614f800,
         type: 2}
@@ -41722,7 +41722,7 @@ GameObject:
   - component: {fileID: 1493577209}
   - component: {fileID: 1493577208}
   m_Layer: 8
-  m_Name: Object3
+  m_Name: ElevatorRope
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41773,9 +41773,9 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1359705579
-  m_SortingLayer: -2
-  m_SortingOrder: 0
+  m_SortingLayerID: 1860282209
+  m_SortingLayer: -3
+  m_SortingOrder: 4
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -42076,7 +42076,7 @@ Transform:
   - {fileID: 1683003691}
   - {fileID: 220127045}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1910041420
 Prefab:
@@ -42115,7 +42115,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4270924466146178, guid: 52029ad4e9cfd8941a23c61365b9eaff, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 114321381760535430, guid: 52029ad4e9cfd8941a23c61365b9eaff,
         type: 2}

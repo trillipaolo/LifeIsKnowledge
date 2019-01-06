@@ -18,6 +18,7 @@ public class ComboMenuManager : MonoBehaviour {
 
     [Header("Grid Menu Properties")]
     public GameObject menuCell;
+    public ComboGridDimensions comboGridDimensions;
     public int rows;
     public int coloumns;
     [Tooltip("Offset between each cells in the grid - X Axis")]
@@ -140,6 +141,10 @@ public class ComboMenuManager : MonoBehaviour {
         //Initialize menuButtons index and flag
         _menuButtonsIndex = 0;
         _updateSelectedButton = false;
+
+        //Initialize Dimensions of the Grid
+        rows = comboGridDimensions.GetRows();
+        coloumns = comboGridDimensions.GetColoumns();
 
         //Initialize Menus
         InitializeScrollingMenu();
