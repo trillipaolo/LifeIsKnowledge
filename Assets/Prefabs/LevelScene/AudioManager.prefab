@@ -241,3 +241,21 @@ MonoBehaviour:
     randomVolume: 0
     randomPitch: 0
     source: {fileID: 0}
+  - name: UpAndSmash1
+    clip: {fileID: 8300000, guid: f4c5a6084e5d833449208618fd3527f2, type: 3}
+    group: {fileID: 243334754797210906, guid: c331b99e435eab84082dc47340cab267, type: 2}
+    volume: 0.8
+    pitch: 1
+    loop: 0
+    randomVolume: 0
+    randomPitch: 0
+    source: {fileID: 0}
+  - name: UpAndSmash2
+    clip: {fileID: 8300000, guid: 3ce65609ae5100d4da951daabe70fec1, type: 3}
+    group: {fileID: 243334754797210906, guid: c331b99e435eab84082dc47340cab267, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 0
+    randomVolume: 0
+    randomPitch: 0
+    source: {fileID: 0}

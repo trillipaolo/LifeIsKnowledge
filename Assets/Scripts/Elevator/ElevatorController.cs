@@ -37,11 +37,16 @@ public class ElevatorController : MonoBehaviour {
     [SerializeField]
     private CameraFollow _mainCamera;
 
+    AudioManager audioManager;
+    public string elevatorMovingSound = "ElevatorMoving";
+    public string elevatorArrivedSound = "ElevatorArrived";
+
     private void Awake() {
         _chassis = transform.Find("ElevatorChassis");
         _callUp = transform.Find("ColliderUp").GetComponent<ElevatorCall>();
         _callDown = transform.Find("ColliderDown").GetComponent<ElevatorCall>();
         _fakeJoel = _chassis.Find("FakeJoel").gameObject;
+        audioManager = AudioManager.instance;
     }
 
     private void Start() {
@@ -161,23 +166,32 @@ public class ElevatorController : MonoBehaviour {
         _isUp = true;
         _isDown = false;
         _isMoving = false;
+        Debug.Log("SONO UP");
+        audioManager.Stop(elevatorMovingSound);
+        audioManager.Play(elevatorArrivedSound);
     }
 
     private void Down() {
         _isUp = false;
         _isDown = true;
         _isMoving = false;
+        Debug.Log("SONO DOWN");
+
+        audioManager.Stop(elevatorMovingSound);
+        audioManager.Play(elevatorArrivedSound);
     }
 
     private void Moving() {
         _isUp = false;
         _isDown = false;
         _isMoving = true;
+        audioManager.Play(elevatorMovingSound);
     }
 
     private void Stop() {
         _isUp = false;
         _isDown = false;
         _isMoving = false;
+        Debug.Log("SONO FERMO");
     }
 }
