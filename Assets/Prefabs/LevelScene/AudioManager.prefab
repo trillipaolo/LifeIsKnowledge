@@ -100,7 +100,7 @@ MonoBehaviour:
   - name: JumpUp
     clip: {fileID: 8300000, guid: b5da338cfd859204a92131ce9e09429d, type: 3}
     group: {fileID: 243334754797210906, guid: c331b99e435eab84082dc47340cab267, type: 2}
-    volume: 0.5
+    volume: 0.25
     pitch: 1
     loop: 0
     randomVolume: 0
@@ -109,7 +109,7 @@ MonoBehaviour:
   - name: JumpDown
     clip: {fileID: 8300000, guid: 09a496e2ea4e73a40841f4c8da060397, type: 3}
     group: {fileID: 243334754797210906, guid: c331b99e435eab84082dc47340cab267, type: 2}
-    volume: 0.5
+    volume: 0.25
     pitch: 1
     loop: 0
     randomVolume: 0
@@ -127,7 +127,7 @@ MonoBehaviour:
   - name: StepHigh
     clip: {fileID: 8300000, guid: 893eca9d0859ba34eb8c3c8b964afd99, type: 3}
     group: {fileID: 243334754797210906, guid: c331b99e435eab84082dc47340cab267, type: 2}
-    volume: 0.05
+    volume: 0.02
     pitch: 1
     loop: 0
     randomVolume: 0
@@ -136,7 +136,7 @@ MonoBehaviour:
   - name: StepLow
     clip: {fileID: 8300000, guid: 97e97114002976a45b0fa630e3b81094, type: 3}
     group: {fileID: 243334754797210906, guid: c331b99e435eab84082dc47340cab267, type: 2}
-    volume: 0.05
+    volume: 0.02
     pitch: 1
     loop: 0
     randomVolume: 0
@@ -256,6 +256,60 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+    randomVolume: 0
+    randomPitch: 0
+    source: {fileID: 0}
+  - name: ElevatorMoving_NOTUSED
+    clip: {fileID: 8300000, guid: 2bf736f9c82ebff46b1d4667eb310eb4, type: 3}
+    group: {fileID: 243334754797210906, guid: c331b99e435eab84082dc47340cab267, type: 2}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    randomVolume: 0
+    randomPitch: 0
+    source: {fileID: 0}
+  - name: ElevatorArrived
+    clip: {fileID: 8300000, guid: ff2414c5016cf5946a5f38f5ae64779e, type: 3}
+    group: {fileID: 243334754797210906, guid: c331b99e435eab84082dc47340cab267, type: 2}
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    randomVolume: 0
+    randomPitch: 0
+    source: {fileID: 0}
+  - name: ScientistAttack
+    clip: {fileID: 8300000, guid: 16cc419c968087f41bcccb5f6f9639dd, type: 3}
+    group: {fileID: 243334754797210906, guid: c331b99e435eab84082dc47340cab267, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 0
+    randomVolume: 0
+    randomPitch: 0.5
+    source: {fileID: 0}
+  - name: DoorLoop
+    clip: {fileID: 8300000, guid: 1b70e995b8674084ab54d2acd6ca50c7, type: 3}
+    group: {fileID: 243334754797210906, guid: c331b99e435eab84082dc47340cab267, type: 2}
+    volume: 0.2
+    pitch: 1
+    loop: 1
+    randomVolume: 0
+    randomPitch: 0
+    source: {fileID: 0}
+  - name: DoorEndRun
+    clip: {fileID: 8300000, guid: ca74f812e475c534496613ffaf68005d, type: 3}
+    group: {fileID: 243334754797210906, guid: c331b99e435eab84082dc47340cab267, type: 2}
+    volume: 0.4
+    pitch: 0.9
+    loop: 0
+    randomVolume: 0
+    randomPitch: 0
+    source: {fileID: 0}
+  - name: MainMenuTheme
+    clip: {fileID: 8300000, guid: 8ae78bdfff1c47844b0aa5afbcdbc1ff, type: 3}
+    group: {fileID: 243307984207351158, guid: c331b99e435eab84082dc47340cab267, type: 2}
+    volume: 0.4
+    pitch: 1
+    loop: 1
     randomVolume: 0
     randomPitch: 0
     source: {fileID: 0}

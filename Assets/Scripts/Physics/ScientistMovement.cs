@@ -19,6 +19,7 @@ public class ScientistMovement : EnemyMovementPhysics
     private bool _lastDead = false;
 
     public string spawnsDroneSound= "ScSpawnsDrone";
+    public string attackScientistSound = "ScientistAttack";
 
     private void Awake()
     {
@@ -232,5 +233,10 @@ public class ScientistMovement : EnemyMovementPhysics
         {
             Jump();
         }
+    }
+
+    public void PlayScientistAttackSound()
+    {
+        audioManager.Play(attackScientistSound);
     }
 }

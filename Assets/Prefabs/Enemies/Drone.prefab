@@ -448,7 +448,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: f13f66194db72ca4eafe472782d3481c, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.04
+  m_Volume: 0.02
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -467,32 +467,32 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0.20663811
-      value: 0.9831581
-      inSlope: -4.2517
-      outSlope: -4.2517
+      time: 0.120303884
+      value: 0.9055939
+      inSlope: 0.0036386207
+      outSlope: 0.0036386207
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0
+      outWeight: 0.5031738
     - serializedVersion: 3
-      time: 0.4247508
-      value: 0.3735733
-      inSlope: -1.8886868
-      outSlope: -1.8886868
+      time: 0.36959028
+      value: 0.5851364
+      inSlope: -1.222985
+      outSlope: -1.222985
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.24207686
-      outWeight: 0.468288
+      inWeight: 0.42564324
+      outWeight: 0.3155269
     - serializedVersion: 3
-      time: 0.6575156
-      value: 0.10534668
-      inSlope: -0.7426318
-      outSlope: -0.7426318
+      time: 0.65989596
+      value: 0.25341797
+      inSlope: -1.0754727
+      outSlope: -1.0754727
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.4612912
-      outWeight: 0.39762598
+      inWeight: 0.32664627
+      outWeight: 0.31250322
     - serializedVersion: 3
       time: 1
       value: 0

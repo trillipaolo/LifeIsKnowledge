@@ -6,7 +6,7 @@ using UnityEngine.UI; //to modify a UI element
 
 public class OptionMenuManager : MonoBehaviour {
 
-    public AudioMixer audioMixer;
+    public AudioMixer masterMixer;
 
     public Dropdown resolutionDropdown; //get the dropdown component
     Resolution[] resolutions;
@@ -36,8 +36,13 @@ public class OptionMenuManager : MonoBehaviour {
         Screen.SetResolution(resolution.width,resolution.height, Screen.fullScreen);
     }
 
-    public void SetVolume (float volume) {
-        audioMixer.SetFloat("volume", volume);
+    public void SetMusicLvl (float MusicLvl) {
+        masterMixer.SetFloat("musicVol", MusicLvl);
+    }
+
+    public void SetSfxLvl(float SfxLvl)
+    {
+        masterMixer.SetFloat("sfxVol", SfxLvl);
     }
 
     public void SetQuality (int qualityIndex) {

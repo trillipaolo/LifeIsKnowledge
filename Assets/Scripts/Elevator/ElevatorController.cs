@@ -38,8 +38,9 @@ public class ElevatorController : MonoBehaviour {
     private CameraFollow _mainCamera;
 
     AudioManager audioManager;
-    public string elevatorMovingSound = "ElevatorMoving";
+    private AudioSource elevatorMovingSound;
     public string elevatorArrivedSound = "ElevatorArrived";
+    private bool initPosition = false;
 
     private void Awake() {
         _chassis = transform.Find("ElevatorChassis");
@@ -47,6 +48,7 @@ public class ElevatorController : MonoBehaviour {
         _callDown = transform.Find("ColliderDown").GetComponent<ElevatorCall>();
         _fakeJoel = _chassis.Find("FakeJoel").gameObject;
         audioManager = AudioManager.instance;
+        elevatorMovingSound = GetComponentInChildren<AudioSource>();
     }
 
     private void Start() {
@@ -64,6 +66,7 @@ public class ElevatorController : MonoBehaviour {
                 MovingDown();
             }
         }
+        initPosition = true;
     }
 
     private void Update () {
@@ -166,32 +169,35 @@ public class ElevatorController : MonoBehaviour {
         _isUp = true;
         _isDown = false;
         _isMoving = false;
-        Debug.Log("SONO UP");
-        audioManager.Stop(elevatorMovingSound);
-        audioManager.Play(elevatorArrivedSound);
+
+        if (initPosition) {
+            elevatorMovingSound.Stop();
+            audioManager.Play(elevatorArrivedSound);
+        }
+        
     }
 
     private void Down() {
         _isUp = false;
         _isDown = true;
         _isMoving = false;
-        Debug.Log("SONO DOWN");
 
-        audioManager.Stop(elevatorMovingSound);
-        audioManager.Play(elevatorArrivedSound);
+        if (initPosition){
+            elevatorMovingSound.Stop();
+            audioManager.Play(elevatorArrivedSound);
+        }
     }
 
     private void Moving() {
         _isUp = false;
         _isDown = false;
         _isMoving = true;
-        audioManager.Play(elevatorMovingSound);
+        elevatorMovingSound.Play();
     }
 
     private void Stop() {
         _isUp = false;
         _isDown = false;
         _isMoving = false;
-        Debug.Log("SONO FERMO");
     }
 }
