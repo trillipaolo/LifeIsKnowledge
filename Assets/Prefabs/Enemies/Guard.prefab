@@ -245,7 +245,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1928224320947320}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.164214, y: -1.6412532, z: 0}
+  m_LocalPosition: {x: 11.907202, y: -1.1624086, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4135916498108476}
@@ -499,6 +499,8 @@ MonoBehaviour:
   enemyHitSound: 
   hasArmor: 1
   joelSmashes: 0
+  destroyedArmor: {fileID: 1969911721492344, guid: 1f0885fc073a9b44ca740fb38efb937b,
+    type: 2}
 --- !u!114 &114219133266619620
 MonoBehaviour:
   m_ObjectHideFlags: 1

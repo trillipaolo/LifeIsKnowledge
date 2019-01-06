@@ -9,6 +9,7 @@ public class GuardBehaviour : EnemyBehaviour
     [HideInInspector] public bool joelSmashes = false;
     private JoelAttack joel;
     private GuardMovement _movementScript;
+    public GameObject destroyedArmor;
     private GameObject _armor;
 
     void Awake()
@@ -75,6 +76,7 @@ public class GuardBehaviour : EnemyBehaviour
                 Debug.Log("You have smashed Armor");
                 audioManager.Play(enemyHitSound);
                 hasArmor = false;
+                Instantiate(destroyedArmor, transform.position, Quaternion.identity);
                 _armor = transform.Find("Armor").gameObject;
                 _armor.SetActive(false);
             }
