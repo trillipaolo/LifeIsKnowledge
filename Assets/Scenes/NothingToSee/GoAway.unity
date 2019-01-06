@@ -172,7 +172,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 39424402}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 21.966667, y: 2.6999998, z: -10}
+  m_LocalPosition: {x: 13.396667, y: 2.6999998, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1181506557}
@@ -2204,7 +2204,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 865743524}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.1033335, y: 3.3, z: -10}
+  m_LocalPosition: {x: 16.393333, y: 3.3, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 210584227}
@@ -10749,6 +10749,84 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1001 &1508115736
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 114573070956090846, guid: 1d7c459e9cc1e624e90d7b01f7348224,
+        type: 2}
+      propertyPath: sounds.Array.size
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 4545499473092710, guid: 1d7c459e9cc1e624e90d7b01f7348224, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4545499473092710, guid: 1d7c459e9cc1e624e90d7b01f7348224, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4545499473092710, guid: 1d7c459e9cc1e624e90d7b01f7348224, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4545499473092710, guid: 1d7c459e9cc1e624e90d7b01f7348224, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4545499473092710, guid: 1d7c459e9cc1e624e90d7b01f7348224, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4545499473092710, guid: 1d7c459e9cc1e624e90d7b01f7348224, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4545499473092710, guid: 1d7c459e9cc1e624e90d7b01f7348224, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4545499473092710, guid: 1d7c459e9cc1e624e90d7b01f7348224, type: 2}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 114573070956090846, guid: 1d7c459e9cc1e624e90d7b01f7348224,
+        type: 2}
+      propertyPath: sounds.Array.data[21].name
+      value: CutScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 114573070956090846, guid: 1d7c459e9cc1e624e90d7b01f7348224,
+        type: 2}
+      propertyPath: sounds.Array.data[21].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 472c930151db5e14d85a1b4bb7515b54, type: 3}
+    - target: {fileID: 114573070956090846, guid: 1d7c459e9cc1e624e90d7b01f7348224,
+        type: 2}
+      propertyPath: sounds.Array.data[21].group
+      value: 
+      objectReference: {fileID: 243307984207351158, guid: c331b99e435eab84082dc47340cab267,
+        type: 2}
+    - target: {fileID: 114573070956090846, guid: 1d7c459e9cc1e624e90d7b01f7348224,
+        type: 2}
+      propertyPath: sounds.Array.data[21].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114573070956090846, guid: 1d7c459e9cc1e624e90d7b01f7348224,
+        type: 2}
+      propertyPath: sounds.Array.data[21].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114573070956090846, guid: 1d7c459e9cc1e624e90d7b01f7348224,
+        type: 2}
+      propertyPath: sounds.Array.data[21].loop
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1d7c459e9cc1e624e90d7b01f7348224, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &1543957489
 GameObject:
   m_ObjectHideFlags: 0
@@ -11889,7 +11967,7 @@ GameObject:
   - component: {fileID: 2015072074}
   - component: {fileID: 2015072075}
   m_Layer: 0
-  m_Name: ExitFromGame
+  m_Name: CutSceneManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12069,7 +12147,7 @@ Tilemap:
   - first: {x: -8, y: 0, z: 0}
     second:
       m_TileIndex: 0
-      m_TileSpriteIndex: 0
+      m_TileSpriteIndex: 8
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_ObjectToInstantiate: {fileID: 0}
@@ -12159,8 +12237,8 @@ Tilemap:
   - m_RefCount: 0
     m_Data: {fileID: 0}
   m_TileSpriteArray:
-  - m_RefCount: 1
-    m_Data: {fileID: 21300012, guid: 5b82e82235e25a74e934cb2ce03e57d3, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: 21300014, guid: 5b82e82235e25a74e934cb2ce03e57d3, type: 3}
   - m_RefCount: 1
@@ -12175,8 +12253,8 @@ Tilemap:
     m_Data: {fileID: 21300000, guid: 5b82e82235e25a74e934cb2ce03e57d3, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 21300002, guid: 5b82e82235e25a74e934cb2ce03e57d3, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 21300012, guid: 5b82e82235e25a74e934cb2ce03e57d3, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 8
     m_Data:
