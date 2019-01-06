@@ -155,7 +155,7 @@ GameObject:
   - component: {fileID: 95394345223863168}
   - component: {fileID: 114219133266619620}
   - component: {fileID: 61990739872926588}
-  - component: {fileID: 114717738384137968}
+  - component: {fileID: 114199807242279416}
   - component: {fileID: 114899720261302770}
   m_Layer: 0
   m_Name: Guard
@@ -429,6 +429,25 @@ MonoBehaviour:
   joelHealth: {fileID: 0}
   attackCollider: {fileID: 0}
   _playerInRange: 0
+--- !u!114 &114199807242279416
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1928224320947320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84d00e9045263b244bd401161a73ae52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyType: 0
+  _unlockScript: {fileID: 0}
+  health: 200
+  _healthBar: {fileID: 0}
+  colliders: []
+  damageMultipliers: []
+  audioManager: {fileID: 0}
+  enemyHitSound: 
 --- !u!114 &114219133266619620
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -458,6 +477,7 @@ MonoBehaviour:
   isDead: 0
   audioManager: {fileID: 0}
   chillTimer: 2
+  timeBetweenAttacks: 3
 --- !u!114 &114352548111471630
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -522,25 +542,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &114717738384137968
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1928224320947320}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf5a4abdc2639764a8a3bfff3bbf1ec3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyType: 0
-  _unlockScript: {fileID: 0}
-  health: 200
-  _healthBar: {fileID: 0}
-  colliders: []
-  damageMultipliers: []
-  audioManager: {fileID: 0}
-  enemyHitSound: 
 --- !u!114 &114899720261302770
 MonoBehaviour:
   m_ObjectHideFlags: 1
