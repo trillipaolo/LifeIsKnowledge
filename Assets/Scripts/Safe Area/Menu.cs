@@ -9,6 +9,7 @@ public class Menu : MonoBehaviour {
     [Header("Menu Buttons: Meditate, Journal, Continue")]
     public GameObject[] menuButtons;
     private int _menuButtonsIndex;
+    private Button _currentButton;
 
     //Menu Booleans
     public bool _buttonPressed = false;
@@ -23,7 +24,8 @@ public class Menu : MonoBehaviour {
         _menuButtonsIndex = 0;
 
         //Select First Button
-        menuButtons[_menuButtonsIndex].GetComponent<Button>().Select();
+        _currentButton = menuButtons[_menuButtonsIndex].GetComponent<Button>();
+        StartHighlight();
     }
 
     private void Update()
@@ -58,9 +60,11 @@ public class Menu : MonoBehaviour {
         bool _upInputAxis = Input.GetAxis("GridUp") > 0;
 
         if ((_upInputButton || _upInputAxis) && !_dpadUp && (_menuButtonsIndex != 0))
-        {
+        {   
+            StopHighlight();
             _menuButtonsIndex -= 1;
-            menuButtons[_menuButtonsIndex].GetComponent<Button>().Select();
+            _currentButton = menuButtons[_menuButtonsIndex].GetComponent<Button>();
+            StartHighlight();
         }
 
         _dpadUp = (_upInputButton || _upInputAxis);
@@ -73,8 +77,10 @@ public class Menu : MonoBehaviour {
 
         if ((_downInputButton || _downInputAxis) && !_dpadDown && (_menuButtonsIndex < menuButtons.Length - 1))
         {
+            StopHighlight();
             _menuButtonsIndex += 1;
-            menuButtons[_menuButtonsIndex].GetComponent<Button>().Select();
+            _currentButton = menuButtons[_menuButtonsIndex].GetComponent<Button>();
+            StartHighlight();
         }
 
         _dpadDown = (_downInputButton || _downInputAxis);
@@ -102,5 +108,51 @@ public class Menu : MonoBehaviour {
         {
             button.GetComponentInChildren<TextMeshProUGUI>().enabled = true;
         }
+    }
+
+    public void StartHighlight()
+    {
+        StartCoroutine("Fading");
+    }
+
+    public void StopHighlight()
+    {
+        StopAllCoroutines();
+        ResetColor();
+    }
+
+    public void ResetColor()
+    {
+        ColorBlock cb = _currentButton.colors;
+        Color c = cb.normalColor;
+        c.a = 0;
+        cb.normalColor = c;
+        _currentButton.colors = cb;
+    }
+
+    IEnumerator Fading()
+    {
+        do
+        {
+            for (float f = 0.01f; f <= 0.2f; f += 0.01f)
+            {
+                ColorBlock cb = _currentButton.colors;
+                Color c = cb.normalColor;
+                c.a = f;
+                cb.normalColor = c;
+                _currentButton.colors = cb;
+                yield return new WaitForSecondsRealtime(0.05f);
+            }
+
+            for (float f = 0.2f; f >= -0.01f; f -= 0.01f)
+            {
+                ColorBlock cb = _currentButton.colors;
+                Color c = cb.normalColor;
+                c.a = f;
+                cb.normalColor = c;
+                _currentButton.colors = cb;
+                yield return new WaitForSecondsRealtime(0.05f);
+            }
+        } while (true);
     }
 }
