@@ -6,9 +6,13 @@ public class Respawn : MonoBehaviour {
 
     [Header("Reference to the Scriptable Object")]
     public JoelRespawn joelRespawn;
+    public bool resetAtStart;
 
     private void Awake()
     {
-        transform.position = new Vector3(joelRespawn.GetX(), joelRespawn.GetY(), 0);
+        if (!resetAtStart)
+        {
+            transform.position = new Vector3(joelRespawn.GetX(), joelRespawn.GetY(), 0);
+        }
     }
 }

@@ -11,5 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1216d30eda3a804f91852495baf23ea, type: 3}
   m_Name: JoelHealth
   m_EditorClassIdentifier: 
-  health: 146
-  initialHealth: 100
+  health: 1000
+  initialHealth: 1000

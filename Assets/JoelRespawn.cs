@@ -37,4 +37,14 @@ public class JoelRespawn : ScriptableObject {
     {
         return y;
     }
+
+    public float GetInitialX()
+    {
+        return x_initial;
+    }
+
+    public float GetInitialY()
+    {
+        return y_initial;
+    }
 }
