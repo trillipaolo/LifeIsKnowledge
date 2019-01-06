@@ -5,6 +5,8 @@ using UnityEngine;
 public class GuardMovement : EnemyMovementPhysics
 {
     public float chillTimer = 2f;
+	private Animator armorAnimator;
+	
 	private Animator _hitboxAnimator;
 	private float _lastAttack = -300;
 	public float timeBetweenAttacks = 3f;
