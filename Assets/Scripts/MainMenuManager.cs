@@ -5,12 +5,22 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour {
 
-	public void PlayGame() {
+    AudioManager audioManager;
+    public string mainMenuThemeSound = "MainMenuTheme";
+
+    private void Awake()
+    {
+        audioManager = AudioManager.instance;
+        audioManager.Play(mainMenuThemeSound);
+    }
+
+    public void PlayGame() {
+        audioManager.Stop(mainMenuThemeSound);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void QuitGame() {
-        Debug.Log("QUIT!"); //we print something since unity don't do anything ibn debug mode 
+        audioManager.Stop(mainMenuThemeSound);
         Application.Quit();
     }
 }
