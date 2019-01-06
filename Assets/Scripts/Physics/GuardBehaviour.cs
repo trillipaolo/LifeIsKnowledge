@@ -12,6 +12,9 @@ public class GuardBehaviour : EnemyBehaviour
     public GameObject destroyedArmor;
     private GameObject _armor;
 
+    public string guardHitNoArmorSound = "GuardHitNoArmor";
+    public string guardHitWArmorSound = "GuardHitWArmor";
+
     void Awake()
     {
         _movementScript = transform.GetComponent<GuardMovement>();
@@ -56,7 +59,7 @@ public class GuardBehaviour : EnemyBehaviour
             Color color = ComputeColor(multiplier, unique);
             if (!hasArmor)
             {
-                audioManager.Play(enemyHitSound);
+                audioManager.Play(guardHitNoArmorSound);
 
                 Vector3 textPosition = (Vector3) collider.offset + transform.position;
                 FloatingTextController.CreateFloatingText(damage.ToString(), textPosition, color);
@@ -74,7 +77,7 @@ public class GuardBehaviour : EnemyBehaviour
             else if (joelSmashes)
             {
                 Debug.Log("You have smashed Armor");
-                audioManager.Play(enemyHitSound);
+                audioManager.Play(guardHitWArmorSound);
                 // Regular Guard Settings
                 _movementScript.moveSpeed = 4f;
                 _movementScript.timeBetweenAttacks = 2f;
@@ -85,6 +88,7 @@ public class GuardBehaviour : EnemyBehaviour
             }
             else
             {
+                audioManager.Play(guardHitWArmorSound);
                 Vector3 textPosition = (Vector3) collider.offset + transform.position;
                 damage = 0f;
                 FloatingTextController.CreateFloatingText(damage.ToString(), textPosition, new Color(204,204,204));

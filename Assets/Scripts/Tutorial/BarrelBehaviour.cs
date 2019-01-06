@@ -7,6 +7,9 @@ public class BarrelBehaviour : EnemyBehaviour {
     private bool _broken = false;
     private Animator _animator;
 
+    public string BarrelHitSound = "BarrelHit";
+    public string BarrelBreakSound = "BarrelBreak";
+
     private void Awake() {
         _animator = GetComponent<Animator>();
     }
@@ -23,7 +26,12 @@ public class BarrelBehaviour : EnemyBehaviour {
             health -= damage;
 
             if (health < 0) {
+                
                 Die();
+            }
+            else
+            {
+                audioManager.Play(BarrelHitSound);
             }
         }
     }
@@ -36,5 +44,6 @@ public class BarrelBehaviour : EnemyBehaviour {
         }
 
         _animator.SetTrigger("Broken");
+        audioManager.Play(BarrelBreakSound);
     }
 }

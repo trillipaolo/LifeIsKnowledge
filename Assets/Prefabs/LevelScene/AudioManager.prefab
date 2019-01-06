@@ -55,7 +55,7 @@ MonoBehaviour:
   - name: Theme
     clip: {fileID: 8300000, guid: defdb97d89a7f3548bf7e21ce9624caa, type: 3}
     group: {fileID: 243307984207351158, guid: c331b99e435eab84082dc47340cab267, type: 2}
-    volume: 0
+    volume: 0.15
     pitch: 1
     loop: 1
     randomVolume: 0
@@ -73,7 +73,7 @@ MonoBehaviour:
   - name: KnifeSlash2
     clip: {fileID: 8300000, guid: 0c64db5804e2ed94484dca78ef674c02, type: 3}
     group: {fileID: 243334754797210906, guid: c331b99e435eab84082dc47340cab267, type: 2}
-    volume: 0.4
+    volume: 0.25
     pitch: 1
     loop: 0
     randomVolume: 0
@@ -118,8 +118,8 @@ MonoBehaviour:
   - name: Roll
     clip: {fileID: 8300000, guid: 488a1ef9937892842b79c1bd825700e8, type: 3}
     group: {fileID: 243334754797210906, guid: c331b99e435eab84082dc47340cab267, type: 2}
-    volume: 0.1
-    pitch: 1
+    volume: 0.05
+    pitch: 1.1
     loop: 0
     randomVolume: 0
     randomPitch: 0
@@ -145,7 +145,7 @@ MonoBehaviour:
   - name: StabFlesh
     clip: {fileID: 8300000, guid: a3904cd20258b6740a3ad112552fa72d, type: 3}
     group: {fileID: 243334754797210906, guid: c331b99e435eab84082dc47340cab267, type: 2}
-    volume: 1
+    volume: 0.75
     pitch: 1
     loop: 0
     randomVolume: 0
@@ -190,7 +190,7 @@ MonoBehaviour:
   - name: JoelDamage
     clip: {fileID: 8300000, guid: 67120f8180304d54f8d8ad347b1dc5b0, type: 3}
     group: {fileID: 243334754797210906, guid: c331b99e435eab84082dc47340cab267, type: 2}
-    volume: 0.2
+    volume: 0.125
     pitch: 0.9
     loop: 0
     randomVolume: 0
@@ -208,7 +208,7 @@ MonoBehaviour:
   - name: HorizontalSpin
     clip: {fileID: 8300000, guid: 39220c834a8df814585f29ef1325308b, type: 3}
     group: {fileID: 243334754797210906, guid: c331b99e435eab84082dc47340cab267, type: 2}
-    volume: 0.7
+    volume: 0.5
     pitch: 0.9
     loop: 0
     randomVolume: 0
@@ -217,7 +217,7 @@ MonoBehaviour:
   - name: HorizontalSpin+
     clip: {fileID: 8300000, guid: 1d6e2ae90ce0a054e94070a8bf86cecc, type: 3}
     group: {fileID: 243334754797210906, guid: c331b99e435eab84082dc47340cab267, type: 2}
-    volume: 0.4
+    volume: 0.2
     pitch: 0.75
     loop: 0
     randomVolume: 0
@@ -226,7 +226,7 @@ MonoBehaviour:
   - name: RopeThrow1
     clip: {fileID: 8300000, guid: ee71db05a5736a9409115d0145f29c29, type: 3}
     group: {fileID: 243334754797210906, guid: c331b99e435eab84082dc47340cab267, type: 2}
-    volume: 1
+    volume: 0.3
     pitch: 1
     loop: 0
     randomVolume: 0
@@ -235,7 +235,7 @@ MonoBehaviour:
   - name: RopeThrow2
     clip: {fileID: 8300000, guid: c9cac3836148bc8458566c0123cd14c9, type: 3}
     group: {fileID: 243334754797210906, guid: c331b99e435eab84082dc47340cab267, type: 2}
-    volume: 1
+    volume: 0.6
     pitch: 1
     loop: 0
     randomVolume: 0
@@ -244,7 +244,7 @@ MonoBehaviour:
   - name: UpAndSmash1
     clip: {fileID: 8300000, guid: f4c5a6084e5d833449208618fd3527f2, type: 3}
     group: {fileID: 243334754797210906, guid: c331b99e435eab84082dc47340cab267, type: 2}
-    volume: 0.8
+    volume: 0.5
     pitch: 1
     loop: 0
     randomVolume: 0
@@ -253,7 +253,7 @@ MonoBehaviour:
   - name: UpAndSmash2
     clip: {fileID: 8300000, guid: 3ce65609ae5100d4da951daabe70fec1, type: 3}
     group: {fileID: 243334754797210906, guid: c331b99e435eab84082dc47340cab267, type: 2}
-    volume: 1
+    volume: 0.8
     pitch: 1
     loop: 0
     randomVolume: 0
@@ -271,7 +271,7 @@ MonoBehaviour:
   - name: ElevatorArrived
     clip: {fileID: 8300000, guid: ff2414c5016cf5946a5f38f5ae64779e, type: 3}
     group: {fileID: 243334754797210906, guid: c331b99e435eab84082dc47340cab267, type: 2}
-    volume: 0.6
+    volume: 0.3
     pitch: 1
     loop: 0
     randomVolume: 0
@@ -312,4 +312,58 @@ MonoBehaviour:
     loop: 1
     randomVolume: 0
     randomPitch: 0
+    source: {fileID: 0}
+  - name: GuardAttack
+    clip: {fileID: 8300000, guid: ecfecbe24c1156a40be897aa7da307a3, type: 3}
+    group: {fileID: 243334754797210906, guid: c331b99e435eab84082dc47340cab267, type: 2}
+    volume: 0.7
+    pitch: 1
+    loop: 0
+    randomVolume: 0
+    randomPitch: 0.5
+    source: {fileID: 0}
+  - name: GuardHitNoArmor
+    clip: {fileID: 8300000, guid: d7eae260a93f04b4abc3cfc00a20e449, type: 3}
+    group: {fileID: 243334754797210906, guid: c331b99e435eab84082dc47340cab267, type: 2}
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    randomVolume: 0
+    randomPitch: 0
+    source: {fileID: 0}
+  - name: GuardHitWArmor
+    clip: {fileID: 8300000, guid: 6e4cd09f7c45db6489509faeb1b1d23d, type: 3}
+    group: {fileID: 243334754797210906, guid: c331b99e435eab84082dc47340cab267, type: 2}
+    volume: 0.4
+    pitch: 0.9
+    loop: 0
+    randomVolume: 0
+    randomPitch: 0.25
+    source: {fileID: 0}
+  - name: BarrelHit
+    clip: {fileID: 8300000, guid: 4e9b0facab2967845b2f8696919b5b63, type: 3}
+    group: {fileID: 243334754797210906, guid: c331b99e435eab84082dc47340cab267, type: 2}
+    volume: 0.9
+    pitch: 1
+    loop: 0
+    randomVolume: 0
+    randomPitch: 0.25
+    source: {fileID: 0}
+  - name: BarrelBreak
+    clip: {fileID: 8300000, guid: a67c8056595c6834192b93d9c78b0be6, type: 3}
+    group: {fileID: 243334754797210906, guid: c331b99e435eab84082dc47340cab267, type: 2}
+    volume: 0.4
+    pitch: 1
+    loop: 0
+    randomVolume: 0
+    randomPitch: 0
+    source: {fileID: 0}
+  - name: BuddyHit
+    clip: {fileID: 8300000, guid: 6e4cd09f7c45db6489509faeb1b1d23d, type: 3}
+    group: {fileID: 243334754797210906, guid: c331b99e435eab84082dc47340cab267, type: 2}
+    volume: 0.3
+    pitch: 0.75
+    loop: 0
+    randomVolume: 0
+    randomPitch: 0.5
     source: {fileID: 0}
