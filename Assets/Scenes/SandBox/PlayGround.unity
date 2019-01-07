@@ -36495,6 +36495,11 @@ Prefab:
       value: 
       objectReference: {fileID: 11400000, guid: 8b7f1b9845809c2489666e523699573d,
         type: 2}
+    - target: {fileID: 114178954687344226, guid: 9bd1e8722fd92804281be6e3a614f800,
+        type: 2}
+      propertyPath: overrideRespawnPosition
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bd1e8722fd92804281be6e3a614f800, type: 2}
   m_IsPrefabAsset: 0
