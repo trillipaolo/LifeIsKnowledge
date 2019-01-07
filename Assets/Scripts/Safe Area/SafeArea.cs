@@ -11,6 +11,9 @@ public class SafeArea : MonoBehaviour {
     public Canvas canvas;
     public Camera minimap;
 
+    [Header("RespawnPoint reference")]
+    public JoelRespawn joelRespawn;
+
     //Safe Areas Components
     private Collider2D _collider;
 
@@ -34,6 +37,7 @@ public class SafeArea : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        Debug.Log("Colliding: " + _isColliding);
 		if (_isColliding)
         {
             EnableInteraction();
@@ -47,6 +51,7 @@ public class SafeArea : MonoBehaviour {
 
         if ((_upInputButton || _upInputAxis) && !_stickUp)
         {
+            SaveJoelRespawnPoint();
             OpenSafeAreaMenu();
         }
 
@@ -73,6 +78,11 @@ public class SafeArea : MonoBehaviour {
         minimap.enabled = true;
         canvas.enabled = true;
         target.GetComponent<ComboMenu>()._menu = false;
+    }
+
+    private void SaveJoelRespawnPoint()
+    {
+        joelRespawn.SetRespawnPoint(transform);
     }
 
     private void DisableJoel()

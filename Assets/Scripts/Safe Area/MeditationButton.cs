@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MeditationButton : MonoBehaviour {
 
@@ -29,6 +30,7 @@ public class MeditationButton : MonoBehaviour {
         transform.parent.gameObject.GetComponent<Menu>()._buttonPressed = true;
 
         comboMenu.GetComponentInChildren<ComboMenuManager>()._calledByButton = true;
+        comboMenu.GetComponentInChildren<ComboMenuManager>().SetMeditationButton(this);
         comboMenu.SetActive(true);
     }
 

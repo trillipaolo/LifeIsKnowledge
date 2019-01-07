@@ -22,15 +22,16 @@ public class EnemyMenuManager : MonoBehaviour {
 
     [Header("References: Safe Area interaction")]
     public GameObject blurBackground;
-    public GameObject journalButton;
+    private JournalButton _journalButton;
     public bool _calledByButton = false;
 
     [Header("Back Button Sprites")]
     public Sprite backButtonStart;
     public Sprite backButtonB;
 
-    [Header("Canvas Back Button Reference")]
+    [Header("Canvas Button References")]
     public GameObject backButton;
+    public GameObject changeMenuButton;
 
     private List<GameObject> _menuSliders;
     private int _menuSlidersIndex;
@@ -68,11 +69,13 @@ public class EnemyMenuManager : MonoBehaviour {
         {
             backButton.GetComponent<SpriteRenderer>().sprite = backButtonB;
             blurBackground.SetActive(false);
+            changeMenuButton.SetActive(false);
         }
         else
         {
             backButton.GetComponent<SpriteRenderer>().sprite = backButtonStart;
             blurBackground.SetActive(true);
+            changeMenuButton.SetActive(true);
         }
     }
 
@@ -95,7 +98,8 @@ public class EnemyMenuManager : MonoBehaviour {
 
         if (_calledByButton && Input.GetButtonDown("BackToScroll"))
         {
-            journalButton.GetComponent<JournalButton>().CloseMenu();
+            Debug.Log("The EnemyMenu works fine");
+            _journalButton.CloseMenu();
         }
 	}
 
@@ -200,5 +204,10 @@ public class EnemyMenuManager : MonoBehaviour {
         {
             enemyInformation.SetActive(false);
         }
+    }
+
+    public void SetJournalButton(JournalButton jButton)
+    {
+        _journalButton = jButton;
     }
 }

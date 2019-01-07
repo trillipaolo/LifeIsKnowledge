@@ -224,6 +224,7 @@ GameObject:
   - component: {fileID: 81453909532007082}
   - component: {fileID: 114931401231629206}
   - component: {fileID: 114898536288765536}
+  - component: {fileID: 114178954687344226}
   m_Layer: 10
   m_Name: Joel
   m_TagString: Player
@@ -374,7 +375,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1960080971953640}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.22, y: 4.35, z: 0}
+  m_LocalPosition: {x: 15.85, y: 3.33, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4355697508197630}
@@ -706,6 +707,18 @@ MonoBehaviour:
   knifeSlashSounds1Coll: KnifeSlash2
   knifeSlashSounds2Coll: KnifeSlash1
   knifeSlashSounds3Coll: KnifeSlash3
+--- !u!114 &114178954687344226
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1960080971953640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0412a4f1257fb8c4680ecf752b6aec39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  joelRespawn: {fileID: 11400000, guid: 1f919f29abd2deb40ab7aa82d02b0605, type: 2}
 --- !u!114 &114389604596015934
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -770,7 +783,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f640f27905614c49a581aceb84d21af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 100
   currentHealth: 100
   healthSlider: {fileID: 0}
   damageImage: {fileID: 0}
@@ -779,6 +791,8 @@ MonoBehaviour:
   timeBetweenDamage: 0.7
   timeBetweenReloading: 3
   joelTakeDmgSound: JoelDamage
+  joelHealth: {fileID: 11400000, guid: 8b7f1b9845809c2489666e523699573d, type: 2}
+  resetHealthAtStart: 1
 --- !u!114 &114820942462612712
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -827,7 +841,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b329bf8c0d37294eb7a123a2636df6a, type: 3}
   m_Name: 
-  m_EditorClassIdentifier:
+  m_EditorClassIdentifier: 
   combos:
   - {fileID: 1418817012308618, guid: 31841b5f8cb998543949f143b5fc3682, type: 2}
   - {fileID: 1795682517402682, guid: 44818c8aae3c41f4da9db2f5bc2d2097, type: 2}

@@ -79,8 +79,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scene: Version 2
+  loadingScreen: {fileID: 0}
+  canvas: {fileID: 0}
   target: {fileID: 0}
   teleportType: 0
+  joelRespawn: {fileID: 11400000, guid: 1f919f29abd2deb40ab7aa82d02b0605, type: 2}
 --- !u!114 &114941689935733364
 MonoBehaviour:
   m_ObjectHideFlags: 1

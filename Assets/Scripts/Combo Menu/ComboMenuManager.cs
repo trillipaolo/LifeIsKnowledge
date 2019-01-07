@@ -18,6 +18,7 @@ public class ComboMenuManager : MonoBehaviour {
 
     [Header("Grid Menu Properties")]
     public GameObject menuCell;
+    public ComboGridDimensions comboGridDimensions;
     public int rows;
     public int coloumns;
     [Tooltip("Offset between each cells in the grid - X Axis")]
@@ -53,7 +54,7 @@ public class ComboMenuManager : MonoBehaviour {
     public JoelCombos joelCombos;
 
     [Header("References: Safe Area interaction")]
-    public GameObject meditationButton;
+    private MeditationButton _meditationButton;
     public GameObject blurBackground;
     public bool _calledByButton = false;
     //To decouple the B button between normal menu and meditation menu
@@ -63,8 +64,9 @@ public class ComboMenuManager : MonoBehaviour {
     public Sprite backButtonStart;
     public Sprite backButtonB;
 
-    [Header("Canvas Back Button Reference")]
+    [Header("Canvas Button References")]
     public GameObject backButton;
+    public GameObject changeMenuButton;
 
     //List of Buttons in the scrolling menu: each button refers to a combo
     [Header("ScrollMenu Button List")]
@@ -112,12 +114,14 @@ public class ComboMenuManager : MonoBehaviour {
         {
             backButton.GetComponent<SpriteRenderer>().sprite = backButtonB;
             blurBackground.SetActive(false);
+            changeMenuButton.SetActive(false);
             menuCell.GetComponent<SpriteRenderer>().sprite = emptyCellWhite;
         }
         else
         {
             backButton.GetComponent<SpriteRenderer>().sprite = backButtonStart;
             blurBackground.SetActive(true);
+            changeMenuButton.SetActive(true);
             menuCell.GetComponent<SpriteRenderer>().sprite = emptyCell;
         }
 
@@ -137,6 +141,10 @@ public class ComboMenuManager : MonoBehaviour {
         //Initialize menuButtons index and flag
         _menuButtonsIndex = 0;
         _updateSelectedButton = false;
+
+        //Initialize Dimensions of the Grid
+        rows = comboGridDimensions.GetRows();
+        coloumns = comboGridDimensions.GetColoumns();
 
         //Initialize Menus
         InitializeScrollingMenu();
@@ -232,7 +240,8 @@ public class ComboMenuManager : MonoBehaviour {
     {
         if (!_backToScroll && _calledByButton && Input.GetButtonDown("BackToScroll"))
         {
-            meditationButton.GetComponent<MeditationButton>().CloseMenu();
+            Debug.Log("The Combo Menu works fine");
+            _meditationButton.CloseMenu();
         }
     }
 
@@ -737,7 +746,7 @@ public class ComboMenuManager : MonoBehaviour {
                     _menuGridCells[startingRow + i, startingColoumn].SetOccupied(false);
 
                     //Reset Gridcell sprite
-                    _menuGridCells[startingRow + i, startingColoumn].GetComponent<SpriteRenderer>().sprite = emptyCell;
+                    _menuGridCells[startingRow + i, startingColoumn].GetComponent<SpriteRenderer>().sprite = emptyCellWhite;
 
                     //Reset Gridcell content
                     SpriteRenderer gridContent = _menuGridCells[startingRow + i, startingColoumn].transform.GetChild(0).transform.GetComponent<SpriteRenderer>();
@@ -752,7 +761,7 @@ public class ComboMenuManager : MonoBehaviour {
                     _menuGridCells[startingRow, startingColoumn + i].SetOccupied(false);
 
                     //Reset Gridcell sprite
-                    _menuGridCells[startingRow, startingColoumn + i].GetComponent<SpriteRenderer>().sprite = emptyCell;
+                    _menuGridCells[startingRow, startingColoumn + i].GetComponent<SpriteRenderer>().sprite = emptyCellWhite;
 
                     //Reset GridCell content
                     SpriteRenderer gridContent = _menuGridCells[startingRow, startingColoumn + i].transform.GetChild(0).transform.GetComponent<SpriteRenderer>();
@@ -963,5 +972,10 @@ public class ComboMenuManager : MonoBehaviour {
             Debug.Log("Trying to delete");
             GridDeletion();
         }
+    }
+
+    public void SetMeditationButton(MeditationButton mButton)
+    {
+        _meditationButton = mButton;
     }
 }
