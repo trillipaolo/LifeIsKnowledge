@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a246fe314f02fd44ac451fd6e0776b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeLeft: 3
+  timeLeft: 0.5
   smoothSpeed: 4.7
   shrinkSpeed: 5
   speedAccel: 6
@@ -183,9 +183,9 @@ MonoBehaviour:
   powerUp: {fileID: 1942049887887596, guid: bc2af6e8a7b88504cbd3b2d539b8d51b, type: 2}
   gridPowerUp: {fileID: 11400000, guid: 7b441efcfac2a244eb13ced4028b17a5, type: 2}
   whatPowersUp: Damage
-  addCol: 1
+  addCol: 0
   numCols: 1
-  addRow: 1
+  addRow: 0
   numRows: 1
 --- !u!212 &212470623170713636
 SpriteRenderer:
