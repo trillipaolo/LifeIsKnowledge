@@ -19,7 +19,7 @@ MonoBehaviour:
   highlightedComboSprite: {fileID: 21300000, guid: 327a52a8b19c0bb4e9a06d2d16efc539,
     type: 3}
   unlocked: 1
-  rowSaved: 0
+  rowSaved: 2
   coloumnSaved: 0
   rotatedSaved: 0
   combo1Key: 1
@@ -30,7 +30,7 @@ MonoBehaviour:
   enumCombo: 1
   cooldown: 5
   damage:
-  - 40
-  - 230
+  - 10
+  - 200
   cooldownImage: {fileID: 21300008, guid: 40b569acccfbbf7488ce90622a937f10, type: 3}
   cooldownKey: {fileID: 21300000, guid: e9a2bc93fc6da0b4dba52717f9a770e8, type: 3}
