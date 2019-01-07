@@ -208,4 +208,9 @@ public class GuardMovement : EnemyMovementPhysics
             Jump();
         }
     }
+
+    public void PlaySound(string soundName)
+    {
+        AudioManager.instance.Play(soundName);
+    }
 }

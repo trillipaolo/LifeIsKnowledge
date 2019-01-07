@@ -7,6 +7,7 @@ public class BuddyBehaviour : EnemyBehaviour {
     private bool _broken = false;
     private Animator _animator;
 
+    public string buddyHitSound = "BuddyHit";
     private void Awake() {
         _animator = GetComponent<Animator>();
     }
@@ -21,6 +22,7 @@ public class BuddyBehaviour : EnemyBehaviour {
             FloatingTextController.CreateFloatingText(damage.ToString(),textPosition,color);
 
             _animator.SetTrigger("Hit");
+            audioManager.Play(buddyHitSound);
         }
     }
 }
