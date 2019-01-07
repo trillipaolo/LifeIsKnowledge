@@ -527,6 +527,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df3019cfbcf6f354dae5b1fbfd06666d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  text: Sit
 --- !u!114 &114128751245691126
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1196,6 +1197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df3019cfbcf6f354dae5b1fbfd06666d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  text: Rest
 --- !u!114 &114771998090068522
 MonoBehaviour:
   m_ObjectHideFlags: 1
