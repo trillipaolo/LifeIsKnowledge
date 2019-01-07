@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4563010718857738}
   - component: {fileID: 61735480831250416}
   - component: {fileID: 114980933393760892}
+  - component: {fileID: 114333088467411154}
   m_Layer: 0
   m_Name: Teleport
   m_TagString: Untagged
@@ -66,6 +67,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6666, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &114333088467411154
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1151732883533606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df3019cfbcf6f354dae5b1fbfd06666d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114980933393760892
 MonoBehaviour:
   m_ObjectHideFlags: 1
