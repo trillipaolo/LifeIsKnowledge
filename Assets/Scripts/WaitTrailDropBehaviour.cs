@@ -17,6 +17,13 @@ public class WaitTrailDropBehaviour : DropBehaviour {
 
     [Header("PowerUp reference:")]
     public GameObject powerUp;
+    public ComboGridDimensions gridPowerUp;
+    public string whatPowersUp;
+    [Header("If powerup is Grid, set these:")]
+    public bool addCol = true;
+    public int numCols = 1;
+    public bool addRow = true;
+    public int numRows = 1;
     private float diff=0f;
     private bool isPwrUp = false;
 
@@ -77,10 +84,26 @@ public class WaitTrailDropBehaviour : DropBehaviour {
 
             if (isPwrUp == false)
             {
-                Debug.Log("AUMENTA STATISTICHE");
-                powerUp.GetComponent<PowerUp>().IncreaseAttack();
-                powerUp.GetComponent<PowerUp>().IncreaseHealth();
-                jH.UpdateJoelHealth();
+                switch (whatPowersUp)
+                {
+                    case "Health":
+                        powerUp.GetComponent<PowerUp>().IncreaseHealth();
+                        jH.UpdateJoelHealth();
+                        break;
+                    case "Damage":
+                        powerUp.GetComponent<PowerUp>().IncreaseAttack();
+                        break;
+                    case "Grid":
+                        if(addCol)
+                            gridPowerUp.AddColoumns(numCols);
+                        if (addRow)
+                            gridPowerUp.AddColoumns(numRows);
+                        break;
+                    default:
+                        Debug.Log("No power up specified");
+                        break;
+                }
+
                 isPwrUp = true;
             }
         }
