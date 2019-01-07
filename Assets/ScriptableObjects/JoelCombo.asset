@@ -11,7 +11,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 654f7505bdd94d54d954658137539b60, type: 3}
   m_Name: JoelCombo
   m_EditorClassIdentifier: Assembly-CSharp::ComboSelected
-  combos:
-  - {fileID: 11400000, guid: 3e26fb9ccde2d0b4581710b0433286bb, type: 2}
-  - {fileID: 11400000, guid: 3e26fb9ccde2d0b4581710b0433286bb, type: 2}
-  - {fileID: 11400000, guid: 3e26fb9ccde2d0b4581710b0433286bb, type: 2}
+  combos: []
