@@ -42,7 +42,7 @@ public class CooldownComboScript : MonoBehaviour {
 
         // compute position for new cooldownPrefabs
         float[] xDistance = new float[_cooldownCombo.Length];
-        float offset = (xDistance.Length % 2) == 0 ? 0 : -_canvasDistance/2;
+        float offset = (xDistance.Length % 2) != 0 ? 0 : _canvasDistance/2;
         for(int i = 0; i < xDistance.Length; i++) {
             float temp = i - Mathf.Floor(xDistance.Length / 2);
             xDistance[i] = offset + _canvasDistance * temp;
