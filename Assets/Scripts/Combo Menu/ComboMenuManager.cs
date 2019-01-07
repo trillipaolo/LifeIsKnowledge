@@ -487,7 +487,7 @@ public class ComboMenuManager : MonoBehaviour {
 
     private void PressMenuButton()
     {
-        if(Input.GetKeyDown(KeyCode.Return))
+        if(Input.GetButtonDown("GridInsertion"))
         {
             Button currentButton = _menuButtons[_menuButtonsIndex].GetComponent<Button>();
             currentButton.onClick.Invoke();

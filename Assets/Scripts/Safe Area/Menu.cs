@@ -30,7 +30,6 @@ public class Menu : MonoBehaviour {
 
     private void Update()
     {
-        Debug.Log("_buttonPressed: " + _buttonPressed);
 
         //Avoid input detection if another menu is opened
         if (!_buttonPressed)
