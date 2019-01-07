@@ -65,7 +65,7 @@ public class Resting : MonoBehaviour {
                 target.GetComponentInChildren<JoelHealth>().currentHealth = target.GetComponentInChildren<JoelHealth>().joelHealth.health;
                 _healthSlider.value = target.GetComponentInChildren<JoelHealth>().joelHealth.health;
             }
-            yield return new WaitForSecondsRealtime(1.0f);
+            yield return new WaitForSecondsRealtime(0.5f);
         }
 
         target.GetComponent<Animator>().SetBool("isSleeping", false);
