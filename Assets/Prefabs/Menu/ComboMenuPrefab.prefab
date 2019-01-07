@@ -1314,6 +1314,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 296ac282c52457e44bd3251e22e6a4b4, type: 2}
   menuButton: {fileID: 1572883869242508}
   menuCell: {fileID: 1615134984882184}
+  comboGridDimensions: {fileID: 11400000, guid: 7b441efcfac2a244eb13ced4028b17a5,
+    type: 2}
   rows: 5
   coloumns: 5
   xOffset: 1.28
@@ -1335,7 +1337,6 @@ MonoBehaviour:
   intermediateCellRotated: {fileID: 21300000, guid: c4dcb952a7b01904491240cbf5167d0f,
     type: 3}
   joelCombos: {fileID: 11400000, guid: 5ccaef3f2a6581e4f9016f4e4ae8d9b9, type: 2}
-  meditationButton: {fileID: 0}
   blurBackground: {fileID: 1169104711992710}
   _calledByButton: 0
   backButtonStart: {fileID: 21300020, guid: b9a172357f52e154c8d3b5e05c89fc3c, type: 3}
@@ -1454,10 +1455,10 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
