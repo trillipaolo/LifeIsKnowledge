@@ -164,7 +164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeLeft: 3
-  smoothSpeed: 4
+  smoothSpeed: 4.5
   shrinkSpeed: 5
   speedAccel: 6
   dstAccel: 2
