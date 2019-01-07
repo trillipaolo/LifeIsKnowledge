@@ -510,6 +510,7 @@ MonoBehaviour:
   drone: {fileID: 1314413293395870, guid: a4eb8c2f1f086c847a066a775b7ceb7c, type: 2}
   dronesAmount: 0
   spawnsDroneSound: ScSpawnsDrone
+  attackScientistSound: ScientistAttack
 --- !u!114 &114656521116171904
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -569,7 +570,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2218815fb6955548b10748372194e16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDamage: 17
+  attackDamage: 15
   joel: {fileID: 0}
   joelHealth: {fileID: 0}
   attackCollider: {fileID: 0}
