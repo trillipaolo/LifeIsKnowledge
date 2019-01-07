@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fcfc0e3eed703f4d845af0035cd3cf0, type: 3}
   m_Name: JoelRespawn
   m_EditorClassIdentifier: 
-  x_initial: 5
-  y_initial: 4.1
-  x: 128
-  y: 32
+  x_initial: 4.5
+  y_initial: 68.305
+  x: 4.5
+  y: 68.305

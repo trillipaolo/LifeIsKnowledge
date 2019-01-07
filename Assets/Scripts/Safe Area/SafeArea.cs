@@ -37,6 +37,7 @@ public class SafeArea : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        Debug.Log("Colliding: " + _isColliding);
 		if (_isColliding)
         {
             EnableInteraction();
