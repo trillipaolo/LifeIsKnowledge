@@ -120,6 +120,7 @@ GameObject:
   - component: {fileID: 223328206197581330}
   - component: {fileID: 114403571321704058}
   - component: {fileID: 114760136232777914}
+  - component: {fileID: 114396430727344572}
   m_Layer: 0
   m_Name: HealthCanvas
   m_TagString: Untagged
@@ -602,6 +603,17 @@ MonoBehaviour:
   facingRight: 0
   movementDisable: 0
   distanceAttack: {x: 0, y: 0}
+--- !u!114 &114396430727344572
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1699134005175956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492701a1b8dce2340ba3022ecfbff972, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114402788874435568
 MonoBehaviour:
   m_ObjectHideFlags: 1

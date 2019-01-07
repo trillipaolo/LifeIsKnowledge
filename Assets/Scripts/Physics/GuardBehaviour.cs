@@ -8,7 +8,7 @@ public class GuardBehaviour : EnemyBehaviour
     public bool hasArmor = true;
     [HideInInspector] public bool joelSmashes = false;
     private JoelAttack joel;
-    private GuardMovement _movementScript;
+    private GuardMovement _movScript;
     public GameObject destroyedArmor;
     private GameObject _armor;
 
@@ -17,7 +17,7 @@ public class GuardBehaviour : EnemyBehaviour
 
     void Awake()
     {
-        _movementScript = transform.GetComponent<GuardMovement>();
+        _movScript = transform.GetComponent<GuardMovement>();
         _unlockScript = GameObject.FindWithTag("Player").GetComponentInParent<JoelUnlockCombos>();
 
         _healthBar = GetComponentInChildren<Slider>();
@@ -79,8 +79,8 @@ public class GuardBehaviour : EnemyBehaviour
                 Debug.Log("You have smashed Armor");
                 audioManager.Play(guardHitWArmorSound);
                 // Regular Guard Settings
-                _movementScript.moveSpeed = 4f;
-                _movementScript.timeBetweenAttacks = 2f;
+                _movScript.moveSpeed = 4f;
+                _movScript.timeBetweenAttacks = 2f;
                 hasArmor = false;
                 Instantiate(destroyedArmor, transform.position, Quaternion.identity);
                 _armor = transform.Find("Armor").gameObject;
@@ -104,7 +104,7 @@ public class GuardBehaviour : EnemyBehaviour
         }
 
         _unlockScript.KilledEnemy(enemyType);
-        _movementScript.isDead = true;
+        _movScript.isDead = true;
         _healthBar.GetComponentInChildren<Image>().color = Color.clear;
     }
 }

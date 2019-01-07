@@ -4,17 +4,9 @@ using UnityEngine;
 
 public class FlipInteractButton : MonoBehaviour {
 
-    private Transform _joel;
-
-    private void Awake() {
-        _joel = transform.root;
-    }
-
     private void Update() {
-        if(_joel.localScale.x < 0) {
-            transform.localScale = new Vector3(-1,1,1);
-        } else {
-            transform.localScale = new Vector3(1,1,1);
+        if(transform.lossyScale.x < 1) {
+            transform.localScale -= 2 * Vector3.right * transform.localScale.x;
         }
     }
 }

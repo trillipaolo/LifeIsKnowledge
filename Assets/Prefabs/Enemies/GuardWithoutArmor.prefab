@@ -58,6 +58,7 @@ GameObject:
   - component: {fileID: 223584627543907280}
   - component: {fileID: 114792003760769918}
   - component: {fileID: 114437458471696660}
+  - component: {fileID: 114496406726001542}
   m_Layer: 0
   m_Name: HealthCanvas
   m_TagString: Untagged
@@ -542,6 +543,17 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114496406726001542
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1165342942194154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492701a1b8dce2340ba3022ecfbff972, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114626879034148246
 MonoBehaviour:
   m_ObjectHideFlags: 1
