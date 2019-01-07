@@ -375,7 +375,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1960080971953640}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.85, y: 3.33, z: 0}
+  m_LocalPosition: {x: 31.33, y: 41.44, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4355697508197630}
@@ -707,6 +707,7 @@ MonoBehaviour:
   knifeSlashSounds1Coll: KnifeSlash2
   knifeSlashSounds2Coll: KnifeSlash1
   knifeSlashSounds3Coll: KnifeSlash3
+  smashes: 0
 --- !u!114 &114178954687344226
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -719,6 +720,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   joelRespawn: {fileID: 11400000, guid: 1f919f29abd2deb40ab7aa82d02b0605, type: 2}
+  overrideRespawnPosition: 1
 --- !u!114 &114389604596015934
 MonoBehaviour:
   m_ObjectHideFlags: 1
