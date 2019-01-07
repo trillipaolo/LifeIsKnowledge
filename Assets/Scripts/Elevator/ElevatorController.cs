@@ -47,11 +47,11 @@ public class ElevatorController : MonoBehaviour {
         _callUp = transform.Find("ColliderUp").GetComponent<ElevatorCall>();
         _callDown = transform.Find("ColliderDown").GetComponent<ElevatorCall>();
         _fakeJoel = _chassis.Find("FakeJoel").gameObject;
-        audioManager = AudioManager.instance;
         elevatorMovingSound = GetComponentInChildren<AudioSource>();
     }
 
     private void Start() {
+        audioManager = AudioManager.instance;
         _joel = GameObject.FindGameObjectsWithTag("Player")[0].transform.root.gameObject;
         _mainCamera = GameObject.Find("Main Camera").GetComponent<CameraFollow>();
 

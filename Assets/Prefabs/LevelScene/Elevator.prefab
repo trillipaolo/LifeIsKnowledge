@@ -75,6 +75,7 @@ GameObject:
   - component: {fileID: 95128546258039128}
   - component: {fileID: 61789564562206142}
   - component: {fileID: 114275211492863766}
+  - component: {fileID: 81071976435443770}
   m_Layer: 0
   m_Name: FakeJoel
   m_TagString: Untagged
@@ -137,7 +138,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1880779297991382}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -35, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4322220793142762}
@@ -179,7 +180,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1976356170587208}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.5, y: 8.8225, z: 0}
+  m_LocalPosition: {x: 66, y: 47.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4062332811457866}
@@ -195,7 +196,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1388584711626782}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -35, z: 0}
+  m_LocalPosition: {x: 0, y: -9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4420521218093292}
@@ -302,6 +303,13 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4, y: 4}
   m_EdgeRadius: 0
+--- !u!81 &81071976435443770
+AudioListener:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1480380023468244}
+  m_Enabled: 1
 --- !u!82 &82768820236611558
 AudioSource:
   m_ObjectHideFlags: 1
@@ -485,7 +493,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   upPosition: {x: 0, y: 0}
-  downPosition: {x: 0, y: -35}
+  downPosition: {x: 0, y: -9}
   waitingTime: 1
   _isUp: 0
   _isDown: 0

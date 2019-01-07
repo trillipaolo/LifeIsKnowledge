@@ -13,10 +13,7 @@ public class PowerUp : MonoBehaviour {
 
     [Header("Reference to Joel Health Scriptable Object")]
     public Health health;
-
-    [Header("Reference to Joel Health Component")]
-    public JoelHealth joelHealth;
-
+    
     [Header("Type of PowerUp")]
     public PowerUpType powerUpType;
 
