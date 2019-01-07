@@ -55,7 +55,7 @@ public class EnemyAttackPaolo : MonoBehaviour {
         if (joelHealth.currentHealth > 0) {
             // ... damage the player.
             joelHealth.TakeDamage(attackDamage);
-            _animator.SetTrigger("HasHit");
+            //_animator.SetTrigger("HasHit");
             _playerInRange = false;
         }
     }

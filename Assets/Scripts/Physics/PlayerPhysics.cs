@@ -68,7 +68,7 @@ public class PlayerPhysics : MonoBehaviour {
         gravity = -(2 * maxJumpHeight) / Mathf.Pow(timeToJumpApex, 2);
         maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
         minJumpVelocity = Mathf.Sqrt(2 * Mathf.Abs(gravity) + minJumpHeight);
-        print("Gravity: " + gravity + " Jump velocity: " + maxJumpVelocity);
+        //print("Gravity: " + gravity + " Jump velocity: " + maxJumpVelocity);
 
         audioManager = AudioManager.instance;
         prevXMov = false;
