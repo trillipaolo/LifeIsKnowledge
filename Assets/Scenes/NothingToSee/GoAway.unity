@@ -10756,11 +10756,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114573070956090846, guid: 1d7c459e9cc1e624e90d7b01f7348224,
-        type: 2}
-      propertyPath: sounds.Array.size
-      value: 22
-      objectReference: {fileID: 0}
     - target: {fileID: 4545499473092710, guid: 1d7c459e9cc1e624e90d7b01f7348224, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -10792,37 +10787,6 @@ Prefab:
     - target: {fileID: 4545499473092710, guid: 1d7c459e9cc1e624e90d7b01f7348224, type: 2}
       propertyPath: m_RootOrder
       value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 114573070956090846, guid: 1d7c459e9cc1e624e90d7b01f7348224,
-        type: 2}
-      propertyPath: sounds.Array.data[21].name
-      value: CutScene
-      objectReference: {fileID: 0}
-    - target: {fileID: 114573070956090846, guid: 1d7c459e9cc1e624e90d7b01f7348224,
-        type: 2}
-      propertyPath: sounds.Array.data[21].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 472c930151db5e14d85a1b4bb7515b54, type: 3}
-    - target: {fileID: 114573070956090846, guid: 1d7c459e9cc1e624e90d7b01f7348224,
-        type: 2}
-      propertyPath: sounds.Array.data[21].group
-      value: 
-      objectReference: {fileID: 243307984207351158, guid: c331b99e435eab84082dc47340cab267,
-        type: 2}
-    - target: {fileID: 114573070956090846, guid: 1d7c459e9cc1e624e90d7b01f7348224,
-        type: 2}
-      propertyPath: sounds.Array.data[21].volume
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114573070956090846, guid: 1d7c459e9cc1e624e90d7b01f7348224,
-        type: 2}
-      propertyPath: sounds.Array.data[21].pitch
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114573070956090846, guid: 1d7c459e9cc1e624e90d7b01f7348224,
-        type: 2}
-      propertyPath: sounds.Array.data[21].loop
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d7c459e9cc1e624e90d7b01f7348224, type: 2}
