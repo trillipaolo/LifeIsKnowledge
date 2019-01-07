@@ -343,7 +343,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.10612774, y: -0.012238026}
+  m_Offset: {x: 0.073676586, y: -0.07065058}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -354,7 +354,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.92660713, y: 2.2059965}
+  m_Size: {x: 1.7963057, y: 2.4785886}
   m_EdgeRadius: 0
 --- !u!61 &61990739872926588
 BoxCollider2D:
@@ -501,6 +501,8 @@ MonoBehaviour:
   joelSmashes: 0
   destroyedArmor: {fileID: 1969911721492344, guid: 1f0885fc073a9b44ca740fb38efb937b,
     type: 2}
+  guardHitNoArmorSound: GuardHitNoArmor
+  guardHitWArmorSound: GuardHitWArmor
 --- !u!114 &114219133266619620
 MonoBehaviour:
   m_ObjectHideFlags: 1
