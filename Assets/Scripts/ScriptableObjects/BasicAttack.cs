@@ -8,15 +8,15 @@ public class BasicAttack : ScriptableObject {
     public float[] damage = new float[EnumerationBasicAttack.Size()];
 
     public void InitializeDamage() {
-        damage[(int)EnumBasicAttack.TOPTOP] = 100;
-        damage[(int)EnumBasicAttack.TOPMIDDLE] = 55;
-        damage[(int)EnumBasicAttack.TOPDOWN] = 40;
-        damage[(int)EnumBasicAttack.MIDDLETOP] = 55;
-        damage[(int)EnumBasicAttack.MIDDLEMIDDLE] = 100;
-        damage[(int)EnumBasicAttack.MIDDLEDOWN] = 55;
-        damage[(int)EnumBasicAttack.DOWNTOP] = 40;
-        damage[(int)EnumBasicAttack.DOWNMIDDLE] = 55;
-        damage[(int)EnumBasicAttack.DOWNDOWN] = 100;
-        damage[(int)EnumBasicAttack.JUMP] = 30;
+        damage[(int)EnumBasicAttack.TOPTOP] = 50;
+        damage[(int)EnumBasicAttack.TOPMIDDLE] = 30;
+        damage[(int)EnumBasicAttack.TOPDOWN] = 20;
+        damage[(int)EnumBasicAttack.MIDDLETOP] = 30;
+        damage[(int)EnumBasicAttack.MIDDLEMIDDLE] = 50;
+        damage[(int)EnumBasicAttack.MIDDLEDOWN] = 30;
+        damage[(int)EnumBasicAttack.DOWNTOP] = 20;
+        damage[(int)EnumBasicAttack.DOWNMIDDLE] = 30;
+        damage[(int)EnumBasicAttack.DOWNDOWN] = 50;
+        damage[(int)EnumBasicAttack.JUMP] = 20;
     }
 }

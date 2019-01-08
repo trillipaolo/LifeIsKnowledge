@@ -176,7 +176,7 @@ public class GuardMovement : EnemyMovementPhysics
         _animator.SetBool("Attack", true);
         if(_hasArmor)
             _armorAnimator.SetBool("Attack", true);
-        _hitboxAnimator.SetBool("Attack", true);
+        _hitboxAnimator.SetTrigger("Attack");
     }
 
     private void FinishAttack()
@@ -187,7 +187,7 @@ public class GuardMovement : EnemyMovementPhysics
         _animator.SetBool("Attack", false);
         if(_hasArmor)
             _armorAnimator.SetBool("Attack", false);
-        _hitboxAnimator.SetBool("Attack", true);
+        //_hitboxAnimator.SetBool("Attack", false);
     }
     
     public void JumpOrChangeDirection()
