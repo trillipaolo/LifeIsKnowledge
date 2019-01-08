@@ -21,7 +21,7 @@ MonoBehaviour:
   unlocked: 0
   rowSaved: -1
   coloumnSaved: -1
-  rotatedSaved: 1
+  rotatedSaved: 0
   combo1Key: 1
   combo2Key: 0
   topKey: 1
