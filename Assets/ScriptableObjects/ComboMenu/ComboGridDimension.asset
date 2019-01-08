@@ -11,5 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8e36d3f0311b0b4992aa91ccd5cc9b9, type: 3}
   m_Name: ComboGridDimension
   m_EditorClassIdentifier: 
-  rows: 3
-  coloumns: 4
+  rows: 1
+  coloumns: 3
