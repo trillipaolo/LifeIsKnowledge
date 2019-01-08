@@ -610,7 +610,7 @@ MonoBehaviour:
   isDead: 0
   audioManager: {fileID: 0}
   chillTimer: 2
-  timeBetweenAttacks: 2
+  timeBetweenAttacks: 3
 --- !u!114 &114792003760769918
 MonoBehaviour:
   m_ObjectHideFlags: 1

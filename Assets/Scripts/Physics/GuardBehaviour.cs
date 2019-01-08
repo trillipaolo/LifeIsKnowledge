@@ -80,7 +80,7 @@ public class GuardBehaviour : EnemyBehaviour
                 audioManager.Play(guardHitWArmorSound);
                 // Regular Guard Settings
                 _movScript.moveSpeed = 4f;
-                _movScript.timeBetweenAttacks = 2f;
+                _movScript.timeBetweenAttacks = 3f;
                 hasArmor = false;
                 Instantiate(destroyedArmor, transform.position, Quaternion.identity);
                 _armor = transform.Find("Armor").gameObject;
