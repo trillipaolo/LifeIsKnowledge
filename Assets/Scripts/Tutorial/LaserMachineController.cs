@@ -22,6 +22,8 @@ public class LaserMachineController : MonoBehaviour {
     public float timeScientist;
     public float timeLaser;
 
+    private AudioManager _audioManager;
+
     private void Awake() {
         _scientist = GetComponentInChildren<LaserMachineScientist>();
         _laser = GetComponentInChildren<LaserMachineLaser>();
@@ -30,6 +32,10 @@ public class LaserMachineController : MonoBehaviour {
         _activeCollider = GetComponent<BoxCollider2D>();
         _startSpeed = _laser.moveSpeed;
         _laserSounds = GetComponentsInChildren<AudioSource>();
+    }
+
+    private void Start() {
+        _audioManager = AudioManager.instance;
     }
 
     void Update () {
@@ -62,6 +68,7 @@ public class LaserMachineController : MonoBehaviour {
             _laser.hit = false;
             _lastTimeHit = Time.timeSinceLevelLoad;
             _laser.SetSpeed(_startSpeed);
+            Invoke("CrazyScientist",0.5f);
         }
     }
 
@@ -81,6 +88,7 @@ public class LaserMachineController : MonoBehaviour {
             active = true;
             Invoke("CloseDoor",timeDoor);
             Invoke("MoveScientist",timeScientist);
+            Invoke("CrazyScientist",timeScientist + 1f); 
             Invoke("ActivateLaser",timeLaser);
         }
     }
@@ -103,5 +111,9 @@ public class LaserMachineController : MonoBehaviour {
     private void AfterActivateLaser() {
         laserOn = true;
         _lastTimeHit = Time.timeSinceLevelLoad;
+    }
+
+    private void CrazyScientist() {
+        _audioManager.Play("ScSpawnsDrone");
     }
 }

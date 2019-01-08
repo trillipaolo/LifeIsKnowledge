@@ -378,8 +378,8 @@ public class JoelAttack : MonoBehaviour {
         else
         if (sum == 3)
             audioManager.Play(knifeSlashSounds3Coll);
-        else
-            Debug.Log("Sound attack not found or mid-mid played!");
+        //else
+            //Debug.Log("Sound attack not found or mid-mid played!");
     }
 
     void PlaySoundMidMid() {

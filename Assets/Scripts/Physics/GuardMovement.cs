@@ -13,6 +13,7 @@ public class GuardMovement : EnemyMovementPhysics
 
     private float _countdown;
 
+    private bool _hasArmor;
     // Use this for initialization
     void Start()
     {
@@ -20,11 +21,13 @@ public class GuardMovement : EnemyMovementPhysics
         _armorAnimator = transform.Find("Armor").GetComponent<Animator>();
         _hitboxAnimator = transform.Find("AttackCollider").GetComponent<Animator>();
         _countdown = chillTimer;
+        _hasArmor = this.GetComponent<GuardBehaviour>().hasArmor;
     }
 
     // Update is called once per frame
     void Update()
     {
+        _hasArmor = this.GetComponent<GuardBehaviour>().hasArmor;
         if (!isDead)
         {
             if (!movementDisabled)
@@ -49,14 +52,16 @@ public class GuardMovement : EnemyMovementPhysics
                 if (Mathf.Abs(velocity.x) > 0)
                 {
                     _animator.SetBool("isMoving", true);
-                    _armorAnimator.SetBool("isMoving", true);
+                    if(_hasArmor)
+                        _armorAnimator.SetBool("isMoving", true);
                 }
 
                 if (controller.collisions.left || controller.collisions.right)
                 {
                     Jump();
                     _animator.SetBool("isMoving", false);
-                    _armorAnimator.SetBool("isMoving", false);
+                    if(_hasArmor)
+                        _armorAnimator.SetBool("isMoving", false);
                 }
 
 //        BlindStrategy();
@@ -105,7 +110,8 @@ public class GuardMovement : EnemyMovementPhysics
             {
                 velocity.x = 0;
                 _animator.SetBool("isMoving", false);
-                _armorAnimator.SetBool("isMoving", false);
+                if(_hasArmor)
+                    _armorAnimator.SetBool("isMoving", false);
                 _countdown -= Time.deltaTime;
             }
             else
@@ -113,7 +119,8 @@ public class GuardMovement : EnemyMovementPhysics
                 _countdown = chillTimer;
                 ChangeDirection();
                 _animator.SetBool("isMoving", true);
-                _armorAnimator.SetBool("isMoving", true);
+                if(_hasArmor)
+                    _armorAnimator.SetBool("isMoving", true);
                 velocity.x = (facingRight ? 1 : -1) * moveSpeed;
             }
         }
@@ -163,19 +170,23 @@ public class GuardMovement : EnemyMovementPhysics
     public void Attack()
     {
         _animator.SetBool("isMoving", false);
-        _armorAnimator.SetBool("isMoving", false);
+        if(_hasArmor)
+            _armorAnimator.SetBool("isMoving", false);
         _lastAttack = Time.timeSinceLevelLoad;
         _animator.SetBool("Attack", true);
-        _armorAnimator.SetBool("Attack", true);
+        if(_hasArmor)
+            _armorAnimator.SetBool("Attack", true);
         _hitboxAnimator.SetBool("Attack", true);
     }
 
     private void FinishAttack()
     {
         _animator.SetBool("isMoving", true);
-        _armorAnimator.SetBool("isMoving", true);
+        if(_hasArmor)
+            _armorAnimator.SetBool("isMoving", true);
         _animator.SetBool("Attack", false);
-        _armorAnimator.SetBool("Attack", false);
+        if(_hasArmor)
+            _armorAnimator.SetBool("Attack", false);
         _hitboxAnimator.SetBool("Attack", true);
     }
     

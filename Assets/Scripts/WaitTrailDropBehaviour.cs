@@ -88,13 +88,16 @@ public class WaitTrailDropBehaviour : DropBehaviour {
                 {
                     case "Health":
                         powerUp.GetComponent<PowerUp>().IncreaseHealth();
+                        FloatingTextController.CreateUnlockComboText("Health up!",transform.position);
                         jH.UpdateJoelHealth();
                         break;
                     case "Damage":
                         powerUp.GetComponent<PowerUp>().IncreaseAttack();
+                        FloatingTextController.CreateUnlockComboText("Damage up!",transform.position);
                         break;
                     case "Grid":
-                        if(addCol)
+                        FloatingTextController.CreateUnlockComboText("Mind up!",transform.position);
+                        if (addCol)
                             gridPowerUp.AddColoumns(numCols);
                         if (addRow)
                             gridPowerUp.AddColoumns(numRows);

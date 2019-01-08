@@ -12,6 +12,7 @@ public class LaserMachineLaser : MonoBehaviour {
     public float moveSpeed;
     public bool right;
     public bool endStop;
+    public int damage;
 
     public bool on;
     [HideInInspector]
@@ -73,7 +74,7 @@ public class LaserMachineLaser : MonoBehaviour {
 
     private void Damage() {
         if (_inCollider) {
-            _joel.TakeDamage(1);
+            _joel.TakeDamage(damage);
             hit = true;
         } else {
             hit = false;

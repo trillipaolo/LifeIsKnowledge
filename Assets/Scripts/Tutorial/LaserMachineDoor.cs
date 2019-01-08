@@ -28,6 +28,9 @@ public class LaserMachineDoor : MonoBehaviour {
         _startTime = Time.timeSinceLevelLoad;
         _startPosition = open ? openPosition : closePosition;
         _distanceStartEnd = Vector2.Distance(openPosition,closePosition);
+    }
+
+    private void Start() {
         audioManager = AudioManager.instance;
     }
 

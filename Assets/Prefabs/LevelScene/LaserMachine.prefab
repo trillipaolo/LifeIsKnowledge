@@ -584,6 +584,8 @@ MonoBehaviour:
   openSpeed: 7
   closeSpeed: 5
   open: 0
+  doorLoopSound: DoorLoop
+  doorEndSound: DoorEndRun
 --- !u!114 &114401002542404248
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -618,6 +620,8 @@ MonoBehaviour:
   openSpeed: 7
   closeSpeed: 5
   open: 1
+  doorLoopSound: DoorLoop
+  doorEndSound: DoorEndRun
 --- !u!114 &114534126510802406
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -654,6 +658,7 @@ MonoBehaviour:
   moveSpeed: 7
   right: 0
   endStop: 0
+  damage: 1
   on: 0
   hit: 0
 --- !u!212 &212016803715698042
