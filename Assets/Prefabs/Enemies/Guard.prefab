@@ -474,7 +474,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2218815fb6955548b10748372194e16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDamage: 25
+  attackDamage: 20
   joel: {fileID: 0}
   joelHealth: {fileID: 0}
   attackCollider: {fileID: 0}
@@ -533,7 +533,7 @@ MonoBehaviour:
   isDead: 0
   audioManager: {fileID: 0}
   chillTimer: 2
-  timeBetweenAttacks: 4
+  timeBetweenAttacks: 5
 --- !u!114 &114352548111471630
 MonoBehaviour:
   m_ObjectHideFlags: 1
