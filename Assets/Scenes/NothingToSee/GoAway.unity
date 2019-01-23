@@ -172,7 +172,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 39424402}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 21.967611, y: 2.6999998, z: -10}
+  m_LocalPosition: {x: 21.968853, y: 2.6999998, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1181506557}
@@ -2204,7 +2204,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 865743524}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.1023893, y: 3.3, z: -10}
+  m_LocalPosition: {x: 7.1011477, y: 3.3, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 210584227}
@@ -10788,16 +10788,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 12
       objectReference: {fileID: 0}
-    - target: {fileID: 114573070956090846, guid: 1d7c459e9cc1e624e90d7b01f7348224,
-        type: 2}
-      propertyPath: sounds.Array.data[35].loop
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114573070956090846, guid: 1d7c459e9cc1e624e90d7b01f7348224,
-        type: 2}
-      propertyPath: sounds.Array.data[35].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 8eacaf273bc931b4ba5b6b493b76bd98, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d7c459e9cc1e624e90d7b01f7348224, type: 2}
   m_IsPrefabAsset: 0

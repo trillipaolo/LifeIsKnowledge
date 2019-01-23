@@ -368,11 +368,11 @@ MonoBehaviour:
     randomPitch: 0.5
     source: {fileID: 0}
   - name: CutScene
-    clip: {fileID: 8300000, guid: 472c930151db5e14d85a1b4bb7515b54, type: 3}
+    clip: {fileID: 8300000, guid: 8eacaf273bc931b4ba5b6b493b76bd98, type: 3}
     group: {fileID: 243307984207351158, guid: c331b99e435eab84082dc47340cab267, type: 2}
     volume: 0.5
     pitch: 1
-    loop: 1
+    loop: 0
     randomVolume: 0
     randomPitch: 0
     source: {fileID: 0}
