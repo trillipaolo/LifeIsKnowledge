@@ -23,4 +23,5 @@ public class MainMenuManager : MonoBehaviour {
         audioManager.Stop(mainMenuThemeSound);
         Application.Quit();
     }
+
 }
