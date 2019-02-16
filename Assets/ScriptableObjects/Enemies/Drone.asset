@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Name: Drone
   m_EditorClassIdentifier: 
   enemy: 0
-  timesKilled: 0
+  timesKilled: 15
   timesUnlockCombo: 15
   comboUnlocked: {fileID: 11400000, guid: 3e26fb9ccde2d0b4581710b0433286bb, type: 2}
